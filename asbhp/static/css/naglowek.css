@@ -1,0 +1,46 @@
+/*    CSS   */
+
+
+
+#NAGLOWEK > div
+{
+  position: fixed;
+  left: 0px;
+  right: 15px;
+  top: 0px;
+
+  height: inherit;
+  z-index: 5;
+
+  background-color: #4F2412;
+  color: #EEE;
+}
+
+
+
+#NAGLOWEK > div .link
+{
+  float: right;
+  display: block-inline;
+
+  width: 150px;
+  height: 100%;
+
+  text-align: center;
+  line-height: 70px;
+}
+
+
+
+#NAGLOWEK > div .link:first-child
+{
+  float: left;
+
+  width: 300px;
+
+  padding-left: 20px;
+
+  font-size: 28px;
+  font-family: 'OS_Bold', sans-serif;
+  text-align: left;
+}

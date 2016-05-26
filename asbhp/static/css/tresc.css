@@ -1,0 +1,222 @@
+/*    CSS   */
+
+
+
+#TRESC.start > div
+{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+
+
+
+#TRESC.start > div > div.tlo
+{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+
+  z-index: 10;
+
+  background-image: url('/static/img/tlo_start.jpg');
+  background-size: 100%;
+  background-position: center;
+}
+
+
+
+#TRESC.start > div > div.nakladka
+{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+
+  z-index: 11;
+
+  background-color: rgba(229 , 168, 142, 0.4);
+}
+
+
+
+#TRESC.start > div > div.napis
+{
+  z-index:12
+}
+
+
+
+#TRESC.kafelki > div
+{
+  position: relative;
+
+  margin-top: 50px;
+  margin-right: 50px;
+  margin-left: 50px;
+}
+
+
+/*** Tytuł podstrony ***/
+#TRESC.standardowa > div.tytul
+{
+  font-size: 32px;
+  line-height: 20px;
+  font-weight: bold;
+}
+
+
+/*** Kafelka produktu ***/
+#TRESC.kafelki > div > div
+{
+  float: left;
+  position: relative;
+
+  width: 250px;
+  height: 200px;
+
+  margin: 10px;
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  background-color: #f9f9f9;
+}
+
+
+/*** Zdjęcie produktu ***/
+#TRESC.kafelki > div > div > .zdjecie
+{
+  width: 240px;
+  height: 190px;
+
+  margin: 5px;
+
+  background-repeat: no-repeat;
+  background-position: center; 
+  background-size: 100%;
+}
+
+
+/*** Nakładka na zdjęcie produktu ***/
+#TRESC.kafelki > div > div > .nakladka
+{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+
+  cursor: pointer;
+  background-color: rgba(130, 130, 130, 0.3);
+
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+
+  -webkit-transition: background-color 0.2s linear, opacity 0.2s linear;
+  -moz-transition: background-color 0.2s linear, opacity 0.2s linear;
+  -o-transition: background-color 0.2s linear, opacity 0.2s linear;
+  transition: background-color 0.2s linear, opacity 0.2s linear;
+}
+#TRESC.kafelki > div > div > .nakladka:hover
+{
+  background-color: rgba(130, 130, 130, 0);
+}
+
+
+
+/*** Treść produktu ***/
+
+@media (min-width: 768px)
+{
+  #TRESC.produkt > div
+  {
+    width: 650px;
+  }
+}
+
+@media (min-width: 992px)
+{
+  #TRESC.produkt > div
+  {
+    width: 800px;
+  }
+}
+
+@media (min-width: 1200px)
+{
+  #TRESC.produkt > div
+  {
+    width: 1100px;
+  }
+}
+
+
+
+#TRESC.produkt > div
+{
+  
+}
+
+
+
+/*** Treść standardowa ***/
+
+@media (min-width: 768px)
+{
+  #TRESC.standardowa > div
+  {
+    width: 650px;
+  }
+}
+
+@media (min-width: 992px)
+{
+  #TRESC.standardowa > div
+  {
+    width: 800px;
+  }
+}
+
+@media (min-width: 1200px)
+{
+  #TRESC.standardowa > div
+  {
+    width: 970px;
+  }
+}
+
+
+#TRESC.standardowa > div
+{
+  margin-top: 100px;
+  margin-right: auto;
+  margin-left: auto;
+
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+
+
+#TRESC.standardowa > div > .akapit
+{
+
+}
+
+
+
+#TRESC.standardowa > div > .edytuj
+{
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
