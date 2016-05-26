@@ -1,0 +1,19 @@
+{% extends 'szablon.html' %}
+
+{% block content %}
+
+  <div class="standardowa">
+  
+    <div class="tytul">Formularz:</div>
+  
+    <div class="tresc">
+      <form method="post">
+          {% csrf_token %}
+          {{ formularz.as_p }}
+          <button type="submit">Zakończ edycje</button>
+      </form>
+    </div>
+  
+  </div>
+
+{% endblock content %}

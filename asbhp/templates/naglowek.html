@@ -1,0 +1,19 @@
+
+<div id="NAGLOWEK" class="blok">
+
+  <div>
+
+    <div class="link" data-href="" data-domena="ta">Rosetta bakalie</div> 
+
+    {% for i in zakladki %}
+
+      <div class="link" data-href="{% url 'Wyswietl_Zakladke' nazwa=i.nazwa_url %}" data-domena="ta">
+          {{ i.nazwa|lower|title }}
+      </div>
+
+    {% endfor %}
+
+
+  </div>
+
+</div>

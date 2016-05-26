@@ -1,0 +1,17 @@
+{% extends 'szablon.html' %}
+
+{% block content %}
+
+  <div>
+
+    {{ zakladka.zawartosc_html|safe }}
+
+    <div class="edytuj">
+        <a href="{% url 'Edytuj_Zakladke' nazwa=zakladka.nazwa_url %}">
+            Edytuj zakładkę
+        </a>
+    </div>
+
+  </div>
+
+{% endblock content %}
