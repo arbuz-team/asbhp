@@ -3,17 +3,26 @@
 
   <div>
 
-    <div class="link" data-href="" data-domena="ta">Rosetta bakalie</div> 
-
-    {% for i in zakladki %}
-
-      <div class="link" data-href="{% url 'Wyswietl_Zakladke' nazwa=i.nazwa_url %}" data-domena="ta">
-          {{ i.nazwa|lower|title }}
-      </div>
-
-    {% endfor %}
-
+    <div class="tytul link" data-href="" data-domena="ta">AS BHP</div> 
 
   </div>
+
+  {# for i in zakladki #}
+
+    <div class="menu link" data-href="/Kontakt" data-domena="ta">{# url 'Wyswietl_Zakladke' nazwa=i.nazwa_url #}
+        {# i.nazwa|lower|title #}
+        Kontakt
+    </div>
+
+    <div class="menu link" data-href="/Oferta" data-domena="ta">
+        Oferta
+    </div>
+
+    <div class="menu link" data-href="/O_firmie" data-domena="ta">
+        O firmie
+    </div>
+
+  {# endfor #}
+
 
 </div>

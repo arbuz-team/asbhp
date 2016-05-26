@@ -2,45 +2,57 @@
 
 
 
-#NAGLOWEK > div
+#NAGLOWEK > div:first-child
 {
   position: fixed;
-  left: 0px;
-  right: 15px;
-  top: 0px;
+  left: -50px;
+  right: -50px;
+  top: -100px;
+
+  transform: rotate(-5deg);
 
   height: inherit;
   z-index: 5;
 
-  background-color: #4F2412;
-  color: #EEE;
+  background-color: #222;
+}
+
+
+#NAGLOWEK > div:first-child > div.tytul
+{
+  position: absolute;
+  bottom: 0px;
+  left: 100px;
+
+  width: 150px;
+  height: 100px;
+
+  padding-top: 20px;
+
+  background-image: url('../img/ikona_tytulowa.png');
+  background-size: 100% auto;
+
+  text-align: center;
+  font-size: 28px;
+  color: #111;
+
+  z-index: 8;
 }
 
 
 
-#NAGLOWEK > div .link
+#NAGLOWEK > div.menu
 {
   float: right;
   display: block-inline;
 
   width: 150px;
-  height: 100%;
+  height: 70px;
+
+  margin-top: 70px;
 
   text-align: center;
   line-height: 70px;
-}
 
-
-
-#NAGLOWEK > div .link:first-child
-{
-  float: left;
-
-  width: 300px;
-
-  padding-left: 20px;
-
-  font-size: 28px;
-  font-family: 'OS_Bold', sans-serif;
-  text-align: left;
+  z-index: 8;
 }

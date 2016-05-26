@@ -23,7 +23,6 @@
 
   z-index: 10;
 
-  background-image: url('/static/img/tlo_start.jpg');
   background-size: 100%;
   background-position: center;
 }
@@ -39,15 +38,25 @@
   bottom: 0px;
 
   z-index: 11;
-
-  background-color: rgba(229 , 168, 142, 0.4);
 }
 
 
 
 #TRESC.start > div > div.napis
 {
-  z-index:12
+  position: relative;
+  width: 600px;
+
+  margin-top: 200px;
+  margin-left: auto;
+  margin-right: auto;
+
+  font-size: 38px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+
+  z-index:12;
 }
 
 
