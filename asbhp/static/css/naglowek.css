@@ -13,6 +13,7 @@
   z-index: 5;
 
   background-color: rgba(30, 29, 28, 1);
+
   overflow: hidden;
 }
 
@@ -66,3 +67,6 @@
   border-bottom: 3px #ff7000 solid;
   color: #DDD;
 }
+
+
+

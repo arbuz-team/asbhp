@@ -18,59 +18,12 @@ body > div
 
 
 
-#TLO
-{
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-  z-index: 1;
-  
-  background-color: #f3eee9;
-}
-
-
-
 body > div > .blok
 {
   position: relative;
   z-index: 5;
 
   overflow: hidden;
-}
-
-
-
-#TLO
-{
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-
-  background-image: url('../img/tlo_start2.jpg');
-  background-size: 100% auto;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  z-index: 5;
-}
-
-
-
-#TLO:after
-{
-  content: '';
-  display: block;
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  z-index: 6;
-  background-color: rgba(0, 0, 0, 0.3);
 }
 
 
@@ -98,6 +51,7 @@ body > div > .blok
 #STOPKA
 {
   height:200px;
-  
-  background-color: #333;
 }
+
+
+

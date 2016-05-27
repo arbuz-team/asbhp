@@ -79,14 +79,14 @@
 {
   position: relative;
 
-  margin-top: 0px;
+  margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
 
   width: 70px;
   height: 70px;
 
-  background-image: url('../img/podwojna_strzalka.png');
+  background-image: url('../img/strzalki.png');
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -98,7 +98,7 @@
 {
   cursor: pointer;
 
-  background-image: url('../img/podwojna_strzalka.png');
+  background-image: url('../img/strzalki.png');
 }
 
 
@@ -114,6 +114,7 @@
   width: 300px;
   height: 50px;
 
+  font-size: 22px;
   color: #ff7000;
   font-weight: bold;
   text-align: center;
@@ -142,6 +143,21 @@
 
 
 
+#START1 > div.tlo:after
+{
+  content: '';
+  display: block;
+
+  position:
+
+  background-image: url('../img/tlo_start2.jpg');
+  background-size: 100% auto;
+  background-position: 0px -130px;
+  background-repeat: no-repeat;
+}
+
+
+
 #START2 > div.tlo
 {
   background-color: #fff;
@@ -149,10 +165,93 @@
 
 
 
-#START2 > div.tresc
+#START2
 {
   color: #333;
 }
+
+
+
+#START3 > div.tlo
+{
+  background-color: rgba(30, 29, 28, 1);
+}
+
+
+
+#START3
+{
+  color: #DDD;
+}
+
+
+
+#START4 > div.tlo
+{
+  background-color: #fff;
+}
+
+
+
+#START2
+{
+  color: #333;
+}
+
+
+
+/********* Treść standardowa *********/
+
+#TRESC div.lista_produktow > ul > li
+{
+  position: relative;
+
+  height: 250px;
+
+  color: inherit;
+}
+
+
+
+#TRESC div.lista_produktow > ul > li > .nazwa
+{
+  position: absolute;
+  left: 10px;
+  top: 5px;
+
+  width: 200px;
+  height: 30px;
+
+  font-weight: bold;
+}
+
+
+
+#TRESC div.lista_produktow > ul > li > .obrazek
+{
+  position: absolute;
+  left: 10px;
+  top: 35px;
+
+  width: 250px;
+  height: 200px;
+
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+
+#TRESC div.lista_produktow > ul > li > .opis
+{
+  position: relative;
+  left: 270px;
+  top: 40px;
+}
+
+
+
 
 
 
@@ -185,13 +284,6 @@
   {
     width: 970px;
   }
-
-
-
-  #TRESC.produkt > div
-  {
-    width: 1100px;
-  }
   
 }
 
@@ -199,7 +291,7 @@
 #TRESC.standardowa > div,
 #TRESC.start > div > div.tresc
 {
-  margin-top: 100px;
+  margin: 100px;
   margin-right: auto;
   margin-left: auto;
 
