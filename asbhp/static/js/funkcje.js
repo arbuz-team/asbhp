@@ -2,16 +2,50 @@
 
 
 
-function przekieruj_do(domena, adres)
+var ruch = (function()
 {
 
-  if( domena == 'inna' )
-    window.location.href = adres;
-  else if( domena == 'ta' )
-    window.location.href = DOMENA + adres;
 
-}
 
+  function _przekieruj_do(domena, adres)
+  {
+
+    if( domena == 'inna' )
+      window.location.href = adres;
+    else if( domena == 'ta' )
+      window.location.href = DOMENA + adres;
+
+  }
+
+
+
+  function _pozycja_scrollbara(element)
+  {
+
+    var wysokosc_naglowka = $('#NAGLOWEK').outerHeight();
+    var aktualna_pozycja = $('body > div').scrollTop();
+    var pozycja_elementu = $(element).position();
+
+    $('body > div').stop().animate({scrollTop: pozycja_elementu.top }, '500');
+
+  }
+
+
+
+  var udostepnione = 
+  {
+
+    przekieruj_do : _przekieruj_do,
+    pozycja_scrollbara : _pozycja_scrollbara
+
+  }
+
+  return udostepnione;
+
+})();
+
+
+/************************************************/
 
 
 var dostosuj = (function()
@@ -26,12 +60,14 @@ var dostosuj = (function()
     var wysokosc_s = $('#STOPKA').outerHeight();  // Wysokość stopki
 
     // Suma marginesów i paddingów top i bottom
-    var margin_padding = parseInt( $('#TRESC').css('padding-bottom') )
-        + parseInt( $('#TRESC').css('padding-top') )
-        + parseInt( $('#TRESC').css('margin-top') )
-        + parseInt( $('#TRESC').css('margin-top') );
+    var margin_padding = /*parseInt( $('#TRESC').css('padding-top') )
+        + parseInt( $('#TRESC').css('padding-bottom') )
+        +*/ parseInt( $('#TRESC').css('margin-top') )
+        + parseInt( $('#TRESC').css('margin-bottom') );
 
     $('#TRESC').css( 'min-height', (wysokosc - wysokosc_n - wysokosc_s - margin_padding) );
+
+    $('#START1').css( 'min-height', (wysokosc - wysokosc_n - margin_padding) );
 
   };
 

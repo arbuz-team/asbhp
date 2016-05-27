@@ -12,7 +12,16 @@ $(document).ready(function ()
   $('.link').click(function () 
   {
   
-    przekieruj_do( $(this).data('domena'), $(this).data('href') )
+    ruch.przekieruj_do( $(this).data('domena'), $(this).data('href') );
+  
+  });
+
+
+
+  $('#TRESC .strzalka > .obrazek, #TRESC .strzalka > .podpis').click(function () 
+  {
+  
+    ruch.pozycja_scrollbara( $(this).parent().data('href') );
   
   });
 
