@@ -3,26 +3,26 @@
 
   <div>
 
-    <div class="tytul link" data-href="" data-domena="ta">AS BHP</div> 
+    <div class="tytul link" data-href="" data-domena="ta">AS<br />BHP</div> 
+
+    {# for i in zakladki #}
+
+      <div class="menu link" data-href="/Kontakt" data-domena="ta">{# url 'Wyswietl_Zakladke' nazwa=i.nazwa_url #}
+          {# i.nazwa|lower|title #}
+          Kontakt
+      </div>
+
+      <div class="menu link" data-href="/Oferta" data-domena="ta">
+          Oferta
+      </div>
+
+      <div class="menu link" data-href="/O_firmie" data-domena="ta">
+          O firmie
+      </div>
+
+    {# endfor #}
 
   </div>
-
-  {# for i in zakladki #}
-
-    <div class="menu link" data-href="/Kontakt" data-domena="ta">{# url 'Wyswietl_Zakladke' nazwa=i.nazwa_url #}
-        {# i.nazwa|lower|title #}
-        Kontakt
-    </div>
-
-    <div class="menu link" data-href="/Oferta" data-domena="ta">
-        Oferta
-    </div>
-
-    <div class="menu link" data-href="/O_firmie" data-domena="ta">
-        O firmie
-    </div>
-
-  {# endfor #}
 
 
 </div>

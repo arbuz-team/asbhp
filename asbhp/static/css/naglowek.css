@@ -2,57 +2,67 @@
 
 
 
-#NAGLOWEK > div:first-child
+#NAGLOWEK > div
 {
   position: fixed;
-  left: -50px;
-  right: -50px;
-  top: -100px;
-
-  transform: rotate(-5deg);
+  left: 0px;
+  right: 0px;
+  top: 0px;
 
   height: inherit;
   z-index: 5;
 
-  background-color: #222;
+  background-color: rgba(30, 29, 28, 1);
+  overflow: hidden;
 }
 
 
-#NAGLOWEK > div:first-child > div.tytul
+#NAGLOWEK > div > div.tytul
 {
   position: absolute;
-  bottom: 0px;
+  bottom: -15px;
   left: 100px;
+  transform: rotate(-13deg);
 
-  width: 150px;
-  height: 100px;
+  width: 100px;
+  height: 95px;
 
-  padding-top: 20px;
+  padding-top: 5px;
 
   background-image: url('../img/ikona_tytulowa.png');
   background-size: 100% auto;
 
   text-align: center;
-  font-size: 28px;
-  color: #111;
+  font-family: 'OS_Bold';
+  font-size: 22px;
+  font-weight: bold;
+  color: #ff7000;
+  line-height: 22px;
 
   z-index: 8;
 }
 
 
 
-#NAGLOWEK > div.menu
+#NAGLOWEK > div > div.menu
 {
   float: right;
   display: block-inline;
 
   width: 150px;
-  height: 70px;
-
-  margin-top: 70px;
+  height: 90px;
 
   text-align: center;
-  line-height: 70px;
+  line-height: 130px;
+  color: #999;
 
   z-index: 8;
+}
+
+
+
+#NAGLOWEK > div > div.menu:hover
+{
+  border-bottom: 3px #ff7000 solid;
+  color: #DDD;
 }
