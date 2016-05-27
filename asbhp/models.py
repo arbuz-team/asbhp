@@ -104,6 +104,7 @@ class Produkt(models.Model):
     opis = models.ForeignKey('Opis')
     firma = models.ForeignKey('Firma')
     kolor = models.ForeignKey('Kolor')
+    rozmiar = models.CharField(max_length=20)
     waga = models.IntegerField() # gramy
     sztuk = models.IntegerField()
     id_rodzaj = models.ForeignKey('Rodzaj_Odziezy',
@@ -115,12 +116,13 @@ class Produkt(models.Model):
 
 class Dodatek(models.Model):
 
+    numer = models.IntegerField()
     opis = models.TextField()
-    id_produktu = models.ForeignKey('Produkt',
-                                    on_delete=models.CASCADE)
+    id_rodzaj = models.ForeignKey('Rodzaj_Odziezy', on_delete=models.CASCADE)
+    id_firmy = models.ForeignKey('Firma', on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.opis
+        return self.id_rodzaj + self.id_firmy
 
 
 ################## Produkt: Łączenie ##################

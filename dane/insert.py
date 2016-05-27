@@ -95,3 +95,29 @@ Produkt.objects.create(nazwa='Kilauea clear',
                        ).save()
 
 ################## Dodatek ##################
+Dodatek.objects.create(numer=1, opis='Nylonowa matowa oprawka dla większej wygody i trwałości', id_rodzaj=Rodzaj_Odziezy.objects.get(nazwa='Okulary ochronne'), id_firmy=Firma.objects.get(nazwa='Kilauea')).save()
+Dodatek.objects.create(numer=2, opis='Z soczewkami polaryzacyjnymi', id_rodzaj=Rodzaj_Odziezy.objects.get(nazwa='Okulary ochronne'), id_firmy=Firma.objects.get(nazwa='Kilauea')).save()
+
+################## Certyfikaty_Dla_Produktu ##################
+Certyfikaty_Dla_Produktu.objects.create(id_produktu=Produkt.objects.get(nazwa='Kilauea polarised'), id_certyfikatu=Certyfikat.objects.get(numer='EN166')).save()
+Certyfikaty_Dla_Produktu.objects.create(id_produktu=Produkt.objects.get(nazwa='Kilauea mirror'), id_certyfikatu=Certyfikat.objects.get(numer='EN166')).save()
+Certyfikaty_Dla_Produktu.objects.create(id_produktu=Produkt.objects.get(nazwa='Kilauea clear'), id_certyfikatu=Certyfikat.objects.get(numer='EN166')).save()
+Certyfikaty_Dla_Produktu.objects.create(id_produktu=Produkt.objects.get(nazwa='Kilauea polarised'), id_certyfikatu=Certyfikat.objects.get(numer='EN172')).save()
+Certyfikaty_Dla_Produktu.objects.create(id_produktu=Produkt.objects.get(nazwa='Kilauea mirror'), id_certyfikatu=Certyfikat.objects.get(numer='EN172')).save()
+Certyfikaty_Dla_Produktu.objects.create(id_produktu=Produkt.objects.get(nazwa='Kilauea clear'), id_certyfikatu=Certyfikat.objects.get(numer='EN170')).save()
+
+################## Zagrozenia_Dla_Produktu ##################
+Zagrozenia_Dla_Produktu.objects.create(id_produktu=Produkt.objects.get(nazwa='Kilauea polarised'), id_zagrozenia=Zagrozenie.objects.get(nazwa='Uderzenie')).save()
+Zagrozenia_Dla_Produktu.objects.create(id_produktu=Produkt.objects.get(nazwa='Kilauea polarised'), id_zagrozenia=Zagrozenie.objects.get(nazwa='UV/IR')).save()
+Zagrozenia_Dla_Produktu.objects.create(id_produktu=Produkt.objects.get(nazwa='Kilauea mirror'), id_zagrozenia=Zagrozenie.objects.get(nazwa='Uderzenie')).save()
+Zagrozenia_Dla_Produktu.objects.create(id_produktu=Produkt.objects.get(nazwa='Kilauea mirror'), id_zagrozenia=Zagrozenie.objects.get(nazwa='UV/IR')).save()
+Zagrozenia_Dla_Produktu.objects.create(id_produktu=Produkt.objects.get(nazwa='Kilauea clear'), id_zagrozenia=Zagrozenie.objects.get(nazwa='Uderzenie')).save()
+Zagrozenia_Dla_Produktu.objects.create(id_produktu=Produkt.objects.get(nazwa='Kilauea clear'), id_zagrozenia=Zagrozenie.objects.get(nazwa='UV/IR')).save()
+
+################## Zawody_Dla_Produktu ##################
+Zawody_Dla_Produktu.objects.create(id_produktu=Produkt.objects.get(nazwa='Kilauea polarised'), id_zawodu=Zawod.objects.get(nazwa='Budownictwo i roboty publiczne')).save()
+Zawody_Dla_Produktu.objects.create(id_produktu=Produkt.objects.get(nazwa='Kilauea polarised'), id_zawodu=Zawod.objects.get(nazwa='Prace remontowe/rzemiosło')).save()
+Zawody_Dla_Produktu.objects.create(id_produktu=Produkt.objects.get(nazwa='Kilauea polarised'), id_zawodu=Zawod.objects.get(nazwa='Energia wiatrowa')).save()
+Zawody_Dla_Produktu.objects.create(id_produktu=Produkt.objects.get(nazwa='Kilauea mirror'), id_zawodu=Zawod.objects.get(nazwa='Budownictwo i roboty publiczne')).save()
+Zawody_Dla_Produktu.objects.create(id_produktu=Produkt.objects.get(nazwa='Kilauea mirror'), id_zawodu=Zawod.objects.get(nazwa='Prace remontowe/rzemiosło')).save()
+Zawody_Dla_Produktu.objects.create(id_produktu=Produkt.objects.get(nazwa='Kilauea clear'), id_zawodu=Zawod.objects.get(nazwa='Prace remontowe/rzemiosło')).save()
