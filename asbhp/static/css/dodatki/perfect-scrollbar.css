@@ -29,7 +29,7 @@
 
 .ps-container.ps-in-scrolling > .ps-scrollbar-y-rail 
 {
-  background-color: #aaa;
+  background-color: #444;
   opacity: 0.9;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
   filter: alpha(opacity=90); 
@@ -39,7 +39,7 @@
 
 .ps-container.ps-in-scrolling > .ps-scrollbar-y-rail > .ps-scrollbar-y 
 {
-  background-color: #444; 
+  background-color: #aaa; 
 }
 
 
@@ -53,7 +53,7 @@
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
   border-radius: 4px;
-  background-color: #aaa;
+  background-color: #444;
   opacity: 0.9;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
   filter: alpha(opacity=90);
@@ -72,7 +72,7 @@
 {
   position: absolute;
   /* please don't change 'position' */
-  background-color: #444;
+  background-color: #aaa;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
@@ -172,7 +172,7 @@
 
 .ps-container:hover.ps-in-scrolling > .ps-scrollbar-y-rail 
 {
-  background-color: #aaa;
+  background-color: #444;
   opacity: 0.9;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
   filter: alpha(opacity=90); 
@@ -182,13 +182,13 @@
 
 .ps-container:hover.ps-in-scrolling > .ps-scrollbar-y-rail > .ps-scrollbar-y 
 {
-  background-color: #444; 
+  background-color: #aaa; 
 }
 
 
 
 .ps-container:hover > .ps-scrollbar-y-rail:hover {
-  background-color: #aaa;
+  background-color: #444;
   opacity: 0.9;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
   filter: alpha(opacity=90); 
@@ -198,7 +198,7 @@
 
 .ps-container:hover > .ps-scrollbar-y-rail:hover > .ps-scrollbar-y 
 {
-  background-color: #444; 
+  background-color: #aaa; 
 }
 
 
