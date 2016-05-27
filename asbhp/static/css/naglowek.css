@@ -21,24 +21,14 @@
 #NAGLOWEK > div > div.tytul
 {
   position: absolute;
-  bottom: -15px;
+  bottom: -10px;
   left: 100px;
-  transform: rotate(-13deg);
 
-  width: 100px;
-  height: 95px;
+  width: 164px;
+  height: 114px;
 
-  padding-top: 5px;
-
-  background-image: url('../img/ikona_tytulowa.png');
+  background-image: url('../img/aslogo.png');
   background-size: 100% auto;
-
-  text-align: center;
-  font-family: 'OS_Bold';
-  font-size: 22px;
-  font-weight: bold;
-  color: #ff7000;
-  line-height: 22px;
 
   z-index: 8;
 }

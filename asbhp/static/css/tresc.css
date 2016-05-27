@@ -51,8 +51,10 @@
 
   font-size: 78px;
   font-weight: bold;
-  color: #ff7000;
+  color: #ff8000;
   text-align: center;
+  
+  text-shadow: #000 0px 0px 20px;
 
   z-index:12;
 }
@@ -115,10 +117,17 @@
   height: 50px;
 
   font-size: 22px;
-  color: #ff7000;
+  color: #ff8000;
   font-weight: bold;
   text-align: center;
   line-height: 50px;
+}
+
+
+
+#TRESC.start > div > div.strzalka > div.podpis
+{
+  cursor: pointer;
 }
 
 
@@ -148,12 +157,15 @@
   content: '';
   display: block;
 
-  position:
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
 
-  background-image: url('../img/tlo_start2.jpg');
-  background-size: 100% auto;
-  background-position: 0px -130px;
-  background-repeat: no-repeat;
+  background: linear-gradient(to left, rgba(130, 130, 130, 0.4), transparent);
+
+  z-index: 10;
 }
 
 
@@ -291,7 +303,7 @@
 #TRESC.standardowa > div,
 #TRESC.start > div > div.tresc
 {
-  margin: 100px;
+  margin: 50px;
   margin-right: auto;
   margin-left: auto;
 
