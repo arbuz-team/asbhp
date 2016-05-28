@@ -18,17 +18,40 @@
 }
 
 
+
 #NAGLOWEK > div > div.tytul
 {
   position: absolute;
   bottom: -10px;
-  left: 100px;
+  left: 70px;
 
-  width: 164px;
-  height: 114px;
+  width: 120px;
+  height: 100px;
 
-  background-image: url('../img/aslogo.png');
+  background-image: url('../img/AS_C,S.png');
   background-size: 100% auto;
+
+  z-index: 8;
+}
+
+
+
+#NAGLOWEK > div > div.tytul:after
+{
+  content: '';
+  display: block;
+
+  position: absolute;
+  bottom: 10px;
+  left: 120px;
+
+  width: 180px;
+  height: 100px;
+
+  background-image: url('../img/ODZIERZ ROBOCZA_S.png');
+  background-position: center;
+  background-size: 120px auto;
+  background-repeat: no-repeat;
 
   z-index: 8;
 }
@@ -43,6 +66,7 @@
   width: 150px;
   height: 90px;
 
+  font-size: 20px;
   text-align: center;
   line-height: 130px;
   color: #999;
