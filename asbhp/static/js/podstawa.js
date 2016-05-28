@@ -51,6 +51,11 @@ $(document).ready(function () {
 
 jQuery(document).ready(function ($) { 
   "use strict"; 
-  $('body > div').perfectScrollbar();
+
+  $('body > div').perfectScrollbar({
+    wheelSpeed: 2,
+    minScrollbarLength: 20
+  });
+
 }); 
 
