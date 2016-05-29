@@ -9,15 +9,18 @@ def Start(request):
 
 
 def O_Firmie(request):
-    return render(request, 'o_firmie.html', {})
+    css_menu = ['wybrany', '', '']
+    return render(request, 'o_firmie.html', {"css_menu": css_menu})
 
 
 def Oferta(request):
-    return Lista_Produktow(request)
+    css_menu = ['', 'wybrany', '']
+    return render(request, 'oferta.html', {"css_menu": css_menu})
 
 
 def Kontakt(request):
-    return render(request, 'kontakt.html', {})
+    css_menu = ['', '', 'wybrany']
+    return render(request, 'kontakt.html', {"css_menu": css_menu})
 
 
 ################## Opcje ##################
