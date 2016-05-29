@@ -12,16 +12,11 @@
       <form method="post">
         {% csrf_token %}
         
-          {% regroup form.fields by group as field_group %}
-          {% for group in field_group %}
+        {#  'nazwa', 'opis', 'firma', 'kolor',
+            'rozmiar', 'waga', 'sztuk', 'rodzaj',
+            'certyfikaty', 'zagrozenia', 'zawody'
 
-            <div class="grupa_{{ group.grouper }}">
-              {% for field in group.list %}
-                {{ field }}
-              {% endfor %}
-            </div>
-
-          {% endfor %}
+            example: {{ formularz.nazwa }} #}
 
         <button type="submit">Dodaj</button>
       </form>
