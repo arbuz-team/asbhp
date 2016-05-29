@@ -76,6 +76,7 @@
 
 
 
+#NAGLOWEK > div > div.menu.wybrany,
 #NAGLOWEK > div > div.menu:hover
 {
   border-bottom: 3px #ff7000 solid;
