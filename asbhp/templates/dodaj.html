@@ -2,15 +2,28 @@
 
 {% block content %}
 
-  <div class="standardowa">
+  <div class="BLOK1">
+
+    <div class="tlo"></div>
 
     <div class="tytul">Formularz:</div>
 
     <div class="tresc">
       <form method="post">
-          {% csrf_token %}
-          {{ formularz.as_p }}
-          <button type="submit">Zakończ edycje</button>
+        {% csrf_token %}
+        
+          {% regroup form.fields by group as field_group %}
+          {% for group in field_group %}
+
+            <div class="grupa_{{ group.grouper }}">
+              {% for field in group.list %}
+                {{ field }}
+              {% endfor %}
+            </div>
+
+          {% endfor %}
+
+        <button type="submit">Dodaj</button>
       </form>
     </div>
 
