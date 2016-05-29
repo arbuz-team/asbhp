@@ -2,6 +2,62 @@
 
 
 
+body > div
+{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 0;
+
+  padding-right:15px;
+
+  overflow: hidden;
+}
+
+
+
+body > div > .fragment
+{
+  position: relative;
+  z-index: 5;
+
+  overflow: hidden;
+}
+
+
+
+#NAGLOWEK 
+{
+  position: relative;
+
+  height: 100px;
+
+  z-index: 7;
+}
+
+
+
+#TRESC
+{
+  position: relative;
+
+  padding-bottom: 50px;
+}
+
+
+
+#STOPKA
+{
+  height:200px;
+}
+
+
+
+/************************ #TRESC ****************************/
+
+
 #TRESC.start > div
 {
   position: relative;
@@ -14,7 +70,7 @@
 
 
 
-#TRESC.start > div > div.tlo
+#TRESC > div > div.tlo
 {
   position: absolute;
   top: 0px;
@@ -27,7 +83,7 @@
 
 
 
-#TRESC.start > div > div.nakladka
+#TRESC > div > div.nakladka
 {
   position: absolute;
   top: 0px;
@@ -40,7 +96,7 @@
 
 
 
-#TRESC.start > div > div.napis
+#TRESC.start > div.BLOK1 > div.napis
 {
   position: relative;
   width: 600px;
@@ -132,7 +188,7 @@
 
 
 
-#TRESC.start > div > div.tresc
+#TRESC > div > div.tytul
 {
   position: relative;
 
@@ -140,74 +196,12 @@
 }
 
 
-/************************************************************/
 
-#START1 > div.tlo
+#TRESC > div > div.tresc
 {
-  background-image: url('../img/tlo_start2.jpg');
-  background-size: 100% auto;
-  background-position: 0px -130px;
-  background-repeat: no-repeat;
-}
+  position: relative;
 
-
-
-#START1 > div.tlo:after
-{
-  content: '';
-  display: block;
-
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-
-  background: linear-gradient(to left, rgba(130, 130, 130, 0.4), transparent);
-
-  z-index: 10;
-}
-
-
-
-#START2 > div.tlo
-{
-  background-color: #fff;
-}
-
-
-
-#START2
-{
-  color: #333;
-}
-
-
-
-#START3 > div.tlo
-{
-  background-color: rgba(30, 29, 28, 1);
-}
-
-
-
-#START3
-{
-  color: #DDD;
-}
-
-
-
-#START4 > div.tlo
-{
-  background-color: #fff;
-}
-
-
-
-#START2
-{
-  color: #333;
+  z-index:12;
 }
 
 
@@ -221,6 +215,7 @@
   height: 250px;
 
   color: inherit;
+  overflow: hidden;
 }
 
 
@@ -259,6 +254,30 @@
 {
   position: relative;
   left: 270px;
+  top: 40px;
+
+  width: 440px;
+  height: 200px;
+
+  word-wrap: normal;
+  overflow: hidden;
+}
+
+
+
+#TRESC div.lista_produktow > ul > li > .przeznaczenie
+{
+  position: absolute;
+  right: 0px;
+  top: 40px;
+}
+
+
+
+#TRESC div.lista_produktow > ul > li > .zagrozenia
+{
+  position: absolute;
+  right: 0px;
   top: 40px;
 }
 

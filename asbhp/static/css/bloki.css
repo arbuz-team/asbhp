@@ -1,57 +1,87 @@
 /*    CSS   */
 
 
+/************************************************************/
 
-body > div
+#TRESC.start > .BLOK1 > div.tlo
 {
+  background-image: url('../img/tlo_start2.jpg');
+  background-size: 100% auto;
+  background-position: 0px -130px;
+  background-repeat: no-repeat;
+}
+
+
+
+#TRESC.start > .BLOK1 > div.tlo:after
+{
+  content: '';
+  display: block;
+
   position: absolute;
   top: 0px;
   left: 0px;
   right: 0px;
   bottom: 0px;
-  z-index: 0;
 
-  padding-right:15px;
+  background: linear-gradient(to left, rgba(130, 130, 130, 0.4), transparent);
 
-  overflow: hidden;
+  z-index: 10;
 }
 
 
 
-body > div > .blok
+#TRESC.start > .BLOK2 > div.tlo
 {
-  position: relative;
-  z-index: 5;
-
-  overflow: hidden;
+  background-color: #fff;
 }
 
 
 
-#NAGLOWEK 
+#TRESC.start > .BLOK2
 {
-  position: relative;
-
-  height: 100px;
-
-  z-index: 7;
+  color: #333;
 }
 
 
 
-#TRESC
+#TRESC.start > .BLOK3 > div.tlo
 {
-  position: relative;
-
-  padding-bottom: 50px;
+  background-color: rgba(30, 29, 28, 1);
 }
 
 
 
-#STOPKA
+#TRESC.start > .BLOK3
 {
-  height:200px;
+  color: #DDD;
 }
+
+
+
+#TRESC.start > .BLOK4 > div.tlo
+{
+  background-color: #fff;
+}
+
+
+
+#TRESC.start > .BLOK2
+{
+  color: #333;
+}
+
+
+/************************************************************/
+
+#TRESC.standardowa > .BLOK1 > .tlo
+{
+  background-color: #fff;
+}
+
+
+
+/************************************************************/
 
 
 

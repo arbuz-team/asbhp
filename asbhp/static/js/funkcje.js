@@ -67,7 +67,7 @@ var dostosuj = (function()
 
     $('#TRESC').css( 'min-height', (wysokosc - wysokosc_n - wysokosc_s - margin_padding) );
 
-    $('#START1').css( 'min-height', (wysokosc - wysokosc_n - margin_padding) );
+    $('#TRESC > .BLOK1').css( 'min-height', (wysokosc - wysokosc_n - margin_padding) );
 
   };
 
