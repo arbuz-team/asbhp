@@ -9,5 +9,12 @@ urlpatterns = [
 
     url(r'^produkt/$', views.Lista_Produktow, name='Lista_Produktow'),
     url(r'^produkt/(?P<pk>\d)/$', views.Wyswietl_Produkt, name='Wyswietl_Produkt'),
+
     url(r'^dodaj/produkt/$', views.Dodaj_Produkt, name='Dodaj_Produkt'),
+    url(r'^dodaj/opis/$', views.Dodaj_Opis, name='Dodaj_Opis'),
+    url(r'^dodaj/firma/$', views.Dodaj_Firma, name='Dodaj_Firma'),
+    url(r'^dodaj/kolor/$', views.Dodaj_Kolor, name='Dodaj_Kolor'),
+    url(r'^dodaj/certyfikat/$', views.Dodaj_Certyfikat, name='Dodaj_Certyfikat'),
+    url(r'^dodaj/dodatek/$', views.Dodaj_Dodatek, name='Dodaj_Dodatek'),
+    url(r'^dodaj/polecane/$', views.Dodaj_Polecane, name='Dodaj_Polecane'),
 ]

@@ -50,7 +50,6 @@ class Rodzaj_Odziezy(models.Model):
 
 class Opis(models.Model):
 
-    numer = models.IntegerField()
     opis = models.TextField()
 
     def __str__(self):
