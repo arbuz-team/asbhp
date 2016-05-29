@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from asbhp.models import *
+from django.utils import timezone
 
 ################## Opis ##################
 Opis.objects.create(numer=1, opis='Okulary z poliwęglanu. Sportowy wygląd. Nylonowa matowa oprawka dla większej wygody i trwałości.').save()
@@ -47,24 +48,24 @@ Zawod.objects.create(nazwa='Energia wiatrowa').save()
 ################## Ochrona głowy: Kontenery ##################
 Typ_Odziezy.objects.create(nazwa='Ochrona głowy').save()
 
-Dziedzina_Odziezy.objects.create(nazwa='Ochrona wzroku', id_typ=Typ_Odziezy.objects.get(nazwa='Ochrona głowy')).save()
-Dziedzina_Odziezy.objects.create(nazwa='Ochrona czaszki', id_typ=Typ_Odziezy.objects.get(nazwa='Ochrona głowy')).save()
-Dziedzina_Odziezy.objects.create(nazwa='Ochrona słuchu', id_typ=Typ_Odziezy.objects.get(nazwa='Ochrona głowy')).save()
-Dziedzina_Odziezy.objects.create(nazwa='Ochrona dróg oddechowych', id_typ=Typ_Odziezy.objects.get(nazwa='Ochrona głowy')).save()
+Dziedzina_Odziezy.objects.create(nazwa='Ochrona wzroku', typ=Typ_Odziezy.objects.get(nazwa='Ochrona głowy')).save()
+Dziedzina_Odziezy.objects.create(nazwa='Ochrona czaszki', typ=Typ_Odziezy.objects.get(nazwa='Ochrona głowy')).save()
+Dziedzina_Odziezy.objects.create(nazwa='Ochrona słuchu', typ=Typ_Odziezy.objects.get(nazwa='Ochrona głowy')).save()
+Dziedzina_Odziezy.objects.create(nazwa='Ochrona dróg oddechowych', typ=Typ_Odziezy.objects.get(nazwa='Ochrona głowy')).save()
 
-Rodzaj_Odziezy.objects.create(nazwa='Okulary ochronne', id_dziedzina=Dziedzina_Odziezy.objects.get(nazwa='Ochrona wzroku')).save()
-Rodzaj_Odziezy.objects.create(nazwa='Gogle ochronne', id_dziedzina=Dziedzina_Odziezy.objects.get(nazwa='Ochrona wzroku')).save()
-Rodzaj_Odziezy.objects.create(nazwa='Przyłbice spawalnicze', id_dziedzina=Dziedzina_Odziezy.objects.get(nazwa='Ochrona wzroku')).save()
-Rodzaj_Odziezy.objects.create(nazwa='Osłony ochronne', id_dziedzina=Dziedzina_Odziezy.objects.get(nazwa='Ochrona wzroku')).save()
+Rodzaj_Odziezy.objects.create(nazwa='Okulary ochronne', dziedzina=Dziedzina_Odziezy.objects.get(nazwa='Ochrona wzroku')).save()
+Rodzaj_Odziezy.objects.create(nazwa='Gogle ochronne', dziedzina=Dziedzina_Odziezy.objects.get(nazwa='Ochrona wzroku')).save()
+Rodzaj_Odziezy.objects.create(nazwa='Przyłbice spawalnicze', dziedzina=Dziedzina_Odziezy.objects.get(nazwa='Ochrona wzroku')).save()
+Rodzaj_Odziezy.objects.create(nazwa='Osłony ochronne', dziedzina=Dziedzina_Odziezy.objects.get(nazwa='Ochrona wzroku')).save()
 
-Rodzaj_Odziezy.objects.create(nazwa='Hełmy ochronne', id_dziedzina=Dziedzina_Odziezy.objects.get(nazwa='Ochrona czaszki')).save()
-Rodzaj_Odziezy.objects.create(nazwa='Hełmy lekkie', id_dziedzina=Dziedzina_Odziezy.objects.get(nazwa='Ochrona czaszki')).save()
+Rodzaj_Odziezy.objects.create(nazwa='Hełmy ochronne', dziedzina=Dziedzina_Odziezy.objects.get(nazwa='Ochrona czaszki')).save()
+Rodzaj_Odziezy.objects.create(nazwa='Hełmy lekkie', dziedzina=Dziedzina_Odziezy.objects.get(nazwa='Ochrona czaszki')).save()
 
-Rodzaj_Odziezy.objects.create(nazwa='Nauszniki przeciwhałasowe', id_dziedzina=Dziedzina_Odziezy.objects.get(nazwa='Ochrona słuchu')).save()
-Rodzaj_Odziezy.objects.create(nazwa='Wkładki przeciwhałasowe', id_dziedzina=Dziedzina_Odziezy.objects.get(nazwa='Ochrona słuchu')).save()
+Rodzaj_Odziezy.objects.create(nazwa='Nauszniki przeciwhałasowe', dziedzina=Dziedzina_Odziezy.objects.get(nazwa='Ochrona słuchu')).save()
+Rodzaj_Odziezy.objects.create(nazwa='Wkładki przeciwhałasowe', dziedzina=Dziedzina_Odziezy.objects.get(nazwa='Ochrona słuchu')).save()
 
-Rodzaj_Odziezy.objects.create(nazwa='Maski jednorazowe', id_dziedzina=Dziedzina_Odziezy.objects.get(nazwa='Ochrona dróg oddechowych')).save()
-Rodzaj_Odziezy.objects.create(nazwa='Maski wielokrotnego użytku', id_dziedzina=Dziedzina_Odziezy.objects.get(nazwa='Ochrona dróg oddechowych')).save()
+Rodzaj_Odziezy.objects.create(nazwa='Maski jednorazowe', dziedzina=Dziedzina_Odziezy.objects.get(nazwa='Ochrona dróg oddechowych')).save()
+Rodzaj_Odziezy.objects.create(nazwa='Maski wielokrotnego użytku', dziedzina=Dziedzina_Odziezy.objects.get(nazwa='Ochrona dróg oddechowych')).save()
 
 ################## Ochrona głowy: Produkty ##################
 Produkt.objects.create(nazwa='Kilauea polarised',
@@ -73,7 +74,7 @@ Produkt.objects.create(nazwa='Kilauea polarised',
                        kolor=Kolor.objects.get(nazwa='Polaryzacyjne'),
                        waga=28,
                        sztuk=100,
-                       id_rodzaj=Rodzaj_Odziezy.objects.get(nazwa='Okulary ochronne')
+                       rodzaj=Rodzaj_Odziezy.objects.get(nazwa='Okulary ochronne')
                        ).save()
 
 Produkt.objects.create(nazwa='Kilauea mirror',
@@ -82,7 +83,7 @@ Produkt.objects.create(nazwa='Kilauea mirror',
                        kolor=Kolor.objects.get(nazwa='Odblaskowy'),
                        waga=28,
                        sztuk=100,
-                       id_rodzaj=Rodzaj_Odziezy.objects.get(nazwa='Okulary ochronne')
+                       rodzaj=Rodzaj_Odziezy.objects.get(nazwa='Okulary ochronne')
                        ).save()
 
 Produkt.objects.create(nazwa='Kilauea clear',
@@ -91,33 +92,36 @@ Produkt.objects.create(nazwa='Kilauea clear',
                        kolor=Kolor.objects.get(nazwa='Bezbarwny'),
                        waga=28,
                        sztuk=100,
-                       id_rodzaj=Rodzaj_Odziezy.objects.get(nazwa='Okulary ochronne')
+                       rodzaj=Rodzaj_Odziezy.objects.get(nazwa='Okulary ochronne')
                        ).save()
 
 ################## Dodatek ##################
-Dodatek.objects.create(numer=1, opis='Nylonowa matowa oprawka dla większej wygody i trwałości', id_rodzaj=Rodzaj_Odziezy.objects.get(nazwa='Okulary ochronne'), id_firmy=Firma.objects.get(nazwa='Kilauea')).save()
-Dodatek.objects.create(numer=2, opis='Z soczewkami polaryzacyjnymi', id_rodzaj=Rodzaj_Odziezy.objects.get(nazwa='Okulary ochronne'), id_firmy=Firma.objects.get(nazwa='Kilauea')).save()
+Dodatek.objects.create(numer=1, opis='Nylonowa matowa oprawka dla większej wygody i trwałości', rodzaj=Rodzaj_Odziezy.objects.get(nazwa='Okulary ochronne'), firma=Firma.objects.get(nazwa='Kilauea')).save()
+Dodatek.objects.create(numer=2, opis='Z soczewkami polaryzacyjnymi', rodzaj=Rodzaj_Odziezy.objects.get(nazwa='Okulary ochronne'), firma=Firma.objects.get(nazwa='Kilauea')).save()
 
 ################## Certyfikaty_Dla_Produktu ##################
-Certyfikaty_Dla_Produktu.objects.create(id_produktu=Produkt.objects.get(nazwa='Kilauea polarised'), id_certyfikatu=Certyfikat.objects.get(numer='EN166')).save()
-Certyfikaty_Dla_Produktu.objects.create(id_produktu=Produkt.objects.get(nazwa='Kilauea mirror'), id_certyfikatu=Certyfikat.objects.get(numer='EN166')).save()
-Certyfikaty_Dla_Produktu.objects.create(id_produktu=Produkt.objects.get(nazwa='Kilauea clear'), id_certyfikatu=Certyfikat.objects.get(numer='EN166')).save()
-Certyfikaty_Dla_Produktu.objects.create(id_produktu=Produkt.objects.get(nazwa='Kilauea polarised'), id_certyfikatu=Certyfikat.objects.get(numer='EN172')).save()
-Certyfikaty_Dla_Produktu.objects.create(id_produktu=Produkt.objects.get(nazwa='Kilauea mirror'), id_certyfikatu=Certyfikat.objects.get(numer='EN172')).save()
-Certyfikaty_Dla_Produktu.objects.create(id_produktu=Produkt.objects.get(nazwa='Kilauea clear'), id_certyfikatu=Certyfikat.objects.get(numer='EN170')).save()
+Certyfikaty_Dla_Produktu.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea polarised'), certyfikat=Certyfikat.objects.get(numer='EN166')).save()
+Certyfikaty_Dla_Produktu.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea mirror'), certyfikat=Certyfikat.objects.get(numer='EN166')).save()
+Certyfikaty_Dla_Produktu.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea clear'), certyfikat=Certyfikat.objects.get(numer='EN166')).save()
+Certyfikaty_Dla_Produktu.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea polarised'), certyfikat=Certyfikat.objects.get(numer='EN172')).save()
+Certyfikaty_Dla_Produktu.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea mirror'), certyfikat=Certyfikat.objects.get(numer='EN172')).save()
+Certyfikaty_Dla_Produktu.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea clear'), certyfikat=Certyfikat.objects.get(numer='EN170')).save()
 
 ################## Zagrozenia_Dla_Produktu ##################
-Zagrozenia_Dla_Produktu.objects.create(id_produktu=Produkt.objects.get(nazwa='Kilauea polarised'), id_zagrozenia=Zagrozenie.objects.get(nazwa='Uderzenie')).save()
-Zagrozenia_Dla_Produktu.objects.create(id_produktu=Produkt.objects.get(nazwa='Kilauea polarised'), id_zagrozenia=Zagrozenie.objects.get(nazwa='UV/IR')).save()
-Zagrozenia_Dla_Produktu.objects.create(id_produktu=Produkt.objects.get(nazwa='Kilauea mirror'), id_zagrozenia=Zagrozenie.objects.get(nazwa='Uderzenie')).save()
-Zagrozenia_Dla_Produktu.objects.create(id_produktu=Produkt.objects.get(nazwa='Kilauea mirror'), id_zagrozenia=Zagrozenie.objects.get(nazwa='UV/IR')).save()
-Zagrozenia_Dla_Produktu.objects.create(id_produktu=Produkt.objects.get(nazwa='Kilauea clear'), id_zagrozenia=Zagrozenie.objects.get(nazwa='Uderzenie')).save()
-Zagrozenia_Dla_Produktu.objects.create(id_produktu=Produkt.objects.get(nazwa='Kilauea clear'), id_zagrozenia=Zagrozenie.objects.get(nazwa='UV/IR')).save()
+Zagrozenia_Dla_Produktu.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea polarised'), zagrozenie=Zagrozenie.objects.get(nazwa='Uderzenie')).save()
+Zagrozenia_Dla_Produktu.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea polarised'), zagrozenie=Zagrozenie.objects.get(nazwa='UV/IR')).save()
+Zagrozenia_Dla_Produktu.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea mirror'), zagrozenie=Zagrozenie.objects.get(nazwa='Uderzenie')).save()
+Zagrozenia_Dla_Produktu.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea mirror'), zagrozenie=Zagrozenie.objects.get(nazwa='UV/IR')).save()
+Zagrozenia_Dla_Produktu.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea clear'), zagrozenie=Zagrozenie.objects.get(nazwa='Uderzenie')).save()
+Zagrozenia_Dla_Produktu.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea clear'), zagrozenie=Zagrozenie.objects.get(nazwa='UV/IR')).save()
 
 ################## Zawody_Dla_Produktu ##################
-Zawody_Dla_Produktu.objects.create(id_produktu=Produkt.objects.get(nazwa='Kilauea polarised'), id_zawodu=Zawod.objects.get(nazwa='Budownictwo i roboty publiczne')).save()
-Zawody_Dla_Produktu.objects.create(id_produktu=Produkt.objects.get(nazwa='Kilauea polarised'), id_zawodu=Zawod.objects.get(nazwa='Prace remontowe/rzemiosło')).save()
-Zawody_Dla_Produktu.objects.create(id_produktu=Produkt.objects.get(nazwa='Kilauea polarised'), id_zawodu=Zawod.objects.get(nazwa='Energia wiatrowa')).save()
-Zawody_Dla_Produktu.objects.create(id_produktu=Produkt.objects.get(nazwa='Kilauea mirror'), id_zawodu=Zawod.objects.get(nazwa='Budownictwo i roboty publiczne')).save()
-Zawody_Dla_Produktu.objects.create(id_produktu=Produkt.objects.get(nazwa='Kilauea mirror'), id_zawodu=Zawod.objects.get(nazwa='Prace remontowe/rzemiosło')).save()
-Zawody_Dla_Produktu.objects.create(id_produktu=Produkt.objects.get(nazwa='Kilauea clear'), id_zawodu=Zawod.objects.get(nazwa='Prace remontowe/rzemiosło')).save()
+Zawody_Dla_Produktu.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea polarised'), zawod=Zawod.objects.get(nazwa='Budownictwo i roboty publiczne')).save()
+Zawody_Dla_Produktu.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea polarised'), zawod=Zawod.objects.get(nazwa='Prace remontowe/rzemiosło')).save()
+Zawody_Dla_Produktu.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea polarised'), zawod=Zawod.objects.get(nazwa='Energia wiatrowa')).save()
+Zawody_Dla_Produktu.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea mirror'), zawod=Zawod.objects.get(nazwa='Budownictwo i roboty publiczne')).save()
+Zawody_Dla_Produktu.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea mirror'), zawod=Zawod.objects.get(nazwa='Prace remontowe/rzemiosło')).save()
+Zawody_Dla_Produktu.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea clear'), zawod=Zawod.objects.get(nazwa='Prace remontowe/rzemiosło')).save()
+
+################## Promowanie ##################
+Polecane.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea polarised'), data_zakonczenia=timezone.now()).save()

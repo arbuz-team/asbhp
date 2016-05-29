@@ -5,15 +5,15 @@ from django.db import models
 
 ################## Główne ##################
 
-class Zakladka(models.Model):
-
-    nazwa_url = models.CharField(max_length=50)
-    nazwa = models.CharField(max_length=50)
-    zawartosc_html = models.TextField()
-    zawartosc = models.TextField()
-
-    def __str__(self):
-        return self.nazwa
+#class Zakladka(models.Model):
+#
+#    nazwa_url = models.CharField(max_length=50)
+#    nazwa = models.CharField(max_length=50)
+#    zawartosc_html = models.TextField()
+#    zawartosc = models.TextField()
+#
+#    def __str__(self):
+#        return self.nazwa.encode('utf8')
 
 
 ################## Produkt: Kontenery ##################
@@ -23,27 +23,27 @@ class Typ_Odziezy(models.Model):
     nazwa = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.nazwa
+        return self.nazwa.encode('utf8')
 
 
 class Dziedzina_Odziezy(models.Model):
 
     nazwa = models.CharField(max_length=100)
-    id_typ = models.ForeignKey('Typ_Odziezy',
+    typ = models.ForeignKey('Typ_Odziezy',
                                on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.nazwa
+        return self.nazwa.encode('utf8')
 
 
 class Rodzaj_Odziezy(models.Model):
 
     nazwa = models.CharField(max_length=100)
-    id_dziedzina = models.ForeignKey('Dziedzina_Odziezy',
+    dziedzina = models.ForeignKey('Dziedzina_Odziezy',
                                      on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.nazwa
+        return self.nazwa.encode('utf8')
 
 
 ################## Produkt: Produkty ##################
@@ -54,7 +54,7 @@ class Opis(models.Model):
     opis = models.TextField()
 
     def __str__(self):
-        return self.numer
+        return self.opis.encode('utf8')
 
 
 class Firma(models.Model):
@@ -62,7 +62,7 @@ class Firma(models.Model):
     nazwa = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.nazwa
+        return self.nazwa.encode('utf8')
 
 
 class Kolor(models.Model):
@@ -70,7 +70,7 @@ class Kolor(models.Model):
     nazwa = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.nazwa
+        return self.nazwa.encode('utf8')
 
 
 class Certyfikat(models.Model):
@@ -79,7 +79,7 @@ class Certyfikat(models.Model):
     szczegoly = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.numer
+        return self.numer.encode('utf8')
 
 
 class Zagrozenie(models.Model):
@@ -87,7 +87,7 @@ class Zagrozenie(models.Model):
     nazwa = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.nazwa
+        return self.nazwa.encode('utf8')
 
 
 class Zawod(models.Model):
@@ -95,7 +95,7 @@ class Zawod(models.Model):
     nazwa = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.nazwa
+        return self.nazwa.encode('utf8')
 
 
 class Produkt(models.Model):
@@ -107,47 +107,58 @@ class Produkt(models.Model):
     rozmiar = models.CharField(max_length=20)
     waga = models.IntegerField() # gramy
     sztuk = models.IntegerField()
-    id_rodzaj = models.ForeignKey('Rodzaj_Odziezy',
+    rodzaj = models.ForeignKey('Rodzaj_Odziezy',
                                   on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.nazwa
+        return self.nazwa.encode('utf8')
 
 
 class Dodatek(models.Model):
 
     numer = models.IntegerField()
     opis = models.TextField()
-    id_rodzaj = models.ForeignKey('Rodzaj_Odziezy', on_delete=models.CASCADE)
-    id_firmy = models.ForeignKey('Firma', on_delete=models.CASCADE)
+    rodzaj = models.ForeignKey('Rodzaj_Odziezy', on_delete=models.CASCADE)
+    firma = models.ForeignKey('Firma', on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.id_rodzaj + self.id_firmy
+        return self.opis.encode('utf8')
 
 
 ################## Produkt: Łączenie ##################
 
 class Certyfikaty_Dla_Produktu(models.Model):
 
-    id_produktu = models.ForeignKey('Produkt', on_delete=models.CASCADE)
-    id_certyfikatu = models.ForeignKey('Certyfikat', on_delete=models.CASCADE)
+    produkt = models.ForeignKey('Produkt', on_delete=models.CASCADE)
+    certyfikat = models.ForeignKey('Certyfikat', on_delete=models.CASCADE)
 
     class Meta:
-        unique_together = (('id_produktu', 'id_certyfikatu'),)
+        unique_together = (('produkt', 'certyfikat'),)
 
 
 class Zagrozenia_Dla_Produktu(models.Model):
 
-    id_produktu = models.ForeignKey('Produkt', on_delete=models.CASCADE)
-    id_zagrozenia = models.ForeignKey('Zagrozenie', on_delete=models.CASCADE)
+    produkt = models.ForeignKey('Produkt', on_delete=models.CASCADE)
+    zagrozenie = models.ForeignKey('Zagrozenie', on_delete=models.CASCADE)
 
     class Meta:
-        unique_together = (('id_produktu', 'id_zagrozenia'),)
+        unique_together = (('produkt', 'zagrozenie'),)
 
 class Zawody_Dla_Produktu(models.Model):
 
-    id_produktu = models.ForeignKey('Produkt', on_delete=models.CASCADE)
-    id_zawodu = models.ForeignKey('Zawod', on_delete=models.CASCADE)
+    produkt = models.ForeignKey('Produkt', on_delete=models.CASCADE)
+    zawod = models.ForeignKey('Zawod', on_delete=models.CASCADE)
 
     class Meta:
-        unique_together = (('id_produktu', 'id_zawodu'),)
+        unique_together = (('produkt', 'zawod'),)
+
+
+################## Promowanie ##################
+
+class Polecane(models.Model):
+
+    produkt = models.ForeignKey('Produkt', on_delete=models.CASCADE)
+    data_zakonczenia = models.DateField()
+
+    def __str__(self):
+        return str(self.produkt)
