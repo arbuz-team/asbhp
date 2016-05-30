@@ -11,7 +11,6 @@ urlpatterns = [
     url(r'^produkt/(?P<pk>\d)/$', views.Wyswietl_Produkt, name='Wyswietl_Produkt'),
 
     url(r'^dodaj/produkt/$', views.Dodaj_Produkt, name='Dodaj_Produkt'),
-    url(r'^dodaj/opis/$', views.Dodaj_Opis, name='Dodaj_Opis'),
     url(r'^dodaj/firma/$', views.Dodaj_Firma, name='Dodaj_Firma'),
     url(r'^dodaj/kolor/$', views.Dodaj_Kolor, name='Dodaj_Kolor'),
     url(r'^dodaj/certyfikat/$', views.Dodaj_Certyfikat, name='Dodaj_Certyfikat'),

@@ -2,9 +2,6 @@
 from asbhp.models import *
 from django.utils import timezone
 
-################## Opis ##################
-Opis.objects.create(opis='Okulary z poliwęglanu. Sportowy wygląd. Nylonowa matowa oprawka dla większej wygody i trwałości.').save()
-
 ################## Firma ##################
 Firma.objects.create(nazwa='Kilauea').save()
 
@@ -69,7 +66,7 @@ Rodzaj_Odziezy.objects.create(nazwa='Maski wielokrotnego użytku', dziedzina=Dzi
 
 ################## Ochrona głowy: Produkty ##################
 Produkt.objects.create(nazwa='Kilauea polarised',
-                       opis=Opis.objects.get(id=1),
+                       opis='Okulary z poliwęglanu. Sportowy wygląd. Nylonowa matowa oprawka dla większej wygody i trwałości.',
                        firma=Firma.objects.get(nazwa='Kilauea'),
                        kolor=Kolor.objects.get(nazwa='Polaryzacyjne'),
                        waga=28,
@@ -78,7 +75,7 @@ Produkt.objects.create(nazwa='Kilauea polarised',
                        ).save()
 
 Produkt.objects.create(nazwa='Kilauea mirror',
-                       opis=Opis.objects.get(id=1),
+                       opis='Okulary z poliwęglanu. Sportowy wygląd. Nylonowa matowa oprawka dla większej wygody i trwałości.',
                        firma=Firma.objects.get(nazwa='Kilauea'),
                        kolor=Kolor.objects.get(nazwa='Odblaskowy'),
                        waga=28,
@@ -87,7 +84,7 @@ Produkt.objects.create(nazwa='Kilauea mirror',
                        ).save()
 
 Produkt.objects.create(nazwa='Kilauea clear',
-                       opis=Opis.objects.get(id=1),
+                       opis='Okulary z poliwęglanu. Sportowy wygląd. Nylonowa matowa oprawka dla większej wygody i trwałości.',
                        firma=Firma.objects.get(nazwa='Kilauea'),
                        kolor=Kolor.objects.get(nazwa='Bezbarwny'),
                        waga=28,

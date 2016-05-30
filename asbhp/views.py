@@ -47,22 +47,7 @@ def Dodaj_Produkt(request):
             return redirect('Lista_Produktow')
 
     else:
-        formularz = Formularz_Produktu()
-
-    return render(request, 'dodaj.html', {'formularz': formularz})
-
-
-def Dodaj_Opis(request):
-
-    if request.method == 'POST':
-        formularz = Formularz_Opis(request.POST)
-
-        if formularz.is_valid():
-            formularz.save()
-            return redirect('Lista_Produktow')
-
-    else:
-        formularz = Formularz_Opis()
+        formularz = Formularz_Produktu(auto_id=False)
 
     return render(request, 'dodaj.html', {'formularz': formularz})
 

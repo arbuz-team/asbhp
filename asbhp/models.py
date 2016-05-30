@@ -38,14 +38,6 @@ class Rodzaj_Odziezy(models.Model):
 
 ################## Produkt: Produkty ##################
 
-class Opis(models.Model):
-
-    opis = models.TextField()
-
-    def __str__(self):
-        return self.opis.encode('utf8')
-
-
 class Firma(models.Model):
 
     nazwa = models.CharField(max_length=50)
@@ -93,7 +85,7 @@ class Zawod(models.Model):
 class Produkt(models.Model):
 
     nazwa = models.CharField(max_length=50)
-    opis = models.ForeignKey(Opis)
+    opis = models.TextField()
     firma = models.ForeignKey(Firma)
     kolor = models.ForeignKey(Kolor)
     rozmiar = models.CharField(max_length=20)
