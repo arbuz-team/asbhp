@@ -10,17 +10,19 @@ def Start(request):
 
 def O_Firmie(request):
     css_menu = ['wybrany', '', '']
-    return render(request, 'o_firmie.html', {"css_menu": css_menu})
+    return render(request, 'o_firmie.html', {'css_menu': css_menu})
 
 
 def Oferta(request):
     css_menu = ['', 'wybrany', '']
-    return render(request, 'oferta.html', {"css_menu": css_menu})
+    typ = Typ_Odziezy.objects.all()
+    return render(request, 'oferta.html', {'css_menu': css_menu,
+                                           'typ': typ})
 
 
 def Kontakt(request):
     css_menu = ['', '', 'wybrany']
-    return render(request, 'kontakt.html', {"css_menu": css_menu})
+    return render(request, 'kontakt.html', {'css_menu': css_menu})
 
 
 ################## Opcje ##################
