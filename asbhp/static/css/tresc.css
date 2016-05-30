@@ -55,7 +55,7 @@ body > div > .fragment
 
 
 
-/************************ #TRESC ****************************/
+/**************************** #TRESC ****************************/
 
 
 #TRESC.start > div
@@ -347,3 +347,115 @@ body > div > .fragment
   top: 5px;
   right: 10px;
 }
+
+
+
+
+/**************************** FORMULARZE ****************************/
+
+
+/************ Podstawa ************/
+
+.otoczka_pola
+{
+  min-width: 60%;
+  width: 80%;
+  min-height: 36px;
+  margin: 5px 5px;
+
+  color: #333;
+  font-family: inherit;
+  font-size: 18px;
+
+  box-sizing: border-box;
+  background-color: #fff;
+  border: 1px solid #bbb;
+  outline: none;
+  border-radius: 2px;
+
+  -webkit-box-shadow: 1px 1px 2px 0px rgba(238,238,238,1);
+  -moz-box-shadow: 1px 1px 2px 0px rgba(238,238,238,1);
+  box-shadow: 1px 1px 2px 0px rgba(238,238,238,1);
+}
+
+input[type=text],
+input[type=password],
+input[type=number],
+select,
+button,
+textarea
+{
+  width: 100%;
+  min-height: 34px;
+  padding: 2px 5px;
+
+  color: #333;
+  font-family: inherit;
+  font-size: 18px;
+  border: none;
+  background-color: transparent;
+  outline: none;
+
+  -webkit-box-shadow: inset 1px 2px 3px 0px rgb(248,248,248);
+  -moz-box-shadow: inset 1px 2px 3px 0px rgb(248,248,248);
+  box-shadow: inset 1px 2px 3px 0px rgb(248,248,248);
+}
+
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=number]:focus,
+select:focus,
+button:focus,
+textarea:focus
+{
+  color: #333;
+
+  background-color: transparent;
+  border: none;
+  outline: none;
+
+  -webkit-box-shadow: inset 1px 2px 3px 0px rgb(238,238,238);
+  -moz-box-shadow: inset 1px 2px 3px 0px rgb(238,238,238);
+  box-shadow: inset 1px 2px 3px 0px rgb(238,238,238);
+}
+
+input[type=radio]
+{
+  width: 20px;
+  height: 20px;
+  padding: 2px 5px;
+}
+
+select.Data
+{
+  display: inline-block;
+  min-width: 26.6%;
+  width: 26.6%;
+  margin: 0px;
+}
+
+select.Data:first-child
+{
+  margin-left: 5px;
+}
+
+
+
+/************ Dodatki ************/
+
+#id_opis
+{
+  min-height: 100px;
+  word-wrap: normal;
+}
+
+
+
+#id_opis > option
+{
+  min-height: 100px;
+  word-wrap: normal;
+}
+
+
+

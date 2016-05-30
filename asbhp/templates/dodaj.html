@@ -11,12 +11,16 @@
     <div class="tresc">
       <form method="post">
         {% csrf_token %}
-        
-        {#  'nazwa', 'opis', 'firma', 'kolor',
-            'rozmiar', 'waga', 'sztuk', 'rodzaj',
-            'certyfikaty', 'zagrozenia', 'zawody'
 
-            example: {{ formularz.nazwa }} #}
+        {% for i in formularz %}
+
+          <div class="otoczka_pola">
+
+            {{ i }}
+
+          </div>
+
+        {% endfor %}
 
         <button type="submit">Dodaj</button>
       </form>
