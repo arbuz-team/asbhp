@@ -122,3 +122,5 @@ Zawody_Dla_Produktu.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea cl
 
 ################## Promowanie ##################
 Polecane.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea polarised'), data_zakonczenia=timezone.now()).save()
+Polecane.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea mirror'), data_zakonczenia=timezone.now()).save()
+Polecane.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea clear'), data_zakonczenia=timezone.now()).save()

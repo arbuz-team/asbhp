@@ -5,7 +5,8 @@ from forms import *
 ################## Zakładki ##################
 
 def Start(request):
-    return render(request, 'start.html', {})
+    polecane = Polecane.objects.all()
+    return render(request, 'start.html', {'polecane': polecane})
 
 
 def O_Firmie(request):
@@ -16,8 +17,12 @@ def O_Firmie(request):
 def Oferta(request):
     css_menu = ['', 'wybrany', '']
     typ = Typ_Odziezy.objects.all()
+    dziedzina = Dziedzina_Odziezy.objects.all()
+    rodzaj = Rodzaj_Odziezy.objects.all()
     return render(request, 'oferta.html', {'css_menu': css_menu,
-                                           'typ': typ})
+                                           'typ': typ,
+                                           'dziedzina': dziedzina,
+                                           'rodzaj': rodzaj})
 
 
 def Kontakt(request):
