@@ -32,11 +32,6 @@ def Kontakt(request):
 
 ################## Opcje ##################
 
-def Lista_Produktow(request):
-    produkty = Produkt.objects.all()
-    return render(request, 'lista.html', {'produkty': produkty})
-
-
 def Wyswietl_Produkt(request, pk):
     produkt = Produkt.objects.filter(id=pk).first()
     return render(request, 'produkt.html', {'produkt': produkt})
@@ -50,13 +45,17 @@ def Dodaj_Produkt(request):
         formularz = Formularz_Produktu(request.POST)
 
         if formularz.is_valid():
-            formularz.save()
-            return redirect('Lista_Produktow')
+            produkt = formularz.save()
+            return redirect('Wyswietl_Produkt', produkt.id)
 
     else:
-        formularz = Formularz_Produktu(auto_id=False)
+        formularz = Formularz_Produktu()
 
-    return render(request, 'dodaj.html', {'formularz': formularz})
+    for f in formularz:
+        if f.label not in ['Certyfikaty', 'Zagrozenia', 'Zawody']:
+            f.label = ''
+
+    return render(request, 'dodaj_produkt.html', {'formularz': formularz})
 
 
 def Dodaj_Firma(request):
@@ -66,7 +65,8 @@ def Dodaj_Firma(request):
 
         if formularz.is_valid():
             formularz.save()
-            return redirect('Lista_Produktow')
+            opis = 'Firma została poprawnie dodana.'
+            return render(request, 'potwierdzenie.html', {'opis': opis})
 
     else:
         formularz = Formularz_Firma()
@@ -81,7 +81,8 @@ def Dodaj_Kolor(request):
 
         if formularz.is_valid():
             formularz.save()
-            return redirect('Lista_Produktow')
+            opis = 'Kolor został poprawnie dodany.'
+            return render(request, 'potwierdzenie.html', {'opis': opis})
 
     else:
         formularz = Formularz_Kolor()
@@ -96,7 +97,8 @@ def Dodaj_Certyfikat(request):
 
         if formularz.is_valid():
             formularz.save()
-            return redirect('Lista_Produktow')
+            opis = 'Certyfikat został poprawnie dodany.'
+            return render(request, 'potwierdzenie.html', {'opis': opis})
 
     else:
         formularz = Formularz_Certyfikat()
@@ -111,7 +113,8 @@ def Dodaj_Dodatek(request):
 
         if formularz.is_valid():
             formularz.save()
-            return redirect('Lista_Produktow')
+            opis = 'Dodatek został poprawnie dodany.'
+            return render(request, 'potwierdzenie.html', {'opis': opis})
 
     else:
         formularz = Formularz_Dodatek()
@@ -126,9 +129,62 @@ def Dodaj_Polecane(request):
 
         if formularz.is_valid():
             formularz.save()
-            return redirect('Lista_Produktow')
+            opis = 'Nowy produkt został poprawnie dodany do ' \
+                   'listy produktów polecanych.'
+            return render(request, 'potwierdzenie.html', {'opis': opis})
 
     else:
         formularz = Formularz_Polecane()
 
     return render(request, 'dodaj.html', {'formularz': formularz})
+
+
+################## Usuwanie ##################
+
+def Usun_Produkt(request, pk):
+    Produkt.objects.get(id=pk).delete()
+    return render(request, 'usun.html', {})
+
+
+def Usun_Firma(request, pk):
+    Firma.objects.get(id=pk).delete()
+    return render(request, 'usun.html', {})
+
+
+def Usun_Kolor(request, pk):
+    Kolor.objects.get(id=pk).delete()
+    return render(request, 'usun.html', {})
+
+
+def Usun_Certyfikat(request, pk):
+    Certyfikat.objects.get(id=pk).delete()
+    return render(request, 'usun.html', {})
+
+
+def Usun_Dodatek(request, pk):
+    Dodatek.objects.get(id=pk).delete()
+    return render(request, 'usun.html', {})
+
+
+def Usun_Polecane(request, pk):
+    Polecane.objects.get(id=pk).delete()
+    return render(request, 'usun.html', {})
+
+
+################## Edycja ##################
+
+def Edytuj_Produkt(request, pk):
+    produkt = get_object_or_404(Produkt, id=pk)
+
+    if request.method == 'POST':
+        formularz = Formularz_Produktu(request.POST, instance=produkt)
+
+        if formularz.is_valid():
+            produkt = formularz.save(commit=False)
+            produkt.save()
+            return redirect('Wyswietl_Produkt', pk)
+
+    else:
+        formularz = Formularz_Produktu(instance=produkt)
+
+    return render(request, 'edytuj.html', {'formularz': formularz})

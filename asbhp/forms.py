@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
+from django.forms.extras.widgets import SelectDateWidget
 from django import forms
 from models import *
 
 class Formularz_Produktu(forms.ModelForm):
 
-    def __init__(self, auto_id):
-        super(Formularz_Produktu, self).__init__(auto_id)
+    def __init__(self, *args, **kwargs):
+        super(Formularz_Produktu, self).__init__(*args, **kwargs)
 
         self.fields['firma'].empty_label = 'Wybierz firmę...'
         self.fields['kolor'].empty_label = 'Wybierz kolor...'
@@ -63,19 +64,8 @@ class Formularz_Dodatek(forms.ModelForm):
 
 class Formularz_Polecane(forms.ModelForm):
 
+    data_zakonczenia = forms.DateField(widget=SelectDateWidget)
+
     class Meta:
         model = Polecane
         fields = ('produkt', 'data_zakonczenia')
-
-
-#class Formularz_Zakladki(forms.ModelForm):
-#
-#    class Meta:
-#        model = Zakladka
-#        fields = ('nazwa', 'zawartosc')
-#
-##        widgets = {
-##            'nazwa': forms.TextInput(attrs={'class' : 'papapa'}),
-##        }
-#
-
