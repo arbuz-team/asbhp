@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render, redirect, get_object_or_404
+from django.db.models import Q
+import operator
 from forms import *
 
 ################## Zakładki ##################
@@ -35,6 +37,54 @@ def Kontakt(request):
 def Wyswietl_Produkt(request, pk):
     produkt = Produkt.objects.filter(id=pk).first()
     return render(request, 'produkt.html', {'produkt': produkt})
+
+
+def Wyswietl_Polecane(request):
+    polecane = Polecane.objects.all()
+    return render(request, 'polecane.html', {'polecane': polecane})
+
+
+def Wyszukaj(request):
+
+    if request.method == 'POST':
+        wyszukiwarka = Formularz_Wyszukiwarki(request.POST)
+        wynik = []
+
+        if wyszukiwarka.is_valid():
+            zapytanie = wyszukiwarka.cleaned_data['zapytanie'].split(' ')
+            wynik_sql = Produkt.objects.filter(
+                reduce(operator.or_, (Q(nazwa__icontains=s) for s in zapytanie))        |
+                reduce(operator.or_, (Q(opis__icontains=s) for s in zapytanie))         |
+                reduce(operator.or_, (Q(firma__nazwa__icontains=s) for s in zapytanie)) |
+                reduce(operator.or_, (Q(kolor__nazwa__icontains=s) for s in zapytanie)) |
+                reduce(operator.or_, (Q(rodzaj__nazwa__icontains=s) for s in zapytanie))
+            )
+
+                # p - pojedynczy produkt
+            wynik_str = [(p.id, (p.nazwa + p.opis + p.firma.nazwa +
+                                 p.kolor.nazwa + p.rodzaj.nazwa).lower())
+                         for p in wynik_sql]
+
+                # tworzę listę krotek określających pozycje produktów
+            pozycja = []
+            for produkt in wynik_str:
+                trafienia = 0
+                for slowo in zapytanie:
+                    trafienia += produkt[1].count(slowo.lower())
+                pozycja.append((trafienia, produkt[0])) # (trafienia, id)
+
+            pozycja.sort(reverse=True)
+
+                # tworzę posortowaną listę produktów
+            for produkt in pozycja:
+                wynik.append(wynik_sql[produkt[1] - 1]) # id=[1..]
+
+    else:
+        wyszukiwarka = Formularz_Wyszukiwarki()
+        wynik = []
+
+    return render(request, 'wyszukaj.html', {'wyszukiwarka': wyszukiwarka,
+                                             'wynik': wynik})
 
 
 ################## Dodawanie ##################

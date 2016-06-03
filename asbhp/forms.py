@@ -3,6 +3,19 @@ from django.forms.extras.widgets import SelectDateWidget
 from django import forms
 from models import *
 
+class Formularz_Wyszukiwarki(forms.Form):
+
+    zapytanie = forms.CharField(label='')
+
+    def clean_zapytanie(self):
+        zapytanie = self.cleaned_data['zapytanie']
+        if len(zapytanie) < 3:
+            raise forms.ValidationError('Wyszukiwana fraza musi '
+                                        'zawierać minimum 3 znaki.')
+
+        return zapytanie
+
+
 class Formularz_Produktu(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):

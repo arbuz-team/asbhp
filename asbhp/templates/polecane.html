@@ -1,0 +1,19 @@
+{% extends 'szablon.html' %}
+
+{% block content %}
+
+  <div class="BLOK1">
+
+    <div class="tlo"></div>
+
+    <div class="tytul">Promowane produkty:</div>
+
+    <div class="tresc">
+      {% for p in polecane %}
+        {{ p }} <br/>
+      {% endfor %}
+    </div>
+
+  </div>
+
+{% endblock content %}
