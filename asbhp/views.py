@@ -61,9 +61,9 @@ def Wyszukaj(request):
             )
 
                 # p - pojedynczy produkt
-            wynik_str = [(p.id, (p.nazwa + p.opis + p.firma.nazwa +
+            wynik_str = [(index, (p.nazwa + p.opis + p.firma.nazwa +
                                  p.kolor.nazwa + p.rodzaj.nazwa).lower())
-                         for p in wynik_sql]
+                         for index, p in enumerate(wynik_sql)]
 
                 # tworzę listę krotek określających pozycje produktów
             pozycja = []
@@ -77,7 +77,7 @@ def Wyszukaj(request):
 
                 # tworzę posortowaną listę produktów
             for produkt in pozycja:
-                wynik.append(wynik_sql[produkt[1] - 1]) # id=[1..]
+                wynik.append(wynik_sql[produkt[1]]) # produkt[1], to index
 
     else:
         wyszukiwarka = Formularz_Wyszukiwarki()
