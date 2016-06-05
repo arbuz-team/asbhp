@@ -1,19 +1,17 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render, redirect, get_object_or_404
-from django.db.models import Q
-import operator
 from forms import *
 
 ################## Zakładki ##################
 
 def Start(request):
     polecane = Polecane.objects.all()
-    return render(request, 'start.html', {'polecane': polecane})
+    return render(request, 'asbhp/start.html', {'polecane': polecane})
 
 
 def O_Firmie(request):
     css_menu = ['wybrany', '', '']
-    return render(request, 'o_firmie.html', {'css_menu': css_menu})
+    return render(request, 'asbhp/o_firmie.html', {'css_menu': css_menu})
 
 
 def Oferta(request):
@@ -21,70 +19,27 @@ def Oferta(request):
     typ = Typ_Odziezy.objects.all()
     dziedzina = Dziedzina_Odziezy.objects.all()
     rodzaj = Rodzaj_Odziezy.objects.all()
-    return render(request, 'oferta.html', {'css_menu': css_menu,
-                                           'typ': typ,
-                                           'dziedzina': dziedzina,
-                                           'rodzaj': rodzaj})
+    return render(request, 'asbhp/oferta.html', {'css_menu': css_menu,
+                                                 'typ': typ,
+                                                 'dziedzina': dziedzina,
+                                                 'rodzaj': rodzaj})
 
 
 def Kontakt(request):
     css_menu = ['', '', 'wybrany']
-    return render(request, 'kontakt.html', {'css_menu': css_menu})
+    return render(request, 'asbhp/kontakt.html', {'css_menu': css_menu})
 
 
 ################## Opcje ##################
 
 def Wyswietl_Produkt(request, pk):
     produkt = Produkt.objects.filter(id=pk).first()
-    return render(request, 'produkt.html', {'produkt': produkt})
+    return render(request, 'asbhp/produkt.html', {'produkt': produkt})
 
 
 def Wyswietl_Polecane(request):
     polecane = Polecane.objects.all()
-    return render(request, 'polecane.html', {'polecane': polecane})
-
-
-def Wyszukaj(request):
-
-    if request.method == 'POST':
-        wyszukiwarka = Formularz_Wyszukiwarki(request.POST)
-        wynik = []
-
-        if wyszukiwarka.is_valid():
-            zapytanie = wyszukiwarka.cleaned_data['zapytanie'].split(' ')
-            wynik_sql = Produkt.objects.filter(
-                reduce(operator.or_, (Q(nazwa__icontains=s) for s in zapytanie))        |
-                reduce(operator.or_, (Q(opis__icontains=s) for s in zapytanie))         |
-                reduce(operator.or_, (Q(firma__nazwa__icontains=s) for s in zapytanie)) |
-                reduce(operator.or_, (Q(kolor__nazwa__icontains=s) for s in zapytanie)) |
-                reduce(operator.or_, (Q(rodzaj__nazwa__icontains=s) for s in zapytanie))
-            )
-
-                # p - pojedynczy produkt
-            wynik_str = [(index, (p.nazwa + p.opis + p.firma.nazwa +
-                                 p.kolor.nazwa + p.rodzaj.nazwa).lower())
-                         for index, p in enumerate(wynik_sql)]
-
-                # tworzę listę krotek określających pozycje produktów
-            pozycja = []
-            for produkt in wynik_str:
-                trafienia = 0
-                for slowo in zapytanie:
-                    trafienia += produkt[1].count(slowo.lower())
-                pozycja.append((trafienia, produkt[0])) # (trafienia, id)
-
-            pozycja.sort(reverse=True)
-
-                # tworzę posortowaną listę produktów
-            for produkt in pozycja:
-                wynik.append(wynik_sql[produkt[1]]) # produkt[1], to index
-
-    else:
-        wyszukiwarka = Formularz_Wyszukiwarki()
-        wynik = []
-
-    return render(request, 'wyszukaj.html', {'wyszukiwarka': wyszukiwarka,
-                                             'wynik': wynik})
+    return render(request, 'asbhp/polecane.html', {'polecane': polecane})
 
 
 ################## Dodawanie ##################
@@ -105,7 +60,7 @@ def Dodaj_Produkt(request):
         if f.label not in ['Certyfikaty', 'Zagrozenia', 'Zawody']:
             f.label = ''
 
-    return render(request, 'dodaj_produkt.html', {'formularz': formularz})
+    return render(request, 'asbhp/dodaj_produkt.html', {'formularz': formularz})
 
 
 def Dodaj_Firma(request):
@@ -116,12 +71,12 @@ def Dodaj_Firma(request):
         if formularz.is_valid():
             formularz.save()
             opis = 'Firma została poprawnie dodana.'
-            return render(request, 'potwierdzenie.html', {'opis': opis})
+            return render(request, 'asbhp/potwierdzenie.html', {'opis': opis})
 
     else:
         formularz = Formularz_Firma()
 
-    return render(request, 'dodaj.html', {'formularz': formularz})
+    return render(request, 'asbhp/dodaj.html', {'formularz': formularz})
 
 
 def Dodaj_Kolor(request):
@@ -132,12 +87,12 @@ def Dodaj_Kolor(request):
         if formularz.is_valid():
             formularz.save()
             opis = 'Kolor został poprawnie dodany.'
-            return render(request, 'potwierdzenie.html', {'opis': opis})
+            return render(request, 'asbhp/potwierdzenie.html', {'opis': opis})
 
     else:
         formularz = Formularz_Kolor()
 
-    return render(request, 'dodaj.html', {'formularz': formularz})
+    return render(request, 'asbhp/dodaj.html', {'formularz': formularz})
 
 
 def Dodaj_Certyfikat(request):
@@ -148,12 +103,12 @@ def Dodaj_Certyfikat(request):
         if formularz.is_valid():
             formularz.save()
             opis = 'Certyfikat został poprawnie dodany.'
-            return render(request, 'potwierdzenie.html', {'opis': opis})
+            return render(request, 'asbhp/potwierdzenie.html', {'opis': opis})
 
     else:
         formularz = Formularz_Certyfikat()
 
-    return render(request, 'dodaj.html', {'formularz': formularz})
+    return render(request, 'asbhp/dodaj.html', {'formularz': formularz})
 
 
 def Dodaj_Dodatek(request):
@@ -164,12 +119,12 @@ def Dodaj_Dodatek(request):
         if formularz.is_valid():
             formularz.save()
             opis = 'Dodatek został poprawnie dodany.'
-            return render(request, 'potwierdzenie.html', {'opis': opis})
+            return render(request, 'asbhp/potwierdzenie.html', {'opis': opis})
 
     else:
         formularz = Formularz_Dodatek()
 
-    return render(request, 'dodaj.html', {'formularz': formularz})
+    return render(request, 'asbhp/dodaj.html', {'formularz': formularz})
 
 
 def Dodaj_Polecane(request):
@@ -181,44 +136,44 @@ def Dodaj_Polecane(request):
             formularz.save()
             opis = 'Nowy produkt został poprawnie dodany do ' \
                    'listy produktów polecanych.'
-            return render(request, 'potwierdzenie.html', {'opis': opis})
+            return render(request, 'asbhp/potwierdzenie.html', {'opis': opis})
 
     else:
         formularz = Formularz_Polecane()
 
-    return render(request, 'dodaj.html', {'formularz': formularz})
+    return render(request, 'asbhp/dodaj.html', {'formularz': formularz})
 
 
 ################## Usuwanie ##################
 
 def Usun_Produkt(request, pk):
     Produkt.objects.get(id=pk).delete()
-    return render(request, 'usun.html', {})
+    return render(request, 'asbhp/usun.html', {})
 
 
 def Usun_Firma(request, pk):
     Firma.objects.get(id=pk).delete()
-    return render(request, 'usun.html', {})
+    return render(request, 'asbhp/usun.html', {})
 
 
 def Usun_Kolor(request, pk):
     Kolor.objects.get(id=pk).delete()
-    return render(request, 'usun.html', {})
+    return render(request, 'asbhp/usun.html', {})
 
 
 def Usun_Certyfikat(request, pk):
     Certyfikat.objects.get(id=pk).delete()
-    return render(request, 'usun.html', {})
+    return render(request, 'asbhp/usun.html', {})
 
 
 def Usun_Dodatek(request, pk):
     Dodatek.objects.get(id=pk).delete()
-    return render(request, 'usun.html', {})
+    return render(request, 'asbhp/usun.html', {})
 
 
 def Usun_Polecane(request, pk):
     Polecane.objects.get(id=pk).delete()
-    return render(request, 'usun.html', {})
+    return render(request, 'asbhp/usun.html', {})
 
 
 ################## Edycja ##################
@@ -237,4 +192,4 @@ def Edytuj_Produkt(request, pk):
     else:
         formularz = Formularz_Produktu(instance=produkt)
 
-    return render(request, 'edytuj.html', {'formularz': formularz})
+    return render(request, 'asbhp/edytuj.html', {'formularz': formularz})

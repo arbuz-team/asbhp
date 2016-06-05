@@ -44,5 +44,5 @@ def Wyszukaj(request):
         wyszukiwarka = Formularz_Wyszukiwarki()
         wynik = []
 
-    return render(request, 'wyszukaj.html', {'wyszukiwarka': wyszukiwarka,
-                                             'wynik': wynik})
+    return render(request, 'wyszukiwarka/wyszukaj.html', {'wyszukiwarka': wyszukiwarka,
+                                                          'wynik': wynik})
