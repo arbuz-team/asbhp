@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from asbhp.models import *
+from produkt.models import *
 from django.utils import timezone
 
 ################## Firma ##################

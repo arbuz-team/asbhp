@@ -1,6 +1,10 @@
-{% extends 'szablon.html' %}
 
-{% block content %}
+{% include "szablon_wstep.html" %}
+
+{% include "naglowek.html" %}
+
+
+<div id="TRESC" class="fragment standardowa">
 
   <div class="BLOK1">
 
@@ -14,10 +18,10 @@
 
         {% for i in formularz %}
 
+          {{ i.label_tag }}
+
           <div class="otoczka_pola">
-
             {{ i }}
-
           </div>
 
         {% endfor %}
@@ -28,4 +32,10 @@
 
   </div>
 
-{% endblock content %}
+</div>
+
+
+{% include "stopka.html" %}
+
+{% include "szablon_zakonczenie.html" %}
+

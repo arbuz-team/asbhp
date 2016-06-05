@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'asbhp',
     'wyszukiwarka',
+    'produkt',
 ]
 
 MIDDLEWARE_CLASSES = [

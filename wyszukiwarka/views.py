@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.db.models import Q
 import operator
 from forms import *
-from asbhp.models import *
+from produkt.models import *
 
 def Wyszukaj(request):
 
