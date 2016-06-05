@@ -9,7 +9,6 @@ urlpatterns = [
 
     url(r'^produkt/(?P<pk>\d)/$', views.Wyswietl_Produkt, name='Wyswietl_Produkt'),
     url(r'^polecane/$', views.Wyswietl_Polecane, name='Wyswietl_Polecane'),
-    url(r'^wyszukaj/$', views.Wyszukaj, name='Wyszukaj'),
 
     url(r'^dodaj/produkt/$', views.Dodaj_Produkt, name='Dodaj_Produkt'),
     url(r'^dodaj/firma/$', views.Dodaj_Firma, name='Dodaj_Firma'),
