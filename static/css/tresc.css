@@ -358,10 +358,10 @@ body > div > .fragment
 
 .otoczka_pola
 {
-  min-width: 60%;
-  width: 80%;
+  min-width: 400px;
+  width: 600px;
   min-height: 36px;
-  margin: 5px 5px;
+  margin: 5px auto;
 
   color: #333;
   font-family: inherit;

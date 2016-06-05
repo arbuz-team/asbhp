@@ -1,6 +1,10 @@
-{% extends 'szablon.html' %}
 
-{% block content %}
+{% include "szablon_wstep.html" %}
+
+{% include "naglowek.html" %}
+
+
+<div id="TRESC" class="fragment standardowa">
 
   <div class="BLOK1">
 
@@ -8,7 +12,13 @@
 
     <div class="tytul">
       <form method="POST" class="post-form">{% csrf_token %}
-        {{ wyszukiwarka.as_p }}
+
+          <div class="otoczka_pola">
+
+          {{ wyszukiwarka.zapytanie }}
+
+          </div>
+
         <button type="submit" class="save btn btn-default">Wyszukaj</button>
       </form>
     </div>
@@ -22,4 +32,10 @@
 
   </div>
 
-{% endblock content %}
+</div>
+
+
+{% include "stopka.html" %}
+
+{% include "szablon_zakonczenie.html" %}
+
