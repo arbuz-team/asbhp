@@ -11,4 +11,7 @@ urlpatterns = [
     url(r'^edytuj/kontakt/$', views.Edytuj_Kontakt, name='Edytuj_Kontakt'),
     url(r'^edytuj/kontakt/(?P<pk>\d)/$', views.Edytuj_Kontakt_Zapisz, name='Edytuj_Kontakt_Zapisz'),
 
+    url(r'^edytuj/o_firmie/$', views.Edytuj_O_Firmie, name='Edytuj_O_Firmie'),
+    url(r'^edytuj/o_firmie/(?P<pk>\d)/$', views.Edytuj_O_Firmie_Zapisz, name='Edytuj_O_Firmie_Zapisz'),
+
 ]

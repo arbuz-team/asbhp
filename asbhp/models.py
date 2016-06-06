@@ -10,25 +10,7 @@ class CSS(models.Model):
         return self.klasa.encode('utf8')
 
 
-class Start(models.Model):
-
-    zawartosc = models.TextField()
-    css = models.ForeignKey(CSS, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.zawartosc.encode('utf8')
-
-
 class O_Firmie(models.Model):
-
-    zawartosc = models.TextField()
-    css = models.ForeignKey(CSS, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.zawartosc.encode('utf8')
-
-
-class Oferta(models.Model):
 
     zawartosc = models.TextField()
     css = models.ForeignKey(CSS, on_delete=models.CASCADE)
