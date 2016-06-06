@@ -3,9 +3,11 @@ from . import views
 
 urlpatterns = [
 
-    url(r'^$', views.Start, name='Start'),
-    url(r'^o_firmie/$', views.O_Firmie, name='O_Firmie'),
-    url(r'^oferta/$', views.Oferta, name='Oferta'),
-    url(r'^kontakt/$', views.Kontakt, name='Kontakt'),
+    url(r'^$', views.Wyswietl_Start, name='Wyswietl_Start'),
+    url(r'^o_firmie/$', views.Wyswietl_O_Firmie, name='Wyswietl_O_Firmie'),
+    url(r'^oferta/$', views.Wyswietl_Oferta, name='Wyswietl_Oferta'),
+    url(r'^kontakt/$', views.Wyswietl_Kontakt, name='Wyswietl_Kontakt'),
+
+    url(r'^edytuj/kontakt/$', views.Edytuj_Kontakt, name='Edytuj_Kontakt'),
 
 ]

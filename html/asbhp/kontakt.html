@@ -11,16 +11,15 @@
     <div class="tlo"></div>
 
     <div class="tresc">
-      F.H. "AS BHP"<br />
-      <br />
-      ul. Hutnicza 34<br />
-      81-061 Gdynia<br />
-      tel./fax (058) 667-30-05<br />
-      NIP: 584-118-58-16<br />
-      e-mail: asbhp@asbhp.pl<br />
-      <br />
-      <br />
-      (załączona mapa z google)
+
+      {% for k in kontakt %}
+
+        <div class="{{ k.css.klasa }}">
+          {{ k.zawartosc|linebreaksbr }}
+        </div>
+
+      {% endfor %}
+
     </div>
 
   </div>
