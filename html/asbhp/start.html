@@ -31,7 +31,7 @@
 
         {% for p in polecane %}
 
-        <li class="link" data-href="" data-domena="ta">
+        <li class="link" data-href="/produkt/{{ p.produkt.id }}/" data-domena="ta">
         
           <div class="nazwa">{{ p.produkt.nazwa }}</div>
         
@@ -39,13 +39,21 @@
 
           <div class="opis">{{ p.produkt.opis }}</div>
 
-          {% for zawod in p.produkt.zawody.all %}
-          <div class="przeznaczenie">{{ zawod.id }}</div>
-          {% endfor %}
+          <div class="przeznaczenie">
+          
+            {% for zawod in p.produkt.zawody.all %}
+              <div style="background-image: url({{ zawod.id }})"></div>
+            {% endfor %}
+          
+          </div>
 
-          {% for zagrozenie in p.produkt.zagrozenia.all %}
-          <div class="zagrozenia">{{ zagrozenie.id }}</div>
-          {% endfor %}
+          <div class="zagrozenia">
+          
+            {% for zagrozenie in p.produkt.zagrozenia.all %}
+              <div style="background-image: url({{ zagrozenie.id }})"></div>
+            {% endfor %}
+          
+          </div>
         
         </li>
 

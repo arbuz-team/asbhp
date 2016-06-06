@@ -2,9 +2,53 @@
 
 
 
-var ruch = (function()
+/*********************** POBIERANIE DANYCH ***********************/
+
+
+var pobierz = (function()
 {
 
+  function _zmienne_wysokosc()
+  {
+
+    var obiekt = 
+    {
+      strona : $(window).height(),
+      naglowek : $('#NAGLOWEK').outerHeight(),
+      stopka : $('#STOPKA').outerHeight(),
+
+      padding : parseInt( $('#TRESC').css('padding-top') )
+        + parseInt( $('#TRESC').css('padding-bottom') ),
+      margin : parseInt( $('#TRESC').css('margin-top') )
+        + parseInt( $('#TRESC').css('margin-bottom') )
+    }
+
+    return obiekt;
+
+  }
+
+
+
+  var udostepnione = 
+  {
+
+    zmienne_wysokosc : _zmienne_wysokosc
+
+  }
+
+  return udostepnione;
+
+})();
+
+
+
+
+/*********************** RUCH ***********************/
+
+
+
+var ruch = (function()
+{
 
 
   function _przekieruj_do(domena, adres)
@@ -12,8 +56,25 @@ var ruch = (function()
 
     if( domena == 'inna' )
       window.location.href = adres;
+
     else if( domena == 'ta' )
-      window.location.href = DOMENA + adres;
+    {
+      var url = DOMENA + adres;
+
+      $.ajax({
+        type: 'HEAD',
+        url: url,
+
+        success: function() {
+          window.location.href = url;
+        },
+
+        error: function() {
+          window.location.href = DOMENA + '/404/';
+        }
+
+      });
+    }
 
   }
 
@@ -45,7 +106,9 @@ var ruch = (function()
 })();
 
 
-/************************************************/
+
+
+/*********************** DOSTOSUJ ***********************/
 
 
 var dostosuj = (function()
@@ -55,19 +118,11 @@ var dostosuj = (function()
   var _wysokosc_strony = function()
   {
 
-    var wysokosc = $(window).height();    // Wysokość okna
-    var wysokosc_n = $('#NAGLOWEK').outerHeight();  // Wysokość nagłówka
-    var wysokosc_s = $('#STOPKA').outerHeight();  // Wysokość stopki
+    var wysokosc = pobierz.zmienne_wysokosc();
 
-    // Suma marginesów i paddingów top i bottom
-    var margin_padding = /*parseInt( $('#TRESC').css('padding-top') )
-        + parseInt( $('#TRESC').css('padding-bottom') )
-        +*/ parseInt( $('#TRESC').css('margin-top') )
-        + parseInt( $('#TRESC').css('margin-bottom') );
+    $('#TRESC').css( 'min-height', (wysokosc.strona - wysokosc.naglowek - wysokosc.stopka - wysokosc.margin) );
 
-    $('#TRESC').css( 'min-height', (wysokosc - wysokosc_n - wysokosc_s - margin_padding) );
-
-    $('#TRESC > .BLOK1').css( 'min-height', (wysokosc - wysokosc_n - margin_padding) );
+    $('#TRESC > .BLOK1').css( 'min-height', (wysokosc.strona - wysokosc.naglowek - wysokosc.margin) );
 
   };
 
@@ -101,6 +156,26 @@ var dostosuj = (function()
 
     wysokosc_strony : _wysokosc_strony,
     strone_do_scrollbara : _strone_do_scrollbara
+
+  }
+
+  return udostepnione;
+
+})();
+
+
+
+
+/*********************** DOSTOSUJ ***********************/
+
+
+var inna = (function()
+{
+
+
+  var udostepnione = 
+  {
+
 
   }
 

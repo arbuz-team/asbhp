@@ -59,3 +59,24 @@ jQuery(document).ready(function ($) {
 
 }); 
 
+
+
+/************************* XMLHttpRequest dla IE *************************/
+
+if (typeof XMLHttpRequest == "undefined")
+{
+  XMLHttpRequest = function() {
+
+    //IE wykorzystuje biblioteki ActiveX do tworzenia obiektu XMLHttpRequest
+    return new ActiveXObject(
+
+      //IE5 używa innego obektu XMLHTTP niż IE6 i wyższe
+      navigator.userAgent.indexOf("MSIE 5") >=0 ? "Microsoft.XMLHTTP" : "Msxml2.XMLHTTP"
+
+    );
+  }
+}
+
+/********** Stworzenie obiektu XMLHttpRequest **********/
+var xml = new XMLHttpRequest();
+
