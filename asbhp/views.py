@@ -41,7 +41,10 @@ def Wyswietl_Oferta(request, typ_url=None,
                                                  'produkt': produkt,
                                                  'typ': typ,
                                                  'dziedzina': dziedzina,
-                                                 'rodzaj': rodzaj})
+                                                 'rodzaj': rodzaj,
+                                                 'typ_url': typ_url,
+                                                 'dziedzina_url': dziedzina_url,
+                                                 'rodzaj_url': rodzaj_url})
 
 
 def Wyswietl_Kontakt(request):
