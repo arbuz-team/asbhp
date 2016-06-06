@@ -43,26 +43,26 @@ Zawod.objects.create(nazwa='Górnictwo').save()
 Zawod.objects.create(nazwa='Energia wiatrowa').save()
 
 ################## Ochrona głowy: Kontenery ##################
-Typ_Odziezy.objects.create(nazwa='Ochrona głowy').save()
+Typ_Odziezy.objects.create(nazwa='Ochrona głowy', url='ochrona_głowy').save()
 
-Dziedzina_Odziezy.objects.create(nazwa='Ochrona wzroku', typ=Typ_Odziezy.objects.get(nazwa='Ochrona głowy')).save()
-Dziedzina_Odziezy.objects.create(nazwa='Ochrona czaszki', typ=Typ_Odziezy.objects.get(nazwa='Ochrona głowy')).save()
-Dziedzina_Odziezy.objects.create(nazwa='Ochrona słuchu', typ=Typ_Odziezy.objects.get(nazwa='Ochrona głowy')).save()
-Dziedzina_Odziezy.objects.create(nazwa='Ochrona dróg oddechowych', typ=Typ_Odziezy.objects.get(nazwa='Ochrona głowy')).save()
+Dziedzina_Odziezy.objects.create(nazwa='Ochrona wzroku', url='ochrona_wzroku', typ=Typ_Odziezy.objects.get(nazwa='Ochrona głowy')).save()
+Dziedzina_Odziezy.objects.create(nazwa='Ochrona czaszki', url='ochrona_czaszki', typ=Typ_Odziezy.objects.get(nazwa='Ochrona głowy')).save()
+Dziedzina_Odziezy.objects.create(nazwa='Ochrona słuchu', url='ochrona_słuchu', typ=Typ_Odziezy.objects.get(nazwa='Ochrona głowy')).save()
+Dziedzina_Odziezy.objects.create(nazwa='Ochrona dróg oddechowych', url='ochrona_dróg_oddechowych', typ=Typ_Odziezy.objects.get(nazwa='Ochrona głowy')).save()
 
-Rodzaj_Odziezy.objects.create(nazwa='Okulary ochronne', dziedzina=Dziedzina_Odziezy.objects.get(nazwa='Ochrona wzroku')).save()
-Rodzaj_Odziezy.objects.create(nazwa='Gogle ochronne', dziedzina=Dziedzina_Odziezy.objects.get(nazwa='Ochrona wzroku')).save()
-Rodzaj_Odziezy.objects.create(nazwa='Przyłbice spawalnicze', dziedzina=Dziedzina_Odziezy.objects.get(nazwa='Ochrona wzroku')).save()
-Rodzaj_Odziezy.objects.create(nazwa='Osłony ochronne', dziedzina=Dziedzina_Odziezy.objects.get(nazwa='Ochrona wzroku')).save()
+Rodzaj_Odziezy.objects.create(nazwa='Okulary ochronne', url='okulary_ochronne', dziedzina=Dziedzina_Odziezy.objects.get(nazwa='Ochrona wzroku')).save()
+Rodzaj_Odziezy.objects.create(nazwa='Gogle ochronne', url='gogle_ochronne', dziedzina=Dziedzina_Odziezy.objects.get(nazwa='Ochrona wzroku')).save()
+Rodzaj_Odziezy.objects.create(nazwa='Przyłbice spawalnicze', url='przyłbice_spawalnicze', dziedzina=Dziedzina_Odziezy.objects.get(nazwa='Ochrona wzroku')).save()
+Rodzaj_Odziezy.objects.create(nazwa='Osłony ochronne', url='osłony_ochronne', dziedzina=Dziedzina_Odziezy.objects.get(nazwa='Ochrona wzroku')).save()
 
-Rodzaj_Odziezy.objects.create(nazwa='Hełmy ochronne', dziedzina=Dziedzina_Odziezy.objects.get(nazwa='Ochrona czaszki')).save()
-Rodzaj_Odziezy.objects.create(nazwa='Hełmy lekkie', dziedzina=Dziedzina_Odziezy.objects.get(nazwa='Ochrona czaszki')).save()
+Rodzaj_Odziezy.objects.create(nazwa='Hełmy ochronne', url='hełmy_ochronne', dziedzina=Dziedzina_Odziezy.objects.get(nazwa='Ochrona czaszki')).save()
+Rodzaj_Odziezy.objects.create(nazwa='Hełmy lekkie', url='hełmy_lekkie', dziedzina=Dziedzina_Odziezy.objects.get(nazwa='Ochrona czaszki')).save()
 
-Rodzaj_Odziezy.objects.create(nazwa='Nauszniki przeciwhałasowe', dziedzina=Dziedzina_Odziezy.objects.get(nazwa='Ochrona słuchu')).save()
-Rodzaj_Odziezy.objects.create(nazwa='Wkładki przeciwhałasowe', dziedzina=Dziedzina_Odziezy.objects.get(nazwa='Ochrona słuchu')).save()
+Rodzaj_Odziezy.objects.create(nazwa='Nauszniki przeciwhałasowe', url='nauszniki_przeciwhałasowe', dziedzina=Dziedzina_Odziezy.objects.get(nazwa='Ochrona słuchu')).save()
+Rodzaj_Odziezy.objects.create(nazwa='Wkładki przeciwhałasowe', url='wkładki_przeciwhałasowe', dziedzina=Dziedzina_Odziezy.objects.get(nazwa='Ochrona słuchu')).save()
 
-Rodzaj_Odziezy.objects.create(nazwa='Maski jednorazowe', dziedzina=Dziedzina_Odziezy.objects.get(nazwa='Ochrona dróg oddechowych')).save()
-Rodzaj_Odziezy.objects.create(nazwa='Maski wielokrotnego użytku', dziedzina=Dziedzina_Odziezy.objects.get(nazwa='Ochrona dróg oddechowych')).save()
+Rodzaj_Odziezy.objects.create(nazwa='Maski jednorazowe', url='maski_jednorazowe', dziedzina=Dziedzina_Odziezy.objects.get(nazwa='Ochrona dróg oddechowych')).save()
+Rodzaj_Odziezy.objects.create(nazwa='Maski wielokrotnego użytku', url='maski_wielokrotnego_użytku', dziedzina=Dziedzina_Odziezy.objects.get(nazwa='Ochrona dróg oddechowych')).save()
 
 ################## Ochrona głowy: Produkty ##################
 Produkt.objects.create(nazwa='Kilauea polarised',

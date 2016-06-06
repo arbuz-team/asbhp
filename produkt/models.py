@@ -7,6 +7,7 @@ from django.db import models
 class Typ_Odziezy(models.Model):
 
     nazwa = models.CharField(max_length=100)
+    url = models.CharField(max_length=100)
 
     def __str__(self):
         return self.nazwa.encode('utf8')
@@ -15,6 +16,7 @@ class Typ_Odziezy(models.Model):
 class Dziedzina_Odziezy(models.Model):
 
     nazwa = models.CharField(max_length=100)
+    url = models.CharField(max_length=100)
     typ = models.ForeignKey(Typ_Odziezy, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -24,6 +26,7 @@ class Dziedzina_Odziezy(models.Model):
 class Rodzaj_Odziezy(models.Model):
 
     nazwa = models.CharField(max_length=100)
+    url = models.CharField(max_length=100)
     dziedzina = models.ForeignKey(Dziedzina_Odziezy, on_delete=models.CASCADE)
 
     def __str__(self):

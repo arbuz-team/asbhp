@@ -17,12 +17,28 @@ def Wyswietl_O_Firmie(request):
                                                    'o_firmie': o_firmie})
 
 
-def Wyswietl_Oferta(request):
+def Wyswietl_Oferta(request, typ_url=None,
+                    dziedzina_url=None, rodzaj_url=None):
+
     css_menu = ['', 'wybrany', '']
+    produkt = Produkt.objects.all()
     typ = Typ_Odziezy.objects.all()
-    dziedzina = Dziedzina_Odziezy.objects.all()
-    rodzaj = Rodzaj_Odziezy.objects.all()
+    dziedzina = []
+    rodzaj = []
+
+    if typ_url:
+        dziedzina = Dziedzina_Odziezy.objects.filter(typ=typ_url)
+        produkt = produkt.filter(rodzaj__dziedzina__typ__url=typ_url)
+
+    if dziedzina_url:
+        rodzaj = Rodzaj_Odziezy.objects.filter(dziedzina= dziedzina_url)
+        produkt = produkt.filter(rodzaj__dziedzina__url=dziedzina_url)
+
+    if rodzaj_url:
+        produkt = produkt.filter(rodzaj__url=rodzaj_url)
+
     return render(request, 'asbhp/oferta.html', {'css_menu': css_menu,
+                                                 'produkt': produkt,
                                                  'typ': typ,
                                                  'dziedzina': dziedzina,
                                                  'rodzaj': rodzaj})
