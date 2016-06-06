@@ -16,7 +16,7 @@
 
       {% for formularz in lista_formularzy %}
 
-        <form method="post">
+        <form method="post" action="/edytuj/kontakt/{{ forloop.counter }}/">
           {% csrf_token %}
 
           {% for i in formularz %}

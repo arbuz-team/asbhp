@@ -36,16 +36,20 @@ def Edytuj_Kontakt(request):
     kontakt = Kontakt.objects.all()
     lista_formularzy = []
 
+    for k in kontakt:
+        lista_formularzy.append(Formularz_Kontakt(instance=k))
+
+    return render(request, 'asbhp/edytuj_kontakt.html', {'lista_formularzy': lista_formularzy})
+
+
+def Edytuj_Kontakt_Zapisz(request, pk):
+
     if request.method == 'POST':
-        formularz = Formularz_Kontakt(request.POST, instance=k)
+        kontakt = Kontakt.objects.get(id=pk)
+        formularz = Formularz_Kontakt(request.POST, instance=kontakt)
 
         if formularz.is_valid():
             formularz.save()
+            return redirect('Wyswietl_Kontakt')
 
-        return redirect('Wyswietl_Kontakt')
-
-    else:
-        for k in kontakt:
-            lista_formularzy.append(Formularz_Kontakt(instance=k))
-
-    return render(request, 'asbhp/edytuj_kontakt.html', {'lista_formularzy': lista_formularzy})
+    return redirect('Edytuj_Kontakt')
