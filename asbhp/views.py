@@ -27,11 +27,11 @@ def Wyswietl_Oferta(request, typ_url=None,
     rodzaj = []
 
     if typ_url:
-        dziedzina = Dziedzina_Odziezy.objects.filter(typ=typ_url)
+        dziedzina = Dziedzina_Odziezy.objects.filter(typ__url=typ_url)
         produkt = produkt.filter(rodzaj__dziedzina__typ__url=typ_url)
 
     if dziedzina_url:
-        rodzaj = Rodzaj_Odziezy.objects.filter(dziedzina= dziedzina_url)
+        rodzaj = Rodzaj_Odziezy.objects.filter(dziedzina__url=dziedzina_url)
         produkt = produkt.filter(rodzaj__dziedzina__url=dziedzina_url)
 
     if rodzaj_url:
