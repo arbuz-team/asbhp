@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from django.shortcuts import render
+from django.shortcuts import redirect
 from django.db.models import Q
 import operator
 from forms import *
@@ -41,8 +41,6 @@ def Wyszukaj(request):
                 wynik.append(wynik_sql[produkt[1]]) # produkt[1], to index
 
     else:
-        wyszukiwarka = Formularz_Wyszukiwarki()
         wynik = []
 
-    return render(request, 'wyszukiwarka/wyszukaj.html', {'wyszukiwarka': wyszukiwarka,
-                                                          'wynik': wynik})
+    return redirect()

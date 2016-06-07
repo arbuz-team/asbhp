@@ -1,25 +1,31 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render, redirect
 from produkt.models import *
+from wyszukiwarka.forms import *
 from forms import *
 
 ################## Zakładki: Wyświetlanie ##################
 
 def Wyswietl_Start(request):
+    wyszukiwarka = Formularz_Wyszukiwarki()
     polecane = Polecane.objects.all()
-    return render(request, 'asbhp/start.html', {'polecane': polecane})
+    return render(request, 'asbhp/start.html', {'wyszukiwarka': wyszukiwarka,
+                                                'polecane': polecane})
 
 
 def Wyswietl_O_Firmie(request):
+    wyszukiwarka = Formularz_Wyszukiwarki()
     css_menu = ['wybrany', '', '']
     o_firmie = O_Firmie.objects.all()
-    return render(request, 'asbhp/o_firmie.html', {'css_menu': css_menu,
+    return render(request, 'asbhp/o_firmie.html', {'wyszukiwarka': wyszukiwarka,
+                                                   'css_menu': css_menu,
                                                    'o_firmie': o_firmie})
 
 
-def Wyswietl_Oferta(request, typ_url=None,
-                    dziedzina_url=None, rodzaj_url=None):
+def Wyswietl_Oferta(request, typ_url=None, dziedzina_url=None,
+                    rodzaj_url=None, wyszukane_produkty=None):
 
+    wyszukiwarka = Formularz_Wyszukiwarki()
     css_menu = ['', 'wybrany', '']
     produkt = Produkt.objects.all()
     typ = Typ_Odziezy.objects.all()
@@ -37,7 +43,8 @@ def Wyswietl_Oferta(request, typ_url=None,
     if rodzaj_url:
         produkt = produkt.filter(rodzaj__url=rodzaj_url)
 
-    return render(request, 'asbhp/oferta.html', {'css_menu': css_menu,
+    return render(request, 'asbhp/oferta.html', {'wyszukiwarka': wyszukiwarka,
+                                                 'css_menu': css_menu,
                                                  'produkt': produkt,
                                                  'typ': typ,
                                                  'dziedzina': dziedzina,
@@ -48,9 +55,11 @@ def Wyswietl_Oferta(request, typ_url=None,
 
 
 def Wyswietl_Kontakt(request):
+    wyszukiwarka = Formularz_Wyszukiwarki()
     css_menu = ['', '', 'wybrany']
     kontakt = Kontakt.objects.all()
-    return render(request, 'asbhp/kontakt.html', {'css_menu': css_menu,
+    return render(request, 'asbhp/kontakt.html', {'wyszukiwarka': wyszukiwarka,
+                                                  'css_menu': css_menu,
                                                   'kontakt': kontakt})
 
 
