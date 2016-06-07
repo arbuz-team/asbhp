@@ -82,46 +82,7 @@
 
 
 
-#NAGLOWEK > div > .wyszukiwarka input
-{
-  position: relative;
-
-  min-width: 300px !important;
-  height: 43px;
-
-  margin: 0px;
-  padding: 0px;
-  padding-left: 5px;
-  padding-right: 34px;
-  padding-bottom: 18px;
-
-  box-shadow: none;
-  color: #DDD;
-
-  z-index: 8;
-}
-
-
-
-#NAGLOWEK > div > .wyszukiwarka input:focus
-{
-  border-radius: none;
-  border-bottom: 3px #ff7000 solid;
-  padding-bottom: 15px;
-}
-
-
-
-#NAGLOWEK > div > .wyszukiwarka input:hover
-{
-  border-radius: none;
-  border-bottom: 3px #ff7000 solid;
-  padding-bottom: 15px;
-}
-
-
-
-#NAGLOWEK > div > .wyszukiwarka button
+#NAGLOWEK > div > .wyszukiwarka > div
 {
   position: absolute;
 
@@ -133,8 +94,8 @@
   height: 34px;
 
   background-color: transparent;
-  background-image: url( '/static/img/lupa_w.png' );
-  background-size: 100% 100%;
+  background-image: url( '/static/img/lupa_m_p.png' );
+  background-size: 65% 65%;
   background-position: center;
   background-repeat: no-repeat;
 
