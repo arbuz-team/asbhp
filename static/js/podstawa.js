@@ -18,6 +18,15 @@ $(document).ready(function ()
 
 
 
+  $('.link_select > select').change(function () 
+  {
+  
+    ruch.przekieruj_do( $(this).children(':selected').data('domena'), $(this).val() );
+  
+  });
+
+
+
   $('#TRESC .strzalka > .obrazek, #TRESC .strzalka > .podpis').click(function () 
   {
   

@@ -51,7 +51,7 @@ var ruch = (function()
 {
 
 
-  function _przekieruj_do(domena, adres)
+  function _przekieruj_do( domena, adres )
   {
 
     if( domena == 'inna' )
@@ -70,24 +70,30 @@ var ruch = (function()
         },
 
         error: function() {
+          console.warn( 'Taki adres nie istnieje. - ' + url );
           window.location.href = DOMENA + '/404/';
         }
 
       });
     }
 
+    else
+    {
+      console.warn( 'Podałeś zły typ domeny.' );
+    }
+
   }
 
 
 
-  function _pozycja_scrollbara(element)
+  function _pozycja_scrollbara( element )
   {
 
-    var wysokosc_naglowka = $('#NAGLOWEK').outerHeight();
-    var aktualna_pozycja = $('body > div').scrollTop();
-    var pozycja_elementu = $(element).position();
+    var wysokosc_naglowka = $( '#NAGLOWEK' ).outerHeight();
+    var aktualna_pozycja = $( 'body > div' ).scrollTop();
+    var pozycja_elementu = $( element ).position();
 
-    $('body > div').stop().animate({scrollTop: pozycja_elementu.top }, '500');
+    $( 'body > div' ).stop().animate({scrollTop: pozycja_elementu.top }, '500');
 
   }
 

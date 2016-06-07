@@ -28,7 +28,7 @@
 
 
 
-      <div class="dziedzina otoczka_pola">
+      <div class="dziedzina otoczka_pola link_select">
 
       {% if dziedzina %}
         <select>
@@ -41,9 +41,9 @@
         {% for i in dziedzina %}
 
           {% if i.url == dziedzina_url %}
-            <option selected value="/oferta/{{ typ_url }}/{{ i.url }}/">{{ i }}</option>
+            <option selected value="/oferta/{{ typ_url }}/{{ i.url }}/" data-domena="ta">{{ i }}</option>
           {% else %}
-            <option value="/oferta/{{ typ_url }}/{{ i.url }}/">{{ i }}</option>
+            <option value="/oferta/{{ typ_url }}/{{ i.url }}/" data-domena="ta">{{ i }}</option>
           {% endif %}
 
         {% endfor %}
@@ -54,7 +54,7 @@
 
 
 
-      <div class="rodzaj otoczka_pola">
+      <div class="rodzaj otoczka_pola link_select">
 
       {% if rodzaj %}
         <select>
@@ -67,9 +67,9 @@
         {% for i in rodzaj %}
 
           {% if i.url == rodzaj_url %}
-            <option selected value="/oferta/{{ typ_url }}/{{ dziedzina_url }}/{{ i.url }}/">{{ i }}</option>
+            <option selected value="/oferta/{{ typ_url }}/{{ dziedzina_url }}/{{ i.url }}/" data-domena="ta">{{ i }}</option>
           {% else %}
-            <option value="/oferta/{{ typ_url }}/{{ dziedzina_url }}/{{ i.url }}/">{{ i }}</option>
+            <option value="/oferta/{{ typ_url }}/{{ dziedzina_url }}/{{ i.url }}/" data-domena="ta">{{ i }}</option>
           {% endif %}
 
         {% endfor %}
