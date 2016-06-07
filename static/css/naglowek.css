@@ -82,7 +82,7 @@
 
 
 
-#NAGLOWEK > div > .wyszukiwarka > input
+#NAGLOWEK > div > .wyszukiwarka input
 {
   position: relative;
 
@@ -98,12 +98,12 @@
   box-shadow: none;
   color: #DDD;
 
-  z-index: 9;
+  z-index: 8;
 }
 
 
 
-#NAGLOWEK > div > .wyszukiwarka > input:focus
+#NAGLOWEK > div > .wyszukiwarka input:focus
 {
   border-radius: none;
   border-bottom: 3px #ff7000 solid;
@@ -112,7 +112,7 @@
 
 
 
-#NAGLOWEK > div > .wyszukiwarka > input:hover
+#NAGLOWEK > div > .wyszukiwarka input:hover
 {
   border-radius: none;
   border-bottom: 3px #ff7000 solid;
@@ -121,7 +121,7 @@
 
 
 
-#NAGLOWEK > div > .wyszukiwarka > button
+#NAGLOWEK > div > .wyszukiwarka button
 {
   position: absolute;
 
@@ -140,7 +140,7 @@
 
   box-shadow: none;
 
-  z-index: 8;
+  z-index: 9;
 }
 
 

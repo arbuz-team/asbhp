@@ -23,8 +23,12 @@
 
     <div class="wyszukiwarka otoczka_pola">
 
-      <input type="text" name="oferta_wyszukaj" />
-      <button></button>
+      <form method="post" action="/wyszukiwarka/">{% csrf_token %}
+
+        <input type="text" name="oferta_wyszukaj" />
+        <button type="submit"></button>
+
+      </form>
 
     </div>
 
