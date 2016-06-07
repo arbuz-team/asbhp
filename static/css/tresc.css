@@ -200,13 +200,6 @@ body > div > .fragment
 
 /**************************** Treść - oferta ***********************/
 
-#TRESC.oferta > div > .tlo
-{
-  background-color: #fff;
-}
-
-
-
 #TRESC.oferta > div
 {
   color: #333;
@@ -216,9 +209,27 @@ body > div > .fragment
 
 
 
+#TRESC.oferta > div > .tlo
+{
+  background-color: #fff;
+}
+
+
+
+#TRESC.oferta > div > .tresc
+{
+  position: relative;
+
+  left: 50px;
+}
+
+
+
 #TRESC.oferta > div > .tresc > .typ,
 #TRESC.oferta > div > .tresc > .dziedzina,
-#TRESC.oferta > div > .tresc > .rodzaj
+#TRESC.oferta > div > .tresc > .rodzaj,
+#TRESC.oferta > div > .tresc > .wyszukiwarka,
+#TRESC.oferta > div > .tresc > .filtry
 {
   position: absolute;
 
@@ -256,6 +267,8 @@ body > div > .fragment
 {
   left: 50px;
   top: -150px;
+  
+  width: 400px;
 }
 
 
@@ -264,6 +277,20 @@ body > div > .fragment
 {
   left: 50px;
   top: -100px;
+  
+  width: 400px;
+}
+
+
+
+#TRESC.oferta > div > .tresc > .filtry
+{
+  position: absolute;
+
+  right: 50px;
+  top: -100px;
+
+  width: 400px;
 }
 
 

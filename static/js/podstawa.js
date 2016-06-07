@@ -27,6 +27,15 @@ $(document).ready(function ()
 
 
 
+  $('.wyszukiwarka > button').mouseenter(function () 
+  {
+
+    $(this).parent().children( 'input' ).focus();
+  
+  });
+
+
+
   $('#TRESC .strzalka > .obrazek, #TRESC .strzalka > .podpis').click(function () 
   {
   
@@ -35,6 +44,8 @@ $(document).ready(function ()
   });
 
 });
+
+
 
 
 
