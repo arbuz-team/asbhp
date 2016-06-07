@@ -1,5 +1,7 @@
 /*    JavaScript    */
 
+"use strict"; 
+
 
 
 /*********************** POBIERANIE DANYCH ***********************/

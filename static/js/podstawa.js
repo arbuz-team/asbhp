@@ -1,5 +1,7 @@
 /*    JavaScript    */
 
+"use strict"; 
+
 
 
 var DOMENA = location.protocol + '//' + location.hostname + ':' + location.port;
@@ -50,6 +52,8 @@ $(document).ready(function ()
 
 
 $(document).ready(function () {
+
+
   $(window).load(function () {
 
     var szerokosc_scrollbara = $('body > div').css( 'padding-right'); 
@@ -65,12 +69,22 @@ $(document).ready(function () {
     });
 
   }); 
+
+
+
+  autosize( $( 'textarea' ) );
+
+  $(window).load(function () {
+  
+    autosize.update( $( 'textarea' ));
+
+  })
+
 }); 
 
 
 
 jQuery(document).ready(function ($) { 
-  "use strict"; 
 
   $('body > div').perfectScrollbar({
     wheelSpeed: 2,
@@ -78,25 +92,4 @@ jQuery(document).ready(function ($) {
   });
 
 }); 
-
-
-
-/************************* XMLHttpRequest dla IE *************************/
-
-if (typeof XMLHttpRequest == "undefined")
-{
-  XMLHttpRequest = function() {
-
-    //IE wykorzystuje biblioteki ActiveX do tworzenia obiektu XMLHttpRequest
-    return new ActiveXObject(
-
-      //IE5 używa innego obektu XMLHTTP niż IE6 i wyższe
-      navigator.userAgent.indexOf("MSIE 5") >=0 ? "Microsoft.XMLHTTP" : "Msxml2.XMLHTTP"
-
-    );
-  }
-}
-
-/********** Stworzenie obiektu XMLHttpRequest **********/
-var xml = new XMLHttpRequest();
 
