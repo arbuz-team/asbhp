@@ -4,20 +4,130 @@
 {% include "naglowek.html" %}
 
 
-<div id="TRESC" class="fragment standardowa">
+<div id="TRESC" class="fragment oferta">
 
   <div class="BLOK1">
 
     <div class="tlo"></div>
 
     <div class="tresc">
+
+      <div class="typ">
+
+        {% for i in typ %}
+
+          <div class="link" data-href="/oferta/{{ i.url }}" data-domena="ta">
+
+            {{ i }}
+
+          </div>
+
+        {% endfor %}
+
+      </div>
+
+
+
+      <div class="dziedzina otoczka_pola">
+
+      {% if dziedzina %}
+        <select>
+      {% else %}
+        <select disabled="disabled">
+      {% endif %}
+
+          <option value>----</option>
+
+        {% for i in dziedzina %}
+
+          {% if i.url == dziedzina_url %}
+            <option selected value="/oferta/{{ typ_url }}/{{ i.url }}/">{{ i }}</option>
+          {% else %}
+            <option value="/oferta/{{ typ_url }}/{{ i.url }}/">{{ i }}</option>
+          {% endif %}
+
+        {% endfor %}
+
+        </select>
+
+      </div>
+
+
+
+      <div class="rodzaj otoczka_pola">
+
+      {% if rodzaj %}
+        <select>
+      {% else %}
+        <select disabled="disabled">
+      {% endif %}
+
+          <option value>----</option>
+
+        {% for i in rodzaj %}
+
+          {% if i.url == rodzaj_url %}
+            <option selected value="/oferta/{{ typ_url }}/{{ dziedzina_url }}/{{ i.url }}/">{{ i }}</option>
+          {% else %}
+            <option value="/oferta/{{ typ_url }}/{{ dziedzina_url }}/{{ i.url }}/">{{ i }}</option>
+          {% endif %}
+
+        {% endfor %}
+
+        </select>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="tresc lista_produktow">
+    
+      <ul>
+
+        {% if not produkt %}
+          <li class="komentarz">
+          
+            <div>Nie ma pasujących produktów</div>
+          
+          </li>
+        {% endif %}
+
+
+
+        {% for p in produkt %}
+
+          <li class="link" data-href="/produkt/{{ p.id }}/" data-domena="ta">
+          
+            <div class="nazwa">{{ p.nazwa }}</div>
+          
+            <div class="obrazek" style="background-image: url('/static/img/przykladowy_produkt.jpg');"></div>
+
+            <div class="opis">{{ p.opis }}</div>
+
+            <div class="przeznaczenie">
+            
+              {% for zawod in p.zawody.all %}
+                <div style="background-image: url({{ zawod.id }})"></div>
+              {% endfor %}
+            
+            </div>
+
+            <div class="zagrozenia">
+            
+              {% for zagrozenie in p.zagrozenia.all %}
+                <div style="background-image: url({{ zagrozenie.id }})"></div>
+              {% endfor %}
+            
+            </div>
+          
+          </li>
+
+        {% endfor %}
       
-      {% for i in typ %}
-
-        {{ i }}
-
-      {% endfor %}
-
+      </ul>
+    
     </div>
 
   </div>

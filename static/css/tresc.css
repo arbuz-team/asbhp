@@ -188,15 +188,7 @@ body > div > .fragment
 
 
 
-#TRESC > div > div.tytul
-{
-  position: relative;
-
-  z-index:12;
-}
-
-
-
+#TRESC > div > div.tytul,
 #TRESC > div > div.tresc
 {
   position: relative;
@@ -206,7 +198,77 @@ body > div > .fragment
 
 
 
-/********* Treść standardowa *********/
+/**************************** Treść - oferta ***********************/
+
+#TRESC.oferta > div > .tlo
+{
+  background-color: #fff;
+}
+
+
+
+#TRESC.oferta > div
+{
+  color: #333;
+
+  margin-top: 200px !important;
+}
+
+
+
+#TRESC.oferta > div > .tresc > .typ,
+#TRESC.oferta > div > .tresc > .dziedzina,
+#TRESC.oferta > div > .tresc > .rodzaj
+{
+  position: absolute;
+
+  z-index:12;
+}
+
+
+
+#TRESC.oferta > div > .tresc > .typ
+{
+  left: -200px;
+  top: -100px;
+
+  width: 200px;
+  height: 500px;
+}
+
+
+
+#TRESC.oferta > div > .tresc > .typ > div
+{
+  width: 197px;
+  height: 50px;
+
+  margin: 3px auto;
+  padding-left: 3px;
+  padding-right: 0px;
+
+  line-height: 50px;
+}
+
+
+
+#TRESC.oferta > div > .tresc > .dziedzina
+{
+  left: 50px;
+  top: -150px;
+}
+
+
+
+#TRESC.oferta > div > .tresc > .rodzaj
+{
+  left: 50px;
+  top: -100px;
+}
+
+
+
+/**************************** Treść - lista produktów ***********************/
 
 #TRESC div.lista_produktow > ul > li
 {
@@ -216,6 +278,21 @@ body > div > .fragment
 
   color: inherit;
   overflow: hidden;
+}
+
+
+
+#TRESC div.lista_produktow > ul > li.komentarz > div
+{
+  position: relative;
+
+  width: 90%;
+  min-height: 30px;
+
+  margin: 0px auto;
+  line-height: 30px;
+
+  font-weight: bold;
 }
 
 
@@ -299,6 +376,7 @@ body > div > .fragment
 @media (min-width: 768px)
 {
   #TRESC.standardowa > div,
+  #TRESC.oferta > div,
   #TRESC.start > div > div.tresc,
   #TRESC.produkt > div
   {
@@ -309,6 +387,7 @@ body > div > .fragment
 @media (min-width: 992px)
 {
   #TRESC.standardowa > div,
+  #TRESC.oferta > div,
   #TRESC.start > div > div.tresc,
   #TRESC.produkt > div
   {
@@ -319,6 +398,7 @@ body > div > .fragment
 @media (min-width: 1200px)
 {
   #TRESC.standardowa > div,
+  #TRESC.oferta > div,
   #TRESC.start > div > div.tresc
   {
     width: 970px;
@@ -328,6 +408,7 @@ body > div > .fragment
 
 
 #TRESC.standardowa > div,
+#TRESC.oferta > div,
 #TRESC.start > div > div.tresc
 {
   margin: 50px;
@@ -425,6 +506,26 @@ textarea:focus
   color: #333;
 
   background-color: transparent;
+  border: none;
+  outline: none;
+
+  -webkit-box-shadow: inset 1px 2px 3px 0px rgb(238,238,238);
+  -moz-box-shadow: inset 1px 2px 3px 0px rgb(238,238,238);
+  box-shadow: inset 1px 2px 3px 0px rgb(238,238,238);
+}
+
+
+
+input[type=text]:disabled,
+input[type=password]:disabled,
+input[type=number]:disabled,
+select:disabled,
+button:disabled,
+textarea:disabled
+{
+  color: #333;
+
+  background-color: #ddd;
   border: none;
   outline: none;
 
