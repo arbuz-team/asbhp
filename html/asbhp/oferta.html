@@ -16,7 +16,7 @@
 
         {% for i in typ %}
 
-          <div class="link" data-href="/oferta/{{ i.url }}" data-domena="ta">
+          <div class="link" data-href="/oferta/{{ i.url }}">
 
             {{ i }}
 
@@ -36,14 +36,14 @@
         <select disabled="disabled">
       {% endif %}
 
-          <option value>----</option>
+          <option value="/oferta/{{ typ_url }}/">----</option>
 
         {% for i in dziedzina %}
 
           {% if i.url == dziedzina_url %}
-            <option selected value="/oferta/{{ typ_url }}/{{ i.url }}/" data-domena="ta">{{ i }}</option>
+            <option selected value="/oferta/{{ typ_url }}/{{ i.url }}/">{{ i }}</option>
           {% else %}
-            <option value="/oferta/{{ typ_url }}/{{ i.url }}/" data-domena="ta">{{ i }}</option>
+            <option value="/oferta/{{ typ_url }}/{{ i.url }}/">{{ i }}</option>
           {% endif %}
 
         {% endfor %}
@@ -62,14 +62,14 @@
         <select disabled="disabled">
       {% endif %}
 
-          <option value>----</option>
+          <option value="/oferta/{{ typ_url }}/{{ dziedzina_url }}/">----</option>
 
         {% for i in rodzaj %}
 
           {% if i.url == rodzaj_url %}
-            <option selected value="/oferta/{{ typ_url }}/{{ dziedzina_url }}/{{ i.url }}/" data-domena="ta">{{ i }}</option>
+            <option selected value="/oferta/{{ typ_url }}/{{ dziedzina_url }}/{{ i.url }}/">{{ i }}</option>
           {% else %}
-            <option value="/oferta/{{ typ_url }}/{{ dziedzina_url }}/{{ i.url }}/" data-domena="ta">{{ i }}</option>
+            <option value="/oferta/{{ typ_url }}/{{ dziedzina_url }}/{{ i.url }}/">{{ i }}</option>
           {% endif %}
 
         {% endfor %}

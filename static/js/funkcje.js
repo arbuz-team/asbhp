@@ -57,7 +57,7 @@ var ruch = (function()
     if( domena == 'inna' )
       window.location.href = adres;
 
-    else if( domena == 'ta' )
+    else
     {
       var url = DOMENA + adres;
 
@@ -75,11 +75,6 @@ var ruch = (function()
         }
 
       });
-    }
-
-    else
-    {
-      console.warn( 'Podałeś zły typ domeny.' );
     }
 
   }
