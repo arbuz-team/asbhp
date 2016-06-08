@@ -8,13 +8,13 @@ class Formularz_Produktu(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(Formularz_Produktu, self).__init__(*args, **kwargs)
 
-        self.fields['firma'].empty_label = 'Wybierz firmę...'
+        self.fields['producent'].empty_label = 'Wybierz firmę...'
         self.fields['kolor'].empty_label = 'Wybierz kolor...'
         self.fields['rodzaj'].empty_label = 'Wybierz rodzaj odzieży...'
 
     class Meta:
         model = Produkt
-        fields = ('nazwa', 'opis', 'firma', 'kolor',
+        fields = ('nazwa', 'opis', 'producent', 'kolor',
                   'rozmiar', 'waga', 'sztuk', 'rodzaj',
                   'certyfikaty', 'zagrozenia', 'zawody')
 
@@ -34,10 +34,10 @@ class Formularz_Promowania(forms.ModelForm):
         fields = ('produkt', 'data_zakonczenia')
 
 
-class Formularz_Firma(forms.ModelForm):
+class Formularz_Producent(forms.ModelForm):
 
     class Meta:
-        model = Firma
+        model = Producent
         fields = ('nazwa',)
 
 
@@ -59,7 +59,7 @@ class Formularz_Dodatek(forms.ModelForm):
 
     class Meta:
         model = Dodatek
-        fields = ('opis', 'rodzaj', 'firma')
+        fields = ('opis', 'rodzaj', 'producent')
 
 
 class Formularz_Polecane(forms.ModelForm):

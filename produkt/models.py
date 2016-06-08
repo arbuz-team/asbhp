@@ -35,7 +35,7 @@ class Rodzaj_Odziezy(models.Model):
 
 ################## Produkt: Produkty ##################
 
-class Firma(models.Model):
+class Producent(models.Model):
 
     nazwa = models.CharField(max_length=50)
 
@@ -83,7 +83,7 @@ class Produkt(models.Model):
 
     nazwa = models.CharField(max_length=50)
     opis = models.TextField()
-    firma = models.ForeignKey(Firma)
+    producent = models.ForeignKey(Producent)
     kolor = models.ForeignKey(Kolor)
     rozmiar = models.CharField(max_length=20)
     waga = models.IntegerField() # gramy
@@ -102,7 +102,7 @@ class Dodatek(models.Model):
     numer = models.IntegerField()
     opis = models.TextField()
     rodzaj = models.ForeignKey(Rodzaj_Odziezy, on_delete=models.CASCADE)
-    firma = models.ForeignKey(Firma, on_delete=models.CASCADE)
+    producent = models.ForeignKey(Producent, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.opis.encode('utf8')

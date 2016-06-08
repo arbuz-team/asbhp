@@ -2,10 +2,10 @@
 from produkt.models import *
 from django.utils import timezone
 
-################## Firma ##################
-Firma.objects.create(nazwa='Kilauea').save()
-Firma.objects.create(nazwa='Saba').save()
-Firma.objects.create(nazwa='Deltaplus').save()
+################## Producent ##################
+Producent.objects.create(nazwa='Kilauea').save()
+Producent.objects.create(nazwa='Saba').save()
+Producent.objects.create(nazwa='Deltaplus').save()
 
 ################## Kolor ##################
 Kolor.objects.create(nazwa='Polaryzacyjne').save()
@@ -105,7 +105,7 @@ Rodzaj_Odziezy.objects.create(nazwa='Szelki chroniące przed upadkiem', url='Sze
 ################## Produkty ##################
 Produkt.objects.create(nazwa='Kilauea polarised',
                        opis='Okulary z poliwęglanu. Sportowy wygląd. Nylonowa matowa oprawka dla większej wygody i trwałości.',
-                       firma=Firma.objects.get(nazwa='Kilauea'),
+                       producent=Producent.objects.get(nazwa='Kilauea'),
                        kolor=Kolor.objects.get(nazwa='Polaryzacyjne'),
                        waga=28,
                        sztuk=100,
@@ -114,7 +114,7 @@ Produkt.objects.create(nazwa='Kilauea polarised',
 
 Produkt.objects.create(nazwa='Kilauea mirror',
                        opis='Okulary z poliwęglanu. Sportowy wygląd. Nylonowa matowa oprawka dla większej wygody i trwałości.',
-                       firma=Firma.objects.get(nazwa='Kilauea'),
+                       producent=Producent.objects.get(nazwa='Kilauea'),
                        kolor=Kolor.objects.get(nazwa='Odblaskowy'),
                        waga=28,
                        sztuk=100,
@@ -123,7 +123,7 @@ Produkt.objects.create(nazwa='Kilauea mirror',
 
 Produkt.objects.create(nazwa='Kilauea clear',
                        opis='Okulary z poliwęglanu. Sportowy wygląd. Nylonowa matowa oprawka dla większej wygody i trwałości.',
-                       firma=Firma.objects.get(nazwa='Kilauea'),
+                       producent=Producent.objects.get(nazwa='Kilauea'),
                        kolor=Kolor.objects.get(nazwa='Bezbarwny'),
                        waga=28,
                        sztuk=100,
@@ -132,7 +132,7 @@ Produkt.objects.create(nazwa='Kilauea clear',
 
 Produkt.objects.create(nazwa='Saba',
                        opis='Gogle z poliwęglanu, bezbarwne. Wentylacja pośrednia. Taśma nagłowia nie zawierająca gumy (bez lateksu). Miękka oprawka z PVC. Innowacyjny system regulacji ROTOR (opatentowany), łatwy w użytkowaniu i wygodny w noszeniu.',
-                       firma=Firma.objects.get(nazwa='Saba'),
+                       producent=Producent.objects.get(nazwa='Saba'),
                        kolor=Kolor.objects.get(nazwa='Bezbarwny'),
                        waga=122,
                        sztuk=60,
@@ -141,7 +141,7 @@ Produkt.objects.create(nazwa='Saba',
 
 Produkt.objects.create(nazwa='Venicut53',
                        opis='Rękawica z włukna polietylenowego wyskoiej odporności Deltanocut. Powłoka z pianki nitrylowej na stronie chwytnej i końcach palców. Nadgarstek elastyczny 10 cm. Ścieg 13.',
-                       firma=Firma.objects.get(nazwa='Deltaplus'),
+                       producent=Producent.objects.get(nazwa='Deltaplus'),
                        kolor=Kolor.objects.get(nazwa='Czarny'),
                        waga=0,
                        sztuk=60,
@@ -150,7 +150,7 @@ Produkt.objects.create(nazwa='Venicut53',
 
 Produkt.objects.create(nazwa='Venicut32',
                        opis='Relawoca z włókna wysokiej odporności DELTAnocut. Powłoka poliuretanowa na stronie chwytnej i końcach palców. Ścieg 15.',
-                       firma=Firma.objects.get(nazwa='Deltaplus'),
+                       producent=Producent.objects.get(nazwa='Deltaplus'),
                        kolor=Kolor.objects.get(nazwa='Żółty'),
                        waga=0,
                        sztuk=60,
@@ -159,7 +159,7 @@ Produkt.objects.create(nazwa='Venicut32',
 
 Produkt.objects.create(nazwa='TW400 S3 SRC',
                        opis='Cholewka: pełna skóra licowa, wodoodporna S3, ze wzmocnieniem noska z kauczuku. Podszewka: poliamid Cambrelle pochłaniający wilgoć. Wkładka: wymienna, wstępnie uformowana, poliester na piance PU. Podszewka: zgrzewana, wkładka z PU z pochłaniaczem energii Panoshock. Warstwa ścierna: kauczuk nitryl. Obuwie amagnetyczne.',
-                       firma=Firma.objects.get(nazwa='Deltaplus'),
+                       producent=Producent.objects.get(nazwa='Deltaplus'),
                        kolor=Kolor.objects.get(nazwa='Czarny'),
                        waga=710,
                        sztuk=5,
@@ -168,7 +168,7 @@ Produkt.objects.create(nazwa='TW400 S3 SRC',
 
 Produkt.objects.create(nazwa='TW300 S3 SRC',
                        opis='Cholewka: pełna skóra licowa, wodoodporna S3, ze wzmocnieniem noska z kauczuku. Podszewka: poliamid Cambrelle pochłaniający wilgoć. Wkładka: wymienna, wstępnie uformowana, poliester na piance PU. Podszewka: zgrzewana, wkładka z PU z pochłaniaczem energii Panoshock. Warstwa ścierna: kauczuk nitryl. Obuwie amagnetyczne.',
-                       firma=Firma.objects.get(nazwa='Deltaplus'),
+                       producent=Producent.objects.get(nazwa='Deltaplus'),
                        kolor=Kolor.objects.get(nazwa='Czarny'),
                        waga=680,
                        sztuk=5,
@@ -177,7 +177,7 @@ Produkt.objects.create(nazwa='TW300 S3 SRC',
 
 Produkt.objects.create(nazwa='Eolien har35',
                        opis='Szelki dwukolorowe z pasem podtrzymującym. 3 punkty zaczepowe do asekuracji (tylny, przedni prawy, przedni lewy). 4 klamry regulacyjne. Pas podtrzymujący z oparciem formowanym na gorąco zamykany na szeroki rzep dla większego komfortu. Możliwość obrotu 120 st. 2 punkty zaczepowe boczne. 1 automatyczna klamra regulacyjna. Oparcie wyścielane gąbką.',
-                       firma=Firma.objects.get(nazwa='Deltaplus'),
+                       producent=Producent.objects.get(nazwa='Deltaplus'),
                        kolor=Kolor.objects.get(nazwa='Brak'),
                        waga=2000,
                        sztuk=5,
@@ -186,7 +186,7 @@ Produkt.objects.create(nazwa='Eolien har35',
 
 Produkt.objects.create(nazwa='Anatom har32',
                        opis='Szelki dwukolorowe. 2 punkty zaczepowe do asekuracji( tylny i przedni).  4 klamry regulacyjne.',
-                       firma=Firma.objects.get(nazwa='Deltaplus'),
+                       producent=Producent.objects.get(nazwa='Deltaplus'),
                        kolor=Kolor.objects.get(nazwa='Brak'),
                        waga=680,
                        sztuk=1400,
@@ -194,8 +194,8 @@ Produkt.objects.create(nazwa='Anatom har32',
                        ).save()
 
 ################## Dodatek ##################
-Dodatek.objects.create(numer=1, opis='Nylonowa matowa oprawka dla większej wygody i trwałości', rodzaj=Rodzaj_Odziezy.objects.get(nazwa='Okulary ochronne'), firma=Firma.objects.get(nazwa='Kilauea')).save()
-Dodatek.objects.create(numer=2, opis='Z soczewkami polaryzacyjnymi', rodzaj=Rodzaj_Odziezy.objects.get(nazwa='Okulary ochronne'), firma=Firma.objects.get(nazwa='Kilauea')).save()
+Dodatek.objects.create(numer=1, opis='Nylonowa matowa oprawka dla większej wygody i trwałości', rodzaj=Rodzaj_Odziezy.objects.get(nazwa='Okulary ochronne'), producent=Producent.objects.get(nazwa='Kilauea')).save()
+Dodatek.objects.create(numer=2, opis='Z soczewkami polaryzacyjnymi', rodzaj=Rodzaj_Odziezy.objects.get(nazwa='Okulary ochronne'), producent=Producent.objects.get(nazwa='Kilauea')).save()
 
 ################## Certyfikaty_Dla_Produktu ##################
 Certyfikaty_Dla_Produktu.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea polarised'), certyfikat=Certyfikat.objects.get(numer='EN166')).save()

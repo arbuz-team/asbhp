@@ -5,6 +5,9 @@ import operator
 from forms import *
 from produkt.models import *
 
+
+################## Wyszukiwarka ##################
+
 def Wyszukaj(request):
 
     if request.method == 'POST':
@@ -19,13 +22,15 @@ def Wyszukaj(request):
             wynik_sql = Produkt.objects.filter(
                 reduce(operator.or_, (Q(nazwa__icontains=s) for s in zapytanie))        |
                 reduce(operator.or_, (Q(opis__icontains=s) for s in zapytanie))         |
-                reduce(operator.or_, (Q(firma__nazwa__icontains=s) for s in zapytanie)) |
+                reduce(operator.or_, (Q(producent__nazwa__icontains=s) for s in zapytanie)) |
                 reduce(operator.or_, (Q(kolor__nazwa__icontains=s) for s in zapytanie)) |
-                reduce(operator.or_, (Q(rodzaj__nazwa__icontains=s) for s in zapytanie))
+                reduce(operator.or_, (Q(rodzaj__nazwa__icontains=s) for s in zapytanie)) |
+                reduce(operator.or_, (Q(rodzaj__dziedzina__nazwa__icontains=s) for s in zapytanie)) |
+                reduce(operator.or_, (Q(rodzaj__dziedzina__typ__nazwa__icontains=s) for s in zapytanie))
             )
 
                 # p - pojedynczy produkt
-            wynik_str = [(index, (p.nazwa + p.opis + p.firma.nazwa +
+            wynik_str = [(index, (p.nazwa + p.opis + p.producent.nazwa +
                                  p.kolor.nazwa + p.rodzaj.nazwa).lower())
                          for index, p in enumerate(wynik_sql)]
 
@@ -53,7 +58,7 @@ def Wyszukaj(request):
 def Pobierz_Formularz_Wyszukiwarki(request):
     wyszukiwarka = Formularz_Wyszukiwarki()
 
-    if request.session.get('zapytanie', None):
+    if 'zapytanie' in request.session:
         wyszukiwarka.Ustaw_Zapytanie(request.session['zapytanie'])
 
     return wyszukiwarka
@@ -61,13 +66,105 @@ def Pobierz_Formularz_Wyszukiwarki(request):
 
 def Usun_Sesje(request):
 
-    if request.session.get('zapytanie', None):
+    if 'zapytanie' in request.session:
         del request.session['zapytanie']
 
-    if request.session.get('wyszukane_produkty', None):
+    if 'wyszukane_produkty' in request.session:
         del request.session['wyszukane_produkty']
 
-    if request.session.get('wyszukiwarka', None):
+    if 'wyszukiwarka' in request.session:
         del request.session['wyszukiwarka']
 
+    return redirect('Wyswietl_Oferta')
+
+
+################## Filtry ##################
+
+def Filtr_Producent(request):
+
+    if request.method == 'POST':
+        filtr = Formularz_Filtru_Producent(request.POST)
+
+        if filtr.is_valid():
+
+            if 'wyszukane_produkty' in request.session:
+                request.session['wyszukane_produkty'] = \
+                    request.session['wyszukane_produkty'].\
+                        filter(producent=filtr.cleaned_data('producent'))
+
+            else:
+                request.session['wyszukane_produkty'] = \
+                    Produkt.objects.filter(producent=filtr.cleaned_data('producent'))
+
+    return redirect('Wyswietl_Oferta')
+
+
+def Filtr_Kolor(request):
+
+    if request.method == 'POST':
+        filtr = Formularz_Filtru_Kolor(request.POST)
+
+        if filtr.is_valid():
+
+            if 'wyszukane_produkty' in request.session:
+                request.session['wyszukane_produkty'] = \
+                    request.session['wyszukane_produkty']. \
+                        filter(kolor=filtr.cleaned_data('kolor'))
+
+            else:
+                request.session['wyszukane_produkty'] = \
+                    Produkt.objects.filter(kolor=filtr.cleaned_data('kolor'))
+
+    return redirect('Wyswietl_Oferta')
+
+
+def Filtr_Zagrozenia(request):
+
+    if request.method == 'POST':
+        filtr = Formularz_Filtru_Zagrozenia(request.POST)
+
+        if filtr.is_valid():
+
+            if 'wyszukane_produkty' in request.session:
+                request.session['wyszukane_produkty'] = \
+                    request.session['wyszukane_produkty']. \
+                        filter(zagrozenia=filtr.cleaned_data('zagrozenia'))
+
+            else:
+                request.session['wyszukane_produkty'] = \
+                    Produkt.objects.filter(zagrozenia=filtr.cleaned_data('zagrozenia'))
+
+    return redirect('Wyswietl_Oferta')
+
+
+def Filtr_Zawody(request):
+
+    if request.method == 'POST':
+        filtr = Formularz_Filtru_Zawody(request.POST)
+
+        if filtr.is_valid():
+
+            if 'wyszukane_produkty' in request.session:
+                request.session['wyszukane_produkty'] = \
+                    request.session['wyszukane_produkty']. \
+                        filter(zawody=filtr.cleaned_data('zawody'))
+
+            else:
+                request.session['wyszukane_produkty'] = \
+                    Produkt.objects.filter(zawody=filtr.cleaned_data('zawody'))
+
+    return redirect('Wyswietl_Oferta')
+
+
+################## Kontenery ##################
+
+def Kontener_Typ(request):
+    return redirect('Wyswietl_Oferta')
+
+
+def Kontener_Dziedzina(request):
+    return redirect('Wyswietl_Oferta')
+
+
+def Kontener_Rodzaj(request):
     return redirect('Wyswietl_Oferta')

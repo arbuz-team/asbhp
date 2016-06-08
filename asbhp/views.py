@@ -21,7 +21,7 @@ def Wyswietl_O_Firmie(request):
 def Wyswietl_Oferta(request, typ_url=None, dziedzina_url=None,
                     rodzaj_url=None):
 
-    if request.session.get('wyszukiwarka', None):
+    if 'wyszukiwarka' in request.session:
         wyszukiwarka = request.session['wyszukiwarka']
 
     else:
@@ -44,7 +44,7 @@ def Wyswietl_Oferta(request, typ_url=None, dziedzina_url=None,
     if rodzaj_url:
         produkt = produkt.filter(rodzaj__url=rodzaj_url)
 
-    if request.session.get('zapytanie', None):
+    if 'wyszukane_produkty' in request.session:
         produkt = request.session['wyszukane_produkty']
 
     return render(request, 'asbhp/oferta.html', {'wyszukiwarka': wyszukiwarka,

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from django import forms
+from produkt.models import *
 
 class Formularz_Wyszukiwarki(forms.Form):
 
@@ -21,3 +22,31 @@ class Formularz_Wyszukiwarki(forms.Form):
 
     def Ustaw_Zapytanie(self, wartosc):
         self.fields['zapytanie'].initial = wartosc
+
+
+class Formularz_Filtru_Producent(forms.ModelForm):
+
+    class Meta:
+        model = Produkt
+        fields = ('producent',)
+
+
+class Formularz_Filtru_Kolor(forms.ModelForm):
+
+    class Meta:
+        model = Produkt
+        fields = ('kolor',)
+
+
+class Formularz_Filtru_Zagrozenia(forms.ModelForm):
+
+    class Meta:
+        model = Produkt
+        fields = ('zagrozenia',)
+
+
+class Formularz_Filtru_Zawody(forms.ModelForm):
+
+    class Meta:
+        model = Produkt
+        fields = ('zawody',)

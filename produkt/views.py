@@ -36,18 +36,18 @@ def Dodaj_Produkt(request):
     return render(request, 'produkt/dodaj_produkt.html', {'formularz': formularz})
 
 
-def Dodaj_Firma(request):
+def Dodaj_Producent(request):
 
     if request.method == 'POST':
-        formularz = Formularz_Firma(request.POST)
+        formularz = Formularz_Producent(request.POST)
 
         if formularz.is_valid():
             formularz.save()
-            opis = 'Firma została poprawnie dodana.'
+            opis = 'Producent została poprawnie dodana.'
             return render(request, 'produkt/potwierdzenie.html', {'opis': opis})
 
     else:
-        formularz = Formularz_Firma()
+        formularz = Formularz_Producent()
 
     return render(request, 'produkt/dodaj.html', {'formularz': formularz})
 
@@ -124,8 +124,8 @@ def Usun_Produkt(request, pk):
     return render(request, 'produkt/usun.html', {})
 
 
-def Usun_Firma(request, pk):
-    Firma.objects.get(id=pk).delete()
+def Usun_Producent(request, pk):
+    Producent.objects.get(id=pk).delete()
     return render(request, 'produkt/usun.html', {})
 
 
