@@ -10,21 +10,25 @@
 
     <div class="tlo"></div>
 
-
-
     <div class="tresc">
 
-      <div class="typ">
+      <div class="typ otoczka_pola link_select">
 
-        {% for i in typ %}
+        <select>
 
-          <div class="link" data-href="/oferta/{{ i.url }}">
+          <option value="/oferta/">Wybierz typ...</option>
 
-            {{ i }}
+          {% for i in typ %}
 
-          </div>
+            {% if i.url == typ_url %}
+              <option selected value="/oferta/{{ i.url }}/">{{ i }}</option>
+            {% else %}
+              <option value="/oferta/{{ i.url }}/">{{ i }}</option>
+            {% endif %}
 
-        {% endfor %}
+          {% endfor %}
+
+        </select>
 
       </div>
 
@@ -32,23 +36,23 @@
 
       <div class="dziedzina otoczka_pola link_select">
 
-      {% if dziedzina %}
-        <select>
-      {% else %}
-        <select disabled="disabled">
-      {% endif %}
+        {% if dziedzina %}
+          <select>
+        {% else %}
+          <select disabled="disabled">
+        {% endif %}
 
-          <option value="/oferta/{{ typ_url }}/">----</option>
+          <option value="/oferta/{{ typ_url }}/">Wybierz dziedzinę...</option>
 
-        {% for i in dziedzina %}
+          {% for i in dziedzina %}
 
-          {% if i.url == dziedzina_url %}
-            <option selected value="/oferta/{{ typ_url }}/{{ i.url }}/">{{ i }}</option>
-          {% else %}
-            <option value="/oferta/{{ typ_url }}/{{ i.url }}/">{{ i }}</option>
-          {% endif %}
+            {% if i.url == dziedzina_url %}
+              <option selected value="/oferta/{{ typ_url }}/{{ i.url }}/">{{ i }}</option>
+            {% else %}
+              <option value="/oferta/{{ typ_url }}/{{ i.url }}/">{{ i }}</option>
+            {% endif %}
 
-        {% endfor %}
+          {% endfor %}
 
         </select>
 
@@ -64,7 +68,7 @@
         <select disabled="disabled">
       {% endif %}
 
-          <option value="/oferta/{{ typ_url }}/{{ dziedzina_url }}/">----</option>
+          <option value="/oferta/{{ typ_url }}/{{ dziedzina_url }}/">Wybierz rodzaj...</option>
 
         {% for i in rodzaj %}
 
@@ -84,16 +88,43 @@
 
       <div class="filtry otoczka_pola">
 
-        <div>Filtry</div>
+        <div class="lista">
+
+          <div>Wyszukiwanie</div>
+          <div>Producent</div>
+
+        </div>
+
+        <div class="pole">
+
+          <div class="otoczka_pola wyszukaj">
+
+            <form method="POST" action="/wyszukaj/">{% csrf_token %}
+
+              <input type="text" placeholder="Wyszukaj..."/>
+              <button type="submit"></button>
+              <div class="link" data-href="/wyszukaj/usun/"></div>
+
+            </form>
+
+          </div>
+
+        </div>
 
       </div>
 
     </div>
 
+  </div>
 
+
+
+  <div class="BLOK2">
+
+    <div class="tlo"></div>
 
     <div class="tresc lista_produktow">
-    
+  
       <ul>
 
         {% if not produkt %}
@@ -135,7 +166,7 @@
           </li>
 
         {% endfor %}
-      
+    
       </ul>
     
     </div>

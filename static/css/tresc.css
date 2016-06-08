@@ -33,6 +33,7 @@ body > div > .fragment
   position: relative;
 
   height: 100px;
+  max-height: 100px;
 
   z-index: 7;
 }
@@ -55,10 +56,10 @@ body > div > .fragment
 
 
 
+
 /**************************** #TRESC ****************************/
 
-
-#TRESC.start > div
+#TRESC > div
 {
   position: relative;
   display: inline-block;
@@ -68,21 +69,17 @@ body > div > .fragment
   min-height: 700px;
 }
 
-
-
-#TRESC > div > div.tlo
+#TRESC > div > div.tytul,
+#TRESC > div > div.tresc
 {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
+  position: relative;
 
-  z-index: 10;
+  z-index:12;
 }
 
 
 
+#TRESC > div > div.tlo,
 #TRESC > div > div.nakladka
 {
   position: absolute;
@@ -90,8 +87,35 @@ body > div > .fragment
   left: 0px;
   right: 0px;
   bottom: 0px;
+}
 
+
+
+#TRESC > div > div.tlo,
+{
+  z-index: 10;
+}
+
+
+
+#TRESC > div > div.nakladka
+{
   z-index: 11;
+}
+
+
+
+
+/**************************** #TRESC - START ****************************/
+
+#TRESC.start > div
+{
+  position: relative;
+  display: inline-block;
+  margin: 0px;
+
+  width: 100%;
+  min-height: 700px;
 }
 
 
@@ -188,110 +212,182 @@ body > div > .fragment
 
 
 
-#TRESC > div > div.tytul,
-#TRESC > div > div.tresc
-{
-  position: relative;
-
-  z-index:12;
-}
-
-
-
 /**************************** Treść - oferta ***********************/
 
 #TRESC.oferta > div
 {
   color: #333;
-
-  margin-top: 200px !important;
 }
 
 
 
-#TRESC.oferta > div > .tlo
+#TRESC.oferta > div.BLOK1
+{
+  min-height: 100px !important;
+}
+
+
+
+#TRESC.oferta > .BLOK1 > .tlo
+{
+  background-color: #eee;
+}
+
+
+
+#TRESC.oferta > .BLOK2 > .tlo
 {
   background-color: #fff;
 }
 
 
 
-#TRESC.oferta > div > .tresc
+#TRESC.oferta > .BLOK1 > .tresc
 {
-  position: relative;
-
-  left: 50px;
+  margin-top: 30px;
 }
 
 
 
-#TRESC.oferta > div > .tresc > .typ,
-#TRESC.oferta > div > .tresc > .dziedzina,
-#TRESC.oferta > div > .tresc > .rodzaj,
-#TRESC.oferta > div > .tresc > .wyszukiwarka,
-#TRESC.oferta > div > .tresc > .filtry
+#TRESC.oferta > .BLOK1 > .tresc > div
 {
-  position: absolute;
+  position: relative;
 
+  display: inline-block;
+
+  min-width: 27%;
+  width: 27%;
+  max-height: 50px;
+
+  margin-right: 4.1%;
+
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+
+  overflow: hidden;
   z-index:12;
 }
 
 
 
-#TRESC.oferta > div > .tresc > .typ
+#TRESC.oferta > div > .tresc > div > *
 {
-  left: -200px;
-  top: -100px;
+  min-width: 300px;
+  width: 300px;
 
-  width: 200px;
-  height: 500px;
+  word-wrap: break-word;
+
+  box-shadow: none;
 }
 
 
 
-#TRESC.oferta > div > .tresc > .typ > div
+#TRESC.oferta > .BLOK1 > .tresc > .filtry
 {
-  width: 197px;
+  position: relative;
+
+  display: inline-block;
+
+  min-width: 100%;
+  width: 100%;
+  max-height: none;
+
+  margin: 0px;
+  padding-top: 10px;
+
+  border-top: 3px solid #ff7000;
+}
+
+
+
+#TRESC.oferta > .BLOK1 > .tresc > .filtry > *
+{
+  min-width: 100%;
+  width: 100%;
+}
+
+
+
+#TRESC.oferta > .BLOK1 > .tresc > .filtry > .lista > *
+{
+  display: inline-block;
+
+  padding: 0px 20px;
+}
+
+
+
+#TRESC.oferta > .BLOK1 > .tresc > .filtry > .pole
+{
   height: 50px;
 
-  margin: 3px auto;
-  padding-left: 3px;
-  padding-right: 0px;
-
-  line-height: 50px;
+  margin-top: 20px;
 }
 
 
 
-#TRESC.oferta > div > .tresc > .dziedzina
+#TRESC.oferta > .BLOK1 > .tresc > .filtry > .pole > .wyszukaj
 {
-  left: 50px;
-  top: -150px;
-  
-  width: 400px;
+  position: relative;
+
+  width: 500px;
 }
 
 
 
-#TRESC.oferta > div > .tresc > .rodzaj
+#TRESC.oferta > .BLOK1 > .tresc > .filtry > .pole > .wyszukaj input
 {
-  left: 50px;
-  top: -100px;
-  
-  width: 400px;
+  min-width: 430px;
+  width: 430px;
+
+  margin-right: 70px;
+
+  z-index: 11;
 }
 
 
 
-#TRESC.oferta > div > .tresc > .filtry
+#TRESC.oferta > .BLOK1 > .tresc > .filtry > .pole > .wyszukaj button,
+#TRESC.oferta > .BLOK1 > .tresc > .filtry > .pole > .wyszukaj div
 {
   position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
 
-  right: 50px;
-  top: -100px;
+  min-width: 0px;
+  width: 36px;
 
-  width: 400px;
+  z-index: 12;
 }
+
+
+
+#TRESC.oferta > .BLOK1 > .tresc > .filtry > .pole > .wyszukaj button
+{
+  right: 36px;
+
+  background-color: transparent;
+  background-image: url( '/static/img/lupa_d_c.png' );
+  background-size: 65% 65%;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  box-shadow: none;
+}
+
+
+
+#TRESC.oferta > .BLOK1 > .tresc > .filtry > .pole > .wyszukaj div
+{
+  background-color: transparent;
+  background-image: url( '/static/img/delete.png' );
+  background-size: 65% 65%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 
 
 
@@ -403,7 +499,7 @@ body > div > .fragment
 @media (min-width: 768px)
 {
   #TRESC.standardowa > div,
-  #TRESC.oferta > div,
+  #TRESC.oferta > div > div.tresc,
   #TRESC.start > div > div.tresc,
   #TRESC.produkt > div
   {
@@ -414,7 +510,7 @@ body > div > .fragment
 @media (min-width: 992px)
 {
   #TRESC.standardowa > div,
-  #TRESC.oferta > div,
+  #TRESC.oferta > div > div.tresc,
   #TRESC.start > div > div.tresc,
   #TRESC.produkt > div
   {
@@ -425,7 +521,7 @@ body > div > .fragment
 @media (min-width: 1200px)
 {
   #TRESC.standardowa > div,
-  #TRESC.oferta > div,
+  #TRESC.oferta > div > div.tresc,
   #TRESC.start > div > div.tresc
   {
     width: 970px;
@@ -435,7 +531,7 @@ body > div > .fragment
 
 
 #TRESC.standardowa > div,
-#TRESC.oferta > div,
+#TRESC.oferta > div > div.tresc,
 #TRESC.start > div > div.tresc
 {
   margin: 50px;
@@ -550,7 +646,7 @@ select:disabled,
 button:disabled,
 textarea:disabled
 {
-  color: #333;
+  color: #666;
 
   background-color: #ddd;
   border: none;
@@ -575,6 +671,7 @@ button
 {
   min-width: 300px;
   width: auto;
+  cursor: pointer;
   
   background-color: #999;
 
@@ -589,6 +686,8 @@ button:focus
 {
   color: #fff;
   background-color: #666;
+
+  cursor: pointer;
 
   -webkit-box-shadow: inset 1px 2px 3px 0px #616161;
   -moz-box-shadow: inset 1px 2px 3px 0px #616161;
