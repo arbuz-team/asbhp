@@ -53,4 +53,4 @@ class Formularz_Filtru_Zawody(forms.ModelForm):
 
 
 class Formularz_Kontener(forms.Form):
-    zawartosc = forms.ChoiceField()
+    zawartosc = forms.CharField()
