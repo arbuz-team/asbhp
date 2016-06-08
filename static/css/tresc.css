@@ -499,10 +499,9 @@ body > div > .fragment
 
 @media (min-width: 768px)
 {
-  #TRESC.standardowa > div,
-  #TRESC.oferta > div > div.tresc,
-  #TRESC.start > div > div.tresc,
-  #TRESC.produkt > div
+  #TRESC.standardowa > div > .tresc,
+  #TRESC.oferta > div > .tresc,
+  #TRESC.start > div > .tresc
   {
     width: 650px;
   }
@@ -510,10 +509,9 @@ body > div > .fragment
 
 @media (min-width: 992px)
 {
-  #TRESC.standardowa > div,
-  #TRESC.oferta > div > div.tresc,
-  #TRESC.start > div > div.tresc,
-  #TRESC.produkt > div
+  #TRESC.standardowa > div > .tresc,
+  #TRESC.oferta > div > .tresc,
+  #TRESC.start > div > .tresc
   {
     width: 800px;
   }
@@ -521,9 +519,9 @@ body > div > .fragment
 
 @media (min-width: 1200px)
 {
-  #TRESC.standardowa > div,
-  #TRESC.oferta > div > div.tresc,
-  #TRESC.start > div > div.tresc
+  #TRESC.standardowa > div > .tresc,
+  #TRESC.oferta > div > .tresc,
+  #TRESC.start > div > .tresc
   {
     width: 970px;
   }
@@ -531,9 +529,9 @@ body > div > .fragment
 }
 
 
-#TRESC.standardowa > div,
-#TRESC.oferta > div > div.tresc,
-#TRESC.start > div > div.tresc
+#TRESC.standardowa > div > .tresc,
+#TRESC.oferta > div > .tresc,
+#TRESC.start > div > .tresc
 {
   margin: 50px;
   margin-right: auto;
@@ -547,7 +545,7 @@ body > div > .fragment
 
 
 #TRESC.standardowa > div > .akapit,
-#TRESC.start > div > div.tresc > .akapit
+#TRESC.start > div > .tresc > .akapit
 {
 
 }
