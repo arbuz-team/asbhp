@@ -9,6 +9,7 @@ def Wyszukaj(request):
 
     if request.method == 'POST':
         wyszukiwarka = Formularz_Wyszukiwarki(request.POST)
+        request.session['wyszukiwarka'] = wyszukiwarka
         wynik = []
 
         if wyszukiwarka.is_valid():
@@ -57,6 +58,7 @@ def Pobierz_Formularz_Wyszukiwarki(request):
 
     return wyszukiwarka
 
+
 def Usun_Sesje(request):
 
     if request.session.get('zapytanie', None):
@@ -64,5 +66,8 @@ def Usun_Sesje(request):
 
     if request.session.get('wyszukane_produkty', None):
         del request.session['wyszukane_produkty']
+
+    if request.session.get('wyszukiwarka', None):
+        del request.session['wyszukiwarka']
 
     return redirect('Wyswietl_Oferta')

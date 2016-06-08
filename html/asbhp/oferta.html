@@ -102,12 +102,15 @@
             <form method="POST" action="/wyszukiwarka/">{% csrf_token %}
 
               {{ wyszukiwarka.zapytanie }}
+
               <button type="submit"></button>
               <div class="link" data-href="/wyszukiwarka/usun_sesje/"></div>
 
             </form>
 
           </div>
+
+          {{ wyszukiwarka.zapytanie.errors.0 }}
 
         </div>
 
