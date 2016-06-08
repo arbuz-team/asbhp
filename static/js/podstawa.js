@@ -30,7 +30,7 @@ $(document).ready(function ()
   
     ruch.post_i_odswiez( $(this).parent().data( 'href' ), 
       { csrfmiddlewaretoken : $(this).parent().children( 'input[name=csrfmiddlewaretoken]' ).val(), 
-        select : $(this).val() } );
+        zawartosc : $(this).val() } );
   
   });
 

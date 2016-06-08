@@ -68,23 +68,23 @@
 
         {% csrf_token %}
 
-      {% if rodzaj %}
-        <select>
-      {% else %}
-        <select disabled="disabled">
-      {% endif %}
+        {% if rodzaj %}
+          <select>
+        {% else %}
+          <select disabled="disabled">
+        {% endif %}
 
           <option value="">Wybierz rodzaj...</option>
 
-        {% for i in rodzaj %}
+          {% for i in rodzaj %}
 
-          {% if i.url == rodzaj_url %}
-            <option selected value="{{ i.url }}">{{ i }}</option>
-          {% else %}
-            <option value="{{ i.url }}">{{ i }}</option>
-          {% endif %}
+            {% if i.url == rodzaj_url %}
+              <option selected value="{{ i.url }}">{{ i }}</option>
+            {% else %}
+              <option value="{{ i.url }}">{{ i }}</option>
+            {% endif %}
 
-        {% endfor %}
+          {% endfor %}
 
         </select>
 
