@@ -1,20 +1,20 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render, redirect
+from wyszukiwarka.views import *
 from produkt.models import *
-from wyszukiwarka.forms import *
 from forms import *
 
 ################## Zakładki: Wyświetlanie ##################
 
 def Wyswietl_Start(request):
-    wyszukiwarka = Formularz_Wyszukiwarki()
+    wyszukiwarka = Pobierz_Formularz_Wyszukiwarki(request)
     polecane = Polecane.objects.all()
     return render(request, 'asbhp/start.html', {'wyszukiwarka': wyszukiwarka,
                                                 'polecane': polecane})
 
 
 def Wyswietl_O_Firmie(request):
-    wyszukiwarka = Formularz_Wyszukiwarki()
+    wyszukiwarka = Pobierz_Formularz_Wyszukiwarki(request)
     css_menu = ['wybrany', '', '']
     o_firmie = O_Firmie.objects.all()
     return render(request, 'asbhp/o_firmie.html', {'wyszukiwarka': wyszukiwarka,
@@ -23,9 +23,9 @@ def Wyswietl_O_Firmie(request):
 
 
 def Wyswietl_Oferta(request, typ_url=None, dziedzina_url=None,
-                    rodzaj_url=None, wyszukane_produkty=None):
+                    rodzaj_url=None):
 
-    wyszukiwarka = Formularz_Wyszukiwarki()
+    wyszukiwarka = Pobierz_Formularz_Wyszukiwarki(request)
     css_menu = ['', 'wybrany', '']
     produkt = Produkt.objects.all()
     typ = Typ_Odziezy.objects.all()
@@ -43,6 +43,9 @@ def Wyswietl_Oferta(request, typ_url=None, dziedzina_url=None,
     if rodzaj_url:
         produkt = produkt.filter(rodzaj__url=rodzaj_url)
 
+    if request.session.get('zapytanie', None):
+        produkt = request.session['wyszukane_produkty']
+
     return render(request, 'asbhp/oferta.html', {'wyszukiwarka': wyszukiwarka,
                                                  'css_menu': css_menu,
                                                  'produkt': produkt,
@@ -55,7 +58,7 @@ def Wyswietl_Oferta(request, typ_url=None, dziedzina_url=None,
 
 
 def Wyswietl_Kontakt(request):
-    wyszukiwarka = Formularz_Wyszukiwarki()
+    wyszukiwarka = Pobierz_Formularz_Wyszukiwarki(request)
     css_menu = ['', '', 'wybrany']
     kontakt = Kontakt.objects.all()
     return render(request, 'asbhp/kontakt.html', {'wyszukiwarka': wyszukiwarka,

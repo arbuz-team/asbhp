@@ -1,9 +1,8 @@
-from django.conf.urls import url, include
+from django.conf.urls import url
 from . import views
 
 urlpatterns = [
 
     url(r'^$', views.Wyszukaj, name='Wyszukaj'),
-    url(r'', include('asbhp.urls')),
 
 ]

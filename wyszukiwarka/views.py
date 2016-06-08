@@ -13,6 +13,8 @@ def Wyszukaj(request):
 
         if wyszukiwarka.is_valid():
             zapytanie = wyszukiwarka.cleaned_data['zapytanie'].split(' ')
+            request.session['zapytanie'] = wyszukiwarka.cleaned_data['zapytanie']
+
             wynik_sql = Produkt.objects.filter(
                 reduce(operator.or_, (Q(nazwa__icontains=s) for s in zapytanie))        |
                 reduce(operator.or_, (Q(opis__icontains=s) for s in zapytanie))         |
@@ -43,4 +45,14 @@ def Wyszukaj(request):
     else:
         wynik = []
 
-    return redirect()
+    request.session['wyszukane_produkty'] = wynik
+    return redirect('Wyswietl_Oferta')
+
+
+def Pobierz_Formularz_Wyszukiwarki(request):
+    wyszukiwarka = Formularz_Wyszukiwarki()
+
+    if request.session.get('zapytanie', None):
+        wyszukiwarka.Ustaw_Zapytanie(request.session['zapytanie'])
+
+    return wyszukiwarka
