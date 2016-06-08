@@ -99,11 +99,11 @@
 
           <div class="otoczka_pola wyszukaj">
 
-            <form method="POST" action="/wyszukaj/">{% csrf_token %}
+            <form method="POST" action="/wyszukiwarka/">{% csrf_token %}
 
-              <input type="text" placeholder="Wyszukaj..."/>
+              {{ wyszukiwarka.zapytanie }}
               <button type="submit"></button>
-              <div class="link" data-href="/wyszukaj/usun/"></div>
+              <div class="link" data-href="/wyszukiwarka/usun_sesje/"></div>
 
             </form>
 

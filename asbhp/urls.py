@@ -8,16 +8,13 @@ urlpatterns = [
     url(r'^oferta/$', views.Wyswietl_Oferta, name='Wyswietl_Oferta'),
     url(r'^kontakt/$', views.Wyswietl_Kontakt, name='Wyswietl_Kontakt'),
 
-    url(r'^oferta/(?P<typ_url>\w{0,30})/$',
+    url(r'^oferta/(?P<typ_url>\w{0,50})/$',
         views.Wyswietl_Oferta, name='Wyswietl_Oferta'),
 
-    url(r'^oferta/(?P<typ_url>\w{0,30})/(?P<dziedzina_url>\w{0,30})/$',
+    url(r'^oferta/(?P<typ_url>\w{0,50})/(?P<dziedzina_url>\w{0,50})/$',
         views.Wyswietl_Oferta, name='Wyswietl_Oferta'),
 
-    url(r'^oferta/(?P<typ_url>\w{0,30})/(?P<dziedzina_url>\w{0,30})/(?P<rodzaj_url>\w{0,30})/$',
-        views.Wyswietl_Oferta, name='Wyswietl_Oferta'),
-
-    url(r'^oferta/(?P<typ_url>\w{0,30})/(?P<dziedzina_url>\w{0,30})/(?P<rodzaj_url>\w{0,30})/(?P<wyszukane_produkty>\w+)/$',
+    url(r'^oferta/(?P<typ_url>\w{0,50})/(?P<dziedzina_url>\w{0,50})/(?P<rodzaj_url>\w{0,50})/$',
         views.Wyswietl_Oferta, name='Wyswietl_Oferta'),
 
     url(r'^edytuj/kontakt/$', views.Edytuj_Kontakt, name='Edytuj_Kontakt'),

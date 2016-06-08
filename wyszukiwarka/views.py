@@ -56,3 +56,13 @@ def Pobierz_Formularz_Wyszukiwarki(request):
         wyszukiwarka.Ustaw_Zapytanie(request.session['zapytanie'])
 
     return wyszukiwarka
+
+def Usun_Sesje(request):
+
+    if request.session.get('zapytanie', None):
+        del request.session['zapytanie']
+
+    if request.session.get('wyszukane_produkty', None):
+        del request.session['wyszukane_produkty']
+
+    return redirect('Wyswietl_Oferta')
