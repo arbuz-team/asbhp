@@ -58,11 +58,11 @@ var zmiana = (function()
 
     var $naglowek = $( '#NAGLOWEK > div' );
 
-    var wysokosc = pobierz.zmienne_wysokosc();
+    var wysokosc = parseInt( $naglowek.parent().css( 'max-height' ) );
     var wysokosc_rzeczywista = $naglowek.outerHeight();
 
 
-    if( wysokosc.naglowek == wysokosc_rzeczywista )
+    if( wysokosc == wysokosc_rzeczywista )
     {
 
       var $pole_menu = $naglowek.children( '.menu' );
@@ -70,12 +70,12 @@ var zmiana = (function()
       var $logo = $naglowek.children( '.tytul' );
       var $after = $logo.children();
       
-      var logo_wysokosc = $logo.outerHeight() - 30;
-      var logo_szerokosc = logo_wysokosc * ($logo.outerWidth() / $logo.outerHeight());
-      var after_wysokosc = $after.outerHeight() - 30;
-      var after_szerokosc = after_wysokosc * ($after.outerWidth() / $after.outerHeight());
+      var logo_wysokosc = wysokosc - 30;
+      var logo_szerokosc = logo_wysokosc * ($logo.outerWidth() / wysokosc);
+      var after_wysokosc = wysokosc - 30;
+      var after_szerokosc = after_wysokosc * ($after.outerWidth() / wysokosc);
 
-      $naglowek.height( wysokosc.naglowek - 30 );
+      $naglowek.parent().height( wysokosc - 30 );
       $pole_menu.css({ 'position' : 'relative', 'top' : '-30px' });
       $wyszukiwarka.css({ 'position' : 'relative', 'top' : '-30px' });
 
@@ -97,11 +97,11 @@ var zmiana = (function()
 
     var $naglowek = $( '#NAGLOWEK > div' );
 
-    var wysokosc = pobierz.zmienne_wysokosc();
+    var wysokosc = parseInt( $naglowek.parent().css( 'max-height' ) );
     var wysokosc_rzeczywista = $naglowek.outerHeight();
 
 
-    if( wysokosc.naglowek != wysokosc_rzeczywista )
+    if( wysokosc != wysokosc_rzeczywista )
     {
 
       var $pole_menu = $naglowek.children( '.menu' );
@@ -109,12 +109,12 @@ var zmiana = (function()
       var $logo = $naglowek.children( '.tytul' );
       var $after = $logo.children();
       
-      var logo_wysokosc = wysokosc.naglowek;
-      var logo_szerokosc = wysokosc.naglowek * ($logo.outerWidth() / $logo.outerHeight());
-      var after_wysokosc = $after.outerHeight() + 30;
+      var logo_wysokosc = wysokosc;
+      var logo_szerokosc = wysokosc * ($logo.outerWidth() / $logo.outerHeight());
+      var after_wysokosc = wysokosc;
       var after_szerokosc = after_wysokosc * ($after.outerWidth() / $after.outerHeight());
 
-      $naglowek.height( wysokosc.naglowek );
+      $naglowek.parent().height( wysokosc );
       $pole_menu.css({ 'position' : 'relative', 'top' : '0px' });
       $wyszukiwarka.css({ 'position' : 'relative', 'top' : '0px' });
 
@@ -245,11 +245,10 @@ var ruch = (function()
   function _pozycja_scrollbara( element )
   {
 
-    var wysokosc_naglowka = $( '#NAGLOWEK' ).outerHeight();
     var aktualna_pozycja = $( 'body > div' ).scrollTop();
     var pozycja_elementu = $( element ).position();
 
-    $( 'body > div' ).stop().animate({scrollTop: pozycja_elementu.top }, '500' );
+    $( 'body > div' ).stop().animate({ scrollTop : pozycja_elementu.top  }, '500' );
 
   }
 
