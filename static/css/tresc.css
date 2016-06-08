@@ -320,14 +320,15 @@ body > div > .fragment
 
 #TRESC.oferta > .BLOK1 > .tresc > .filtry > .pole
 {
-  height: 50px;
+  min-height: 50px;
 
   margin-top: 20px;
 }
 
 
 
-#TRESC.oferta > .BLOK1 > .tresc > .filtry > .pole > .wyszukaj
+#TRESC.oferta > .BLOK1 > .tresc > .filtry > .pole > .wyszukaj,
+#TRESC.oferta > .BLOK1 > .tresc > .filtry > .pole > .komunikaty
 {
   position: relative;
 

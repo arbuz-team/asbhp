@@ -110,7 +110,11 @@
 
           </div>
 
-          {{ wyszukiwarka.zapytanie.errors.0 }}
+          <div class="komunikaty">
+            {% for e in wyszukiwarka.zapytanie.errors %}
+              {{ e }}
+            {% endfor %}
+          </div>
 
         </div>
 
