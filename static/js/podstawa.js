@@ -45,6 +45,21 @@ $(document).ready(function ()
   
   });
 
+
+
+  $('body > div').scroll(function () 
+  {
+  
+    var top = parseInt( $(this).scrollTop() );
+
+    if( top != 0 )
+      zmiana.zmniejsz_naglowek();
+
+    else
+      zmiana.zwieksz_naglowek();
+
+  });
+
 });
 
 
