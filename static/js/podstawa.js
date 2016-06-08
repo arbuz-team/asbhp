@@ -4,32 +4,39 @@
 
 
 
-var DOMENA = location.protocol + '//' + location.hostname + ':' + location.port;
-
-
-
 $(document).ready(function () 
 {
 
-  $('.link').click(function () 
+  $( '.link' ).click(function () 
   {
   
-    ruch.przekieruj_do( $(this).data('domena'), $(this).data('href') );
+    ruch.przekieruj_do( $(this).data( 'domena' ), $(this).data( 'href' ) );
   
   });
 
 
 
-  $('.link_select > select').change(function () 
+  $( '.link_select > select' ).change(function () 
   {
   
-    ruch.przekieruj_do( $(this).children(':selected').data('domena'), $(this).val() );
+    ruch.przekieruj_do( $(this).children( ':selected' ).data( 'domena' ), $(this).val() );
   
   });
 
 
 
-  $('.wyszukiwarka > button').mouseenter(function () 
+  $( '.post_select > select' ).change(function () 
+  {
+  
+    ruch.post_i_odswiez( $(this).parent().data( 'href' ), 
+      { csrfmiddlewaretoken : $(this).parent().children( 'input[name=csrfmiddlewaretoken]' ).val(), 
+        select : $(this).val() } );
+  
+  });
+
+
+
+  $( '.wyszukiwarka > button' ).mouseenter(function () 
   {
 
     $(this).parent().children( 'input' ).focus();
@@ -38,16 +45,16 @@ $(document).ready(function ()
 
 
 
-  $('#TRESC .strzalka > .obrazek, #TRESC .strzalka > .podpis').click(function () 
+  $( '#TRESC .strzalka > .obrazek, #TRESC .strzalka > .podpis' ).click(function () 
   {
   
-    ruch.pozycja_scrollbara( $(this).parent().data('href') );
+    ruch.pozycja_scrollbara( $(this).parent().data( 'href' ) );
   
   });
 
 
 
-  $('body > div').scroll(function () 
+  $( 'body > div' ).scroll(function () 
   {
   
     var top = parseInt( $(this).scrollTop() );
@@ -71,7 +78,7 @@ $(document).ready(function () {
 
   $(window).load(function () {
 
-    var szerokosc_scrollbara = $('body > div').css( 'padding-right'); 
+    var szerokosc_scrollbara = $( 'body > div' ).css( 'padding-right' ); 
 
     dostosuj.wysokosc_strony();
     dostosuj.strone_do_scrollbara( szerokosc_scrollbara );
@@ -101,7 +108,7 @@ $(document).ready(function () {
 
 jQuery(document).ready(function ($) { 
 
-  $('body > div').perfectScrollbar({
+  $( 'body > div' ).perfectScrollbar({
     wheelSpeed: 2,
     minScrollbarLength: 20
   });

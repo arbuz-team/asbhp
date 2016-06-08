@@ -12,18 +12,20 @@
 
     <div class="tresc">
 
-      <div class="typ otoczka_pola link_select">
+      <div class="typ otoczka_pola post_select" data-href="/wyszukiwarka/">
+
+        {% csrf_token %}
 
         <select>
 
-          <option value="/oferta/">Wybierz typ...</option>
+          <option value="">Wybierz typ...</option>
 
           {% for i in typ %}
 
             {% if i.url == typ_url %}
-              <option selected value="/oferta/{{ i.url }}/">{{ i }}</option>
+              <option selected value="{{ i.url }}">{{ i }}</option>
             {% else %}
-              <option value="/oferta/{{ i.url }}/">{{ i }}</option>
+              <option value="{{ i.url }}">{{ i }}</option>
             {% endif %}
 
           {% endfor %}
@@ -34,7 +36,9 @@
 
 
 
-      <div class="dziedzina otoczka_pola link_select">
+      <div class="dziedzina otoczka_pola post_select" data-href="/wyszukiwarka/">
+
+        {% csrf_token %}
 
         {% if dziedzina %}
           <select>
@@ -42,14 +46,14 @@
           <select disabled="disabled">
         {% endif %}
 
-          <option value="/oferta/{{ typ_url }}/">Wybierz dziedzinę...</option>
+          <option value="">Wybierz dziedzinę...</option>
 
           {% for i in dziedzina %}
 
             {% if i.url == dziedzina_url %}
-              <option selected value="/oferta/{{ typ_url }}/{{ i.url }}/">{{ i }}</option>
+              <option selected value="{{ i.url }}">{{ i }}</option>
             {% else %}
-              <option value="/oferta/{{ typ_url }}/{{ i.url }}/">{{ i }}</option>
+              <option value="{{ i.url }}">{{ i }}</option>
             {% endif %}
 
           {% endfor %}
@@ -60,7 +64,9 @@
 
 
 
-      <div class="rodzaj otoczka_pola link_select">
+      <div class="rodzaj otoczka_pola post_select" data-href="/wyszukiwarka/">
+
+        {% csrf_token %}
 
       {% if rodzaj %}
         <select>
@@ -68,14 +74,14 @@
         <select disabled="disabled">
       {% endif %}
 
-          <option value="/oferta/{{ typ_url }}/{{ dziedzina_url }}/">Wybierz rodzaj...</option>
+          <option value="">Wybierz rodzaj...</option>
 
         {% for i in rodzaj %}
 
           {% if i.url == rodzaj_url %}
-            <option selected value="/oferta/{{ typ_url }}/{{ dziedzina_url }}/{{ i.url }}/">{{ i }}</option>
+            <option selected value="{{ i.url }}">{{ i }}</option>
           {% else %}
-            <option value="/oferta/{{ typ_url }}/{{ dziedzina_url }}/{{ i.url }}/">{{ i }}</option>
+            <option value="{{ i.url }}">{{ i }}</option>
           {% endif %}
 
         {% endfor %}

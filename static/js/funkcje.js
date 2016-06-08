@@ -3,6 +3,8 @@
 "use strict"; 
 
 
+var DOMENA = location.protocol + '//' + location.hostname + ':' + location.port;
+
 
 /*********************** POBIERANIE DANYCH ***********************/
 
@@ -241,6 +243,22 @@ var ruch = (function()
   }
 
 
+  function _post_i_odswiez( adres, dane )
+  {
+
+    $.post( DOMENA + adres, dane, function() {
+      location.reload();
+    })
+
+
+    .fail(function() 
+    {
+      console.warn( 'Wystąpił błąd podczas przesyłania danych - ' + url );
+    })
+
+  }
+
+
 
   function _pozycja_scrollbara( element )
   {
@@ -258,6 +276,7 @@ var ruch = (function()
   {
 
     przekieruj_do : _przekieruj_do,
+    post_i_odswiez : _post_i_odswiez,
     pozycja_scrollbara : _pozycja_scrollbara
 
   }
