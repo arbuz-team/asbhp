@@ -90,11 +90,11 @@ def Filtr_Producent(request):
             if 'wyszukane_produkty' in request.session:
                 request.session['wyszukane_produkty'] = \
                     request.session['wyszukane_produkty'].\
-                        filter(producent=filtr.cleaned_data('producent'))
+                        filter(producent=filtr.cleaned_data['producent'])
 
             else:
                 request.session['wyszukane_produkty'] = \
-                    Produkt.objects.filter(producent=filtr.cleaned_data('producent'))
+                    Produkt.objects.filter(producent=filtr.cleaned_data['producent'])
 
     return redirect('Wyswietl_Oferta')
 
@@ -109,11 +109,11 @@ def Filtr_Kolor(request):
             if 'wyszukane_produkty' in request.session:
                 request.session['wyszukane_produkty'] = \
                     request.session['wyszukane_produkty']. \
-                        filter(kolor=filtr.cleaned_data('kolor'))
+                        filter(kolor=filtr.cleaned_data['kolor'])
 
             else:
                 request.session['wyszukane_produkty'] = \
-                    Produkt.objects.filter(kolor=filtr.cleaned_data('kolor'))
+                    Produkt.objects.filter(kolor=filtr.cleaned_data['kolor'])
 
     return redirect('Wyswietl_Oferta')
 
@@ -128,11 +128,11 @@ def Filtr_Zagrozenia(request):
             if 'wyszukane_produkty' in request.session:
                 request.session['wyszukane_produkty'] = \
                     request.session['wyszukane_produkty']. \
-                        filter(zagrozenia=filtr.cleaned_data('zagrozenia'))
+                        filter(zagrozenia=filtr.cleaned_data['zagrozenia'])
 
             else:
                 request.session['wyszukane_produkty'] = \
-                    Produkt.objects.filter(zagrozenia=filtr.cleaned_data('zagrozenia'))
+                    Produkt.objects.filter(zagrozenia=filtr.cleaned_data['zagrozenia'])
 
     return redirect('Wyswietl_Oferta')
 
@@ -147,11 +147,11 @@ def Filtr_Zawody(request):
             if 'wyszukane_produkty' in request.session:
                 request.session['wyszukane_produkty'] = \
                     request.session['wyszukane_produkty']. \
-                        filter(zawody=filtr.cleaned_data('zawody'))
+                        filter(zawody=filtr.cleaned_data['zawody'])
 
             else:
                 request.session['wyszukane_produkty'] = \
-                    Produkt.objects.filter(zawody=filtr.cleaned_data('zawody'))
+                    Produkt.objects.filter(zawody=filtr.cleaned_data['zawody'])
 
     return redirect('Wyswietl_Oferta')
 
@@ -159,6 +159,16 @@ def Filtr_Zawody(request):
 ################## Kontenery ##################
 
 def Kontener_Typ(request):
+
+    print '1'
+    if request.method == 'POST':
+        kontener = Formularz_Kontener(request.POST)
+        print '2'
+
+        if kontener.is_valid():
+            print '3'
+            print kontener.cleaned_data['zawartosc']
+
     return redirect('Wyswietl_Oferta')
 
 

@@ -18,8 +18,7 @@ def Wyswietl_O_Firmie(request):
                                                    'o_firmie': o_firmie})
 
 
-def Wyswietl_Oferta(request, typ_url=None, dziedzina_url=None,
-                    rodzaj_url=None):
+def Wyswietl_Oferta(request):
 
     if 'wyszukiwarka' in request.session:
         wyszukiwarka = request.session['wyszukiwarka']
@@ -33,7 +32,7 @@ def Wyswietl_Oferta(request, typ_url=None, dziedzina_url=None,
     dziedzina = []
     rodzaj = []
 
-    if typ_url:
+    '''if typ_url:
         dziedzina = Dziedzina_Odziezy.objects.filter(typ__url=typ_url)
         produkt = produkt.filter(rodzaj__dziedzina__typ__url=typ_url)
 
@@ -45,7 +44,7 @@ def Wyswietl_Oferta(request, typ_url=None, dziedzina_url=None,
         produkt = produkt.filter(rodzaj__url=rodzaj_url)
 
     if 'wyszukane_produkty' in request.session:
-        produkt = request.session['wyszukane_produkty']
+        produkt = request.session['wyszukane_produkty']'''
 
     return render(request, 'asbhp/oferta.html', {'wyszukiwarka': wyszukiwarka,
                                                  'css_menu': css_menu,
@@ -53,9 +52,7 @@ def Wyswietl_Oferta(request, typ_url=None, dziedzina_url=None,
                                                  'typ': typ,
                                                  'dziedzina': dziedzina,
                                                  'rodzaj': rodzaj,
-                                                 'typ_url': typ_url,
-                                                 'dziedzina_url': dziedzina_url,
-                                                 'rodzaj_url': rodzaj_url})
+                                                 'tmp': Formularz_Kontener()})
 
 
 def Wyswietl_Kontakt(request):

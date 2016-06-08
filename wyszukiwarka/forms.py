@@ -50,3 +50,7 @@ class Formularz_Filtru_Zawody(forms.ModelForm):
     class Meta:
         model = Produkt
         fields = ('zawody',)
+
+
+class Formularz_Kontener(forms.Form):
+    zawartosc = forms.ChoiceField()
