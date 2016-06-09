@@ -32,19 +32,26 @@ def Wyswietl_Oferta(request):
     dziedzina = []
     rodzaj = []
 
-    '''if typ_url:
+    typ_url = []
+    dziedzina_url = []
+    rodzaj_url = []
+
+    if 'typ_url' in request.session:
+        typ_url = request.session['typ_url']
         dziedzina = Dziedzina_Odziezy.objects.filter(typ__url=typ_url)
         produkt = produkt.filter(rodzaj__dziedzina__typ__url=typ_url)
 
-    if dziedzina_url:
+    if 'dziedzina_url' in request.session:
+        dziedzina_url = request.session['dziedzina_url']
         rodzaj = Rodzaj_Odziezy.objects.filter(dziedzina__url=dziedzina_url)
         produkt = produkt.filter(rodzaj__dziedzina__url=dziedzina_url)
 
-    if rodzaj_url:
+    if 'rodzaj_url' in request.session:
+        rodzaj_url = request.session['rodzaj_url']
         produkt = produkt.filter(rodzaj__url=rodzaj_url)
 
     if 'wyszukane_produkty' in request.session:
-        produkt = request.session['wyszukane_produkty']'''
+        produkt = request.session['wyszukane_produkty']
 
     return render(request, 'asbhp/oferta.html', {'wyszukiwarka': wyszukiwarka,
                                                  'css_menu': css_menu,
@@ -52,7 +59,9 @@ def Wyswietl_Oferta(request):
                                                  'typ': typ,
                                                  'dziedzina': dziedzina,
                                                  'rodzaj': rodzaj,
-                                                 'tmp': Formularz_Kontener()})
+                                                 'typ_url': typ_url,
+                                                 'dziedzina_url': dziedzina_url,
+                                                 'rodzaj_url': rodzaj_url})
 
 
 def Wyswietl_Kontakt(request):

@@ -160,21 +160,50 @@ def Filtr_Zawody(request):
 
 def Kontener_Typ(request):
 
-    print '1'
+    if 'dziedzina_url' in request.session:
+        del request.session['dziedzina_url']
+
+    if 'rodzaj_url' in request.session:
+        del request.session['rodzaj_url']
+
     if request.method == 'POST':
         kontener = Formularz_Kontener(request.POST)
-        print '2'
 
         if kontener.is_valid():
-            print '3'
-            print kontener.cleaned_data['zawartosc']
+            request.session['typ_url'] = kontener.cleaned_data['zawartosc']
+
+        else:
+            del request.session['typ_url']
 
     return redirect('Wyswietl_Oferta')
 
 
 def Kontener_Dziedzina(request):
+
+    if 'rodzaj_url' in request.session:
+        del request.session['rodzaj_url']
+
+    if request.method == 'POST':
+        kontener = Formularz_Kontener(request.POST)
+
+        if kontener.is_valid():
+            request.session['dziedzina_url'] = kontener.cleaned_data['zawartosc']
+
+        else:
+            del request.session['dziedzina_url']
+
     return redirect('Wyswietl_Oferta')
 
 
 def Kontener_Rodzaj(request):
+
+    if request.method == 'POST':
+        kontener = Formularz_Kontener(request.POST)
+
+        if kontener.is_valid():
+            request.session['rodzaj_url'] = kontener.cleaned_data['zawartosc']
+
+        else:
+            del request.session['rodzaj_url']
+
     return redirect('Wyswietl_Oferta')
