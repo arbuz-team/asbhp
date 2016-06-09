@@ -133,11 +133,29 @@ var zmiana = (function()
 
 
 
+  function _przelacznik_zakladek( element, href )
+  {
+
+    var $filtry = $(element);
+    var $lista = $filtry.children( '.lista' );
+    var $zakladki = $filtry.children( '.zakladka' );
+    
+    $filtry.children( '.zakladka.wybrana' ).removeClass( 'wybrana' ).hide(200, 
+      function() 
+      {
+        $filtry.children( '.zakladka_' + href ).show(200).addClass( 'wybrana' );
+      });
+
+  }
+
+
+
   var udostepnione = 
   {
 
     zmniejsz_naglowek : _zmniejsz_naglowek,
     zwieksz_naglowek : _zwieksz_naglowek,
+    przelacznik_zakladek : _przelacznik_zakladek
 
   }
 

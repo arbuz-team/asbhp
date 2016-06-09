@@ -245,6 +245,7 @@ body > div > .fragment
 #TRESC.oferta > .BLOK1 > .tresc
 {
   margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 
@@ -318,7 +319,7 @@ body > div > .fragment
 
 
 
-#TRESC.oferta > .BLOK1 > .tresc > .filtry > .pole
+#TRESC.oferta > .BLOK1 > .tresc > .filtry > .zakladka
 {
   min-height: 50px;
 
@@ -327,8 +328,8 @@ body > div > .fragment
 
 
 
-#TRESC.oferta > .BLOK1 > .tresc > .filtry > .pole > .wyszukaj,
-#TRESC.oferta > .BLOK1 > .tresc > .filtry > .pole > .komunikaty
+#TRESC.oferta > .BLOK1 > .tresc > .filtry > .zakladka > .wyszukaj,
+#TRESC.oferta > .BLOK1 > .tresc > .filtry > .zakladka > .komunikaty
 {
   position: relative;
 
@@ -337,7 +338,7 @@ body > div > .fragment
 
 
 
-#TRESC.oferta > .BLOK1 > .tresc > .filtry > .pole > .wyszukaj input
+#TRESC.oferta > .BLOK1 > .tresc > .filtry > .zakladka > .wyszukaj input
 {
   min-width: 430px;
   width: 430px;
@@ -349,8 +350,8 @@ body > div > .fragment
 
 
 
-#TRESC.oferta > .BLOK1 > .tresc > .filtry > .pole > .wyszukaj button,
-#TRESC.oferta > .BLOK1 > .tresc > .filtry > .pole > .wyszukaj div
+#TRESC.oferta > .BLOK1 > .tresc > .filtry > .zakladka > .wyszukaj button,
+#TRESC.oferta > .BLOK1 > .tresc > .filtry > .zakladka > .wyszukaj div
 {
   position: absolute;
   top: 0px;
@@ -365,7 +366,7 @@ body > div > .fragment
 
 
 
-#TRESC.oferta > .BLOK1 > .tresc > .filtry > .pole > .wyszukaj button
+#TRESC.oferta > .BLOK1 > .tresc > .filtry > .zakladka > .wyszukaj button
 {
   right: 36px;
 
@@ -380,7 +381,7 @@ body > div > .fragment
 
 
 
-#TRESC.oferta > .BLOK1 > .tresc > .filtry > .pole > .wyszukaj div
+#TRESC.oferta > .BLOK1 > .tresc > .filtry > .zakladka > .wyszukaj div
 {
   background-color: transparent;
   background-image: url( '/static/img/delete.png' );
