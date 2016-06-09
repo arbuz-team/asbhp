@@ -122,19 +122,16 @@ body > div > .fragment
 
 #TRESC.start > div.BLOK1 > div.napis
 {
-  position: relative;
-  width: 600px;
+  position: absolute;
+  width: 556px;
+  height: 292px;
 
-  margin-top: 200px;
-  margin-left: auto;
-  margin-right: 50px;
+  bottom: 130px;
+  right: -10px;
 
-  font-size: 78px;
-  font-weight: bold;
-  color: #ff8000;
-  text-align: center;
-  
-  text-shadow: #000 0px 0px 20px;
+  background-image: url( '/static/img/napis_ver1.png' );
+  background-position: right;
+  background-repeat: no-repeat;
 
   z-index:12;
 }
@@ -403,6 +400,8 @@ body > div > .fragment
 
   color: inherit;
   overflow: hidden;
+
+  cursor: pointer;
 }
 
 
