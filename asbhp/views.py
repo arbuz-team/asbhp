@@ -51,7 +51,12 @@ def Wyswietl_Oferta(request):
         produkt = produkt.filter(rodzaj__url=rodzaj_url)
 
     if 'wyszukane_produkty' in request.session:
-        produkt = request.session['wyszukane_produkty']
+        wynik = []
+        for w in request.session['wyszukane_produkty']:
+            if w in produkt:
+                wynik.append(w)
+
+        produkt = wynik
 
     return render(request, 'asbhp/oferta.html', {'wyszukiwarka': wyszukiwarka,
                                                  'css_menu': css_menu,
