@@ -32,23 +32,23 @@ def Wyswietl_Oferta(request):
     dziedzina = []
     rodzaj = []
 
-    typ_url = []
-    dziedzina_url = []
-    rodzaj_url = []
+    wybrany_typ = []
+    wybrany_dziedzina = []
+    wybrany_rodzaj = []
 
-    if 'typ_url' in request.session:
-        typ_url = request.session['typ_url']
-        dziedzina = Dziedzina_Odziezy.objects.filter(typ__url=typ_url)
-        produkt = produkt.filter(rodzaj__dziedzina__typ__url=typ_url)
+    if 'wybrany_typ' in request.session:
+        wybrany_typ = request.session['wybrany_typ']
+        dziedzina = Dziedzina_Odziezy.objects.filter(typ__url=wybrany_typ)
+        produkt = produkt.filter(rodzaj__dziedzina__typ__url=wybrany_typ)
 
-    if 'dziedzina_url' in request.session:
-        dziedzina_url = request.session['dziedzina_url']
-        rodzaj = Rodzaj_Odziezy.objects.filter(dziedzina__url=dziedzina_url)
-        produkt = produkt.filter(rodzaj__dziedzina__url=dziedzina_url)
+    if 'wybrany_dziedzina' in request.session:
+        wybrany_dziedzina = request.session['wybrany_dziedzina']
+        rodzaj = Rodzaj_Odziezy.objects.filter(dziedzina__url=wybrany_dziedzina)
+        produkt = produkt.filter(rodzaj__dziedzina__url=wybrany_dziedzina)
 
-    if 'rodzaj_url' in request.session:
-        rodzaj_url = request.session['rodzaj_url']
-        produkt = produkt.filter(rodzaj__url=rodzaj_url)
+    if 'wybrany_rodzaj' in request.session:
+        wybrany_rodzaj = request.session['wybrany_rodzaj']
+        produkt = produkt.filter(rodzaj__url=wybrany_rodzaj)
 
     if 'wyszukane_produkty' in request.session:
         wynik = []
@@ -64,9 +64,9 @@ def Wyswietl_Oferta(request):
                                                  'typ': typ,
                                                  'dziedzina': dziedzina,
                                                  'rodzaj': rodzaj,
-                                                 'typ_url': typ_url,
-                                                 'dziedzina_url': dziedzina_url,
-                                                 'rodzaj_url': rodzaj_url,
+                                                 'wybrany_typ': wybrany_typ,
+                                                 'wybrany_dziedzina': wybrany_dziedzina,
+                                                 'wybrany_rodzaj': wybrany_rodzaj,
                                                  'filtr_producent': Formularz_Filtru_Producent(),
                                                  'filtr_kolor': Formularz_Filtru_Kolor(),
                                                  'filtr_zagrozenia': Formularz_Filtru_Zagrozenia(),

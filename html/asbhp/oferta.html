@@ -22,7 +22,7 @@
 
           {% for i in typ %}
 
-            {% if i.url == typ_url %}
+            {% if i.url == wybrany_typ %}
               <option selected value="{{ i.url }}">{{ i }}</option>
             {% else %}
               <option value="{{ i.url }}">{{ i }}</option>
@@ -50,7 +50,7 @@
 
           {% for i in dziedzina %}
 
-            {% if i.url == dziedzina_url %}
+            {% if i.url == wybrany_dziedzina %}
               <option selected value="{{ i.url }}">{{ i }}</option>
             {% else %}
               <option value="{{ i.url }}">{{ i }}</option>
@@ -78,7 +78,7 @@
 
           {% for i in rodzaj %}
 
-            {% if i.url == rodzaj_url %}
+            {% if i.url == wybrany_rodzaj %}
               <option selected value="{{ i.url }}">{{ i }}</option>
             {% else %}
               <option value="{{ i.url }}">{{ i }}</option>
