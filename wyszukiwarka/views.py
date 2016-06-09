@@ -22,6 +22,7 @@ def Wyszukaj(request):
             wynik_sql = Produkt.objects.filter(
                 reduce(operator.or_, (Q(nazwa__icontains=s) for s in zapytanie))        |
                 reduce(operator.or_, (Q(opis__icontains=s) for s in zapytanie))         |
+                reduce(operator.or_, (Q(slowa_kluczowe__icontains=s) for s in zapytanie)) |
                 reduce(operator.or_, (Q(producent__nazwa__icontains=s) for s in zapytanie)) |
                 reduce(operator.or_, (Q(kolor__nazwa__icontains=s) for s in zapytanie)) |
                 reduce(operator.or_, (Q(rodzaj__nazwa__icontains=s) for s in zapytanie)) |

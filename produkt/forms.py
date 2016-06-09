@@ -14,16 +14,15 @@ class Formularz_Produktu(forms.ModelForm):
 
     class Meta:
         model = Produkt
-        fields = ('nazwa', 'opis', 'producent', 'kolor',
-                  'rozmiar', 'waga', 'sztuk', 'rodzaj',
+        fields = ('nazwa', 'opis', 'slowa_kluczowe', 'rozmiar',
+                  'producent', 'kolor', 'rodzaj',
                   'certyfikaty', 'zagrozenia', 'zawody')
 
         widgets = {
             'nazwa':    forms.TextInput(attrs={'placeholder': 'Wpisz nazwę'}),
             'opis':     forms.Textarea(attrs={'placeholder': 'Wpisz opis'}),
+            'slowa_kluczowe': forms.Textarea(attrs={'placeholder': 'Wpisz słowa kluczowe'}),
             'rozmiar':  forms.TextInput(attrs={'placeholder': 'Wpisz rozmiar'}),
-            'waga':     forms.NumberInput(attrs={'placeholder': 'Wpisz wagę (g)'}),
-            'sztuk':    forms.NumberInput(attrs={'placeholder': 'Wpisz sztuk/opak'}),
         }
 
 

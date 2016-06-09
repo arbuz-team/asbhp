@@ -82,12 +82,11 @@ class Zawod(models.Model):
 class Produkt(models.Model):
 
     nazwa = models.CharField(max_length=50)
-    opis = models.TextField()
+    opis = models.TextField(null=True)
+    slowa_kluczowe = models.TextField(null=True)
+    rozmiar = models.CharField(max_length=20, null=True)
     producent = models.ForeignKey(Producent)
     kolor = models.ForeignKey(Kolor)
-    rozmiar = models.CharField(max_length=20)
-    waga = models.IntegerField() # gramy
-    sztuk = models.IntegerField()
     rodzaj = models.ForeignKey(Rodzaj_Odziezy, on_delete=models.CASCADE)
     certyfikaty = models.ManyToManyField('Certyfikat', through='Certyfikaty_Dla_Produktu')
     zagrozenia = models.ManyToManyField('Zagrozenie', through='Zagrozenia_Dla_Produktu')
