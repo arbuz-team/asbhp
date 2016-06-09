@@ -7,6 +7,8 @@
 $(document).ready(function () 
 {
 
+  /********* DIV LINK *********/
+
   $( '.link' ).click(function () 
   {
   
@@ -15,6 +17,7 @@ $(document).ready(function ()
   });
 
 
+  /********* SELECT LINK *********/
 
   $( '.link_select > select' ).change(function () 
   {
@@ -24,6 +27,7 @@ $(document).ready(function ()
   });
 
 
+  /********* SELECT POST *********/
 
   $( '.post_select > select' ).change(function () 
   {
@@ -35,15 +39,17 @@ $(document).ready(function ()
   });
 
 
+  /********* FILTRY - ZAKŁADKI *********/
 
-  $( '.wyszukiwarka > button' ).mouseenter(function () 
+  $( '.filtry > .lista > div' ).click(function () 
   {
-
-    $(this).parent().children( 'input' ).focus();
+  
+    zmiana.przelacznik_zakladek( '#' + $(this).parent().parent().attr( 'id' ), $(this).data( 'href' ) );
   
   });
 
 
+  /********* SCROLLBAR - Przesunięcie guzikiem *********/
 
   $( '#TRESC .strzalka > .obrazek, #TRESC .strzalka > .podpis' ).click(function () 
   {
@@ -53,6 +59,7 @@ $(document).ready(function ()
   });
 
 
+  /********* NAGLOWEK - Dostosowanie wysokosci *********/
 
   $( 'body > div' ).scroll(function () 
   {

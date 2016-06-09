@@ -92,16 +92,16 @@
 
 
 
-      <div class="filtry otoczka_pola">
+      <div id="FILTRY" class="filtry otoczka_pola">
 
         <div class="lista">
 
-          <div>Wyszukiwanie</div>
-          <div>Producent</div>
+          <div data-href="1">Wyszukiwanie</div>
+          <div data-href="2">Producent</div>
 
         </div>
 
-        <div class="pole">
+        <div class="zakladka zakladka_1 wybrana">
 
           <div class="otoczka_pola wyszukaj">
 
@@ -120,6 +120,23 @@
             {% for e in wyszukiwarka.zapytanie.errors %}
               {{ e }}
             {% endfor %}
+          </div>
+
+        </div>
+
+        <div class="zakladka zakladka_2" style="display: none;">
+
+          <div class="otoczka_pola wyszukaj">
+
+            <form method="POST" action="/wyszukiwarka/">{% csrf_token %}
+
+              bla bla bla
+              
+            </form>
+
+          </div>
+
+          <div class="komunikaty">
           </div>
 
         </div>
