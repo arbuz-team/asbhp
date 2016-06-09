@@ -61,7 +61,11 @@ def Wyswietl_Oferta(request):
                                                  'rodzaj': rodzaj,
                                                  'typ_url': typ_url,
                                                  'dziedzina_url': dziedzina_url,
-                                                 'rodzaj_url': rodzaj_url})
+                                                 'rodzaj_url': rodzaj_url,
+                                                 'filtr_producent': Formularz_Filtru_Producent(),
+                                                 'filtr_kolor': Formularz_Filtru_Kolor(),
+                                                 'filtr_zagrozenia': Formularz_Filtru_Zagrozenia(),
+                                                 'filtr_zawody': Formularz_Filtru_Zawody()})
 
 
 def Wyswietl_Kontakt(request):
