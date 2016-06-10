@@ -10,6 +10,7 @@ urlpatterns = [
     url(r'^kolor/$', views.Filtr_Kolor, name='Filtr_Kolor'),
     url(r'^zagrozenia/$', views.Filtr_Zagrozenia, name='Filtr_Zagrozenia'),
     url(r'^zawody/$', views.Filtr_Zawody, name='Filtr_Zawody'),
+    url(r'^liczba_produktow/$', views.Filtr_Liczba_Produktow, name='Filtr_Liczba_Produktow'),
 
     url(r'^typ/$', views.Kontener_Typ, name='Kontener_Typ'),
     url(r'^dziedzina/$', views.Kontener_Dziedzina, name='Kontener_Dziedzina'),

@@ -7,12 +7,14 @@ from forms import *
 
 def Wyswietl_Produkt(request, pk):
     produkt = Produkt.objects.filter(id=pk).first()
-    return render(request, 'produkt/produkt.html', {'produkt': produkt})
+    return render(request, 'produkt/produkt.html',
+                  {'produkt': produkt})
 
 
 def Wyswietl_Polecane(request):
     polecane = Polecane.objects.all()
-    return render(request, 'produkt/polecane.html', {'polecane': polecane})
+    return render(request, 'produkt/polecane.html',
+                  {'polecane': polecane})
 
 
 ################## Dodawanie ##################
@@ -33,7 +35,8 @@ def Dodaj_Produkt(request):
         if f.label not in ['Certyfikaty', 'Zagrozenia', 'Zawody']:
             f.label = ''
 
-    return render(request, 'produkt/dodaj_produkt.html', {'formularz': formularz})
+    return render(request, 'produkt/dodaj_produkt.html',
+                  {'formularz': formularz})
 
 
 def Dodaj_Producent(request):
@@ -44,12 +47,14 @@ def Dodaj_Producent(request):
         if formularz.is_valid():
             formularz.save()
             opis = 'Producent została poprawnie dodana.'
-            return render(request, 'produkt/potwierdzenie.html', {'opis': opis})
+            return render(request, 'produkt/potwierdzenie.html',
+                          {'opis': opis})
 
     else:
         formularz = Formularz_Producent()
 
-    return render(request, 'produkt/dodaj.html', {'formularz': formularz})
+    return render(request, 'produkt/dodaj.html',
+                  {'formularz': formularz})
 
 
 def Dodaj_Kolor(request):
@@ -60,12 +65,14 @@ def Dodaj_Kolor(request):
         if formularz.is_valid():
             formularz.save()
             opis = 'Kolor został poprawnie dodany.'
-            return render(request, 'produkt/potwierdzenie.html', {'opis': opis})
+            return render(request, 'produkt/potwierdzenie.html',
+                          {'opis': opis})
 
     else:
         formularz = Formularz_Kolor()
 
-    return render(request, 'produkt/dodaj.html', {'formularz': formularz})
+    return render(request, 'produkt/dodaj.html',
+                  {'formularz': formularz})
 
 
 def Dodaj_Certyfikat(request):
@@ -76,12 +83,14 @@ def Dodaj_Certyfikat(request):
         if formularz.is_valid():
             formularz.save()
             opis = 'Certyfikat został poprawnie dodany.'
-            return render(request, 'produkt/potwierdzenie.html', {'opis': opis})
+            return render(request, 'produkt/potwierdzenie.html',
+                          {'opis': opis})
 
     else:
         formularz = Formularz_Certyfikat()
 
-    return render(request, 'produkt/dodaj.html', {'formularz': formularz})
+    return render(request, 'produkt/dodaj.html',
+                  {'formularz': formularz})
 
 
 def Dodaj_Dodatek(request):
@@ -92,12 +101,14 @@ def Dodaj_Dodatek(request):
         if formularz.is_valid():
             formularz.save()
             opis = 'Dodatek został poprawnie dodany.'
-            return render(request, 'produkt/potwierdzenie.html', {'opis': opis})
+            return render(request, 'produkt/potwierdzenie.html',
+                          {'opis': opis})
 
     else:
         formularz = Formularz_Dodatek()
 
-    return render(request, 'produkt/dodaj.html', {'formularz': formularz})
+    return render(request, 'produkt/dodaj.html',
+                  {'formularz': formularz})
 
 
 def Dodaj_Polecane(request):
@@ -109,12 +120,14 @@ def Dodaj_Polecane(request):
             formularz.save()
             opis = 'Nowy produkt został poprawnie dodany do ' \
                    'listy produktów polecanych.'
-            return render(request, 'produkt/potwierdzenie.html', {'opis': opis})
+            return render(request, 'produkt/potwierdzenie.html',
+                          {'opis': opis})
 
     else:
         formularz = Formularz_Polecane()
 
-    return render(request, 'produkt/dodaj.html', {'formularz': formularz})
+    return render(request, 'produkt/dodaj.html',
+                  {'formularz': formularz})
 
 
 ################## Usuwanie ##################
@@ -165,4 +178,5 @@ def Edytuj_Produkt(request, pk):
     else:
         formularz = Formularz_Produktu(instance=produkt)
 
-    return render(request, 'produkt/edytuj.html', {'formularz': formularz})
+    return render(request, 'produkt/edytuj.html',
+                  {'formularz': formularz})

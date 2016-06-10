@@ -88,6 +88,7 @@ def Filtr_Producent(request):
 
         if filtr.is_valid():
 
+                # filtruję wyszukane wcześniej produkty
             if 'wyszukane_produkty' in request.session:
                 request.session['wyszukane_produkty'] = \
                     request.session['wyszukane_produkty'].\
@@ -107,6 +108,7 @@ def Filtr_Kolor(request):
 
         if filtr.is_valid():
 
+                # filtruję wyszukane wcześniej produkty
             if 'wyszukane_produkty' in request.session:
                 request.session['wyszukane_produkty'] = \
                     request.session['wyszukane_produkty']. \
@@ -126,6 +128,7 @@ def Filtr_Zagrozenia(request):
 
         if filtr.is_valid():
 
+                # filtruję wyszukane wcześniej produkty
             if 'wyszukane_produkty' in request.session:
                 request.session['wyszukane_produkty'] = \
                     request.session['wyszukane_produkty']. \
@@ -145,6 +148,7 @@ def Filtr_Zawody(request):
 
         if filtr.is_valid():
 
+                # filtruję wyszukane wcześniej produkty
             if 'wyszukane_produkty' in request.session:
                 request.session['wyszukane_produkty'] = \
                     request.session['wyszukane_produkty']. \
@@ -153,6 +157,17 @@ def Filtr_Zawody(request):
             else:
                 request.session['wyszukane_produkty'] = \
                     Produkt.objects.filter(zawody=filtr.cleaned_data['zawody'])
+
+    return redirect('Wyswietl_Oferta')
+
+
+def Filtr_Liczba_Produktow(request):
+
+    if request.method == 'POST':
+        filtr = Formularz_Filtru_Liczba_Produktow(request.POST)
+
+        if filtr.is_valid():
+            request.session['liczba_produktow'] = filtr.cleaned_data['liczba']
 
     return redirect('Wyswietl_Oferta')
 
