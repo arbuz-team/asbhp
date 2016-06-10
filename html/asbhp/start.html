@@ -41,16 +41,16 @@
 
           <div class="przeznaczenie">
           
-            {% for zawod in p.produkt.zawody.all %}
-              <div style="background-image: url({{ zawod.id }})"></div>
+            {% for zawod in p.zawody.all %}
+              <div class="zawod.id"></div>
             {% endfor %}
           
           </div>
 
           <div class="zagrozenia">
           
-            {% for zagrozenie in p.produkt.zagrozenia.all %}
-              <div style="background-image: url({{ zagrozenie.id }})"></div>
+            {% for zagrozenie in p.zagrozenia.all %}
+              <div css="zagrozenie.id"></div>
             {% endfor %}
           
           </div>
