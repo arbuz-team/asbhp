@@ -107,99 +107,85 @@ Produkt.objects.create(nazwa='Kilauea polarised',
                        opis='Okulary z poliwęglanu. Sportowy wygląd. Nylonowa matowa oprawka dla większej wygody i trwałości.',
                        producent=Producent.objects.get(nazwa='Kilauea'),
                        kolor=Kolor.objects.get(nazwa='Polaryzacyjne'),
-                       rodzaj=Rodzaj_Odziezy.objects.get(nazwa='Okulary ochronne')
+                       rodzaj=Rodzaj_Odziezy.objects.get(nazwa='Okulary ochronne'),
+                       zdjecie='/static/img/produkt/1.jpg'
                        ).save()
 
 Produkt.objects.create(nazwa='Kilauea mirror',
                        opis='Okulary z poliwęglanu. Sportowy wygląd. Nylonowa matowa oprawka dla większej wygody i trwałości.',
                        producent=Producent.objects.get(nazwa='Kilauea'),
                        kolor=Kolor.objects.get(nazwa='Odblaskowy'),
-                       rodzaj=Rodzaj_Odziezy.objects.get(nazwa='Okulary ochronne')
+                       rodzaj=Rodzaj_Odziezy.objects.get(nazwa='Okulary ochronne'),
+                       zdjecie='/static/img/produkt/2.jpg'
                        ).save()
 
 Produkt.objects.create(nazwa='Kilauea clear',
                        opis='Okulary z poliwęglanu. Sportowy wygląd. Nylonowa matowa oprawka dla większej wygody i trwałości.',
                        producent=Producent.objects.get(nazwa='Kilauea'),
                        kolor=Kolor.objects.get(nazwa='Bezbarwny'),
-                       rodzaj=Rodzaj_Odziezy.objects.get(nazwa='Okulary ochronne')
+                       rodzaj=Rodzaj_Odziezy.objects.get(nazwa='Okulary ochronne'),
+                       zdjecie='/static/img/produkt/3.jpg'
                        ).save()
 
 Produkt.objects.create(nazwa='Saba',
                        opis='Gogle z poliwęglanu, bezbarwne. Wentylacja pośrednia. Taśma nagłowia nie zawierająca gumy (bez lateksu). Miękka oprawka z PVC. Innowacyjny system regulacji ROTOR (opatentowany), łatwy w użytkowaniu i wygodny w noszeniu.',
                        producent=Producent.objects.get(nazwa='Saba'),
                        kolor=Kolor.objects.get(nazwa='Bezbarwny'),
-                       rodzaj=Rodzaj_Odziezy.objects.get(nazwa='Gogle ochronne')
+                       rodzaj=Rodzaj_Odziezy.objects.get(nazwa='Gogle ochronne'),
+                       zdjecie='/static/img/produkt/4.jpg'
                        ).save()
 
 Produkt.objects.create(nazwa='Venicut53',
                        opis='Rękawica z włukna polietylenowego wyskoiej odporności Deltanocut. Powłoka z pianki nitrylowej na stronie chwytnej i końcach palców. Nadgarstek elastyczny 10 cm. Ścieg 13.',
                        producent=Producent.objects.get(nazwa='Deltaplus'),
                        kolor=Kolor.objects.get(nazwa='Czarny'),
-                       rodzaj=Rodzaj_Odziezy.objects.get(nazwa='Do prac z ostrymi przedmiotami')
+                       rodzaj=Rodzaj_Odziezy.objects.get(nazwa='Do prac z ostrymi przedmiotami'),
+                       zdjecie='/static/img/produkt/5.jpg'
                        ).save()
 
 Produkt.objects.create(nazwa='Venicut32',
                        opis='Relawoca z włókna wysokiej odporności DELTAnocut. Powłoka poliuretanowa na stronie chwytnej i końcach palców. Ścieg 15.',
                        producent=Producent.objects.get(nazwa='Deltaplus'),
                        kolor=Kolor.objects.get(nazwa='Żółty'),
-                       rodzaj=Rodzaj_Odziezy.objects.get(nazwa='Do prac z ostrymi przedmiotami')
+                       rodzaj=Rodzaj_Odziezy.objects.get(nazwa='Do prac z ostrymi przedmiotami'),
+                       zdjecie='/static/img/produkt/6.jpg'
                        ).save()
 
 Produkt.objects.create(nazwa='TW400 S3 SRC',
                        opis='Cholewka: pełna skóra licowa, wodoodporna S3, ze wzmocnieniem noska z kauczuku. Podszewka: poliamid Cambrelle pochłaniający wilgoć. Wkładka: wymienna, wstępnie uformowana, poliester na piance PU. Podszewka: zgrzewana, wkładka z PU z pochłaniaczem energii Panoshock. Warstwa ścierna: kauczuk nitryl. Obuwie amagnetyczne.',
                        producent=Producent.objects.get(nazwa='Deltaplus'),
                        kolor=Kolor.objects.get(nazwa='Czarny'),
-                       rodzaj=Rodzaj_Odziezy.objects.get(nazwa='Trek work')
+                       rodzaj=Rodzaj_Odziezy.objects.get(nazwa='Trek work'),
+                       zdjecie='/static/img/produkt/7.jpg'
                        ).save()
 
 Produkt.objects.create(nazwa='TW300 S3 SRC',
                        opis='Cholewka: pełna skóra licowa, wodoodporna S3, ze wzmocnieniem noska z kauczuku. Podszewka: poliamid Cambrelle pochłaniający wilgoć. Wkładka: wymienna, wstępnie uformowana, poliester na piance PU. Podszewka: zgrzewana, wkładka z PU z pochłaniaczem energii Panoshock. Warstwa ścierna: kauczuk nitryl. Obuwie amagnetyczne.',
                        producent=Producent.objects.get(nazwa='Deltaplus'),
                        kolor=Kolor.objects.get(nazwa='Czarny'),
-                       rodzaj=Rodzaj_Odziezy.objects.get(nazwa='Trek work')
+                       rodzaj=Rodzaj_Odziezy.objects.get(nazwa='Trek work'),
+                       zdjecie='/static/img/produkt/8.jpg'
                        ).save()
 
 Produkt.objects.create(nazwa='Eolien har35',
                        opis='Szelki dwukolorowe z pasem podtrzymującym. 3 punkty zaczepowe do asekuracji (tylny, przedni prawy, przedni lewy). 4 klamry regulacyjne. Pas podtrzymujący z oparciem formowanym na gorąco zamykany na szeroki rzep dla większego komfortu. Możliwość obrotu 120 st. 2 punkty zaczepowe boczne. 1 automatyczna klamra regulacyjna. Oparcie wyścielane gąbką.',
                        producent=Producent.objects.get(nazwa='Deltaplus'),
                        kolor=Kolor.objects.get(nazwa='Brak'),
-                       rodzaj=Rodzaj_Odziezy.objects.get(nazwa='Szelki chroniące przed upadkiem')
+                       rodzaj=Rodzaj_Odziezy.objects.get(nazwa='Szelki chroniące przed upadkiem'),
+                       zdjecie='/static/img/produkt/9.jpg'
                        ).save()
 
 Produkt.objects.create(nazwa='Anatom har32',
                        opis='Szelki dwukolorowe. 2 punkty zaczepowe do asekuracji( tylny i przedni).  4 klamry regulacyjne.',
                        producent=Producent.objects.get(nazwa='Deltaplus'),
                        kolor=Kolor.objects.get(nazwa='Brak'),
-                       rodzaj=Rodzaj_Odziezy.objects.get(nazwa='Szelki chroniące przed upadkiem')
+                       rodzaj=Rodzaj_Odziezy.objects.get(nazwa='Szelki chroniące przed upadkiem'),
+                       zdjecie='/static/img/produkt/10.jpg'
                        ).save()
 
 ################## Dodatek ##################
 Dodatek.objects.create(numer=1, opis='Nylonowa matowa oprawka dla większej wygody i trwałości', rodzaj=Rodzaj_Odziezy.objects.get(nazwa='Okulary ochronne'), producent=Producent.objects.get(nazwa='Kilauea')).save()
 Dodatek.objects.create(numer=2, opis='Z soczewkami polaryzacyjnymi', rodzaj=Rodzaj_Odziezy.objects.get(nazwa='Okulary ochronne'), producent=Producent.objects.get(nazwa='Kilauea')).save()
-
-################## Certyfikaty_Dla_Produktu ##################
-Certyfikaty_Dla_Produktu.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea polarised'), certyfikat=Certyfikat.objects.get(numer='EN166')).save()
-Certyfikaty_Dla_Produktu.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea mirror'), certyfikat=Certyfikat.objects.get(numer='EN166')).save()
-Certyfikaty_Dla_Produktu.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea clear'), certyfikat=Certyfikat.objects.get(numer='EN166')).save()
-Certyfikaty_Dla_Produktu.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea polarised'), certyfikat=Certyfikat.objects.get(numer='EN172')).save()
-Certyfikaty_Dla_Produktu.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea mirror'), certyfikat=Certyfikat.objects.get(numer='EN172')).save()
-Certyfikaty_Dla_Produktu.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea clear'), certyfikat=Certyfikat.objects.get(numer='EN170')).save()
-
-################## Zagrozenia_Dla_Produktu ##################
-Zagrozenia_Dla_Produktu.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea polarised'), zagrozenie=Zagrozenie.objects.get(nazwa='Uderzenie')).save()
-Zagrozenia_Dla_Produktu.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea polarised'), zagrozenie=Zagrozenie.objects.get(nazwa='UV/IR')).save()
-Zagrozenia_Dla_Produktu.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea mirror'), zagrozenie=Zagrozenie.objects.get(nazwa='Uderzenie')).save()
-Zagrozenia_Dla_Produktu.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea mirror'), zagrozenie=Zagrozenie.objects.get(nazwa='UV/IR')).save()
-Zagrozenia_Dla_Produktu.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea clear'), zagrozenie=Zagrozenie.objects.get(nazwa='Uderzenie')).save()
-Zagrozenia_Dla_Produktu.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea clear'), zagrozenie=Zagrozenie.objects.get(nazwa='UV/IR')).save()
-
-################## Zawody_Dla_Produktu ##################
-Zawody_Dla_Produktu.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea polarised'), zawod=Zawod.objects.get(nazwa='Budownictwo i roboty publiczne')).save()
-Zawody_Dla_Produktu.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea polarised'), zawod=Zawod.objects.get(nazwa='Prace remontowe/rzemiosło')).save()
-Zawody_Dla_Produktu.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea polarised'), zawod=Zawod.objects.get(nazwa='Energia wiatrowa')).save()
-Zawody_Dla_Produktu.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea mirror'), zawod=Zawod.objects.get(nazwa='Budownictwo i roboty publiczne')).save()
-Zawody_Dla_Produktu.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea mirror'), zawod=Zawod.objects.get(nazwa='Prace remontowe/rzemiosło')).save()
-Zawody_Dla_Produktu.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea clear'), zawod=Zawod.objects.get(nazwa='Prace remontowe/rzemiosło')).save()
 
 ################## Promowanie ##################
 Polecane.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea polarised'), data_zakonczenia=timezone.now()).save()

@@ -16,7 +16,7 @@ class Formularz_Produktu(forms.ModelForm):
         model = Produkt
         fields = ('nazwa', 'opis', 'slowa_kluczowe', 'rozmiar',
                   'producent', 'kolor', 'rodzaj',
-                  'certyfikaty', 'zagrozenia', 'zawody')
+                  'certyfikaty', 'zagrozenia', 'zawody', 'zdjecie')
 
         widgets = {
             'nazwa':    forms.TextInput(attrs={'placeholder': 'Wpisz nazwę'}),

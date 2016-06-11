@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.db import models
+from arbuz.settings import *
+import os
 
 ################## Produkt: Kontenery ##################
 
@@ -55,7 +57,6 @@ class Certyfikat(models.Model):
 
     numer = models.CharField(max_length=20)
     szczegoly = models.CharField(max_length=50)
-    produkty = models.ManyToManyField('Produkt', through='Certyfikaty_Dla_Produktu')
 
     def __str__(self):
         return self.numer.encode('utf8')
@@ -64,7 +65,6 @@ class Certyfikat(models.Model):
 class Zagrozenie(models.Model):
 
     nazwa = models.CharField(max_length=50)
-    produkty = models.ManyToManyField('Produkt', through='Zagrozenia_Dla_Produktu')
 
     def __str__(self):
         return self.nazwa.encode('utf8')
@@ -73,7 +73,6 @@ class Zagrozenie(models.Model):
 class Zawod(models.Model):
 
     nazwa = models.CharField(max_length=50)
-    produkty = models.ManyToManyField('Produkt', through='Zawody_Dla_Produktu')
 
     def __str__(self):
         return self.nazwa.encode('utf8')
@@ -88,9 +87,22 @@ class Produkt(models.Model):
     producent = models.ForeignKey(Producent)
     kolor = models.ForeignKey(Kolor)
     rodzaj = models.ForeignKey(Rodzaj_Odziezy, on_delete=models.CASCADE)
-    certyfikaty = models.ManyToManyField('Certyfikat', through='Certyfikaty_Dla_Produktu')
-    zagrozenia = models.ManyToManyField('Zagrozenie', through='Zagrozenia_Dla_Produktu')
-    zawody = models.ManyToManyField('Zawod', through='Zawody_Dla_Produktu')
+    certyfikaty = models.ManyToManyField('Certyfikat')
+    zagrozenia = models.ManyToManyField('Zagrozenie')
+    zawody = models.ManyToManyField('Zawod')
+    zdjecie = models.FileField()
+
+    def Ustaw_Nazwe_Zdjecia(self):
+        rozszerzenie = os.path.splitext(self.zdjecie.name)[1]
+        nowa_nazwa = '/static/img/produkt/{0}{1}'\
+            .format(self.pk, rozszerzenie)
+
+        stara_nazwa = MEDIA_ROOT + '/{0}'\
+            .format(os.path.basename(self.zdjecie.name))
+
+        os.rename(stara_nazwa, BASE_DIR + nowa_nazwa)
+        self.zdjecie.name = nowa_nazwa
+        self.save()
 
     def __str__(self):
         return self.nazwa.encode('utf8')
@@ -105,34 +117,6 @@ class Dodatek(models.Model):
 
     def __str__(self):
         return self.opis.encode('utf8')
-
-
-################## Produkt: Łączenie ##################
-
-class Certyfikaty_Dla_Produktu(models.Model):
-
-    produkt = models.ForeignKey(Produkt, on_delete=models.CASCADE)
-    certyfikat = models.ForeignKey(Certyfikat, on_delete=models.CASCADE)
-
-    class Meta:
-        unique_together = (('produkt', 'certyfikat'),)
-
-
-class Zagrozenia_Dla_Produktu(models.Model):
-
-    produkt = models.ForeignKey(Produkt, on_delete=models.CASCADE)
-    zagrozenie = models.ForeignKey(Zagrozenie, on_delete=models.CASCADE)
-
-    class Meta:
-        unique_together = (('produkt', 'zagrozenie'),)
-
-class Zawody_Dla_Produktu(models.Model):
-
-    produkt = models.ForeignKey(Produkt, on_delete=models.CASCADE)
-    zawod = models.ForeignKey(Zawod, on_delete=models.CASCADE)
-
-    class Meta:
-        unique_together = (('produkt', 'zawod'),)
 
 
 ################## Promowanie ##################

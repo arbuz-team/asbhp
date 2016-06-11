@@ -159,7 +159,7 @@ def Pobierz_Listy_Produktow(request, produkt):
 
         # tworzę listę zawierającą listy po określonej
         # ilości produktów w zmiennej liczba
-    for i in range(0, (produkt.count() / liczba) + 1):
+    for i in range(0, (len(produkt) / liczba) + 1):
         wynik.append(produkt[i * liczba: (i * liczba) + liczba])
 
     return wynik

@@ -22,15 +22,17 @@ def Wyswietl_Polecane(request):
 def Dodaj_Produkt(request):
 
     if request.method == 'POST':
-        formularz = Formularz_Produktu(request.POST)
+        formularz = Formularz_Produktu(request.POST, request.FILES)
 
         if formularz.is_valid():
             produkt = formularz.save()
-            return redirect('Wyswietl_Produkt', produkt.id)
+            produkt.Ustaw_Nazwe_Zdjecia()
+            return redirect('Wyswietl_Produkt', produkt.pk)
 
     else:
         formularz = Formularz_Produktu()
 
+        # usunięcie etykiet dla prawie wszystkich pól
     for f in formularz:
         if f.label not in ['Certyfikaty', 'Zagrozenia', 'Zawody']:
             f.label = ''
@@ -168,11 +170,13 @@ def Edytuj_Produkt(request, pk):
     produkt = get_object_or_404(Produkt, id=pk)
 
     if request.method == 'POST':
-        formularz = Formularz_Produktu(request.POST, instance=produkt)
+        formularz = Formularz_Produktu(request.POST, request.FILES,
+                                       instance=produkt)
 
         if formularz.is_valid():
             produkt = formularz.save(commit=False)
             produkt.save()
+            produkt.Ustaw_Nazwe_Zdjecia()
             return redirect('Wyswietl_Produkt', pk)
 
     else:
