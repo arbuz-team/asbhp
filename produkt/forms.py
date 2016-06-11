@@ -5,6 +5,9 @@ from models import *
 
 class Formularz_Produktu(forms.ModelForm):
 
+    zewnetrzny_url = forms.CharField(required=False,
+        widget=forms.TextInput(attrs={'placeholder': 'Wklej adres url zdjęcia'}))
+
     def __init__(self, *args, **kwargs):
         super(Formularz_Produktu, self).__init__(*args, **kwargs)
 
@@ -15,8 +18,8 @@ class Formularz_Produktu(forms.ModelForm):
     class Meta:
         model = Produkt
         fields = ('nazwa', 'opis', 'slowa_kluczowe', 'rozmiar',
-                  'producent', 'kolor', 'rodzaj',
-                  'certyfikaty', 'zagrozenia', 'zawody', 'zdjecie')
+                  'producent', 'kolor', 'rodzaj', 'certyfikaty',
+                  'zagrozenia', 'zawody', 'zdjecie', 'zewnetrzny_url')
 
         widgets = {
             'nazwa':    forms.TextInput(attrs={'placeholder': 'Wpisz nazwę'}),
@@ -25,6 +28,11 @@ class Formularz_Produktu(forms.ModelForm):
             'rozmiar':  forms.TextInput(attrs={'placeholder': 'Wpisz rozmiar'}),
         }
 
+        error_messages = {
+            'nazwa': {'required': 'Co to za produkt, bez nazwy...'},
+            'opis': {'required': 'Ludzie chcą wiedzieć, co kupują.'},
+            'rodzaj': {'required': 'Minimum potrzebne do filtrowania.'},
+        }
 
 class Formularz_Promowania(forms.ModelForm):
 

@@ -31,8 +31,14 @@ def Wyszukaj(request):
             )
 
                 # p - pojedynczy produkt
-            wynik_str = [(index, (p.nazwa + p.opis + p.producent.nazwa +
-                                 p.kolor.nazwa + p.rodzaj.nazwa).lower())
+            pobierz = lambda pole: pole.nazwa if pole else ''
+            wynik_str = [(index, (p.nazwa + p.opis +
+                                  pobierz(p.producent) +
+                                  pobierz(p.kolor) +
+                                  p.slowa_kluczowe +
+                                  p.rodzaj.nazwa +
+                                  p.rodzaj.dziedzina.nazwa +
+                                  p.rodzaj.dziedzina.typ.nazwa).lower())
                          for index, p in enumerate(wynik_sql)]
 
                 # tworzę listę krotek określających pozycje produktów

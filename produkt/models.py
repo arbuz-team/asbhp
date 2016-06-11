@@ -2,6 +2,8 @@
 from __future__ import unicode_literals
 from django.db import models
 from arbuz.settings import *
+from PIL import Image
+import cStringIO, urllib
 import os
 
 ################## Produkt: Kontenery ##################
@@ -81,18 +83,18 @@ class Zawod(models.Model):
 class Produkt(models.Model):
 
     nazwa = models.CharField(max_length=50)
-    opis = models.TextField(null=True)
-    slowa_kluczowe = models.TextField(null=True)
-    rozmiar = models.CharField(max_length=20, null=True)
-    producent = models.ForeignKey(Producent)
-    kolor = models.ForeignKey(Kolor)
+    opis = models.TextField()
+    slowa_kluczowe = models.TextField(null=True, blank=True)
+    rozmiar = models.CharField(max_length=20, null=True, blank=True)
+    producent = models.ForeignKey(Producent, null=True, blank=True)
+    kolor = models.ForeignKey(Kolor, null=True, blank=True)
     rodzaj = models.ForeignKey(Rodzaj_Odziezy, on_delete=models.CASCADE)
-    certyfikaty = models.ManyToManyField('Certyfikat')
-    zagrozenia = models.ManyToManyField('Zagrozenie')
-    zawody = models.ManyToManyField('Zawod')
-    zdjecie = models.FileField()
+    certyfikaty = models.ManyToManyField('Certyfikat', blank=True)
+    zagrozenia = models.ManyToManyField('Zagrozenie', blank=True)
+    zawody = models.ManyToManyField('Zawod', blank=True)
+    zdjecie = models.FileField(null=True, blank=True)
 
-    def Ustaw_Nazwe_Zdjecia(self):
+    def Zapisz_Zdjecie_Formularz(self):
         rozszerzenie = os.path.splitext(self.zdjecie.name)[1]
         nowa_nazwa = '/static/img/produkt/{0}{1}'\
             .format(self.pk, rozszerzenie)
@@ -101,6 +103,16 @@ class Produkt(models.Model):
             .format(os.path.basename(self.zdjecie.name))
 
         os.rename(stara_nazwa, BASE_DIR + nowa_nazwa)
+        self.zdjecie.name = nowa_nazwa
+        self.save()
+
+    def Zapisz_Zdjecie_URL(self, adres_url):
+        wejscie = cStringIO.StringIO(urllib.urlopen(adres_url).read())
+        obrazek = Image.open(wejscie)
+        nowa_nazwa = '/static/img/produkt/{0}.{1}' \
+            .format(self.pk, obrazek.format.lower())
+
+        obrazek.save(BASE_DIR + nowa_nazwa)
         self.zdjecie.name = nowa_nazwa
         self.save()
 

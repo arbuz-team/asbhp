@@ -2,7 +2,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from forms import *
 
-
 ################## Wyświetlanie ##################
 
 def Wyswietl_Produkt(request, pk):
@@ -26,7 +25,7 @@ def Dodaj_Produkt(request):
 
         if formularz.is_valid():
             produkt = formularz.save()
-            produkt.Ustaw_Nazwe_Zdjecia()
+            Zarzadzaj_Zdjeciem_Produktu(produkt, formularz)
             return redirect('Wyswietl_Produkt', produkt.pk)
 
     else:
@@ -176,7 +175,7 @@ def Edytuj_Produkt(request, pk):
         if formularz.is_valid():
             produkt = formularz.save(commit=False)
             produkt.save()
-            produkt.Ustaw_Nazwe_Zdjecia()
+            Zarzadzaj_Zdjeciem_Produktu(produkt, formularz)
             return redirect('Wyswietl_Produkt', pk)
 
     else:
@@ -184,3 +183,14 @@ def Edytuj_Produkt(request, pk):
 
     return render(request, 'produkt/edytuj.html',
                   {'formularz': formularz})
+
+
+################## Dodatki ##################
+
+def Zarzadzaj_Zdjeciem_Produktu(produkt, formularz):
+
+    if formularz.cleaned_data['zewnetrzny_url']:
+        produkt.Zapisz_Zdjecie_URL(formularz.cleaned_data['zewnetrzny_url'])
+
+    if formularz.cleaned_data['zdjecie']:
+        produkt.Zapisz_Zdjecie_Formularz()
