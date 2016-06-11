@@ -18,9 +18,10 @@ class Formularz_Produktu(forms.ModelForm):
 
     def clean_zewnetrzny_url(self):
         zewnetrzny_url = self.cleaned_data['zewnetrzny_url']
-        plik = cStringIO.StringIO(urllib.urlopen(zewnetrzny_url).read())
-        if not imghdr.what(plik):
-            raise forms.ValidationError('To przecież nie jest obrazek!')
+        if zewnetrzny_url:
+            plik = cStringIO.StringIO(urllib.urlopen(zewnetrzny_url).read())
+            if not imghdr.what(plik):
+                raise forms.ValidationError('To przecież nie jest obrazek!')
 
         return zewnetrzny_url
 
@@ -41,6 +42,7 @@ class Formularz_Produktu(forms.ModelForm):
             'nazwa': {'required': 'Co to za produkt, bez nazwy...'},
             'opis': {'required': 'Ludzie chcą wiedzieć, co kupują.'},
             'rodzaj': {'required': 'Minimum, potrzebne do filtrowania.'},
+            'zdjecie': {'invalid_image': 'To przecież nie jest obrazek!'}
         }
 
 class Formularz_Promowania(forms.ModelForm):
