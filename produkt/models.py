@@ -92,7 +92,7 @@ class Produkt(models.Model):
     certyfikaty = models.ManyToManyField('Certyfikat', blank=True)
     zagrozenia = models.ManyToManyField('Zagrozenie', blank=True)
     zawody = models.ManyToManyField('Zawod', blank=True)
-    zdjecie = models.FileField(null=True, blank=True)
+    zdjecie = models.ImageField(null=True, blank=True)
 
     def Zapisz_Zdjecie_Formularz(self):
         rozszerzenie = os.path.splitext(self.zdjecie.name)[1]
