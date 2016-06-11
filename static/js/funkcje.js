@@ -150,13 +150,39 @@ var zmiana = (function()
 
 
 
+  function _pokaz_produkt( dane )
+  {
+
+    var $produkt = $( '#PRODUKT' );
+    var $tresc = $produkt.children( '.tresc' );
+    
+    $tresc.html( dane ).parent().addClass( 'pelny' ).show(200);
+
+  }
+
+
+
+  function _ukryj_produkt( dane )
+  {
+
+    var $produkt = $( '#PRODUKT' );
+    var $tresc = $produkt.children( '.tresc' );
+    
+    $tresc.html( '' ).parent().removeClass( 'pelny' ).hide(200);
+
+  }
+
+
+
+
   var udostepnione = 
   {
 
     zmniejsz_naglowek : _zmniejsz_naglowek,
     zwieksz_naglowek : _zwieksz_naglowek,
-    przelacznik_zakladek : _przelacznik_zakladek
-
+    przelacznik_zakladek : _przelacznik_zakladek,
+    pokaz_produkt : _pokaz_produkt,
+    ukryj_produkt : _ukryj_produkt
   }
 
   return udostepnione;
@@ -261,6 +287,82 @@ var ruch = (function()
   }
 
 
+  function _otworz_w_nowej_karcie( domena, adres )
+  {
+
+    if( domena == 'inna' )
+      window.open( adres, '_blank' );
+
+    else
+    {
+      var url = DOMENA + adres;
+
+      $.ajax({
+        type: 'HEAD',
+        url: url,
+
+        success: function() 
+        {
+          window.open( url, '_blank' );
+        },
+
+        error: function() 
+        {
+          console.warn( 'Taki adres nie istnieje. - ' + url );
+          window.open( DOMENA + '/404/', '_blank' );
+        }
+
+      });
+    }
+
+  }
+
+
+
+  function _pokaz_produkt( adres )
+  {
+
+    var url = DOMENA + adres;
+
+    $.ajax({
+      type: 'GET',
+      url: url,
+
+      success: function(dane)
+      {
+
+        window.history.pushState(
+          { page : url },
+          url,
+          url);
+        zmiana.pokaz_produkt(dane);
+      
+      },
+
+      error: function() 
+      {
+      
+        console.warn( 'Taki produkt nie istnieje.' );
+        //window.location.href = DOMENA + '/404/';
+      
+      }
+
+    });
+
+  }
+
+
+
+  function _ukryj_produkt()
+  {
+
+    window.history.back();
+    zmiana.ukryj_produkt();
+
+  }
+
+
+
   function _post_i_odswiez( adres, dane )
   {
 
@@ -290,12 +392,25 @@ var ruch = (function()
 
 
 
+  function _sprawdz_cofnij( url, dane )
+  {
+
+    console.log( "location: " + url + ", state: " + dane );
+
+  };
+
+
+
   var udostepnione = 
   {
 
     przekieruj_do : _przekieruj_do,
+    otworz_w_nowej_karcie : _otworz_w_nowej_karcie,
+    pokaz_produkt : _pokaz_produkt,
+    ukryj_produkt : _ukryj_produkt,
     post_i_odswiez : _post_i_odswiez,
-    pozycja_scrollbara : _pozycja_scrollbara
+    pozycja_scrollbara : _pozycja_scrollbara,
+    sprawdz_cofnij : _sprawdz_cofnij
 
   }
 
@@ -354,26 +469,6 @@ var dostosuj = (function()
 
     wysokosc_strony : _wysokosc_strony,
     strone_do_scrollbara : _strone_do_scrollbara
-
-  }
-
-  return udostepnione;
-
-})();
-
-
-
-
-/*********************** DOSTOSUJ ***********************/
-
-
-var inna = (function()
-{
-
-
-  var udostepnione = 
-  {
-
 
   }
 

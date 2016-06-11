@@ -7,13 +7,30 @@
 $(document).ready(function () 
 {
 
+
+  //window.onpopstate = ruch.sprawdz_cofnij(event);
+
+  window.onpopstate = function(event) {
+    ruch.sprawdz_cofnij( document.location, JSON.stringify(event.page) );
+  };
+
+
+
+
   /********* DIV LINK *********/
 
   $( '.link' ).click(function () 
   {
   
-    ruch.przekieruj_do( $(this).data( 'domena' ), $(this).data( 'href' ) );
-  
+    var adres = $(this).data( 'href' );
+    var domena = $(this).data( 'domena' );
+
+    if( event.which == 1 )
+      ruch.przekieruj_do( domena, adres );
+
+    else if( event.which == 2 )
+      ruch.otworz_w_nowej_karcie( domena, adres );
+
   });
 
 
@@ -35,6 +52,35 @@ $(document).ready(function ()
     ruch.post_i_odswiez( $(this).parent().data( 'href' ), 
       { csrfmiddlewaretoken : $(this).parent().children( 'input[name=csrfmiddlewaretoken]' ).val(), 
         zawartosc : $(this).val() } );
+  
+  });
+
+
+  /********* Pokazywanie produktu *********/
+
+  $( '.lista_produktow > ul > li.produkt' ).click(function (event)
+  {
+
+    var adres = $(this).data( 'href' );
+
+    if( event.which == 1 )
+      ruch.pokaz_produkt( adres );
+
+    else if( event.which == 2 )
+      window.open( adres,'_blank' );
+
+  });
+
+
+  /********* Ukrywanie produktu *********/
+
+  $( '#PRODUKT > .tlo' ).click(function (event)
+  {
+
+    event.stopPropagation();
+
+    if( event.which == 1 || event.which == 2 )
+      ruch.ukryj_produkt();
   
   });
 

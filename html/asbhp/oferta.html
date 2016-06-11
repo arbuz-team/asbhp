@@ -1,6 +1,8 @@
 
 {% include "szablon_wstep.html" %}
 
+{% include "produkt.html" %}
+
 {% include "naglowek.html" %}
 
 
@@ -169,7 +171,7 @@
 
         {% for p in produkt %}
 
-          <li class="link" data-href="/produkt/{{ p.id }}/" data-domena="ta">
+          <li class="produkt" data-href="/produkt/{{ p.id }}/" data-nazwa="{{ p.nazwa }}">
           
             <div class="nazwa">{{ p.nazwa }}</div>
           

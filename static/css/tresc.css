@@ -28,6 +28,53 @@ body > div > .fragment
 
 
 
+#PRODUKT
+{
+  display: none;
+
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+
+  z-index: 100;
+}
+
+
+
+#PRODUKT > .tlo
+{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+
+  background-color: rgba( 133, 133, 133, 0.7 );
+
+  z-index: 100;
+}
+
+
+
+#PRODUKT > .tresc
+{
+  position: relative;
+  margin: 150px auto;
+
+  padding: 15px 20px;
+
+  width: 800px;
+  height: 600px;
+
+  background-color: rgba( 233, 233, 233, 1 );
+
+  z-index: 101;
+}
+
+
+
 #NAGLOWEK 
 {
   position: relative;
