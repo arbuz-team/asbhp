@@ -2,6 +2,7 @@
 from django.forms.extras.widgets import SelectDateWidget
 from django import forms
 from models import *
+import imghdr
 
 class Formularz_Produktu(forms.ModelForm):
 
@@ -14,6 +15,14 @@ class Formularz_Produktu(forms.ModelForm):
         self.fields['producent'].empty_label = 'Wybierz firmę...'
         self.fields['kolor'].empty_label = 'Wybierz kolor...'
         self.fields['rodzaj'].empty_label = 'Wybierz rodzaj odzieży...'
+
+    def clean_zewnetrzny_url(self):
+        zewnetrzny_url = self.cleaned_data['zewnetrzny_url']
+        plik = cStringIO.StringIO(urllib.urlopen(zewnetrzny_url).read())
+        if not imghdr.what(plik):
+            raise forms.ValidationError('To przecież nie jest obrazek!')
+
+        return zewnetrzny_url
 
     class Meta:
         model = Produkt
@@ -31,7 +40,7 @@ class Formularz_Produktu(forms.ModelForm):
         error_messages = {
             'nazwa': {'required': 'Co to za produkt, bez nazwy...'},
             'opis': {'required': 'Ludzie chcą wiedzieć, co kupują.'},
-            'rodzaj': {'required': 'Minimum potrzebne do filtrowania.'},
+            'rodzaj': {'required': 'Minimum, potrzebne do filtrowania.'},
         }
 
 class Formularz_Promowania(forms.ModelForm):

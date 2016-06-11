@@ -3,8 +3,7 @@ from __future__ import unicode_literals
 from django.db import models
 from arbuz.settings import *
 from PIL import Image
-import cStringIO, urllib
-import os
+import os, cStringIO, urllib
 
 ################## Produkt: Kontenery ##################
 
