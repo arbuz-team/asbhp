@@ -14,7 +14,7 @@
 
     <div class="tresc">
 
-      <div class="typ otoczka_pola post_select" data-href="/wyszukiwarka/typ/">
+      <div class="typ otoczka_pola post_select filtr_podstawowy" data-href="/wyszukiwarka/typ/">
 
         {% csrf_token %}
 
@@ -38,15 +38,21 @@
 
 
 
-      <div class="dziedzina otoczka_pola post_select" data-href="/wyszukiwarka/dziedzina/">
+
+{% if dziedzina %}
+      <div class="dziedzina otoczka_pola post_select filtr_podstawowy" data-href="/wyszukiwarka/dziedzina/">
 
         {% csrf_token %}
 
-        {% if dziedzina %}
           <select>
-        {% else %}
+
+{% else %}
+      <div class="dziedzina otoczka_pola post_select filtr_podstawowy disabled" data-href="/wyszukiwarka/dziedzina/">
+
+        {% csrf_token %}
+
           <select disabled="disabled">
-        {% endif %}
+{% endif %}
 
           <option value="">Wybierz dziedzinę...</option>
 
@@ -66,15 +72,21 @@
 
 
 
-      <div class="rodzaj otoczka_pola post_select" data-href="/wyszukiwarka/rodzaj/">
+
+{% if rodzaj %}
+      <div class="rodzaj otoczka_pola post_select filtr_podstawowy" data-href="/wyszukiwarka/rodzaj/">
 
         {% csrf_token %}
 
-        {% if rodzaj %}
           <select>
-        {% else %}
+
+{% else %}
+      <div class="rodzaj otoczka_pola post_select filtr_podstawowy disabled" data-href="/wyszukiwarka/rodzaj/">
+
+        {% csrf_token %}
+
           <select disabled="disabled">
-        {% endif %}
+{% endif %}
 
           <option value="">Wybierz rodzaj...</option>
 
