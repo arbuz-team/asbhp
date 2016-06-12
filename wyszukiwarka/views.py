@@ -31,11 +31,12 @@ def Wyszukaj(request):
             )
 
                 # p - pojedynczy produkt
-            pobierz = lambda pole: pole.nazwa if pole else ''
+            pobierz_nazwa = lambda pole: pole.nazwa if pole else ''
+            pobierz = lambda pole: pole if pole else ''
             wynik_str = [(index, (p.nazwa + p.opis +
-                                  pobierz(p.producent) +
-                                  pobierz(p.kolor) +
-                                  p.slowa_kluczowe +
+                                  pobierz_nazwa(p.producent) +
+                                  pobierz_nazwa(p.kolor) +
+                                  pobierz(p.slowa_kluczowe) +
                                   p.rodzaj.nazwa +
                                   p.rodzaj.dziedzina.nazwa +
                                   p.rodzaj.dziedzina.typ.nazwa).lower())
