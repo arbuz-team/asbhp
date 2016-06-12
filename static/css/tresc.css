@@ -341,12 +341,12 @@ body > div > .fragment
 #TRESC.oferta > .BLOK1 > .tresc > .filtr_podstawowy > select,
 #TRESC.oferta > .BLOK1 > .tresc > .filtr_podstawowy > select[disabled=disabled]
 {
-  min-width: 280px;
-  width: 280px;
+  min-width: 275px;
+  width: 275px;
 
   height: 50px;
 
-  margin-left: 20px;
+  margin-left: 25px;
   padding-right: 30px;
 
   box-shadow: none;
