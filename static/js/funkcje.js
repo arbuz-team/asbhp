@@ -6,6 +6,26 @@
 var DOMENA = location.protocol + '//' + location.hostname + ':' + location.port;
 
 
+/*********************** PODSTAWOWE FUNKCJE ***********************/
+
+
+var podstawa = (function()
+{
+
+
+  var udostepnione = 
+  {
+
+
+  }
+
+  return udostepnione;
+
+})();
+
+
+
+
 /*********************** POBIERANIE DANYCH ***********************/
 
 
@@ -33,10 +53,23 @@ var pobierz = (function()
 
 
 
+  function _ktory_guzik(evt)
+  {
+
+    var e = evt || event;
+    var code = e.keyCode || e.which;
+
+    return code;
+
+  }
+
+
+
   var udostepnione = 
   {
 
-    zmienne_wysokosc : _zmienne_wysokosc
+    zmienne_wysokosc : _zmienne_wysokosc,
+    ktory_guzik : _ktory_guzik
 
   }
 

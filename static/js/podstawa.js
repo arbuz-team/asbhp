@@ -24,11 +24,12 @@ $(document).ready(function ()
   
     var adres = $(this).data( 'href' );
     var domena = $(this).data( 'domena' );
+    var guzik = pobierz.ktory_guzik(event);
 
-    if( event.which == 1 )
+    if( guzik == 1 )
       ruch.przekieruj_do( domena, adres );
 
-    else if( event.which == 2 )
+    else if( guzik == 2 )
       ruch.otworz_w_nowej_karcie( domena, adres );
 
   });
@@ -62,12 +63,13 @@ $(document).ready(function ()
   {
 
     var adres = $(this).data( 'href' );
+    var guzik = pobierz.ktory_guzik(event);
 
-    if( event.which == 1 )
+    if( guzik == 1 )
       ruch.pokaz_produkt( adres );
 
-    else if( event.which == 2 )
-      window.open( adres,'_blank' );
+    else if( guzik == 2 )
+      window.open( adres, '_blank' );
 
   });
 
@@ -78,8 +80,9 @@ $(document).ready(function ()
   {
 
     event.stopPropagation();
+    var guzik = pobierz.ktory_guzik(event);
 
-    if( event.which == 1 || event.which == 2 )
+    if( guzik == 1 || guzik == 2 )
       ruch.ukryj_produkt();
   
   });
