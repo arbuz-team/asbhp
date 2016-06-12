@@ -4,7 +4,8 @@ from produkt.models import *
 
 class Formularz_Wyszukiwarki(forms.Form):
 
-    zapytanie = forms.CharField(label='')
+    zapytanie = forms.CharField(label='', error_messages=
+        {'required': ''})
 
     def clean_zapytanie(self):
         zapytanie = self.cleaned_data['zapytanie']

@@ -9,6 +9,7 @@ urlpatterns = [
     url(r'^kontakt/$', views.Wyswietl_Kontakt, name='Wyswietl_Kontakt'),
 
     url(r'^oferta/(?P<wybrany_strona>\d+)/$', views.Wyswietl_Oferta, name='Wyswietl_Oferta'),
+    url(r'^oferta/(?P<wybrany_filtr>\w{3})/$', views.Wyswietl_Oferta, name='Wyswietl_Oferta'),
 
     url(r'^edytuj/kontakt/$', views.Edytuj_Kontakt, name='Edytuj_Kontakt'),
     url(r'^edytuj/kontakt/(?P<pk>\d+)/$', views.Edytuj_Kontakt_Zapisz, name='Edytuj_Kontakt_Zapisz'),

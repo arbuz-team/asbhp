@@ -20,7 +20,7 @@ def Wyswietl_O_Firmie(request):
                    'o_firmie': o_firmie})
 
 
-def Wyswietl_Oferta(request, wybrany_strona=None):
+def Wyswietl_Oferta(request, wybrany_strona=None, wybrany_filtr=None):
 
         # pobieranie formularza - działanie komunikatów
     if 'wyszukiwarka' in request.session:
@@ -71,6 +71,13 @@ def Wyswietl_Oferta(request, wybrany_strona=None):
     wynik = Pobierz_Listy_Produktow(request, produkt)
     produkt = wynik[int(wybrany_strona) if wybrany_strona else 0]
 
+        # wybrany filtr = liczba (format: f_<liczba>)
+    if wybrany_filtr:
+        request.session['wybrany_filtr'] = wybrany_filtr[2]
+
+    if 'wybrany_filtr' not in request.session:
+        request.session['wybrany_filtr'] = 1
+
     return render(request, 'asbhp/oferta.html',
                   {'wyszukiwarka': wyszukiwarka,
                    'css_menu': css_menu,
@@ -83,6 +90,7 @@ def Wyswietl_Oferta(request, wybrany_strona=None):
                    'wybrany_dziedzina': wybrany_dziedzina,
                    'wybrany_rodzaj': wybrany_rodzaj,
                    'wybrany_strona': wybrany_strona,
+                   'wybrany_filtr': request.session['wybrany_filtr'],
                    'filtr_producent': Formularz_Filtru_Producent(),
                    'filtr_kolor': Formularz_Filtru_Kolor(),
                    'filtr_zagrozenia': Formularz_Filtru_Zagrozenia(),
