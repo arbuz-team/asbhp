@@ -19,11 +19,12 @@ $(document).ready(function ()
 
   /********* DIV LINK *********/
 
-  $( '.link' ).click(function () 
+  $( '.link' ).mouseup(function (event)
   {
   
     var adres = $(this).data( 'href' );
     var domena = $(this).data( 'domena' );
+
     var guzik = pobierz.ktory_guzik(event);
 
     if( guzik == 1 )

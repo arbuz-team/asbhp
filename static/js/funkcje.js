@@ -56,7 +56,7 @@ var pobierz = (function()
   function _ktory_guzik(evt)
   {
 
-    var e = evt || event;
+    var e = evt;
     var code = e.keyCode || e.which;
 
     return code;
