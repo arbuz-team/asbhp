@@ -6,16 +6,25 @@
 var DOMENA = location.protocol + '//' + location.hostname + ':' + location.port;
 
 
-/*********************** PODSTAWOWE FUNKCJE ***********************/
+/*********************** WYSYŁANIE ***********************/
 
 
-var podstawa = (function()
+var wyslij = (function()
 {
+
+  function _numer_filtra( numer )
+  {
+
+    $.get( DOMENA +'/oferta/f_'+ numer +'/');
+
+  }
+
 
 
   var udostepnione = 
   {
 
+    numer_filtra : _numer_filtra
 
   }
 
@@ -168,6 +177,8 @@ var zmiana = (function()
 
   function _przelacznik_zakladek( element, numer )
   {
+
+    wyslij.numer_filtra( numer );
 
     var $filtry = $(element);
     var $lista = $filtry.children( '.lista' );
