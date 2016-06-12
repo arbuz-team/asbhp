@@ -166,17 +166,20 @@ var zmiana = (function()
 
 
 
-  function _przelacznik_zakladek( element, href )
+  function _przelacznik_zakladek( element, numer )
   {
 
     var $filtry = $(element);
     var $lista = $filtry.children( '.lista' );
     var $zakladki = $filtry.children( '.zakladka' );
+
+    $lista.children( '.wybrana' ).removeClass( 'wybrana' );
+    $lista.children( '[data-href="'+ numer +'"]' ).addClass( 'wybrana' );
     
-    $filtry.children( '.zakladka.wybrana' ).removeClass( 'wybrana' ).hide(200, 
+    $filtry.children( '.zakladka.wybrana' ).removeClass( 'wybrana' ).fadeOut(200, 
       function() 
       {
-        $filtry.children( '.zakladka_' + href ).show(200).addClass( 'wybrana' );
+        $filtry.children( '.zakladka_' + numer ).fadeIn(200).addClass( 'wybrana' );
       });
 
   }

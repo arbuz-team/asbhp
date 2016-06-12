@@ -110,10 +110,15 @@
 
         <div class="lista">
 
-          <div data-href="1">Wyszukiwanie</div>
+          <div data-href="1" class="wybrana">Wyszukiwanie</div>
           <div data-href="2">Producent</div>
+          <div data-href="3">Kolor</div>
+          <div data-href="4">Zagrożenia</div>
+          <div data-href="5">Zawody</div>
+          <div data-href="6">Wyświetlanie</div>
 
         </div>
+
 
         <div class="zakladka zakladka_1 wybrana">
 
@@ -138,13 +143,32 @@
 
         </div>
 
+
         <div class="zakladka zakladka_2" style="display: none;">
 
           <div class="otoczka_pola wyszukaj">
 
             <form method="POST" action="/wyszukiwarka/">{% csrf_token %}
 
-              bla bla bla
+              {{ filtr_producent.producent }}
+
+            </form>
+
+          </div>
+
+          <div class="komunikaty">
+          </div>
+
+        </div>
+
+
+        <div class="zakladka zakladka_3" style="display: none;">
+
+          <div class="otoczka_pola wyszukaj">
+
+            <form method="POST" action="/wyszukiwarka/">{% csrf_token %}
+
+              {{ filtr_kolor.kolor }}
               
             </form>
 
@@ -154,6 +178,61 @@
           </div>
 
         </div>
+
+
+        <div class="zakladka zakladka_4" style="display: none;">
+
+          <div class="otoczka_pola wyszukaj">
+
+            <form method="POST" action="/wyszukiwarka/">{% csrf_token %}
+
+              {{ filtr_zagrozenia.zagrozenia }}
+              
+            </form>
+
+          </div>
+
+          <div class="komunikaty">
+          </div>
+
+        </div>
+
+
+        <div class="zakladka zakladka_5" style="display: none;">
+
+          <div class="otoczka_pola wyszukaj">
+
+            <form method="POST" action="/wyszukiwarka/">{% csrf_token %}
+
+              {{ filtr_zawody.zawody }}
+              
+            </form>
+
+          </div>
+
+          <div class="komunikaty">
+          </div>
+
+        </div>
+
+
+        <div class="zakladka zakladka_6" style="display: none;">
+
+          <div class="otoczka_pola wyszukaj">
+
+            <form method="POST" action="/wyszukiwarka/">{% csrf_token %}
+
+              {{ filtr_liczba_produktow.liczba_produktow }}
+              
+            </form>
+
+          </div>
+
+          <div class="komunikaty">
+          </div>
+
+        </div>
+
 
       </div>
 

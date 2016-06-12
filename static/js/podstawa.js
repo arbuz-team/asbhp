@@ -170,5 +170,10 @@ jQuery(document).ready(function ($) {
     minScrollbarLength: 20
   });
 
+  $( 'select' ).perfectScrollbar({
+    wheelSpeed: 2,
+    minScrollbarLength: 20
+  });
+
 }); 
 

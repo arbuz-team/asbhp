@@ -379,12 +379,11 @@ body > div > .fragment
 
   min-width: 100%;
   width: 100%;
+  min-height: 115px;
   max-height: none;
 
   margin: 0px;
   padding-top: 10px;
-
-  border-top: 3px solid #ff7000;
 }
 
 
@@ -397,11 +396,35 @@ body > div > .fragment
 
 
 
+#TRESC.oferta > .BLOK1 > .tresc > .filtry > .lista
+{
+  text-align: center;
+}
+
+
+
 #TRESC.oferta > .BLOK1 > .tresc > .filtry > .lista > *
 {
   display: inline-block;
+  
+  height: 36px;
 
-  padding: 0px 20px;
+  padding: 10px 20px;
+  padding-bottom: 0px;
+
+  cursor: pointer;
+}
+
+
+
+#TRESC.oferta > .BLOK1 > .tresc > .filtry > .lista > .wybrana
+{
+  color: #ddd;
+  background-color: rgba(30, 29, 28, 1);
+
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
 }
 
 
