@@ -110,6 +110,8 @@
 
         <div class="lista">
 
+          <span style="display: none;">{{ wybrany_filtr }}</span>
+
           <div data-href="1" class="wybrana">Wyszukiwanie</div>
           <div data-href="2">Producent</div>
           <div data-href="3">Kolor</div>
@@ -222,7 +224,7 @@
 
             <form method="POST" action="/wyszukiwarka/">{% csrf_token %}
 
-              {{ filtr_liczba_produktow.liczba_produktow }}
+              {{ filtr_liczba_produktow.liczba }}
               
             </form>
 

@@ -274,14 +274,14 @@ body > div > .fragment
 
 #TRESC.oferta > .BLOK1 > .tlo
 {
-  background-color: #eee;
+  background-color: #fbfbfb;
 }
 
 
 
 #TRESC.oferta > .BLOK2 > .tlo
 {
-  background-color: #fff;
+  background-color: #e9ebee;
 }
 
 
@@ -510,11 +510,16 @@ body > div > .fragment
   position: relative;
 
   height: 250px;
+  margin-bottom: 10px;
 
   color: inherit;
   overflow: hidden;
 
   cursor: pointer;
+  background-color: #fbfbfb;
+  border-radius: 3px;
+  border: 1px solid;
+  border-color: #e5e6e9 #dfe0e4 #d0d1d5;
 }
 
 
@@ -560,6 +565,7 @@ body > div > .fragment
   background-size: 100% auto;
   background-repeat: no-repeat;
   background-position: center;
+  border-radius: 3px;
 }
 
 
@@ -653,6 +659,14 @@ body > div > .fragment
   padding: 10px;
   padding-left: 15px;
   padding-right: 15px;
+}
+
+
+
+#TRESC.oferta > div > .tresc
+{
+  margin: 0px auto;
+  margin-top: 10px;
 }
 
 
