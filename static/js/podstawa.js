@@ -7,6 +7,13 @@
 $(document).ready(function () 
 {
 
+  // Wybierz filtr
+
+  var G_numer_filtra = parseInt( $( '#FILTRY .lista > span' ).html() );
+
+  zmiana.przelacznik_zakladek( '#FILTRY', G_numer_filtra );
+
+
 
   //window.onpopstate = ruch.sprawdz_cofnij(event);
 
@@ -170,7 +177,7 @@ jQuery(document).ready(function ($) {
     minScrollbarLength: 20
   });
 
-  $( 'select' ).perfectScrollbar({
+  $( 'select[ multiple=multiple ]' ).perfectScrollbar({
     wheelSpeed: 2,
     minScrollbarLength: 20
   });
