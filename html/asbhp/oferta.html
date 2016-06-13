@@ -228,15 +228,17 @@
 
         <div class="zakladka zakladka_6" style="display: none;">
 
-          <div class="otoczka_pola">
+          <form method="POST" action="/wyszukiwarka/liczba_produktow/">{% csrf_token %}
 
-            <form method="POST" action="/wyszukiwarka/liczba_produktow/">{% csrf_token %}
+            <div class="otoczka_pola">
 
               {{ filtr.liczba_produktow.liczba }}
-              
-            </form>
 
-          </div>
+            </div>
+
+            <button type="submit">Ustaw</button>
+              
+          </form>
 
           <div class="komunikaty">
           </div>
