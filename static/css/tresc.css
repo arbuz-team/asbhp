@@ -90,8 +90,6 @@ body > div > .fragment
 #TRESC
 {
   position: relative;
-
-  padding-bottom: 50px;
 }
 
 
@@ -99,6 +97,10 @@ body > div > .fragment
 #STOPKA
 {
   height:200px;
+
+  -webkit-box-shadow: 0px -3px 15px 0px rgba( 51, 51, 51, 0.4 );
+  -moz-box-shadow: 0px -3px 15px 0px rgba( 51, 51, 51, 0.4 );
+  box-shadow: 0px -3px 15px 0px rgba( 51, 51, 51, 0.4 );
 }
 
 
@@ -282,6 +284,10 @@ body > div > .fragment
 #TRESC.oferta > .BLOK2 > .tlo
 {
   background-color: #e9ebee;
+
+  -webkit-box-shadow: inset 0px 1px 8px 0px #aaa;
+  -moz-box-shadow: inset 0px 1px 8px 0px #aaa;
+  box-shadow: inset 0px 1px 4px 0px #aaa;
 }
 
 
@@ -518,7 +524,7 @@ body > div > .fragment
   cursor: pointer;
   background-color: #fbfbfb;
   border-radius: 3px;
-  border: 1px solid;
+  border: 2px solid;
   border-color: #e5e6e9 #dfe0e4 #d0d1d5;
 }
 

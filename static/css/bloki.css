@@ -35,7 +35,7 @@
 
 #TRESC.start > .BLOK2 > div.tlo
 {
-  background-color: #fff;
+  background-color: #e9ebee;
 }
 
 
@@ -43,6 +43,15 @@
 #TRESC.start > .BLOK2
 {
   color: #333;
+
+  padding-top: 0px;
+}
+
+
+
+#TRESC.start > .BLOK2 > .tresc
+{
+  margin-top: 20px;
 }
 
 
