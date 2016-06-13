@@ -22,9 +22,9 @@
 
           <option value="">Wybierz typ...</option>
 
-          {% for i in typ %}
+          {% for i in kontener.typ %}
 
-            {% if i.url == wybrany_typ %}
+            {% if i.url == wybrany.typ %}
               <option selected value="{{ i.url }}">{{ i }}</option>
             {% else %}
               <option value="{{ i.url }}">{{ i }}</option>
@@ -39,7 +39,7 @@
 
 
 
-{% if dziedzina %}
+{% if kontener.dziedzina %}
       <div class="dziedzina otoczka_pola post_select filtr_podstawowy" data-href="/wyszukiwarka/dziedzina/">
 
         {% csrf_token %}
@@ -56,9 +56,9 @@
 
           <option value="">Wybierz dziedzinę...</option>
 
-          {% for i in dziedzina %}
+          {% for i in kontener.dziedzina %}
 
-            {% if i.url == wybrany_dziedzina %}
+            {% if i.url == wybrany.dziedzina %}
               <option selected value="{{ i.url }}">{{ i }}</option>
             {% else %}
               <option value="{{ i.url }}">{{ i }}</option>
@@ -73,7 +73,7 @@
 
 
 
-{% if rodzaj %}
+{% if kontener.rodzaj %}
       <div class="rodzaj otoczka_pola post_select filtr_podstawowy" data-href="/wyszukiwarka/rodzaj/">
 
         {% csrf_token %}
@@ -90,9 +90,9 @@
 
           <option value="">Wybierz rodzaj...</option>
 
-          {% for i in rodzaj %}
+          {% for i in kontener.rodzaj %}
 
-            {% if i.url == wybrany_rodzaj %}
+            {% if i.url == wybrany.rodzaj %}
               <option selected value="{{ i.url }}">{{ i }}</option>
             {% else %}
               <option value="{{ i.url }}">{{ i }}</option>
@@ -110,7 +110,7 @@
 
         <div class="lista">
 
-          <span style="display: none;">{{ wybrany_filtr }}</span>
+          <span style="display: none;">{{ wybrany.filtr }}</span>
 
           <div data-href="1" class="wybrana">Wyszukiwanie</div>
           <div data-href="2">Producent</div>
@@ -128,7 +128,7 @@
 
             <form method="POST" action="/wyszukiwarka/">{% csrf_token %}
 
-              {{ wyszukiwarka.zapytanie }}
+              {{ filtr.wyszukiwarka.zapytanie }}
 
               <button type="submit"></button>
               <div class="link" data-href="/wyszukiwarka/usun_sesje/"></div>
@@ -138,7 +138,7 @@
           </div>
 
           <div class="komunikaty">
-            {% for e in wyszukiwarka.zapytanie.errors %}
+            {% for e in filtr.wyszukiwarka.zapytanie.errors %}
               {{ e }}
             {% endfor %}
           </div>
@@ -148,11 +148,13 @@
 
         <div class="zakladka zakladka_2" style="display: none;">
 
-          <div class="otoczka_pola wyszukaj">
+          <div class="otoczka_pola select">
 
-            <form method="POST" action="/wyszukiwarka/">{% csrf_token %}
+            <form method="POST" action="/wyszukiwarka/producent/">{% csrf_token %}
 
-              {{ filtr_producent.producent }}
+              {{ filtr.producent.producent }}
+
+              <button type="submit">Ustaw</button>
 
             </form>
 
@@ -166,11 +168,13 @@
 
         <div class="zakladka zakladka_3" style="display: none;">
 
-          <div class="otoczka_pola wyszukaj">
+          <div class="otoczka_pola select">
 
-            <form method="POST" action="/wyszukiwarka/">{% csrf_token %}
+            <form method="POST" action="/wyszukiwarka/kolor/">{% csrf_token %}
 
-              {{ filtr_kolor.kolor }}
+              {{ filtr.kolor.kolor }}
+
+              <button type="submit">Ustaw</button>
               
             </form>
 
@@ -184,15 +188,17 @@
 
         <div class="zakladka zakladka_4" style="display: none;">
 
-          <div class="otoczka_pola wyszukaj">
+          <form method="POST" action="/wyszukiwarka/zagrozenia/">{% csrf_token %}
 
-            <form method="POST" action="/wyszukiwarka/">{% csrf_token %}
+            <div class="otoczka_pola">
 
-              {{ filtr_zagrozenia.zagrozenia }}
+              {{ filtr.zagrozenia.zagrozenia }}
+
+            </div>
+
+            <button type="submit">Ustaw</button>
               
-            </form>
-
-          </div>
+          </form>
 
           <div class="komunikaty">
           </div>
@@ -202,15 +208,17 @@
 
         <div class="zakladka zakladka_5" style="display: none;">
 
-          <div class="otoczka_pola wyszukaj">
+          <form method="POST" action="/wyszukiwarka/zawody/">{% csrf_token %}
 
-            <form method="POST" action="/wyszukiwarka/">{% csrf_token %}
+            <div class="otoczka_pola">
 
-              {{ filtr_zawody.zawody }}
+              {{ filtr.zawody.zawody }}
+
+            </div>
+
+            <button type="submit">Ustaw</button>
               
-            </form>
-
-          </div>
+          </form>
 
           <div class="komunikaty">
           </div>
@@ -220,11 +228,11 @@
 
         <div class="zakladka zakladka_6" style="display: none;">
 
-          <div class="otoczka_pola wyszukaj">
+          <div class="otoczka_pola">
 
-            <form method="POST" action="/wyszukiwarka/">{% csrf_token %}
+            <form method="POST" action="/wyszukiwarka/liczba_produktow/">{% csrf_token %}
 
-              {{ filtr_liczba_produktow.liczba }}
+              {{ filtr.liczba_produktow.liczba }}
               
             </form>
 

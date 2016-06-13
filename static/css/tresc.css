@@ -440,6 +440,16 @@ body > div > .fragment
   min-height: 50px;
 
   margin-top: 20px;
+
+  text-align: center;
+}
+
+
+/************* Wyszukaj **************/
+
+#TRESC.oferta > .BLOK1 > .tresc > .filtry > .zakladka > *
+{
+  position: relative;
 }
 
 
@@ -447,8 +457,6 @@ body > div > .fragment
 #TRESC.oferta > .BLOK1 > .tresc > .filtry > .zakladka > .wyszukaj,
 #TRESC.oferta > .BLOK1 > .tresc > .filtry > .zakladka > .komunikaty
 {
-  position: relative;
-
   width: 500px;
 }
 
@@ -467,7 +475,8 @@ body > div > .fragment
 
 
 #TRESC.oferta > .BLOK1 > .tresc > .filtry > .zakladka > .wyszukaj button,
-#TRESC.oferta > .BLOK1 > .tresc > .filtry > .zakladka > .wyszukaj div
+#TRESC.oferta > .BLOK1 > .tresc > .filtry > .zakladka > .wyszukaj div,
+#TRESC.oferta > .BLOK1 > .tresc > .filtry > .zakladka > .select button
 {
   position: absolute;
   top: 0px;
@@ -504,6 +513,35 @@ body > div > .fragment
   background-size: 65% 65%;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+
+
+#TRESC.oferta > .BLOK1 > .tresc > .filtry > .zakladka > .select select
+{
+  z-index: 11px;
+}
+
+
+
+#TRESC.oferta > .BLOK1 > .tresc > .filtry > .zakladka > .select button,
+#TRESC.oferta > .BLOK1 > .tresc > .filtry > .zakladka form > button
+{
+  min-width: 100px;
+  width: auto;
+
+  color: #ddd;
+  background-color: rgba(30, 29, 28, 1);
+  box-shadow: none;
+  border-radius: 3px;
+}
+
+
+
+#TRESC.oferta > .BLOK1 > .tresc > .filtry > .zakladka form > .otoczka_pola,
+#TRESC.oferta > .BLOK1 > .tresc > .filtry > .zakladka form > button
+{
+  display: inline-flex;
 }
 
 
@@ -805,6 +843,7 @@ button
   width: auto;
   cursor: pointer;
   
+  text-align: center;
   background-color: #999;
 
   -webkit-box-shadow: inset 1px 2px 3px 0px #959595;
