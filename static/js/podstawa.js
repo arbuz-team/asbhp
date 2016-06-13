@@ -11,7 +11,17 @@ $(document).ready(function ()
 
   var G_numer_filtra = parseInt( $( '#FILTRY .lista > span' ).html() );
 
-  zmiana.przelacznik_zakladek( '#FILTRY', G_numer_filtra );
+  if( G_numer_filtra )
+  {
+    zmiana.przelacznik_zakladek( '#FILTRY', G_numer_filtra );
+
+    $(window).load(function()
+    {
+    
+      $( '#FILTRY .zakladka_'+ G_numer_filtra +' .focus' ).focus();
+
+    });
+  }
 
 
 
