@@ -78,24 +78,28 @@ def Wyswietl_Oferta(request, wybrany_strona=None, wybrany_filtr=None):
     if 'wybrany_filtr' not in request.session:
         request.session['wybrany_filtr'] = 1
 
+    kontener = {'typ': typ,
+                'dziedzina': dziedzina,
+                'rodzaj': rodzaj}
+
+    wybrany = {'typ': wybrany_typ, 'dziedzina': wybrany_dziedzina,
+               'rodzaj': wybrany_rodzaj, 'strona': wybrany_strona,
+               'filtr': request.session['wybrany_filtr']}
+
+    filtr = {'wyszukiwarka': wyszukiwarka,
+             'producent': Formularz_Filtru_Producent(),
+             'kolor': Formularz_Filtru_Kolor(),
+             'zagrozenia': Formularz_Filtru_Zagrozenia(),
+             'zawody': Formularz_Filtru_Zawody(),
+             'liczba_produktow': Formularz_Filtru_Liczba_Produktow()}
+
     return render(request, 'asbhp/oferta.html',
-                  {'wyszukiwarka': wyszukiwarka,
-                   'css_menu': css_menu,
+                  {'css_menu': css_menu,
                    'produkt': produkt,
                    'numery_stron': range(1, len(wynik) + 1),
-                   'typ': typ,
-                   'dziedzina': dziedzina,
-                   'rodzaj': rodzaj,
-                   'wybrany_typ': wybrany_typ,
-                   'wybrany_dziedzina': wybrany_dziedzina,
-                   'wybrany_rodzaj': wybrany_rodzaj,
-                   'wybrany_strona': wybrany_strona,
-                   'wybrany_filtr': request.session['wybrany_filtr'],
-                   'filtr_producent': Formularz_Filtru_Producent(),
-                   'filtr_kolor': Formularz_Filtru_Kolor(),
-                   'filtr_zagrozenia': Formularz_Filtru_Zagrozenia(),
-                   'filtr_zawody': Formularz_Filtru_Zawody(),
-                   'filtr_liczba_produktow': Formularz_Filtru_Liczba_Produktow()})
+                   'kontener': kontener,
+                   'wybrany': wybrany,
+                   'filtr': filtr})
 
 def Wyswietl_Kontakt(request):
     css_menu = ['', '', 'wybrany']
