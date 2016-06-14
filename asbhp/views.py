@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
-from django.shortcuts import render, redirect
 from wyszukiwarka.views import *
-from produkt.models import *
+from produkt.views import *
 from forms import *
 
 ################## Zakładki: Wyświetlanie ##################
@@ -9,63 +8,24 @@ from forms import *
 def Wyswietl_Start(request):
     polecane = Polecane.objects.all()
     return render(request, 'asbhp/start.html',
-                  {'polecane': polecane})
+                            {'polecane':          polecane})
 
 
 def Wyswietl_O_Firmie(request):
     css_menu = ['wybrany', '', '']
     o_firmie = O_Firmie.objects.all()
     return render(request, 'asbhp/o_firmie.html',
-                  {'css_menu': css_menu,
-                   'o_firmie': o_firmie})
+                            {'css_menu':          css_menu,
+                             'o_firmie':          o_firmie})
 
 
 def Wyswietl_Oferta(request, wybrany_strona=None, wybrany_filtr=None):
 
-        # pobieranie formularza - działanie komunikatów
-    if 'wyszukiwarka' in request.session:
-        wyszukiwarka = request.session['wyszukiwarka']
-
-    else:
-        wyszukiwarka = Pobierz_Formularz_Wyszukiwarki(request)
+    Sprawdz_Sesje(request)
 
         # potrzebne zmienne
     css_menu = ['', 'wybrany', '']
-    produkt = Produkt.objects.all()
-
-    typ = Typ_Odziezy.objects.all()
-    dziedzina = []
-    rodzaj = []
-
-    wybrany_typ = []
-    wybrany_dziedzina = []
-    wybrany_rodzaj = []
-
-        # wybrany kontener typ
-    if 'wybrany_typ' in request.session:
-        wybrany_typ = request.session['wybrany_typ']
-        dziedzina = Dziedzina_Odziezy.objects.filter(typ__url=wybrany_typ)
-        produkt = produkt.filter(rodzaj__dziedzina__typ__url=wybrany_typ)
-
-        # wybrany kontener dziedzina
-    if 'wybrany_dziedzina' in request.session:
-        wybrany_dziedzina = request.session['wybrany_dziedzina']
-        rodzaj = Rodzaj_Odziezy.objects.filter(dziedzina__url=wybrany_dziedzina)
-        produkt = produkt.filter(rodzaj__dziedzina__url=wybrany_dziedzina)
-
-        # wybrany kontener rodzaj
-    if 'wybrany_rodzaj' in request.session:
-        wybrany_rodzaj = request.session['wybrany_rodzaj']
-        produkt = produkt.filter(rodzaj__url=wybrany_rodzaj)
-
-        # filtrowane produkty
-    if 'wyszukane_produkty' in request.session:
-        iloczyn = []
-        for w in request.session['wyszukane_produkty']:
-            if w in produkt:
-                iloczyn.append(w)
-
-        produkt = iloczyn
+    produkt = Iloczyn_Zbiorow(Filtruj(request), Konteneruj(request))
 
         # pobieranie listy produktów
     wynik = Pobierz_Listy_Produktow(request, produkt)
@@ -78,35 +38,39 @@ def Wyswietl_Oferta(request, wybrany_strona=None, wybrany_filtr=None):
     if 'wybrany_filtr' not in request.session:
         request.session['wybrany_filtr'] = 1
 
-    kontener = {'typ': typ,
-                'dziedzina': dziedzina,
-                'rodzaj': rodzaj}
+        # podział zmiennych na klasy
+    kontener =  {'typ':                 request.session['typ'],
+                 'dziedzina':           request.session['dziedzina'],
+                 'rodzaj':              request.session['rodzaj']}
 
-    wybrany = {'typ': wybrany_typ, 'dziedzina': wybrany_dziedzina,
-               'rodzaj': wybrany_rodzaj, 'strona': wybrany_strona,
-               'filtr': request.session['wybrany_filtr']}
+    wybrany =   {'typ':                 request.session['wybrany_typ'],
+                 'dziedzina':           request.session['wybrany_dziedzina'],
+                 'rodzaj':              request.session['wybrany_rodzaj'],
+                 'strona':              wybrany_strona,
+                 'filtr':               request.session['wybrany_filtr']}
 
-    filtr = {'wyszukiwarka': wyszukiwarka,
-             'producent': Formularz_Filtru_Producent(),
-             'kolor': Formularz_Filtru_Kolor(),
-             'zagrozenia': Formularz_Filtru_Zagrozenia(),
-             'zawody': Formularz_Filtru_Zawody(),
-             'liczba_produktow': Formularz_Filtru_Liczba_Produktow()}
+    filtr =     {'wyszukiwarka':        request.session['wyszukiwarka'],
+                 'producent':           request.session['producent'],
+                 'kolor':               request.session['kolor'],
+                 'zagrozenia':          request.session['zagrozenia'],
+                 'zawody':              request.session['zawody'],
+                 'liczba_produktow':    request.session['liczba_produktow']}
 
     return render(request, 'asbhp/oferta.html',
-                  {'css_menu': css_menu,
-                   'produkt': produkt,
-                   'numery_stron': range(1, len(wynik) + 1),
-                   'kontener': kontener,
-                   'wybrany': wybrany,
-                   'filtr': filtr})
+                            {'css_menu':          css_menu,
+                             'produkt':           produkt,
+                             'numery_stron':      range(1, len(wynik) + 1),
+                             'kontener':          kontener,
+                             'wybrany':           wybrany,
+                             'filtr':             filtr})
+
 
 def Wyswietl_Kontakt(request):
     css_menu = ['', '', 'wybrany']
     kontakt = Kontakt.objects.all()
     return render(request, 'asbhp/kontakt.html',
-                  {'css_menu': css_menu,
-                   'kontakt': kontakt})
+                            {'css_menu':          css_menu,
+                             'kontakt':           kontakt})
 
 
 ################## Zakładki: Edycja ##################
@@ -119,7 +83,7 @@ def Edytuj_O_Firmie(request):
         lista_formularzy.append(Formularz_O_Firmie(instance=o))
 
     return render(request, 'asbhp/edytuj.html',
-                  {'lista_formularzy': lista_formularzy})
+                            {'lista_formularzy': lista_formularzy})
 
 
 def Edytuj_O_Firmie_Zapisz(request, pk):
@@ -143,7 +107,7 @@ def Edytuj_Kontakt(request):
         lista_formularzy.append(Formularz_Kontakt(instance=k))
 
     return render(request, 'asbhp/edytuj.html',
-                  {'lista_formularzy': lista_formularzy})
+                            {'lista_formularzy': lista_formularzy})
 
 
 def Edytuj_Kontakt_Zapisz(request, pk):
@@ -157,21 +121,3 @@ def Edytuj_Kontakt_Zapisz(request, pk):
             return redirect('Wyswietl_Kontakt')
 
     return redirect('Edytuj_Kontakt')
-
-
-################## Funkcje dodatkowe ##################
-
-def Pobierz_Listy_Produktow(request, produkt):
-
-    wynik = []
-    if 'liczba_produktow' not in request.session:
-        request.session['liczba_produktow'] = 4
-
-    liczba = int(request.session['liczba_produktow'])
-
-        # tworzę listę zawierającą listy po określonej
-        # ilości produktów w zmiennej liczba
-    for i in range(0, (len(produkt) / liczba) + 1):
-        wynik.append(produkt[i * liczba: (i * liczba) + liczba])
-
-    return wynik

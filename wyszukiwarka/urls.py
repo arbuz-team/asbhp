@@ -3,9 +3,13 @@ from . import views
 
 urlpatterns = [
 
-    url(r'^$', views.Wyszukaj, name='Wyszukaj'),
-    url(r'^usun_sesje/$', views.Usun_Sesje, name='Usun_Sesje'),
+    url(r'^usun_sesje_wyszukiwarki/$', views.Usun_Sesje_Wyszukiwarki,
+        name='Usun_Sesje_Wyszukiwarki'),
 
+    url(r'^usun_sesje_filtrow/$', views.Usun_Sesje_Filtrow,
+        name='Usun_Sesje_Filtrow'),
+
+    url(r'^$', views.Filtr_Wyszukiwarka, name='Filtr_Wyszukiwarka'),
     url(r'^producent/$', views.Filtr_Producent, name='Filtr_Producent'),
     url(r'^kolor/$', views.Filtr_Kolor, name='Filtr_Kolor'),
     url(r'^zagrozenia/$', views.Filtr_Zagrozenia, name='Filtr_Zagrozenia'),

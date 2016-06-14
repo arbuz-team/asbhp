@@ -1,81 +1,58 @@
 # -*- coding: utf-8 -*-
-from django.shortcuts import redirect
-from django.db.models import Q
-import operator
-from forms import *
-from produkt.models import *
-
+from dodatek.views import *
 
 ################## Wyszukiwarka ##################
 
 def Wyszukaj(request):
 
-    if request.method == 'POST':
-        wyszukiwarka = Formularz_Wyszukiwarki(request.POST)
-        request.session['wyszukiwarka'] = wyszukiwarka
+    wynik = Produkt.objects.all()
+    wyszukiwarka = request.session['wyszukiwarka']
+
+    if wyszukiwarka.is_valid():
+        zapytanie = wyszukiwarka.cleaned_data['zapytanie'].split(' ')
+
+        wynik_sql = Produkt.objects.filter(
+            reduce(operator.or_, (Q(nazwa__icontains=s) for s in zapytanie))        |
+            reduce(operator.or_, (Q(opis__icontains=s) for s in zapytanie))         |
+            reduce(operator.or_, (Q(slowa_kluczowe__icontains=s) for s in zapytanie)) |
+            reduce(operator.or_, (Q(producent__nazwa__icontains=s) for s in zapytanie)) |
+            reduce(operator.or_, (Q(kolor__nazwa__icontains=s) for s in zapytanie)) |
+            reduce(operator.or_, (Q(rodzaj__nazwa__icontains=s) for s in zapytanie)) |
+            reduce(operator.or_, (Q(rodzaj__dziedzina__nazwa__icontains=s) for s in zapytanie)) |
+            reduce(operator.or_, (Q(rodzaj__dziedzina__typ__nazwa__icontains=s) for s in zapytanie))
+        )
+
+            # p - pojedynczy produkt
+        pobierz_nazwa = lambda pole: pole.nazwa if pole else ''
+        pobierz = lambda pole: pole if pole else ''
+        wynik_str = [(index, (p.nazwa + p.opis +
+                              pobierz_nazwa(p.producent) +
+                              pobierz_nazwa(p.kolor) +
+                              pobierz(p.slowa_kluczowe) +
+                              p.rodzaj.nazwa +
+                              p.rodzaj.dziedzina.nazwa +
+                              p.rodzaj.dziedzina.typ.nazwa).lower())
+                     for index, p in enumerate(wynik_sql)]
+
+            # tworzę listę krotek określających pozycje produktów
+        pozycja = []
+        for produkt in wynik_str:
+            trafienia = 0
+            for slowo in zapytanie:
+                trafienia += produkt[1].count(slowo.lower())
+            pozycja.append((trafienia, produkt[0])) # (trafienia, id)
+
+        pozycja.sort(reverse=True)
+
+            # tworzę posortowaną listę produktów
         wynik = []
+        for produkt in pozycja:
+            wynik.append(wynik_sql[produkt[1]]) # produkt[1], to index
 
-        if wyszukiwarka.is_valid():
-            zapytanie = wyszukiwarka.cleaned_data['zapytanie'].split(' ')
-            request.session['zapytanie'] = wyszukiwarka.cleaned_data['zapytanie']
-
-            wynik_sql = Produkt.objects.filter(
-                reduce(operator.or_, (Q(nazwa__icontains=s) for s in zapytanie))        |
-                reduce(operator.or_, (Q(opis__icontains=s) for s in zapytanie))         |
-                reduce(operator.or_, (Q(slowa_kluczowe__icontains=s) for s in zapytanie)) |
-                reduce(operator.or_, (Q(producent__nazwa__icontains=s) for s in zapytanie)) |
-                reduce(operator.or_, (Q(kolor__nazwa__icontains=s) for s in zapytanie)) |
-                reduce(operator.or_, (Q(rodzaj__nazwa__icontains=s) for s in zapytanie)) |
-                reduce(operator.or_, (Q(rodzaj__dziedzina__nazwa__icontains=s) for s in zapytanie)) |
-                reduce(operator.or_, (Q(rodzaj__dziedzina__typ__nazwa__icontains=s) for s in zapytanie))
-            )
-
-                # p - pojedynczy produkt
-            pobierz_nazwa = lambda pole: pole.nazwa if pole else ''
-            pobierz = lambda pole: pole if pole else ''
-            wynik_str = [(index, (p.nazwa + p.opis +
-                                  pobierz_nazwa(p.producent) +
-                                  pobierz_nazwa(p.kolor) +
-                                  pobierz(p.slowa_kluczowe) +
-                                  p.rodzaj.nazwa +
-                                  p.rodzaj.dziedzina.nazwa +
-                                  p.rodzaj.dziedzina.typ.nazwa).lower())
-                         for index, p in enumerate(wynik_sql)]
-
-                # tworzę listę krotek określających pozycje produktów
-            pozycja = []
-            for produkt in wynik_str:
-                trafienia = 0
-                for slowo in zapytanie:
-                    trafienia += produkt[1].count(slowo.lower())
-                pozycja.append((trafienia, produkt[0])) # (trafienia, id)
-
-            pozycja.sort(reverse=True)
-
-                # tworzę posortowaną listę produktów
-            for produkt in pozycja:
-                wynik.append(wynik_sql[produkt[1]]) # produkt[1], to index
-
-    else:
-        wynik = []
-
-    request.session['wyszukane_produkty'] = wynik
-    return redirect('Wyswietl_Oferta')
+    return wynik
 
 
-def Pobierz_Formularz_Wyszukiwarki(request):
-    wyszukiwarka = Formularz_Wyszukiwarki()
-
-    if 'zapytanie' in request.session:
-        wyszukiwarka.Ustaw_Zapytanie(request.session['zapytanie'])
-
-    return wyszukiwarka
-
-
-def Usun_Sesje(request):
-
-    if 'zapytanie' in request.session:
-        del request.session['zapytanie']
+def Usun_Sesje_Wyszukiwarki(request):
 
     if 'wyszukane_produkty' in request.session:
         del request.session['wyszukane_produkty']
@@ -86,24 +63,33 @@ def Usun_Sesje(request):
     return redirect('Wyswietl_Oferta')
 
 
+def Usun_Sesje_Filtrow(request):
+    Usun_Sesje(request)
+    return redirect('Wyswietl_Oferta')
+
+
 ################## Filtry ##################
+
+def Filtr_Wyszukiwarka(request):
+
+    if request.method == 'POST':
+        filtr = Formularz_Wyszukiwarki(request.POST)
+        request.session['wyszukiwarka'] = filtr
+
+        if filtr.is_valid():
+            pass
+
+    return redirect('Wyswietl_Oferta')
+
 
 def Filtr_Producent(request):
 
     if request.method == 'POST':
         filtr = Formularz_Filtru_Producent(request.POST)
+        request.session['producent'] = filtr
 
         if filtr.is_valid():
-
-                # filtruję wyszukane wcześniej produkty
-            if 'wyszukane_produkty' in request.session:
-                request.session['wyszukane_produkty'] = \
-                    request.session['wyszukane_produkty'].\
-                        filter(producent=filtr.cleaned_data['producent'])
-
-            else:
-                request.session['wyszukane_produkty'] = \
-                    Produkt.objects.filter(producent=filtr.cleaned_data['producent'])
+            pass
 
     return redirect('Wyswietl_Oferta')
 
@@ -112,18 +98,10 @@ def Filtr_Kolor(request):
 
     if request.method == 'POST':
         filtr = Formularz_Filtru_Kolor(request.POST)
+        request.session['kolor'] = filtr
 
         if filtr.is_valid():
-
-                # filtruję wyszukane wcześniej produkty
-            if 'wyszukane_produkty' in request.session:
-                request.session['wyszukane_produkty'] = \
-                    request.session['wyszukane_produkty']. \
-                        filter(kolor=filtr.cleaned_data['kolor'])
-
-            else:
-                request.session['wyszukane_produkty'] = \
-                    Produkt.objects.filter(kolor=filtr.cleaned_data['kolor'])
+            pass
 
     return redirect('Wyswietl_Oferta')
 
@@ -132,18 +110,10 @@ def Filtr_Zagrozenia(request):
 
     if request.method == 'POST':
         filtr = Formularz_Filtru_Zagrozenia(request.POST)
+        request.session['zagrozenia'] = filtr
 
         if filtr.is_valid():
-
-                # filtruję wyszukane wcześniej produkty
-            if 'wyszukane_produkty' in request.session:
-                request.session['wyszukane_produkty'] = \
-                    request.session['wyszukane_produkty']. \
-                        filter(zagrozenia=filtr.cleaned_data['zagrozenia'])
-
-            else:
-                request.session['wyszukane_produkty'] = \
-                    Produkt.objects.filter(zagrozenia=filtr.cleaned_data['zagrozenia'])
+            pass
 
     return redirect('Wyswietl_Oferta')
 
@@ -152,18 +122,10 @@ def Filtr_Zawody(request):
 
     if request.method == 'POST':
         filtr = Formularz_Filtru_Zawody(request.POST)
+        request.session['zawody'] = filtr
 
         if filtr.is_valid():
-
-                # filtruję wyszukane wcześniej produkty
-            if 'wyszukane_produkty' in request.session:
-                request.session['wyszukane_produkty'] = \
-                    request.session['wyszukane_produkty']. \
-                        filter(zawody=filtr.cleaned_data['zawody'])
-
-            else:
-                request.session['wyszukane_produkty'] = \
-                    Produkt.objects.filter(zawody=filtr.cleaned_data['zawody'])
+            pass
 
     return redirect('Wyswietl_Oferta')
 
@@ -172,28 +134,58 @@ def Filtr_Liczba_Produktow(request):
 
     if request.method == 'POST':
         filtr = Formularz_Filtru_Liczba_Produktow(request.POST)
+        request.session['liczba_produktow'] = filtr
 
         if filtr.is_valid():
-            request.session['liczba_produktow'] = filtr.cleaned_data['liczba']
+            pass
 
     return redirect('Wyswietl_Oferta')
+
+
+def Filtruj(request):
+    wynik = Produkt.objects.all()
+
+    if request.session['wyszukiwarka'].is_valid():
+        wynik = Wyszukaj(request)
+
+    if request.session['producent'].is_valid():
+        if request.session['producent'].cleaned_data['producent']:
+            wynik = wynik.filter(producent=request.session['producent']
+                                 .cleaned_data['producent'])
+
+    if request.session['kolor'].is_valid():
+        if request.session['kolor'].cleaned_data['kolor']:
+            wynik = wynik.filter(kolor=request.session['kolor']
+                                 .cleaned_data['kolor'])
+
+    if request.session['zagrozenia'].is_valid():
+        if request.session['zagrozenia'].cleaned_data['zagrozenia']:
+            wynik = wynik.filter(zagrozenia=request.session['zagrozenia']
+                                 .cleaned_data['zagrozenia'])
+
+    if request.session['zawody'].is_valid():
+        if request.session['zawody'].cleaned_data['zawody']:
+            wynik = wynik.filter(zawody=request.session['zawody']
+                                 .cleaned_data['zawody'])
+
+    return wynik
 
 
 ################## Kontenery ##################
 
 def Kontener_Typ(request):
 
-    if 'wybrany_dziedzina' in request.session:
-        del request.session['wybrany_dziedzina']
-
-    if 'wybrany_rodzaj' in request.session:
-        del request.session['wybrany_rodzaj']
+    request.session['dziedzina'] = []
+    request.session['rodzaj'] = []
+    request.session['wybrany_dziedzina'] = None
+    request.session['wybrany_rodzaj'] = None
 
     if request.method == 'POST':
         kontener = Formularz_Kontener(request.POST)
 
         if kontener.is_valid():
-            request.session['wybrany_typ'] = kontener.cleaned_data['zawartosc']
+            request.session['wybrany_typ'] = \
+                kontener.cleaned_data['zawartosc']
 
         else:
             del request.session['wybrany_typ']
@@ -203,14 +195,15 @@ def Kontener_Typ(request):
 
 def Kontener_Dziedzina(request):
 
-    if 'wybrany_rodzaj' in request.session:
-        del request.session['wybrany_rodzaj']
+    request.session['rodzaj'] = []
+    request.session['wybrany_rodzaj'] = None
 
     if request.method == 'POST':
         kontener = Formularz_Kontener(request.POST)
 
         if kontener.is_valid():
-            request.session['wybrany_dziedzina'] = kontener.cleaned_data['zawartosc']
+            request.session['wybrany_dziedzina'] = \
+                kontener.cleaned_data['zawartosc']
 
         else:
             del request.session['wybrany_dziedzina']
@@ -224,9 +217,35 @@ def Kontener_Rodzaj(request):
         kontener = Formularz_Kontener(request.POST)
 
         if kontener.is_valid():
-            request.session['wybrany_rodzaj'] = kontener.cleaned_data['zawartosc']
+            request.session['wybrany_rodzaj'] = \
+                kontener.cleaned_data['zawartosc']
 
         else:
             del request.session['wybrany_rodzaj']
 
     return redirect('Wyswietl_Oferta')
+
+
+def Konteneruj(request):
+    wynik = Produkt.objects.all()
+
+        # wybrany kontener typ
+    if request.session['wybrany_typ']:
+        wybrany_typ = request.session['wybrany_typ']
+        wynik = wynik.filter(rodzaj__dziedzina__typ__url=wybrany_typ)
+        request.session['dziedzina'] = Dziedzina_Odziezy.objects\
+            .filter(typ__url=wybrany_typ)
+
+            # wybrany kontener dziedzina
+        if request.session['wybrany_dziedzina']:
+            wybrany_dziedzina = request.session['wybrany_dziedzina']
+            wynik = wynik.filter(rodzaj__dziedzina__url=wybrany_dziedzina)
+            request.session['rodzaj'] = Rodzaj_Odziezy.objects\
+                .filter(dziedzina__url=wybrany_dziedzina)
+
+                # wybrany kontener rodzaj
+            if request.session['wybrany_rodzaj']:
+                wybrany_rodzaj = request.session['wybrany_rodzaj']
+                wynik = wynik.filter(rodzaj__url=wybrany_rodzaj)
+
+    return wynik

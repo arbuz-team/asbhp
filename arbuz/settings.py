@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'asbhp',
     'wyszukiwarka',
     'produkt',
+    'dodatek',
 ]
 
 MIDDLEWARE_CLASSES = [

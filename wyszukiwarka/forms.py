@@ -54,6 +54,7 @@ class Formularz_Filtru_Zawody(forms.ModelForm):
 
 
 class Formularz_Filtru_Liczba_Produktow(forms.Form):
+
     liczba = forms.ChoiceField(
         choices=
         (
