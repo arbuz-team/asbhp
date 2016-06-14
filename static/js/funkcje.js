@@ -178,14 +178,12 @@ var zmiana = (function()
   function _przelacznik_zakladek( element, numer )
   {
 
-    wyslij.numer_filtra( numer );
-
     var $filtry = $(element);
     var $lista = $filtry.children( '.lista' );
     var $zakladki = $filtry.children( '.zakladka' );
 
     $lista.children( '.wybrana' ).removeClass( 'wybrana' );
-    $lista.children( '[data-href="'+ numer +'"]' ).addClass( 'wybrana' );
+    $lista.children( '[data-numer="'+ numer +'"]' ).addClass( 'wybrana' );
     
     $filtry.children( '.zakladka.wybrana' ).removeClass( 'wybrana' ).fadeOut(200, 
       function() 
@@ -325,7 +323,7 @@ var ruch = (function()
 
         error: function() {
           console.warn( 'Taki adres nie istnieje. - ' + url );
-          window.location.href = DOMENA + '/404/';
+          //window.location.href = DOMENA + '/404/';
         }
 
       });

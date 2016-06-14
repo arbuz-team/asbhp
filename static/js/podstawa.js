@@ -108,10 +108,12 @@ $(document).ready(function ()
 
   /********* FILTRY - ZAKŁADKI *********/
 
-  $( '.filtry > .lista > div' ).click(function () 
+  $( '.filtry > .lista > div' ).not( '.link' ).click(function () 
   {
   
-    zmiana.przelacznik_zakladek( '#' + $(this).parent().parent().attr( 'id' ), $(this).data( 'href' ) );
+    zmiana.przelacznik_zakladek( '#' + $(this).parent().parent().attr( 'id' ), $(this).data( 'numer' ) );
+
+    wyslij.numer_filtra( $(this).data( 'numer' ) );
   
   });
 

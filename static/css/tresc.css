@@ -435,6 +435,18 @@ body > div > .fragment
 
 
 
+#TRESC.oferta > .BLOK1 > .tresc > .filtry > .lista > .wyczysc
+{
+  color: #333;
+  background-color: #ff7000;
+
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+
+
 #TRESC.oferta > .BLOK1 > .tresc > .filtry > .zakladka
 {
   min-height: 50px;
@@ -524,8 +536,47 @@ body > div > .fragment
 
 
 
+#TRESC.oferta > .BLOK1 > .tresc > .filtry > .zakladka form > .otoczka_pola,
+#TRESC.oferta > .BLOK1 > .tresc > .filtry > .zakladka form > .multiple
+{
+  display: inline-block;
+
+  min-height: 100px;
+}
+
+
+
+#TRESC.oferta > .BLOK1 > .tresc > .filtry > .zakladka form > .multiple
+{
+  position: relative;
+
+  top: -10px;
+
+  width: 300px;
+
+  margin: 5px 0px;
+  margin-left: 10px;
+}
+
+
+
+#TRESC.oferta > .BLOK1 > .tresc > .filtry > .zakladka form > .multiple button
+{
+  margin: 10px 0px;
+}
+
+
+
+#TRESC.oferta > .BLOK1 > .tresc > .filtry > .zakladka form > .otoczka_pola
+{
+  min-width: 400px;
+  width: 400px;
+}
+
+
+
 #TRESC.oferta > .BLOK1 > .tresc > .filtry > .zakladka > .select button,
-#TRESC.oferta > .BLOK1 > .tresc > .filtry > .zakladka form > button
+#TRESC.oferta > .BLOK1 > .tresc > .filtry > .zakladka form > .multiple > button
 {
   min-width: 100px;
   width: auto;
@@ -534,14 +585,6 @@ body > div > .fragment
   background-color: rgba(30, 29, 28, 1);
   box-shadow: none;
   border-radius: 3px;
-}
-
-
-
-#TRESC.oferta > .BLOK1 > .tresc > .filtry > .zakladka form > .otoczka_pola,
-#TRESC.oferta > .BLOK1 > .tresc > .filtry > .zakladka form > button
-{
-  display: inline-flex;
 }
 
 

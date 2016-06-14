@@ -112,12 +112,13 @@
 
           <span style="display: none;">{{ wybrany.filtr }}</span>
 
-          <div data-href="1" class="wybrana">Wyszukiwanie</div>
-          <div data-href="2">Producent</div>
-          <div data-href="3">Kolor</div>
-          <div data-href="4">Zagrożenia</div>
-          <div data-href="5">Zawody</div>
-          <div data-href="6">Wyświetlanie</div>
+          <div data-numer="1" class="wybrana">Wyszukiwanie</div>
+          <div data-numer="2">Producent</div>
+          <div data-numer="3">Kolor</div>
+          <div data-numer="4">Zagrożenia</div>
+          <div data-numer="5">Zawody</div>
+          <div data-numer="6">Wyświetlanie</div>
+          <div class="link wyczysc" data-href="/wyszukiwarka/usun_sesje_filtrow/">Wyczyść</div>
 
         </div>
 
@@ -196,7 +197,10 @@
 
             </div>
 
-            <button type="submit">Ustaw</button>
+            <div class="multiple">
+              <div>Przytrzymaj Ctrl oraz kliknij myszką by zaznaczyć wiele produktów</div>
+              <button type="submit">Ustaw</button>
+            </div>
               
           </form>
 
@@ -216,7 +220,10 @@
 
             </div>
 
-            <button type="submit">Ustaw</button>
+            <div class="multiple">
+              <div>Przytrzymaj Ctrl oraz kliknij myszką by zaznaczyć wiele produktów</div>
+              <button type="submit">Ustaw</button>
+            </div>
               
           </form>
 
