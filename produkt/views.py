@@ -6,13 +6,13 @@ from dodatek.views import *
 def Wyswietl_Produkt(request, pk):
     produkt = Produkt.objects.filter(id=pk).first()
     return render(request, 'produkt/produkt.html',
-                  {'produkt': produkt})
+                            {'produkt': produkt})
 
 
 def Wyswietl_Polecane(request):
     polecane = Polecane.objects.all()
     return render(request, 'produkt/polecane.html',
-                  {'polecane': polecane})
+                            {'polecane': polecane})
 
 
 ################## Dodawanie ##################
@@ -36,7 +36,7 @@ def Dodaj_Produkt(request):
             f.label = ''
 
     return render(request, 'produkt/dodaj_produkt.html',
-                  {'formularz': formularz})
+                            {'formularz': formularz})
 
 
 def Dodaj_Producent(request):
@@ -48,7 +48,7 @@ def Dodaj_Producent(request):
             formularz.save()
             opis = 'Producent została poprawnie dodana.'
             return render(request, 'produkt/potwierdzenie.html',
-                          {'opis': opis})
+                                    {'opis': opis})
 
     else:
         formularz = Formularz_Producent()
@@ -66,13 +66,13 @@ def Dodaj_Kolor(request):
             formularz.save()
             opis = 'Kolor został poprawnie dodany.'
             return render(request, 'produkt/potwierdzenie.html',
-                          {'opis': opis})
+                                    {'opis': opis})
 
     else:
         formularz = Formularz_Kolor()
 
     return render(request, 'produkt/dodaj.html',
-                  {'formularz': formularz})
+                            {'formularz': formularz})
 
 
 def Dodaj_Certyfikat(request):
@@ -84,13 +84,13 @@ def Dodaj_Certyfikat(request):
             formularz.save()
             opis = 'Certyfikat został poprawnie dodany.'
             return render(request, 'produkt/potwierdzenie.html',
-                          {'opis': opis})
+                                    {'opis': opis})
 
     else:
         formularz = Formularz_Certyfikat()
 
     return render(request, 'produkt/dodaj.html',
-                  {'formularz': formularz})
+                            {'formularz': formularz})
 
 
 def Dodaj_Dodatek(request):
@@ -102,13 +102,13 @@ def Dodaj_Dodatek(request):
             formularz.save()
             opis = 'Dodatek został poprawnie dodany.'
             return render(request, 'produkt/potwierdzenie.html',
-                          {'opis': opis})
+                                    {'opis': opis})
 
     else:
         formularz = Formularz_Dodatek()
 
     return render(request, 'produkt/dodaj.html',
-                  {'formularz': formularz})
+                            {'formularz': formularz})
 
 
 def Dodaj_Polecane(request):
@@ -121,13 +121,13 @@ def Dodaj_Polecane(request):
             opis = 'Nowy produkt został poprawnie dodany do ' \
                    'listy produktów polecanych.'
             return render(request, 'produkt/potwierdzenie.html',
-                          {'opis': opis})
+                                    {'opis': opis})
 
     else:
         formularz = Formularz_Polecane()
 
     return render(request, 'produkt/dodaj.html',
-                  {'formularz': formularz})
+                            {'formularz': formularz})
 
 
 ################## Usuwanie ##################
@@ -181,7 +181,7 @@ def Edytuj_Produkt(request, pk):
         formularz = Formularz_Produktu(instance=produkt)
 
     return render(request, 'produkt/edytuj.html',
-                  {'formularz': formularz})
+                            {'formularz': formularz})
 
 
 ################## Dodatki ##################
@@ -192,4 +192,5 @@ def Zarzadzaj_Zdjeciem_Produktu(produkt, formularz):
         produkt.Zapisz_Zdjecie_URL(formularz.cleaned_data['zewnetrzny_url'])
 
     if formularz.cleaned_data['zdjecie']:
-        produkt.Zapisz_Zdjecie_Formularz()
+        if '/static/img/produkt/' not in str(formularz.cleaned_data['zdjecie']):
+            produkt.Zapisz_Zdjecie_Formularz()

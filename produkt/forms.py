@@ -41,6 +41,8 @@ class Formularz_Produktu(forms.ModelForm):
         error_messages = {
             'nazwa': {'required': 'Co to za produkt, bez nazwy...'},
             'opis': {'required': 'Ludzie chcą wiedzieć, co kupują.'},
+            'producent': {'required': 'Minimum, potrzebne do filtrowania.'},
+            'kolor': {'required': 'Minimum, potrzebne do filtrowania.'},
             'rodzaj': {'required': 'Minimum, potrzebne do filtrowania.'},
             'zdjecie': {'invalid_image': 'To przecież nie jest obrazek!'}
         }

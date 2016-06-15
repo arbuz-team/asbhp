@@ -8,15 +8,15 @@ from forms import *
 def Wyswietl_Start(request):
     polecane = Polecane.objects.all()
     return render(request, 'asbhp/start.html',
-                            {'polecane':          polecane})
+                            {'polecane':            polecane})
 
 
 def Wyswietl_O_Firmie(request):
     css_menu = ['wybrany', '', '']
     o_firmie = O_Firmie.objects.all()
     return render(request, 'asbhp/o_firmie.html',
-                            {'css_menu':          css_menu,
-                             'o_firmie':          o_firmie})
+                            {'css_menu':            css_menu,
+                             'o_firmie':            o_firmie})
 
 
 def Wyswietl_Oferta(request, wybrany_strona=None, wybrany_filtr=None):
@@ -26,6 +26,8 @@ def Wyswietl_Oferta(request, wybrany_strona=None, wybrany_filtr=None):
         # potrzebne zmienne
     css_menu = ['', 'wybrany', '']
     produkt = Iloczyn_Zbiorow(Filtruj(request), Konteneruj(request))
+    request.session['producent'].Ustaw_Pola(Iloczyn_Zbiorow(Wyszukaj(request), Konteneruj(request)))
+    request.session['kolor'].Ustaw_Pola(Iloczyn_Zbiorow(Wyszukaj(request), Konteneruj(request)))
 
         # pobieranie listy produktów
     wynik = Pobierz_Listy_Produktow(request, produkt)
@@ -57,20 +59,20 @@ def Wyswietl_Oferta(request, wybrany_strona=None, wybrany_filtr=None):
                  'liczba_produktow':    request.session['liczba_produktow']}
 
     return render(request, 'asbhp/oferta.html',
-                            {'css_menu':          css_menu,
-                             'produkt':           produkt,
-                             'numery_stron':      range(1, len(wynik) + 1),
-                             'kontener':          kontener,
-                             'wybrany':           wybrany,
-                             'filtr':             filtr})
+                            {'css_menu':            css_menu,
+                             'produkt':             produkt,
+                             'numery_stron':        range(1, len(wynik) + 1),
+                             'kontener':            kontener,
+                             'wybrany':             wybrany,
+                             'filtr':               filtr})
 
 
 def Wyswietl_Kontakt(request):
     css_menu = ['', '', 'wybrany']
     kontakt = Kontakt.objects.all()
     return render(request, 'asbhp/kontakt.html',
-                            {'css_menu':          css_menu,
-                             'kontakt':           kontakt})
+                            {'css_menu':            css_menu,
+                             'kontakt':             kontakt})
 
 
 ################## Zakładki: Edycja ##################
@@ -83,7 +85,7 @@ def Edytuj_O_Firmie(request):
         lista_formularzy.append(Formularz_O_Firmie(instance=o))
 
     return render(request, 'asbhp/edytuj.html',
-                            {'lista_formularzy': lista_formularzy})
+                            {'lista_formularzy':    lista_formularzy})
 
 
 def Edytuj_O_Firmie_Zapisz(request, pk):
@@ -107,7 +109,7 @@ def Edytuj_Kontakt(request):
         lista_formularzy.append(Formularz_Kontakt(instance=k))
 
     return render(request, 'asbhp/edytuj.html',
-                            {'lista_formularzy': lista_formularzy})
+                            {'lista_formularzy':    lista_formularzy})
 
 
 def Edytuj_Kontakt_Zapisz(request, pk):

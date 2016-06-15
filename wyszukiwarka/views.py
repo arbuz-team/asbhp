@@ -88,7 +88,7 @@ def Filtr_Producent(request):
         filtr = Formularz_Filtru_Producent(request.POST)
         request.session['producent'] = filtr
 
-        if filtr.is_valid():
+        if filtr.Waliduj():
             pass
 
     return redirect('Wyswietl_Oferta')
@@ -100,7 +100,7 @@ def Filtr_Kolor(request):
         filtr = Formularz_Filtru_Kolor(request.POST)
         request.session['kolor'] = filtr
 
-        if filtr.is_valid():
+        if filtr.Waliduj():
             pass
 
     return redirect('Wyswietl_Oferta')
@@ -148,25 +148,23 @@ def Filtruj(request):
     if request.session['wyszukiwarka'].is_valid():
         wynik = Wyszukaj(request)
 
-    if request.session['producent'].is_valid():
-        if request.session['producent'].cleaned_data['producent']:
-            wynik = wynik.filter(producent=request.session['producent']
-                                 .cleaned_data['producent'])
+    if request.session['producent'].Waliduj():
+        wynik = Iloczyn_Zbiorow(wynik, Produkt.objects.filter(
+            producent__pk=request.session['producent'].Pobierz_Wybrany()))
 
-    if request.session['kolor'].is_valid():
-        if request.session['kolor'].cleaned_data['kolor']:
-            wynik = wynik.filter(kolor=request.session['kolor']
-                                 .cleaned_data['kolor'])
+    if request.session['kolor'].Waliduj():
+        wynik = Iloczyn_Zbiorow(wynik, Produkt.objects.filter(
+            kolor__pk=request.session['kolor'].Pobierz_Wybrany()))
 
     if request.session['zagrozenia'].is_valid():
         if request.session['zagrozenia'].cleaned_data['zagrozenia']:
-            wynik = wynik.filter(zagrozenia=request.session['zagrozenia']
-                                 .cleaned_data['zagrozenia'])
+            wynik = Iloczyn_Zbiorow(wynik, Produkt.objects.filter(
+                zagrozenia=request.session['zagrozenia'].cleaned_data['zagrozenia']))
 
     if request.session['zawody'].is_valid():
         if request.session['zawody'].cleaned_data['zawody']:
-            wynik = wynik.filter(zawody=request.session['zawody']
-                                 .cleaned_data['zawody'])
+            wynik = Iloczyn_Zbiorow(wynik, Produkt.objects.filter(
+                zawody=request.session['zawody'].cleaned_data['zawody']))
 
     return wynik
 

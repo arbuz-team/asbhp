@@ -17,24 +17,49 @@ class Formularz_Wyszukiwarki(forms.Form):
                                         'zawierać minimum 3 znaki.')
         return zapytanie
 
-    def Ustaw_Zapytanie(self, wartosc):
-        self.fields['zapytanie'].initial = wartosc
+
+class Formularz_Filtru_Producent(forms.Form):
+
+    producent = forms.ChoiceField(
+        widget=forms.Select(attrs={'class': 'focus'}))
+
+    def Ustaw_Pola(self, produkt):
+        wybor = {(p.producent.id, str(p.producent)) for p in produkt}
+        wybor.add((None, 'Wszystkie'))
+        wybor = sorted(wybor)
+        self.fields['producent'].choices = wybor
+
+    def Waliduj(self):
+        if 'producent' in self.data:
+            return True if self.data['producent'] else False
+
+        return False
+
+    def Pobierz_Wybrany(self):
+        return self.data['producent'] \
+            if self.Waliduj() else None
 
 
-class Formularz_Filtru_Producent(forms.ModelForm):
+class Formularz_Filtru_Kolor(forms.Form):
 
-    class Meta:
-        model = Produkt
-        fields = ('producent',)
-        widgets = {'producent': forms.Select(attrs={'class': 'focus'})}
+    kolor = forms.ChoiceField(
+        widget=forms.Select(attrs={'class': 'focus'}))
 
+    def Ustaw_Pola(self, produkt):
+        wybor = {(p.kolor.id, str(p.kolor)) for p in produkt}
+        wybor.add((None, 'Wszystkie'))
+        wybor = sorted(wybor)
+        self.fields['kolor'].choices = wybor
 
-class Formularz_Filtru_Kolor(forms.ModelForm):
+    def Waliduj(self):
+        if 'kolor' in self.data:
+            return True if self.data['kolor'] else False
 
-    class Meta:
-        model = Produkt
-        fields = ('kolor',)
-        widgets = {'kolor': forms.Select(attrs={'class': 'focus'})}
+        return False
+
+    def Pobierz_Wybrany(self):
+        return self.data['kolor'] \
+            if self.Waliduj() else None
 
 
 class Formularz_Filtru_Zagrozenia(forms.ModelForm):

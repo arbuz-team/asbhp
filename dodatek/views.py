@@ -52,8 +52,8 @@ def Sprawdz_Sesje(request):
 
 
 def Usun_Sesje(request):
-    for zmienna in request.session:
-        del zmienna
+    for klucz in request.session.keys():
+        del request.session[klucz]
 
 
 ################## Funkcje dodatkowe ##################
