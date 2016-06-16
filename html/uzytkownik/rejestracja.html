@@ -1,0 +1,43 @@
+
+{% include "szablon_wstep.html" %}
+
+{% include "naglowek.html" %}
+
+
+<div id="TRESC" class="fragment standardowa">
+
+  <div class="BLOK1">
+
+    <div class="tlo"></div>
+
+    <div class="tresc">
+
+      <form method="post">
+        {% csrf_token %}
+
+        {% for i in formularz %}
+
+          {{ i.errors }}
+          <div class="otoczka_pola">
+
+            {{ i }}
+
+          </div>
+
+        {% endfor %}
+
+        <button type="submit">Zaloguj</button>
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+{% include "stopka.html" %}
+
+{% include "szablon_zakonczenie.html" %}
+
+

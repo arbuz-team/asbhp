@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'wyszukiwarka',
     'produkt',
     'dodatek',
+    'uzytkownik',
 ]
 
 MIDDLEWARE_CLASSES = [

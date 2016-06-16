@@ -2,6 +2,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Q
 import operator
+from django.contrib.auth.hashers import make_password
 
 from wyszukiwarka.forms import *
 from produkt.forms import *
@@ -82,3 +83,9 @@ def Pobierz_Listy_Produktow(request, produkt):
         wynik.append(produkt[i * liczba: (i * liczba) + liczba])
 
     return wynik
+
+
+################## Logowanie ##################
+
+def Szyfruj(haslo):
+    return make_password(password=haslo, salt='arbuz-team')
