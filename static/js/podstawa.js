@@ -45,6 +45,18 @@ $(document).ready(function ()
 
 
 
+  /********* Wysuwane MENU *********/
+
+  $( '.guzik_menu' ).click(function ()
+  {
+  
+      zmiana.pokaz_menu();
+
+  });
+
+
+
+
   /********* DIV LINK *********/
 
   $( '.link' ).mouseup(function (event)

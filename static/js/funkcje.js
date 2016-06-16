@@ -251,6 +251,40 @@ var zmiana = (function()
 
 
 
+  function _pokaz_menu()
+  {
+
+    var $menu = $( '#MENU' );
+
+    $menu.children( '.nakladka' ).fadeIn(100);
+    $menu.animate({ right : '0px' }, 200, function()
+    {
+    
+      $( '#MENU > .nakladka' ).click(function ()
+      {
+      
+        zmiana.ukryj_menu();
+
+      });
+
+    });
+
+  }
+
+
+
+  function _ukryj_menu()
+  {
+
+    var $menu = $( '#MENU' );
+
+    $menu.children( '.nakladka' ).fadeOut(100);
+    $menu.animate({ right : '-300px' }, 200);
+
+  }
+
+
+
 
   var udostepnione = 
   {
@@ -259,7 +293,9 @@ var zmiana = (function()
     zwieksz_naglowek : _zwieksz_naglowek,
     przelacznik_zakladek : _przelacznik_zakladek,
     pokaz_produkt : _pokaz_produkt,
-    ukryj_produkt : _ukryj_produkt
+    ukryj_produkt : _ukryj_produkt,
+    pokaz_menu : _pokaz_menu,
+    ukryj_menu : _ukryj_menu
   }
 
   return udostepnione;
