@@ -92,6 +92,109 @@
 
 
 
+/***************************** KONTAKT *******************************/
+
+#TRESC.kontakt > .BLOK1 > .tresc
+{
+  position: relative !important;
+}
+
+
+
+#TRESC.kontakt > .BLOK1 > .tresc > .kolumna
+{
+  display: inline-block;
+  vertical-align: top;
+}
+
+
+
+#TRESC.kontakt > .BLOK1 > .tresc .tytul
+{
+  font-size: 32px;
+  font-weight: bold;
+}
+
+
+
+#TRESC.kontakt > .BLOK1 > .tresc .tytul,
+#TRESC.kontakt > .BLOK1 > .tresc .tekst
+{
+  width: 100%;
+}
+
+
+
+@media only screen and (max-width: 480px), only screen and (max-device-width: 480px) 
+{
+
+  #TRESC.kontakt > .BLOK2 > .tlo
+  {
+    background-color: #999999;
+  }
+
+}
+
+
+
+
+
+
+@media (max-width: 1200px)
+{
+
+  #TRESC.kontakt > .BLOK1 > .tresc > .kolumna
+  {
+    width: 100%;
+
+    margin-top: 20px;
+  }
+  
+}
+
+
+
+@media (min-width: 1200px)
+{
+
+  #TRESC.kontakt > .BLOK1 > .tresc > .kolumna
+  {
+    min-height: 460px;
+  }
+  
+
+
+  #TRESC.kontakt > .BLOK1 > .tresc > .lewa.kolumna
+  {
+    width: 360px;
+  }
+  
+
+
+  #TRESC.kontakt > .BLOK1 > .tresc > .prawa.kolumna
+  {
+    width: 600px;
+  }
+  
+}
+
+
+
+#TRESC.kontakt > .BLOK1 > .tresc .mapa
+{
+  width: 100%;
+  height: 450px;
+
+  border-radius: 3px;
+  border: 2px solid;
+  border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+}
+  
+
+
+
+
+
 /************************************************************/
 
 
