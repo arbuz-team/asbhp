@@ -125,36 +125,72 @@
 
 
 
-@media only screen and (max-width: 480px), only screen and (max-device-width: 480px) 
+
+
+
+
+
+
+
+#TRESC.kontakt > .BLOK1 > .tresc > .kolumna
 {
+  width: 100%;
+  min-height: 200px;
 
-  #TRESC.kontakt > .BLOK2 > .tlo
-  {
-    background-color: #999999;
-  }
-
+  margin-top: 20px;
 }
 
 
 
+#TRESC.kontakt > .BLOK1 > .tresc > .prawa.kolumna
+{
+  height: 200px;
+}
 
 
 
-@media (max-width: 1200px)
+#TRESC.kontakt > .BLOK1 > .tresc > .prawa.kolumna .mapa
+{
+  height: inherit;
+}
+
+
+
+@media screen and (min-width: 600px)
 {
 
   #TRESC.kontakt > .BLOK1 > .tresc > .kolumna
   {
     width: 100%;
+    min-height: 200px;
 
     margin-top: 20px;
   }
-  
+
+
+
+  #TRESC.kontakt > .BLOK1 > .tresc > .prawa.kolumna
+  {
+    height: 300px;
+  }
+
 }
 
 
 
-@media (min-width: 1200px)
+@media screen and (min-width: 800px)
+{
+
+  #TRESC.kontakt > .BLOK1 > .tresc > .prawa.kolumna
+  {
+    height: 460px;
+  }
+
+}
+
+
+
+@media screen and (min-width: 1200px)
 {
 
   #TRESC.kontakt > .BLOK1 > .tresc > .kolumna
@@ -174,9 +210,38 @@
   #TRESC.kontakt > .BLOK1 > .tresc > .prawa.kolumna
   {
     width: 600px;
+    height: 460px;
   }
   
+
+
+  #TRESC.kontakt > .BLOK1 > .tresc > .prawa.kolumna .mapa
+  {
+    height: 100%;
+  }
+
+
 }
+
+
+
+@media screen and (min-width: 1400px)
+{
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 

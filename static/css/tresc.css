@@ -75,18 +75,6 @@ body > div > .fragment
 
 
 
-#NAGLOWEK 
-{
-  position: relative;
-
-  height: 100px;
-  max-height: 100px;
-
-  z-index: 7;
-}
-
-
-
 #TRESC
 {
   position: relative;
@@ -325,14 +313,28 @@ body > div > .fragment
 
 #TRESC.oferta > .BLOK1 > .tresc > .filtr_podstawowy
 {
-  height: 50px;
+  display: none;
+}
 
-  color: #ff7000;
 
-  background-image: url( '../img/strzalka_p.png' );
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+
+@media screen and (min-width: 600px)
+{
+
+  #TRESC.oferta > .BLOK1 > .tresc > .filtr_podstawowy
+  {
+    display: inline-block;
+
+    height: 50px;
+
+    color: #ff7000;
+
+    background-image: url( '../img/strzalka_p.png' );
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+
 }
 
 
@@ -735,17 +737,30 @@ body > div > .fragment
 }
 
 
+
 #TRESC.standardowa > div > .tresc,
 #TRESC.oferta > div > .tresc,
 #TRESC.start > div > .tresc
 {
-  margin: 50px;
-  margin-right: auto;
-  margin-left: auto;
+  margin: 10px auto 30px auto;
 
   padding: 10px;
   padding-left: 15px;
   padding-right: 15px;
+}
+
+
+
+@media screen and (min-width: 870px)
+{
+
+  #TRESC.standardowa > div > .tresc,
+  #TRESC.oferta > div > .tresc,
+  #TRESC.start > div > .tresc
+  {
+    margin: 50px auto;
+  }
+
 }
 
 

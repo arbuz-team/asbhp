@@ -106,7 +106,7 @@ var zmiana = (function()
     var wysokosc_rzeczywista = $naglowek.outerHeight();
 
 
-    if( wysokosc == wysokosc_rzeczywista )
+    if( wysokosc == wysokosc_rzeczywista && wysokosc != 70 )
     {
 
       var $pole_menu = $naglowek.children( '.menu' );

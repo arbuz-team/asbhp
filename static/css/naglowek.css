@@ -2,6 +2,20 @@
 
 
 
+#NAGLOWEK 
+{
+  position: relative;
+
+  height: 70px;
+  max-height: 70px;
+
+  overflow: visible;
+
+  z-index: 37;
+}
+
+
+
 #NAGLOWEK > div
 {
   position: fixed;
@@ -10,7 +24,7 @@
   top: 0px;
 
   height: inherit;
-  z-index: 5;
+  z-index: 35;
 
   background-color: rgba(30, 29, 28, 1);
 
@@ -23,50 +37,30 @@
 
 
 
-#NAGLOWEK > div > div.tytul
+#NAGLOWEK .tytul
 {
   position: absolute;
   bottom: -10px;
-  left: 70px;
+  left: 10px;
 
-  width: 120px;
-  height: 100px;
+  width: 84px;
+  height: 70px;
 
   background-image: url('../img/AS_C,S.png');
   background-size: 100% auto;
 
-  z-index: 8;
+  z-index: 38;
 }
 
 
 
-#NAGLOWEK > div > div.tytul > div
-{
-  display: block;
-
-  position: absolute;
-  bottom: 10px;
-  left: 120px;
-
-  width: 180px;
-  height: 100px;
-
-  background-image: url('../img/ODZIERZ ROBOCZA_S.png');
-  background-position: center;
-  background-size: 120px auto;
-  background-repeat: no-repeat;
-
-  z-index: 8;
-}
-
-
-
-#NAGLOWEK > div > .wyszukiwarka
+#NAGLOWEK .wyszukiwarka
 {
   float: right;
   display: block-inline;
 
   position: relative;
+  top: -30px;
 
   min-width: 100px !important;
   width: 100px !important;
@@ -80,12 +74,12 @@
   box-shadow: none;
   border: none;
 
-  z-index: 8;
+  z-index: 38;
 }
 
 
 
-#NAGLOWEK > div > .wyszukiwarka > div
+#NAGLOWEK .wyszukiwarka > div
 {
   position: absolute;
 
@@ -104,7 +98,7 @@
 
   box-shadow: none;
 
-  z-index: 9;
+  z-index: 39;
 }
 
 
@@ -114,6 +108,9 @@
   float: right;
   display: block-inline;
 
+  position: relative;
+  top: -30px;
+
   width: 150px;
   height: 90px;
 
@@ -122,7 +119,7 @@
   line-height: 130px;
   color: #999;
 
-  z-index: 8;
+  z-index: 38;
 }
 
 
@@ -135,4 +132,66 @@
 }
 
 
+
+/***************** MOBILE *****************/
+
+@media screen and (min-width: 600px)
+{
+
+  #NAGLOWEK > div > .menu
+  {
+    width: 150px;
+  }
+
+}
+
+@media screen and (min-width: 870px)
+{
+
+  #NAGLOWEK
+  {
+    height: 100px;
+    max-height: 100px;
+  }
+
+
+
+  #NAGLOWEK .tytul
+  {
+    left: 70px;
+
+    width: 120px;
+    height: 100px;
+  }
+
+
+
+  #NAGLOWEK .tytul > div
+  {
+    display: block;
+
+    position: absolute;
+    bottom: 10px;
+    left: 120px;
+
+    width: 180px;
+    height: 100px;
+
+    background-image: url('../img/ODZIERZ ROBOCZA_S.png');
+    background-position: center;
+    background-size: 120px auto;
+    background-repeat: no-repeat;
+
+    z-index: 38;
+  }
+
+
+
+  #NAGLOWEK .wyszukiwarka,
+  #NAGLOWEK > div > .menu
+  {
+    top: 0px;
+  }
+
+}
 
