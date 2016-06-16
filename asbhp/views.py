@@ -12,7 +12,9 @@ def Wyswietl_Start(request):
 
 
 def Wyswietl_O_Firmie(request):
-    css_menu = ['wybrany', '', '']
+    css_menu = {'o_firmie': 'wybrany', 'oferta': '',
+                'kontakt': '', 'edytuj': ''}
+
     o_firmie = O_Firmie.objects.all()
     return render(request, 'asbhp/o_firmie.html',
                             {'css_menu':            css_menu,
@@ -24,7 +26,9 @@ def Wyswietl_Oferta(request, wybrany_strona=None, wybrany_filtr=None):
     Sprawdz_Sesje(request)
 
         # potrzebne zmienne
-    css_menu = ['', 'wybrany', '']
+    css_menu = {'o_firmie': '', 'oferta': 'wybrany',
+                'kontakt': '', 'edytuj': ''}
+
     produkt = Iloczyn_Zbiorow(Filtruj(request), Konteneruj(request))
     request.session['producent'].Ustaw_Pola(Iloczyn_Zbiorow(Wyszukaj(request), Konteneruj(request)))
     request.session['kolor'].Ustaw_Pola(Iloczyn_Zbiorow(Wyszukaj(request), Konteneruj(request)))
@@ -68,11 +72,21 @@ def Wyswietl_Oferta(request, wybrany_strona=None, wybrany_filtr=None):
 
 
 def Wyswietl_Kontakt(request):
-    css_menu = ['', '', 'wybrany']
+    css_menu = {'o_firmie': '', 'oferta': '',
+                'kontakt': 'wybrany', 'edytuj': ''}
+
     kontakt = Kontakt.objects.all()
     return render(request, 'asbhp/kontakt.html',
                             {'css_menu':            css_menu,
                              'kontakt':             kontakt})
+
+
+def Wyswietl_Edytuj(request):
+    css_menu = {'o_firmie': '', 'oferta': '',
+                'kontakt': '', 'edytuj': 'wybrany'}
+
+    return render(request, 'asbhp/edytuj.html',
+                            {'css_menu':            css_menu})
 
 
 ################## Zakładki: Edycja ##################
@@ -84,7 +98,7 @@ def Edytuj_O_Firmie(request):
     for o in o_firmie:
         lista_formularzy.append(Formularz_O_Firmie(instance=o))
 
-    return render(request, 'asbhp/edytuj.html',
+    return render(request, 'asbhp/edytuj_zakladke.html',
                             {'lista_formularzy':    lista_formularzy})
 
 
@@ -108,7 +122,7 @@ def Edytuj_Kontakt(request):
     for k in kontakt:
         lista_formularzy.append(Formularz_Kontakt(instance=k))
 
-    return render(request, 'asbhp/edytuj.html',
+    return render(request, 'asbhp/edytuj_zakladke.html',
                             {'lista_formularzy':    lista_formularzy})
 
 

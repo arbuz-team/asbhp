@@ -7,15 +7,21 @@
 
 
 
-    <div class="menu link {{ css_menu.2 }}" data-href="/kontakt">
+    {% if request.session.zalogowany %}
+      <div class="menu link {{ css_menu.edytuj }}" data-href="/edytuj">
+        Edytuj
+      </div>
+    {% endif %}
+
+    <div class="menu link {{ css_menu.kontakt }}" data-href="/kontakt">
         Kontakt
     </div>
 
-    <div class="menu link {{ css_menu.1 }}" data-href="/oferta">
+    <div class="menu link {{ css_menu.oferta }}" data-href="/oferta">
         Oferta
     </div>
 
-    <div class="menu link {{ css_menu.0 }}" data-href="/o_firmie">
+    <div class="menu link {{ css_menu.o_firmie }}" data-href="/o_firmie">
         O firmie
     </div>
 

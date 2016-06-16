@@ -1,0 +1,49 @@
+
+{% include "szablon_wstep.html" %}
+
+{% include "naglowek.html" %}
+
+
+<div id="TRESC" class="fragment standardowa">
+
+  <div class="BLOK1">
+
+    <div class="tlo"></div>
+
+    <div class="tytul">Formularz:</div>
+
+    <div class="tresc">
+
+      {% for formularz in lista_formularzy %}
+
+        <form method="post" action="{{ forloop.counter }}/">
+          {% csrf_token %}
+
+          {% for i in formularz %}
+
+
+            <div class="otoczka_pola">
+              {{ i }}
+            </div>
+
+          {% endfor %}
+
+          <div class="otoczka_pola button">
+            <button type="submit">Akceptuj</button>
+          </div>
+        
+        </form>
+
+      {% endfor %}
+
+    </div>
+
+  </div>
+
+</div>
+
+
+{% include "stopka.html" %}
+
+{% include "szablon_zakonczenie.html" %}
+
