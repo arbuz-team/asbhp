@@ -6,10 +6,14 @@ from models import *
 class Formularz_Logowania(forms.Form):
 
     login = forms.CharField(
-        widget=forms.TextInput(attrs={'placeholder': 'Login'}))
+        widget=forms.TextInput(attrs={'placeholder': 'Login'}),
+        error_messages={'required': 'Wpisz login.'}
+    )
 
     haslo = forms.CharField(
-        widget=forms.PasswordInput(attrs={'placeholder': 'Hasło'}))
+        widget=forms.PasswordInput(attrs={'placeholder': 'Hasło'}),
+        error_messages = {'required': 'Wpisz hasło.'}
+    )
 
     def clean_login(self):
         login = self.cleaned_data['login']
@@ -40,4 +44,9 @@ class Formularz_Rejestracji(forms.ModelForm):
         widgets = {
             'login': forms.TextInput(attrs={'placeholder': 'Login'}),
             'haslo': forms.PasswordInput(attrs={'placeholder': 'Hasło'}),
+        }
+
+        error_messages = {
+            'login': {'required': 'Wpisz login.'},
+            'haslo': {'required': 'Wpisz hasło'},
         }

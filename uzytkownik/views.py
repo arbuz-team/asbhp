@@ -30,3 +30,8 @@ def Rejestracja(request):
 
     return render(request, 'uzytkownik/rejestracja.html',
                             {'formularz': formularz})
+
+
+def Wyloguj(request):
+    request.session['zalogowany'] = False
+    return redirect('Wyswietl_Start')
