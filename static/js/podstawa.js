@@ -7,6 +7,17 @@
 $(document).ready(function () 
 {
 
+  // rozmiary tapety
+
+  var G_adres_tapety = $( '#TRESC > .BLOK1 > .tlo' ).css( 'background-image' );
+
+  G_adres_tapety = G_adres_tapety.replace( 'url("', '' ).replace( '")', '' );
+
+  pobierz.wymiary_grafiki(G_adres_tapety);
+
+
+
+
   // Wybierz filtr
 
   var G_numer_filtra = parseInt( $( '#FILTRY .lista > span' ).html() );

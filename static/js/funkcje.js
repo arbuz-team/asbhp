@@ -74,11 +74,43 @@ var pobierz = (function()
 
 
 
+  function _wymiary_grafiki( adres )
+  {
+
+    var img = new Image();
+    
+    img.onload = function()
+    {
+
+      var obiekt = {
+          width : this.width,
+          height : this.height
+        };
+
+      dostosuj.tapete( obiekt );
+
+      $(window).resize(function()
+      {
+        
+        dostosuj.tapete( obiekt );
+
+      });
+
+    }
+
+    img.src = adres;
+
+
+  }
+
+
+
   var udostepnione = 
   {
 
     zmienne_wysokosc : _zmienne_wysokosc,
-    ktory_guzik : _ktory_guzik
+    ktory_guzik : _ktory_guzik,
+    wymiary_grafiki : _wymiary_grafiki
 
   }
 
@@ -280,11 +312,32 @@ var dostosuj = (function()
 
 
 
+  function _tapete( tapeta )
+  {
+
+    var miejsce = '#TRESC > .BLOK1 > .tlo';
+    var okno = {
+        width : $(window).width(),
+        height : $(window).height() - $( '#NAGLOWEK' ).outerHeight()
+      };
+
+    if( okno.width / okno.height >= tapeta.width / tapeta.height )
+      $( miejsce ).css( 'background-size', '100% auto' );
+
+    else if( okno.width / okno.height < tapeta.width / tapeta.height )
+      $( miejsce ).css( 'background-size', 'auto 100%' );
+
+  }
+
+
+
   var udostepnione = 
   {
 
     wysokosc_strony : _wysokosc_strony,
-    strone_do_scrollbara : _strone_do_scrollbara
+    strone_do_scrollbara : _strone_do_scrollbara,
+    tapete : _tapete
+
 
   }
 
@@ -456,64 +509,6 @@ var ruch = (function()
     post_i_odswiez : _post_i_odswiez,
     pozycja_scrollbara : _pozycja_scrollbara,
     sprawdz_cofnij : _sprawdz_cofnij
-
-  }
-
-  return udostepnione;
-
-})();
-
-
-
-
-/*********************** DOSTOSUJ ***********************/
-
-
-var dostosuj = (function()
-{
-
-
-  var _wysokosc_strony = function()
-  {
-
-    var wysokosc = pobierz.zmienne_wysokosc();
-
-    $( '#TRESC' ).css( 'min-height', (wysokosc.strona - wysokosc.naglowek - wysokosc.stopka - wysokosc.margin) );
-
-    $( '#TRESC > .BLOK1' ).css( 'min-height', (wysokosc.strona - wysokosc.naglowek - wysokosc.margin) );
-
-  };
-
-
-
-  var _strone_do_scrollbara = function( szerokosc_scrollbara )
-  {
-
-    $( 'body > div' ).perfectScrollbar( 'update' );
-
-    var display_scrollbar = $( '.ps-container > .ps-scrollbar-y-rail' ).css( 'display' );  // Wysokość stopki
-    var czy_dostosowane = parseInt( $( 'body > div' ).css( 'padding-right' ) );
-
-    if( display_scrollbar == 'none' && czy_dostosowane != 0 )
-    {
-      $( 'body > div' ).css( 'padding-right', '0px' );
-      $( '#NAGLOWEK > div' ).css( 'right', '0px' );
-    }
-    else if( display_scrollbar == 'block' && czy_dostosowane != szerokosc_scrollbara )
-    {
-      $( 'body > div' ).css( 'padding-right', szerokosc_scrollbara );
-      $( '#NAGLOWEK > div' ).css( 'right', szerokosc_scrollbara );
-    }
-
-  };
-
-
-
-  var udostepnione = 
-  {
-
-    wysokosc_strony : _wysokosc_strony,
-    strone_do_scrollbara : _strone_do_scrollbara
 
   }
 

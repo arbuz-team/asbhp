@@ -157,20 +157,25 @@ body > div > .fragment
 
 
 
-#TRESC.start > div.BLOK1 > div.napis
+@media screen and (min-width:600px)
 {
-  position: absolute;
-  width: 556px;
-  height: 292px;
 
-  bottom: 130px;
-  right: -10px;
+  #TRESC.start > div.BLOK1 > div.napis
+  {
+    position: absolute;
+    width: 556px;
+    height: 292px;
 
-  background-image: url( '/static/img/napis_ver1.png' );
-  background-position: right;
-  background-repeat: no-repeat;
+    bottom: 130px;
+    right: -10px;
 
-  z-index:12;
+    background-image: url( '/static/img/napis_ver1.png' );
+    background-position: right;
+    background-repeat: no-repeat;
+
+    z-index:12;
+  }
+
 }
 
 
