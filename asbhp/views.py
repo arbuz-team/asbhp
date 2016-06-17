@@ -82,6 +82,7 @@ def Wyswietl_Kontakt(request):
 
 
 def Wyswietl_Edytuj(request):
+    Sprawdz_Czy_Zalogowany(request)
     css_menu = {'o_firmie': '', 'oferta': '',
                 'kontakt': '', 'edytuj': 'wybrany'}
 

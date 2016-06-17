@@ -2,8 +2,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Q
 import operator
+from django.http import Http404
 from django.contrib.auth.hashers import make_password
 
+import komunikat
 from wyszukiwarka.forms import *
 from produkt.forms import *
 
@@ -51,6 +53,10 @@ def Sprawdz_Sesje(request):
     if 'wybrany_rodzaj' not in request.session:
         request.session['wybrany_rodzaj'] = None
 
+        # użytkownik
+    if 'zalogowany' not in request.session:
+        request.session['zalogowany'] = False
+
 
 def Usun_Sesje(request):
     for klucz in request.session.keys():
@@ -89,3 +95,17 @@ def Pobierz_Listy_Produktow(request, produkt):
 
 def Szyfruj(haslo):
     return make_password(password=haslo, salt='arbuz-team')
+
+
+def Sprawdz_Czy_Zalogowany(request):
+    Sprawdz_Sesje(request)
+
+    if not request.session['zalogowany']:
+        komunikat = 'Nic tu nie znajdziesz. Idź poszukać gdzieś indziej ;).'
+        raise Http404(komunikat)
+
+    return None
+
+
+################## Komunikaty ##################
+

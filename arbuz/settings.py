@@ -11,7 +11,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '6z_^%^bd&(0tb#izdd+lf@8c*@z(wfd_8n6ji+i^&5ue5dqs1k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'produkt',
     'dodatek',
     'uzytkownik',
+    'komunikat',
 ]
 
 MIDDLEWARE_CLASSES = [
