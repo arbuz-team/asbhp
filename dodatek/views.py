@@ -101,8 +101,7 @@ def Sprawdz_Czy_Zalogowany(request):
     Sprawdz_Sesje(request)
 
     if not request.session['zalogowany']:
-        komunikat = 'Nic tu nie znajdziesz. Idź poszukać gdzieś indziej ;).'
-        raise Http404(komunikat)
+        return 'Nic tu nie znajdziesz. Idź poszukać gdzieś indziej ;).'
 
     return None
 
