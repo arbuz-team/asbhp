@@ -6,12 +6,14 @@ from forms import *
 ################## Zakładki: Wyświetlanie ##################
 
 def Wyswietl_Start(request):
+    Sprawdz_Sesje(request)
     polecane = Polecane.objects.all()
     return render(request, 'asbhp/start.html',
                             {'polecane':            polecane})
 
 
 def Wyswietl_O_Firmie(request):
+    Sprawdz_Sesje(request)
     css_menu = {'o_firmie': 'wybrany', 'oferta': '',
                 'kontakt': '', 'edytuj': ''}
 
@@ -72,6 +74,7 @@ def Wyswietl_Oferta(request, wybrany_strona=None, wybrany_filtr=None):
 
 
 def Wyswietl_Kontakt(request):
+    Sprawdz_Sesje(request)
     css_menu = {'o_firmie': '', 'oferta': '',
                 'kontakt': 'wybrany', 'edytuj': ''}
 

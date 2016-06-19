@@ -13,7 +13,7 @@ SECRET_KEY = '6z_^%^bd&(0tb#izdd+lf@8c*@z(wfd_8n6ji+i^&5ue5dqs1k'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['asbhp.arbuz.team'] #['*']
 
 
 # Application definition

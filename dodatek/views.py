@@ -57,6 +57,10 @@ def Sprawdz_Sesje(request):
     if 'zalogowany' not in request.session:
         request.session['zalogowany'] = False
 
+        # komunikaty
+    if '404' not in request.session:
+        request.session['404'] = 'Upss. Chyba się coś popsuło.'
+
 
 def Usun_Sesje(request):
     for klucz in request.session.keys():
@@ -101,10 +105,10 @@ def Sprawdz_Czy_Zalogowany(request):
     Sprawdz_Sesje(request)
 
     if not request.session['zalogowany']:
-        return 'Nic tu nie znajdziesz. Idź poszukać gdzieś indziej ;).'
+        request.session['404'] = 'Nic tu nie znajdziesz. ' \
+                                 'Idź poszukać gdzieś indziej ;). ' \
+                                 '<br/> PS. Nie jesteś zalogowany.'
+
+        raise Http404(request.session['404'])
 
     return None
-
-
-################## Komunikaty ##################
-
