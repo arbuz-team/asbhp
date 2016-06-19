@@ -96,6 +96,7 @@ def Wyswietl_Edytuj(request):
 ################## Zakładki: Edycja ##################
 
 def Edytuj_O_Firmie(request):
+    Sprawdz_Czy_Zalogowany(request)
     o_firmie = O_Firmie.objects.all()
     lista_formularzy = []
 
@@ -107,6 +108,7 @@ def Edytuj_O_Firmie(request):
 
 
 def Edytuj_O_Firmie_Zapisz(request, pk):
+    Sprawdz_Czy_Zalogowany(request)
 
     if request.method == 'POST':
         o_firmie = O_Firmie.objects.get(id=pk)
@@ -120,6 +122,7 @@ def Edytuj_O_Firmie_Zapisz(request, pk):
 
 
 def Edytuj_Kontakt(request):
+    Sprawdz_Czy_Zalogowany(request)
     kontakt = Kontakt.objects.all()
     lista_formularzy = []
 
@@ -131,6 +134,7 @@ def Edytuj_Kontakt(request):
 
 
 def Edytuj_Kontakt_Zapisz(request, pk):
+    Sprawdz_Czy_Zalogowany(request)
 
     if request.method == 'POST':
         kontakt = Kontakt.objects.get(id=pk)

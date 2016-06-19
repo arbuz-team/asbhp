@@ -18,6 +18,7 @@ def Wyswietl_Polecane(request):
 ################## Dodawanie ##################
 
 def Dodaj_Produkt(request):
+    Sprawdz_Czy_Zalogowany(request)
 
     if request.method == 'POST':
         formularz = Formularz_Produktu(request.POST, request.FILES)
@@ -40,6 +41,7 @@ def Dodaj_Produkt(request):
 
 
 def Dodaj_Producent(request):
+    Sprawdz_Czy_Zalogowany(request)
 
     if request.method == 'POST':
         formularz = Formularz_Producent(request.POST)
@@ -58,6 +60,7 @@ def Dodaj_Producent(request):
 
 
 def Dodaj_Kolor(request):
+    Sprawdz_Czy_Zalogowany(request)
 
     if request.method == 'POST':
         formularz = Formularz_Kolor(request.POST)
@@ -76,6 +79,7 @@ def Dodaj_Kolor(request):
 
 
 def Dodaj_Certyfikat(request):
+    Sprawdz_Czy_Zalogowany(request)
 
     if request.method == 'POST':
         formularz = Formularz_Certyfikat(request.POST)
@@ -94,6 +98,7 @@ def Dodaj_Certyfikat(request):
 
 
 def Dodaj_Dodatek(request):
+    Sprawdz_Czy_Zalogowany(request)
 
     if request.method == 'POST':
         formularz = Formularz_Dodatek(request.POST)
@@ -112,6 +117,7 @@ def Dodaj_Dodatek(request):
 
 
 def Dodaj_Polecane(request):
+    Sprawdz_Czy_Zalogowany(request)
 
     if request.method == 'POST':
         formularz = Formularz_Polecane(request.POST)
@@ -133,31 +139,37 @@ def Dodaj_Polecane(request):
 ################## Usuwanie ##################
 
 def Usun_Produkt(request, pk):
+    Sprawdz_Czy_Zalogowany(request)
     Produkt.objects.get(id=pk).delete()
     return render(request, 'produkt/usun.html', {})
 
 
 def Usun_Producent(request, pk):
+    Sprawdz_Czy_Zalogowany(request)
     Producent.objects.get(id=pk).delete()
     return render(request, 'produkt/usun.html', {})
 
 
 def Usun_Kolor(request, pk):
+    Sprawdz_Czy_Zalogowany(request)
     Kolor.objects.get(id=pk).delete()
     return render(request, 'produkt/usun.html', {})
 
 
 def Usun_Certyfikat(request, pk):
+    Sprawdz_Czy_Zalogowany(request)
     Certyfikat.objects.get(id=pk).delete()
     return render(request, 'produkt/usun.html', {})
 
 
 def Usun_Dodatek(request, pk):
+    Sprawdz_Czy_Zalogowany(request)
     Dodatek.objects.get(id=pk).delete()
     return render(request, 'produkt/usun.html', {})
 
 
 def Usun_Polecane(request, pk):
+    Sprawdz_Czy_Zalogowany(request)
     Polecane.objects.get(id=pk).delete()
     return render(request, 'produkt/usun.html', {})
 
@@ -165,6 +177,7 @@ def Usun_Polecane(request, pk):
 ################## Edycja ##################
 
 def Edytuj_Produkt(request, pk):
+    Sprawdz_Czy_Zalogowany(request)
     produkt = get_object_or_404(Produkt, id=pk)
 
     if request.method == 'POST':

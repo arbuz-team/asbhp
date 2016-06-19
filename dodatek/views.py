@@ -4,8 +4,6 @@ from django.db.models import Q
 import operator
 from django.http import Http404
 from django.contrib.auth.hashers import make_password
-
-import komunikat
 from wyszukiwarka.forms import *
 from produkt.forms import *
 
@@ -64,7 +62,8 @@ def Sprawdz_Sesje(request):
 
 def Usun_Sesje(request):
     for klucz in request.session.keys():
-        del request.session[klucz]
+        if klucz != 'zalogowany':
+            del request.session[klucz]
 
 
 ################## Funkcje dodatkowe ##################
