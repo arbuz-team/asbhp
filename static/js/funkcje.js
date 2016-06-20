@@ -285,17 +285,17 @@ var zmiana = (function()
 
 
 
-
   var udostepnione = 
   {
-
     zmniejsz_naglowek : _zmniejsz_naglowek,
     zwieksz_naglowek : _zwieksz_naglowek,
     przelacznik_zakladek : _przelacznik_zakladek,
     pokaz_produkt : _pokaz_produkt,
     ukryj_produkt : _ukryj_produkt,
     pokaz_menu : _pokaz_menu,
-    ukryj_menu : _ukryj_menu
+    ukryj_menu : _ukryj_menu,
+    resetuj_auto_tapete : _resetuj_auto_tapete,
+    auto_przesuwanie_tapety : _auto_przesuwanie_tapety
   }
 
   return udostepnione;

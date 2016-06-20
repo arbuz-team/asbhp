@@ -7,6 +7,7 @@
 $(document).ready(function () 
 {
 
+
   // rozmiary tapety
 
   var G_adres_tapety = $( '#TRESC > .BLOK1 > .tlo' ).css( 'background-image' );

@@ -97,6 +97,65 @@
 
 
 
+/***************************** O FIRMIE *******************************/
+
+#TRESC.o_firmie > .BLOK1
+{
+  min-height: 200px !important;
+  max-height: 200px !important;
+}
+
+
+
+#TRESC.o_firmie > .BLOK1 > .tlo
+{
+  position: relative;
+  height: 200px;
+}
+
+
+
+#TRESC.o_firmie > .BLOK1 > .tlo > div
+{
+  position: relative;
+
+  width: 5169px;
+  height: 200px;
+}
+
+
+
+#TRESC.o_firmie > .BLOK1 > .tlo > div > div
+{
+  float: left;
+  position: relative;
+
+  width: 1723px;
+  height: 200px;
+
+  background-image: url( '../img/panorama.jpg' );
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+
+#TRESC.o_firmie > .BLOK2 > .tlo
+{
+  background-color: #fff;
+}
+
+
+
+#TRESC.o_firmie > .BLOK2 > .tresc > .tytul
+{
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+
+
 /***************************** KONTAKT *******************************/
 
 #TRESC.kontakt > .BLOK1 > .tresc
