@@ -23,6 +23,14 @@
           {{ kontakt.1.zawartosc | safe }}
         </div>
 
+        <div class="formularz">
+          <form method="post" action="/poczta/wybierz_temat/">
+            {% csrf_token %}
+            {{ formularz.as_p }}
+            <button type="submit">Dalej</button>
+          </form>
+        </div>
+
       </div>
       
       
