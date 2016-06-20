@@ -99,55 +99,38 @@
 
 /***************************** O FIRMIE *******************************/
 
-#TRESC.o_firmie > .BLOK1
+
+#TRESC.o_firmie > .BLOK1 > .tresc
 {
-  min-height: 200px !important;
-  max-height: 200px !important;
-}
-
-
-
-#TRESC.o_firmie > .BLOK1 > .tlo
-{
-  position: relative;
-  height: 200px;
+  margin-top: 250px;
 }
 
 
 
 #TRESC.o_firmie > .BLOK1 > .tlo > div
 {
-  position: relative;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
 
-  width: 5169px;
-  height: 200px;
-}
-
-
-
-#TRESC.o_firmie > .BLOK1 > .tlo > div > div
-{
-  float: left;
-  position: relative;
-
-  width: 1723px;
-  height: 200px;
-
+  min-height: 200px !important;
+  max-height: 200px !important;
   background-image: url( '../img/panorama.jpg' );
-  background-position: center;
-  background-repeat: no-repeat;
+  background-position: top;
+  background-repeat: repeat;
 }
 
 
 
-#TRESC.o_firmie > .BLOK2 > .tlo
+#TRESC.o_firmie > .BLOK1 > .tlo
 {
   background-color: #fff;
 }
 
 
 
-#TRESC.o_firmie > .BLOK2 > .tresc > .tytul
+#TRESC.o_firmie > .BLOK1 > .tresc > .tytul
 {
   font-size: 24px;
   font-weight: bold;

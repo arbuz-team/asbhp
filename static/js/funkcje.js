@@ -519,7 +519,7 @@ var ruch = (function()
     var aktualna_pozycja = $( 'body > div' ).scrollTop();
     var pozycja_elementu = $( element ).position();
 
-    $( 'body > div' ).stop().animate({ scrollTop : pozycja_elementu.top  }, '500' );
+    $( 'body > div' ).animate({ scrollTop : pozycja_elementu.top  }, 500 );
 
   }
 
