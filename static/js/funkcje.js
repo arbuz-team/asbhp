@@ -293,9 +293,7 @@ var zmiana = (function()
     pokaz_produkt : _pokaz_produkt,
     ukryj_produkt : _ukryj_produkt,
     pokaz_menu : _pokaz_menu,
-    ukryj_menu : _ukryj_menu,
-    resetuj_auto_tapete : _resetuj_auto_tapete,
-    auto_przesuwanie_tapety : _auto_przesuwanie_tapety
+    ukryj_menu : _ukryj_menu
   }
 
   return udostepnione;
@@ -319,7 +317,8 @@ var dostosuj = (function()
 
     $( '#TRESC' ).css( 'min-height', (wysokosc.strona - wysokosc.naglowek - wysokosc.stopka - wysokosc.margin) );
 
-    $( '#TRESC > .BLOK1' ).css( 'min-height', (wysokosc.strona - wysokosc.naglowek - wysokosc.margin) );
+    $( '#TRESC > .BLOK1' ).css( 'min-height', (wysokosc.strona - wysokosc.naglowek - wysokosc.stopka - wysokosc.margin) );
+    $( '#TRESC.start > .BLOK1' ).css( 'min-height', (wysokosc.strona - wysokosc.naglowek - wysokosc.margin) );
 
   };
 
