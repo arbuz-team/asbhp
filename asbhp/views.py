@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from wyszukiwarka.views import *
 from produkt.views import *
+from poczta.views import *
 from forms import *
 
 ################## Zakładki: Wyświetlanie ##################
@@ -79,9 +80,11 @@ def Wyswietl_Kontakt(request):
                 'kontakt': 'wybrany', 'edytuj': ''}
 
     kontakt = Kontakt.objects.all()
+    formularz = Pobierz_Fromularz_Email(request)
     return render(request, 'asbhp/kontakt.html',
                             {'css_menu':            css_menu,
-                             'kontakt':             kontakt})
+                             'kontakt':             kontakt,
+                             'formularz':           formularz})
 
 
 def Wyswietl_Edytuj(request):

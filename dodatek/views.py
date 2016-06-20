@@ -4,6 +4,8 @@ from django.db.models import Q
 import operator
 from django.http import Http404
 from django.contrib.auth.hashers import make_password
+
+import komunikat
 from wyszukiwarka.forms import *
 from produkt.forms import *
 
@@ -59,11 +61,14 @@ def Sprawdz_Sesje(request):
     if '404' not in request.session:
         request.session['404'] = 'Upss. Chyba się coś popsuło.'
 
+        # email
+    if 'wybrany_temat' not in request.session:
+        request.session['wybrany_temat'] = ''
+
 
 def Usun_Sesje(request):
     for klucz in request.session.keys():
-        if klucz != 'zalogowany':
-            del request.session[klucz]
+        del request.session[klucz]
 
 
 ################## Funkcje dodatkowe ##################
@@ -106,7 +111,7 @@ def Sprawdz_Czy_Zalogowany(request):
     if not request.session['zalogowany']:
         request.session['404'] = 'Nic tu nie znajdziesz. ' \
                                  'Idź poszukać gdzieś indziej ;). ' \
-                                 '<br/> PS. Nie jesteś zalogowany.'
+                                 'PS. Nie jesteś zalogowany.'
 
         raise Http404(request.session['404'])
 

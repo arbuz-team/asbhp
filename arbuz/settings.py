@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'dodatek',
     'uzytkownik',
     'komunikat',
+    'poczta',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -125,3 +126,13 @@ STATICFILES_DIRS = (
 )
 
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+
+
+# Email settings
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_PASSWORD = 'szczypiorek7'
+EMAIL_HOST_USER = 'kontakt.arbuz.team@gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True

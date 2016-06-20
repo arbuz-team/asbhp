@@ -24,7 +24,7 @@
         </div>
 
         <div class="formularz">
-          <form method="post" action="/poczta/wybierz_temat/">
+          <form method="post" action="{{ request.session.poczta_url }}">
             {% csrf_token %}
             {{ formularz.as_p }}
             <button type="submit">Dalej</button>

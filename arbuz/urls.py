@@ -7,6 +7,7 @@ urlpatterns = [
     url(r'^produkt/', include('produkt.urls')),
     url(r'^komunikat/', include('komunikat.urls')),
     url(r'^dodatek/', include('dodatek.urls')),
+    url(r'^poczta/', include('poczta.urls')),
     url(r'', include('asbhp.urls')),
 ]
 
