@@ -20,15 +20,58 @@
         </div>
 
         <div class="{{ kontakt.1.css.klasa }}">
-          {{ kontakt.1.zawartosc | safe }}
+          {{ kontakt.1.zawartosc | linebreaksbr | safe }}
         </div>
 
         <div class="formularz">
+
           <form method="post" action="{{ request.session.poczta_url }}">
             {% csrf_token %}
-            {{ formularz.as_p }}
-            <button type="submit">Dalej</button>
+
+            
+            {% if formularz.temat %}
+              <div class="otoczka_pola">
+                {{ formularz.temat }}
+              </div>
+            {% endif %}
+
+
+            {% if formularz.nadawca %}
+              <div class="otoczka_pola">
+                {{ formularz.nadawca }}
+              </div>
+            {% endif %}
+
+            {% if formularz.email %}
+              <div class="otoczka_pola">
+                {{ formularz.email }}
+              </div>
+            {% endif %}
+
+            {% if formularz.wiadomosc %}
+              <div class="otoczka_pola">
+                {{ formularz.wiadomosc }}
+              </div>
+            {% endif %}
+
+            {% if formularz.produkt %}
+              <div class="otoczka_pola">
+                {{ formularz.produkt }}
+              </div>
+            {% endif %}
+
+            {% if formularz.url %}
+              <div class="otoczka_pola">
+                {{ formularz.url }}
+              </div>
+            {% endif %}
+
+            <div class="otoczka_pola button">
+              <button type="submit">Dalej</button>
+            </div>
+
           </form>
+
         </div>
 
       </div>

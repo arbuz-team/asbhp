@@ -101,3 +101,250 @@ ul
 {
   list-style: none;
 }
+
+
+/********************* TRESC PODSTAWOWA **********************/
+
+
+body > div
+{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 0;
+
+  padding-right:15px;
+
+  overflow: hidden;
+}
+
+
+
+body > div > .fragment
+{
+  position: relative;
+  z-index: 5;
+
+  overflow: hidden;
+}
+
+
+
+#PRODUKT
+{
+  display: none;
+
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+
+  z-index: 100;
+}
+
+
+
+#PRODUKT > .tlo
+{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+
+  background-color: rgba( 133, 133, 133, 0.7 );
+
+  z-index: 100;
+}
+
+
+
+#PRODUKT > .tresc
+{
+  position: relative;
+  margin: 150px auto;
+
+  padding: 15px 20px;
+
+  width: 800px;
+  height: 600px;
+
+  background-color: rgba( 233, 233, 233, 1 );
+
+  z-index: 101;
+}
+
+
+
+#MENU
+{
+  position: fixed;
+  top: 0px;
+  right: -300px;
+  
+  min-width: 300px;
+  width: 300px;
+  min-height: 100%;
+  max-height: 100%;
+  height: 100%;
+
+  background-color: #333;
+
+  z-index: 60;
+}
+
+
+
+#MENU > div
+{
+  border-bottom: solid #000 1px;
+}
+
+
+
+#MENU > .nakladka
+{
+  display: none;
+
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+
+  border: none;
+
+  z-index: 61;
+}
+
+
+
+#MENU > .tytul
+{
+  display: block;
+  
+  width: 100%;
+  height: 70px;
+
+  line-height: 100px;
+  color: #DDD;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+
+  z-index: 60;
+}
+
+
+
+#MENU > .menu
+{
+  display: block;
+
+  position: relative;
+  
+  width: 100%;
+  min-height: 50px;
+
+  padding-left: 15px;
+
+  line-height: 50px;
+  color: #ccc;
+  border-bottom: solid #000 1px;
+
+  z-index: 62;
+}
+
+
+
+/********* Treść standardowa *********/
+
+@media (min-width: 768px)
+{
+
+  #TRESC.standardowa > div > .tresc,
+  #TRESC.start > div > .tresc,
+  #TRESC.oferta > div > .tresc,
+  #STOPKA > div
+  {
+    width: 650px;
+  }
+
+}
+
+
+
+@media screen and (min-width: 870px)
+{
+
+  #TRESC.standardowa > div > .tresc,
+  #TRESC.start > div > .tresc,
+  #TRESC.oferta > div > .tresc,
+  #STOPKA > div
+  {
+    margin: 50px auto;
+  }
+
+}
+
+
+
+@media (min-width: 992px)
+{
+
+  #TRESC.standardowa > div > .tresc,
+  #TRESC.start > div > .tresc,
+  #TRESC.oferta > div > .tresc,
+  #STOPKA > div
+  {
+    width: 800px;
+  }
+
+}
+
+@media (min-width: 1200px)
+{
+
+  #TRESC.standardowa > div > .tresc,
+  #TRESC.start > div > .tresc,
+  #TRESC.oferta > div > .tresc,
+  #STOPKA > div
+  {
+    width: 970px;
+  }
+  
+}
+
+
+
+#TRESC.standardowa > div > .tresc,
+#TRESC.start > div > .tresc,
+#TRESC.oferta > div > .tresc,
+#STOPKA > div
+{
+  margin: 10px auto 30px auto;
+
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+
+
+#TRESC.oferta > div > .tresc
+{
+  margin: 0px auto;
+  margin-top: 10px;
+}
+
+
+
+#TRESC.standardowa > div > .edytuj
+{
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}

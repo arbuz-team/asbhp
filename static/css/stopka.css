@@ -1,0 +1,106 @@
+
+
+
+#STOPKA
+{
+  position: relative;
+
+  height:250px;
+
+  color: #aaa;
+  font-size: 16px;
+
+  -webkit-box-shadow: 0px -3px 15px 0px rgba( 51, 51, 51, 0.4 );
+  -moz-box-shadow: 0px -3px 15px 0px rgba( 51, 51, 51, 0.4 );
+  box-shadow: 0px -3px 15px 0px rgba( 51, 51, 51, 0.4 );
+}
+
+
+
+#STOPKA > div
+{
+  position: relative;
+
+  margin: 10px auto;
+
+  z-index: 10;
+}
+
+
+
+#STOPKA > div > div
+{
+  display: inline-block;
+  
+  padding-top: 25px;
+
+  vertical-align: top;
+}
+
+
+
+#STOPKA .menu
+{
+  width: 200px;
+  height: inherit;
+
+  z-index: 11;
+}
+
+
+
+#STOPKA .menu > div
+{
+  width: 200px;
+  height: 40px;
+  
+  line-height: 40px;
+  font-size: 15px;
+
+  z-index: 12;
+}
+
+
+
+#STOPKA .menu > div:hover
+{
+  text-decoration: underline;
+}
+
+
+
+#STOPKA .kontakt
+{
+  width: 300px;
+}
+
+
+
+#STOPKA .kontakt > .tytul
+{
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+
+#STOPKA .kontakt > .tekst
+{
+  font-size: 15px;
+
+  margin-top: 5px;
+  line-height: 24px;
+}
+
+
+
+#STOPKA .spolecznosci
+{
+  margin-top: 5px;
+  padding: 0px;
+
+  border-radius: 5px;
+
+  overflow: hidden;
+}
+

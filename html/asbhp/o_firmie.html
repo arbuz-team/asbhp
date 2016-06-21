@@ -1,3 +1,4 @@
+{% load staticfiles %}
 
 {% include "szablon_wstep.html" %}
 
@@ -17,10 +18,40 @@
       {% for o in o_firmie %}
 
         <div class="{{ o.css.klasa }}">
-          {{ o.zawartosc|linebreaksbr }}
+          {{ o.zawartosc | linebreaksbr }}
         </div>
 
       {% endfor %}
+
+
+      <div class="tytul">Producenci</div>
+
+      <div class="loga_firm">
+        
+        <div>
+          <img src="{% static 'img/loga_firm/1.jpg' %}" />
+        </div>
+        
+        <div>
+          <img src="{% static 'img/loga_firm/2.jpg' %}" />
+        </div>
+        
+        <div>
+          <img src="{% static 'img/loga_firm/3.jpg' %}" /> 
+        </div>
+        
+        <br />
+
+        <div>
+          <img src="{% static 'img/loga_firm/4.jpg' %}" />
+        </div>
+        
+        <div>
+          <img src="{% static 'img/loga_firm/5.gif' %}" />
+        </div>
+
+      </div>
+
 
     </div>
 

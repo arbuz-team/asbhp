@@ -139,6 +139,51 @@
 
 
 
+#TRESC.o_firmie > .BLOK1 > .tresc > .tekst,
+#TRESC.o_firmie > .BLOK1 > .tresc > .loga_firm
+{
+  margin-bottom: 50px;
+}
+
+
+
+#TRESC.o_firmie > .BLOK1 > .tresc > .loga_firm
+{
+  height: 70px;
+
+  text-align: center;
+
+  z-index: 38;
+}
+
+
+
+#TRESC.o_firmie > .BLOK1 > .tresc > .loga_firm > div
+{
+  display: inline-block;
+
+  height: 50px;
+  padding: 5px 10px;
+
+  background-color: #fff;
+  border-radius: 5px;
+
+  z-index: 38;
+}
+
+
+
+#TRESC.o_firmie > .BLOK1 > .tresc > .loga_firm > div > img
+{
+  display: inline-block;
+
+  height: inherit;
+
+  z-index: 38;
+}
+
+
+
 /***************************** KONTAKT *******************************/
 
 #TRESC.kontakt > .BLOK1 > .tresc
@@ -152,6 +197,13 @@
 {
   display: inline-block;
   vertical-align: top;
+}
+
+
+
+#TRESC.kontakt > .BLOK1 > .tresc > .lewa.kolumna > div
+{
+  margin-bottom: 30px;
 }
 
 
@@ -172,12 +224,18 @@
 
 
 
+#TRESC.kontakt > .BLOK1 > .tresc .formularz .otoczka_pola
+{
+  min-width: 90%;
+  max-width: 90%;
+
+  margin: 0px;
+  margin-bottom: 10px;
+}
 
 
 
-
-
-
+/************** Prawa kolumna i mobilne *************/
 
 #TRESC.kontakt > .BLOK1 > .tresc > .kolumna
 {
@@ -269,26 +327,6 @@
 
 
 }
-
-
-
-@media screen and (min-width: 1400px)
-{
-
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
 
 
 

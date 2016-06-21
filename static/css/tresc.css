@@ -1,159 +1,7 @@
 /*    CSS   */
 
 
-
-body > div
-{
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-  z-index: 0;
-
-  padding-right:15px;
-
-  overflow: hidden;
-}
-
-
-
-body > div > .fragment
-{
-  position: relative;
-  z-index: 5;
-
-  overflow: hidden;
-}
-
-
-
-#PRODUKT
-{
-  display: none;
-
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-
-  z-index: 100;
-}
-
-
-
-#PRODUKT > .tlo
-{
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-
-  background-color: rgba( 133, 133, 133, 0.7 );
-
-  z-index: 100;
-}
-
-
-
-#PRODUKT > .tresc
-{
-  position: relative;
-  margin: 150px auto;
-
-  padding: 15px 20px;
-
-  width: 800px;
-  height: 600px;
-
-  background-color: rgba( 233, 233, 233, 1 );
-
-  z-index: 101;
-}
-
-
-
-#MENU
-{
-  position: fixed;
-  top: 0px;
-  right: -300px;
-  
-  min-width: 300px;
-  width: 300px;
-  min-height: 100%;
-  max-height: 100%;
-  height: 100%;
-
-  background-color: #333;
-
-  z-index: 60;
-}
-
-
-
-#MENU > div
-{
-  border-bottom: solid #000 1px;
-}
-
-
-
-#MENU > .nakladka
-{
-  display: none;
-
-  position: fixed;
-  left: 0px;
-  right: 0px;
-  top: 0px;
-  bottom: 0px;
-
-  border: none;
-
-  z-index: 61;
-}
-
-
-
-#MENU > .tytul
-{
-  display: block;
-  
-  width: 100%;
-  height: 70px;
-
-  line-height: 100px;
-  color: #DDD;
-  font-size: 28px;
-  font-weight: bold;
-  text-align: center;
-
-  z-index: 60;
-}
-
-
-
-#MENU > .menu
-{
-  display: block;
-
-  position: relative;
-  
-  width: 100%;
-  min-height: 50px;
-
-  padding-left: 15px;
-
-  line-height: 50px;
-  color: #ccc;
-  border-bottom: solid #000 1px;
-
-  z-index: 62;
-}
-
+/**************************** #TRESC ****************************/
 
 #TRESC
 {
@@ -161,20 +9,6 @@ body > div > .fragment
 }
 
 
-
-#STOPKA
-{
-  height:200px;
-
-  -webkit-box-shadow: 0px -3px 15px 0px rgba( 51, 51, 51, 0.4 );
-  -moz-box-shadow: 0px -3px 15px 0px rgba( 51, 51, 51, 0.4 );
-  box-shadow: 0px -3px 15px 0px rgba( 51, 51, 51, 0.4 );
-}
-
-
-
-
-/**************************** #TRESC ****************************/
 
 #TRESC > div
 {
@@ -186,8 +20,9 @@ body > div > .fragment
   min-height: 500px;
 }
 
-#TRESC > div > div.tytul,
-#TRESC > div > div.tresc
+
+
+#TRESC > div > .tresc
 {
   position: relative;
 
@@ -196,8 +31,8 @@ body > div > .fragment
 
 
 
-#TRESC > div > div.tlo,
-#TRESC > div > div.nakladka
+#TRESC > div > .tlo,
+#TRESC > div > .nakladka
 {
   position: absolute;
   top: 0px;
@@ -208,14 +43,14 @@ body > div > .fragment
 
 
 
-#TRESC > div > div.tlo,
+#TRESC > div > .tlo,
 {
   z-index: 10;
 }
 
 
 
-#TRESC > div > div.nakladka
+#TRESC > div > .nakladka
 {
   z-index: 11;
 }
@@ -240,7 +75,7 @@ body > div > .fragment
 @media screen and (min-width:600px)
 {
 
-  #TRESC.start > div.BLOK1 > div.napis
+  #TRESC.start > .BLOK1 > .napis
   {
     position: absolute;
     width: 556px;
@@ -260,7 +95,7 @@ body > div > .fragment
 
 
 
-#TRESC.start > div > div.strzalka
+#TRESC.start > .BLOK1 > div.strzalka
 {
   position: absolute;
   left: 0px;
@@ -276,7 +111,7 @@ body > div > .fragment
 
 
 
-#TRESC.start > div > div.strzalka > div.obrazek
+#TRESC.start > .BLOK1 > .strzalka > .obrazek
 {
   position: relative;
 
@@ -295,7 +130,7 @@ body > div > .fragment
 
 
 
-#TRESC.start > div > div.strzalka > div.obrazek:hover
+#TRESC.start > .BLOK1 > .strzalka > .obrazek:hover
 {
   cursor: pointer;
 
@@ -304,7 +139,7 @@ body > div > .fragment
 
 
 
-#TRESC.start > div > div.strzalka > div.podpis
+#TRESC.start > .BLOK1 > .strzalka > .podpis
 {
   position: relative;
 
@@ -324,7 +159,7 @@ body > div > .fragment
 
 
 
-#TRESC.start > div > div.strzalka > div.podpis
+#TRESC.start > .BLOK1 > .strzalka > .podpis
 {
   cursor: pointer;
 }
@@ -340,7 +175,7 @@ body > div > .fragment
 
 
 
-#TRESC.oferta > div.BLOK1
+#TRESC.oferta > .BLOK1
 {
   min-height: 100px !important;
 }
@@ -781,275 +616,6 @@ body > div > .fragment
   width: 200px;
   height: 50px;
   overflow: hidden;
-}
-
-
-
-
-
-
-/********* Treść standardowa *********/
-
-@media (min-width: 768px)
-{
-  #TRESC.standardowa > div > .tresc,
-  #TRESC.oferta > div > .tresc,
-  #TRESC.start > div > .tresc
-  {
-    width: 650px;
-  }
-}
-
-@media (min-width: 992px)
-{
-  #TRESC.standardowa > div > .tresc,
-  #TRESC.oferta > div > .tresc,
-  #TRESC.start > div > .tresc
-  {
-    width: 800px;
-  }
-}
-
-@media (min-width: 1200px)
-{
-  #TRESC.standardowa > div > .tresc,
-  #TRESC.oferta > div > .tresc,
-  #TRESC.start > div > .tresc
-  {
-    width: 970px;
-  }
-  
-}
-
-
-
-#TRESC.standardowa > div > .tresc,
-#TRESC.oferta > div > .tresc,
-#TRESC.start > div > .tresc
-{
-  margin: 10px auto 30px auto;
-
-  padding: 10px;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-
-
-@media screen and (min-width: 870px)
-{
-
-  #TRESC.standardowa > div > .tresc,
-  #TRESC.oferta > div > .tresc,
-  #TRESC.start > div > .tresc
-  {
-    margin: 50px auto;
-  }
-
-}
-
-
-
-#TRESC.oferta > div > .tresc
-{
-  margin: 0px auto;
-  margin-top: 10px;
-}
-
-
-
-#TRESC.standardowa > div > .akapit,
-#TRESC.start > div > .tresc > .akapit
-{
-
-}
-
-
-
-#TRESC.standardowa > div > .edytuj
-{
-  position: absolute;
-  top: 5px;
-  right: 10px;
-}
-
-
-
-
-/**************************** FORMULARZE ****************************/
-
-
-/************ Podstawa ************/
-
-.otoczka_pola
-{
-  min-width: 400px;
-  width: 600px;
-  min-height: 36px;
-  margin: 5px auto;
-
-  color: #333;
-  font-family: inherit;
-  font-size: 18px;
-
-  box-sizing: border-box;
-  background-color: #fff;
-  border: 1px solid #bbb;
-  outline: none;
-  border-radius: 2px;
-
-  -webkit-box-shadow: 1px 1px 2px 0px rgba(238,238,238,1);
-  -moz-box-shadow: 1px 1px 2px 0px rgba(238,238,238,1);
-  box-shadow: 1px 1px 2px 0px rgba(238,238,238,1);
-}
-
-
-
-input[type=text],
-input[type=password],
-input[type=number],
-select,
-button,
-textarea
-{
-  min-width: 100%;
-  width: 100%;
-  max-width: 100%;
-  min-height: 34px;
-  padding: 2px 5px;
-
-  color: #333;
-  font-family: inherit;
-  font-size: 18px;
-  border: none;
-  background-color: transparent;
-  outline: none;
-
-  -webkit-box-shadow: inset 1px 2px 3px 0px rgb(248,248,248);
-  -moz-box-shadow: inset 1px 2px 3px 0px rgb(248,248,248);
-  box-shadow: inset 1px 2px 3px 0px rgb(248,248,248);
-}
-
-
-
-input[type=text]:focus,
-input[type=password]:focus,
-input[type=number]:focus,
-select:focus,
-button:focus,
-textarea:focus
-{
-  color: #333;
-
-  background-color: transparent;
-  border: none;
-  outline: none;
-
-  -webkit-box-shadow: inset 1px 2px 3px 0px rgb(238,238,238);
-  -moz-box-shadow: inset 1px 2px 3px 0px rgb(238,238,238);
-  box-shadow: inset 1px 2px 3px 0px rgb(238,238,238);
-}
-
-
-
-input[type=text]:disabled,
-input[type=password]:disabled,
-input[type=number]:disabled,
-select:disabled,
-button:disabled,
-textarea:disabled
-{
-  color: #666;
-
-  background-color: #ddd;
-  border: none;
-  outline: none;
-
-  -webkit-box-shadow: inset 1px 2px 3px 0px rgb(238,238,238);
-  -moz-box-shadow: inset 1px 2px 3px 0px rgb(238,238,238);
-  box-shadow: inset 1px 2px 3px 0px rgb(238,238,238);
-}
-
-
-
-.otoczka_pola.button
-{
-  min-width: 300px !important;
-  width: 300px !important;
-}
-
-
-
-button
-{
-  min-width: 300px;
-  width: auto;
-  cursor: pointer;
-  
-  text-align: center;
-  background-color: #999;
-
-  -webkit-box-shadow: inset 1px 2px 3px 0px #959595;
-  -moz-box-shadow: inset 1px 2px 3px 0px #959595;
-  box-shadow: inset 1px 2px 3px 0px #959595;
-}
-
-
-
-button:focus
-{
-  color: #fff;
-  background-color: #666;
-
-  cursor: pointer;
-
-  -webkit-box-shadow: inset 1px 2px 3px 0px #616161;
-  -moz-box-shadow: inset 1px 2px 3px 0px #616161;
-  box-shadow: inset 1px 2px 3px 0px #616161;
-}
-
-
-
-input[type=radio]
-{
-  width: 20px;
-  height: 20px;
-  padding: 2px 5px;
-}
-
-
-
-select.Data
-{
-  display: inline-block;
-  min-width: 26.6%;
-  width: 26.6%;
-  margin: 0px;
-}
-
-
-
-select.Data:first-child
-{
-  margin-left: 5px;
-}
-
-
-
-/************ Dodatki ************/
-
-#id_opis
-{
-  min-height: 100px;
-  word-wrap: normal;
-}
-
-
-
-#id_opis > option
-{
-  min-height: 100px;
-  word-wrap: normal;
 }
 
 
