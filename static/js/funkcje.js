@@ -134,9 +134,8 @@ var zmiana = (function()
 
     var $naglowek = $( '#NAGLOWEK > div' );
 
-    var wysokosc = parseInt( $naglowek.parent().css( 'max-height' ) );
+    var wysokosc = parseInt( $naglowek.css( 'max-height' ) );
     var wysokosc_rzeczywista = $naglowek.outerHeight();
-
 
     if( wysokosc == wysokosc_rzeczywista && wysokosc != 70 )
     {
@@ -151,7 +150,7 @@ var zmiana = (function()
       var after_wysokosc = wysokosc - 30;
       var after_szerokosc = after_wysokosc * ($after.outerWidth() / wysokosc);
 
-      $naglowek.parent().height( wysokosc - 30 );
+      $naglowek.height( wysokosc - 30 );
       $pole_menu.css({ 'position' : 'relative', 'top' : '-30px' });
       $wyszukiwarka.css({ 'position' : 'relative', 'top' : '-30px' });
 
@@ -173,7 +172,7 @@ var zmiana = (function()
 
     var $naglowek = $( '#NAGLOWEK > div' );
 
-    var wysokosc = parseInt( $naglowek.parent().css( 'max-height' ) );
+    var wysokosc = parseInt( $naglowek.css( 'max-height' ) );
     var wysokosc_rzeczywista = $naglowek.outerHeight();
 
 
@@ -190,7 +189,7 @@ var zmiana = (function()
       var after_wysokosc = wysokosc;
       var after_szerokosc = after_wysokosc * ($after.outerWidth() / $after.outerHeight());
 
-      $naglowek.parent().height( wysokosc );
+      $naglowek.height( wysokosc );
       $pole_menu.css({ 'position' : 'relative', 'top' : '0px' });
       $wyszukiwarka.css({ 'position' : 'relative', 'top' : '0px' });
 
@@ -519,7 +518,9 @@ var ruch = (function()
     var aktualna_pozycja = $( 'body > div' ).scrollTop();
     var pozycja_elementu = $( element ).position();
 
-    $( 'body > div' ).animate({ scrollTop : pozycja_elementu.top  }, 500 );
+    $( 'body > div' ).perfectScrollbar( 'update' )
+      .stop().animate( { scrollTop : pozycja_elementu.top  }, 500 );
+      console.log( pozycja_elementu.top );
 
   }
 

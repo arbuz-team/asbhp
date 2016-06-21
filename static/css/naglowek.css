@@ -23,7 +23,8 @@
   right: 0px;
   top: 0px;
 
-  height: inherit;
+  height: 70px;
+  max-height: 100px;
   z-index: 35;
 
   background-color: rgba(30, 29, 28, 1);
@@ -204,10 +205,9 @@
 @media screen and (min-width: 870px)
 {
 
-  #NAGLOWEK
+  #NAGLOWEK > div
   {
     height: 100px;
-    max-height: 100px;
   }
 
 

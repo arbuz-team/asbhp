@@ -144,9 +144,13 @@ $(document).ready(function ()
 
   /********* SCROLLBAR - Przesunięcie guzikiem *********/
 
-  $( '#TRESC .strzalka > .obrazek, #TRESC .strzalka > .podpis' ).mousedown(function () 
+  $( '#TRESC .strzalka > .obrazek, #TRESC .strzalka > .podpis' ).mouseup(function(event)
   {
   
+    console.log( 'Ok' );
+
+    event.stopPropagation();
+
     ruch.pozycja_scrollbara( $(this).parent().data( 'href' ) );
   
   });
