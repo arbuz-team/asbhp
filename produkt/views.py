@@ -4,9 +4,8 @@ from dodatek.views import *
 ################## Wyświetlanie ##################
 
 def Wyswietl_Produkt(request, pk):
-    produkt = Produkt.objects.filter(id=pk).first()
-    return render(request, 'produkt/produkt.html',
-                            {'produkt': produkt})
+    request.session['wybrany_produkt'] = Produkt.objects.filter(id=pk).first()
+    return redirect('Wyswietl_Oferta')
 
 
 def Wyswietl_Polecane(request):
