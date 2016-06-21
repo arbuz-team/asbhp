@@ -52,22 +52,6 @@ def Wyszukaj(request):
     return wynik
 
 
-def Usun_Sesje_Wyszukiwarki(request):
-
-    if 'wyszukane_produkty' in request.session:
-        del request.session['wyszukane_produkty']
-
-    if 'wyszukiwarka' in request.session:
-        del request.session['wyszukiwarka']
-
-    return redirect('Wyswietl_Oferta')
-
-
-def Usun_Sesje_Filtrow(request):
-    Usun_Sesje(request)
-    return redirect('Wyswietl_Oferta')
-
-
 ################## Filtry ##################
 
 def Filtr_Wyszukiwarka(request):

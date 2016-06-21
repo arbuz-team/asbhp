@@ -8,6 +8,7 @@ from django.contrib.auth.hashers import make_password
 import komunikat
 from wyszukiwarka.forms import *
 from produkt.forms import *
+from asbhp.models import *
 
 ################## Zarządzanie sesją ##################
 
@@ -64,6 +65,39 @@ def Sprawdz_Sesje(request):
         # email
     if 'wybrany_temat' not in request.session:
         request.session['wybrany_temat'] = ''
+
+        # stopka_kontakt
+    if 'stopka_kontakt' not in request.session:
+        request.session['stopka_kontakt'] = \
+            {'tytul': Kontakt.objects.get(przeznaczenie='tytul'),
+             'tekst': Kontakt.objects.get(przeznaczenie='tekst')}
+
+
+def Usun_Sesje_Wyszukiwarki(request):
+    del request.session['wyszukiwarka']
+
+    if 'wyszukane_produkty' in request.session:
+        del request.session['wyszukane_produkty']
+
+    return redirect('Wyswietl_Oferta')
+
+
+def Usun_Sesje_Filtrow(request):
+    Usun_Sesje_Wyszukiwarki(request)
+
+    del request.session['producent']
+    del request.session['kolor']
+    del request.session['zagrozenia']
+    del request.session['zawody']
+    del request.session['liczba_produktow']
+    del request.session['typ']
+    del request.session['dziedzina']
+    del request.session['rodzaj']
+    del request.session['wybrany_typ']
+    del request.session['wybrany_dziedzina']
+    del request.session['wybrany_rodzaj']
+
+    return redirect('Wyswietl_Oferta')
 
 
 def Usun_Sesje(request):

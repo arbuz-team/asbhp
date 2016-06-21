@@ -1,5 +1,7 @@
 from django.conf.urls import url
+from dodatek.views import *
 from . import views
+
 
 urlpatterns = [
 
