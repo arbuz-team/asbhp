@@ -75,6 +75,7 @@ def Pytanie_O_Produkt(request):
                  '\tProdukt:\t\t'   + produkt
 
             Wyslij_Email(request, wiadomosc, email)
+            return redirect('Wyswietl_Email_Wyslany')
 
     return redirect('Wyswietl_Kontakt')
 
@@ -96,6 +97,7 @@ def Uwagi_WWW(request):
                          '\tUrl:\t\t' + url
 
             Wyslij_Email(request, wiadomosc, email)
+            return redirect('Wyswietl_Email_Wyslany')
 
     return redirect('Wyswietl_Kontakt')
 
@@ -115,5 +117,6 @@ def Inny_Temat(request):
                          '\tEmail:\t\t' + email + '\n'
 
             Wyslij_Email(request, wiadomosc, email)
+            return redirect('Wyswietl_Email_Wyslany')
 
     return redirect('Wyswietl_Kontakt')
