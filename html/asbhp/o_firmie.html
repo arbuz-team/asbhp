@@ -15,13 +15,13 @@
 
     <div class="tresc">
 
-      {% for o in o_firmie %}
+      <div class="tytul">
+        {{ o_firmie.0.zawartosc | linebreaksbr }}
+      </div>
 
-        <div class="{{ o.css.klasa }}">
-          {{ o.zawartosc | linebreaksbr }}
-        </div>
-
-      {% endfor %}
+      <div class="tekst">
+        {{ o_firmie.1.zawartosc | linebreaksbr }}
+      </div>
 
 
       <div class="tytul">Producenci</div>

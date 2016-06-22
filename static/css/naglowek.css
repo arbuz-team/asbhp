@@ -4,8 +4,9 @@
 
 #NAGLOWEK 
 {
-  height: 100px;
-  max-height: 100px;
+  height: 70px;
+  min-height: 70px;
+  max-height: 70px;
 
   overflow: visible !important;
 
@@ -24,16 +25,16 @@
   top: 0px;
 
   height: 70px;
-  max-height: 100px;
-  z-index: 35;
+  min-height: 70px;
 
   background-color: rgba(30, 29, 28, 1);
+  overflow: hidden;
 
   -webkit-box-shadow: 0px 3px 15px 0px rgba( 51, 51, 51, 0.4 );
   -moz-box-shadow: 0px 3px 15px 0px rgba( 51, 51, 51, 0.4 );
   box-shadow: 0px 3px 15px 0px rgba( 51, 51, 51, 0.4 );
 
-  overflow: hidden;
+  z-index: 35;
 }
 
 
@@ -46,6 +47,7 @@
 
   width: 84px;
   height: 70px;
+  min-height: 70px;
 
   background-image: url('../img/AS_C,S.png');
   background-size: 100% auto;
@@ -170,6 +172,8 @@
 
   width: 150px;
   height: 90px;
+  min-height: 90px;
+  max-height: 90px;
 
   font-size: 20px;
   text-align: center;
@@ -205,9 +209,18 @@
 @media screen and (min-width: 870px)
 {
 
+  #NAGLOWEK 
+  {
+    height: 100px;
+    max-height: 100px;
+  }
+
+
+
   #NAGLOWEK > div
   {
     height: 100px;
+    max-height: 100px;
   }
 
 
@@ -218,6 +231,7 @@
 
     width: 120px;
     height: 100px;
+    max-height: 100px;
   }
 
 
@@ -232,6 +246,7 @@
 
     width: 180px;
     height: 100px;
+    max-height: 100px;
 
     background-image: url('../img/ODZIERZ ROBOCZA_S.png');
     background-position: center;

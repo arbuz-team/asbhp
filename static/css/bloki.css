@@ -149,7 +149,7 @@
 
 #TRESC.o_firmie > .BLOK1 > .tresc > .loga_firm
 {
-  height: 70px;
+  min-height: 70px;
 
   text-align: center;
 

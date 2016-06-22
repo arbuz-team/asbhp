@@ -163,7 +163,7 @@ $(document).ready(function ()
   
     var top = parseInt( $(this).scrollTop() );
 
-    if( top != 0 )
+    if( top > 30 )
       zmiana.zmniejsz_naglowek();
 
     else
@@ -192,6 +192,11 @@ $(document).ready(function () {
       dostosuj.wysokosc_strony();
       dostosuj.strone_do_scrollbara( szerokosc_scrollbara );
     
+      var szerokosc_strony = parseInt( $(window).width() ); 
+
+      if( szerokosc_strony < 870 )
+        zmiana.zmniejsz_naglowek();
+
     });
 
     zmiana.ukryj_ladowanie();
