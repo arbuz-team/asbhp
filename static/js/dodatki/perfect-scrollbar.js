@@ -411,8 +411,8 @@
           shouldPrevent = false;
           if (!settings.useBothWheelAxes) {
             // deltaX will only be used for horizontal scrolling and deltaY will
-            // only be used for vertical scrolling - this is the default
-            $this.scrollTop($this.scrollTop() - (deltaY * settings.wheelSpeed));
+//Poprawka   // only be used for vertical scrolling - this is the default
+/********/  $(this).stop().animate({ 'scrollTop' : $this.scrollTop() - (deltaY * settings.wheelSpeed) }, 100);
             $this.scrollLeft($this.scrollLeft() + (deltaX * settings.wheelSpeed));
           } else if (scrollbarYActive && !scrollbarXActive) {
             // only vertical scrollbar is active and useBothWheelAxes option is

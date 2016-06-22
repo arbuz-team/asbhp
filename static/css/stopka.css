@@ -23,6 +23,8 @@
 
   margin: 10px auto;
 
+  text-align: center;
+
   z-index: 10;
 }
 
@@ -96,11 +98,60 @@
 
 #STOPKA .spolecznosci
 {
-  margin-top: 5px;
-  padding: 0px;
+  width: 200px;
+  height: 100px;
+
+  margin-left: 20px;
+}
+
+
+
+#STOPKA .spolecznosci > div
+{
+  display: inline-block;
+  
+  width: 32px;
+  height: 32px;
+
+  margin-left: 20px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 
   border-radius: 5px;
+}
 
-  overflow: hidden;
+
+
+#STOPKA .spolecznosci > .fb
+{
+  margin-top: 30px;
+
+  background-image: url( '../img/fb.png' );
+}
+
+
+
+#STOPKA .strzalka > .obrazek
+{
+  position: relative;
+
+  width: 40px;
+  height: 40px;
+
+  background-image: url('../img/strzalki_g.png');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+
+#STOPKA .strzalka > .obrazek:hover
+{
+  cursor: pointer;
+
+  background-image: url('../img/strzalki_g.png');
 }
 

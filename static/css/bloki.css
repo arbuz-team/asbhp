@@ -132,9 +132,10 @@
 
 #TRESC.o_firmie > .BLOK1 > .tresc > .tytul
 {
-  font-size: 24px;
+  font-size: 30px;
   font-weight: bold;
   margin-bottom: 15px;
+  text-align: center;
 }
 
 
@@ -151,6 +152,7 @@
 {
   min-height: 70px;
 
+  margin-top: 30px;
   text-align: center;
 
   z-index: 38;
@@ -201,7 +203,14 @@
 
 
 
-#TRESC.kontakt > .BLOK1 > .tresc > .lewa.kolumna > div
+#TRESC.kontakt > .BLOK1 > .tresc > .lewa.kolumna > .tytul
+{
+  margin-bottom: 20px;
+}
+
+
+
+#TRESC.kontakt > .BLOK1 > .tresc > .lewa.kolumna > .tekst
 {
   margin-bottom: 30px;
 }
@@ -210,7 +219,7 @@
 
 #TRESC.kontakt > .BLOK1 > .tresc .tytul
 {
-  font-size: 32px;
+  font-size: 30px;
   font-weight: bold;
 }
 
@@ -226,8 +235,8 @@
 
 #TRESC.kontakt > .BLOK1 > .tresc .formularz .otoczka_pola
 {
-  min-width: 90%;
-  max-width: 90%;
+  min-width: 300px;
+  max-width: 300px;
 
   margin: 0px;
   margin-bottom: 10px;

@@ -78,15 +78,23 @@
   #TRESC.start > .BLOK1 > .napis
   {
     position: absolute;
-    width: 556px;
+    width: 500px;
     height: 292px;
 
     bottom: 130px;
     right: -10px;
 
+    color: #ff7000;
+    font-size: 76px;
+    font-family: 'OS_Bold', sans-serif;
+
+    text-shadow: 1px 1px 1px #000;
+
+    /*
     background-image: url( '/static/img/napis_ver1.png' );
     background-position: right;
     background-repeat: no-repeat;
+    */
 
     z-index:12;
   }

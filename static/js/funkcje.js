@@ -336,16 +336,22 @@ var dostosuj = (function()
 
     $( '#BLOK_GLOWNY' ).perfectScrollbar( 'update' );
 
-    var display_scrollbar = $( '.ps-container > .ps-scrollbar-y-rail' ).css( 'display' );  // Wysokość stopki
+    var display_scrollbar = $( '#BLOK_GLOWNY.ps-container > .ps-scrollbar-y-rail' ).css( 'display' );
     var czy_dostosowane = parseInt( $( '#BLOK_GLOWNY' ).css( 'padding-right' ) );
+
+    console.log( display_scrollbar +', '+ czy_dostosowane );
 
     if( display_scrollbar == 'none' && czy_dostosowane != 0 )
     {
+      console.log( 1 );
+
       $( '#BLOK_GLOWNY' ).css( 'padding-right', '0px' );
       $( '#NAGLOWEK > div' ).css( 'right', '0px' );
     }
     else if( display_scrollbar == 'block' && czy_dostosowane != szerokosc_scrollbara )
     {
+      console.log( 2 );
+
       $( '#BLOK_GLOWNY' ).css( 'padding-right', szerokosc_scrollbara );
       $( '#NAGLOWEK > div' ).css( 'right', szerokosc_scrollbara );
     }
