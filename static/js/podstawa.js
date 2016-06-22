@@ -194,6 +194,8 @@ $(document).ready(function () {
     
     });
 
+    zmiana.ukryj_ladowanie();
+
   }); 
 
 
@@ -210,14 +212,24 @@ $(document).ready(function () {
 
 
 
-jQuery(document).ready(function ($) { 
+jQuery(document).ready(function($)
+{ 
 
   $( 'body > div' ).perfectScrollbar({
     wheelSpeed: 2,
     minScrollbarLength: 20
   });
 
+  
+  
   $( 'select[ multiple=multiple ]' ).perfectScrollbar({
+    wheelSpeed: 2,
+    minScrollbarLength: 20
+  });
+
+
+
+  $( '#PRODUKT > .tresc' ).perfectScrollbar({
     wheelSpeed: 2,
     minScrollbarLength: 20
   });

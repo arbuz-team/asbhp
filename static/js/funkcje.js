@@ -284,6 +284,17 @@ var zmiana = (function()
 
 
 
+  function _ukryj_ladowanie()
+  {
+
+    var $body = $( 'body > div' );
+
+    $body.fadeIn(300);
+
+  }
+
+
+
   var udostepnione = 
   {
     zmniejsz_naglowek : _zmniejsz_naglowek,
@@ -292,7 +303,8 @@ var zmiana = (function()
     pokaz_produkt : _pokaz_produkt,
     ukryj_produkt : _ukryj_produkt,
     pokaz_menu : _pokaz_menu,
-    ukryj_menu : _ukryj_menu
+    ukryj_menu : _ukryj_menu,
+    ukryj_ladowanie : _ukryj_ladowanie
   }
 
   return udostepnione;

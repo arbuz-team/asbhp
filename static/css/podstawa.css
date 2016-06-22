@@ -108,6 +108,8 @@ ul
 
 body > div
 {
+  display: none;
+
   position: absolute;
   top: 0px;
   left: 0px;
@@ -155,7 +157,7 @@ body > div > .fragment
   right: 0px;
   bottom: 0px;
 
-  background-color: rgba( 133, 133, 133, 0.7 );
+  background-color: rgba( 66, 66, 66, 0.8 );
 
   z-index: 100;
 }
