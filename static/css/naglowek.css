@@ -4,14 +4,14 @@
 
 #NAGLOWEK 
 {
-  position: relative;
-
   height: 100px;
   max-height: 100px;
 
-  overflow: visible;
+  overflow: visible !important;
 
-  z-index: 37;
+  background-color: #fff;
+
+  z-index: 37 !important;
 }
 
 

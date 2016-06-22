@@ -158,7 +158,7 @@ $(document).ready(function ()
 
   /********* NAGLOWEK - Dostosowanie wysokosci *********/
 
-  $( 'body > div' ).scroll(function () 
+  $( '#BLOK_GLOWNY' ).scroll(function () 
   {
   
     var top = parseInt( $(this).scrollTop() );
@@ -182,7 +182,7 @@ $(document).ready(function () {
 
   $(window).load(function () {
 
-    var szerokosc_scrollbara = $( 'body > div' ).css( 'padding-right' ); 
+    var szerokosc_scrollbara = $( '#BLOK_GLOWNY' ).css( 'padding-right' ); 
 
     dostosuj.wysokosc_strony();
     dostosuj.strone_do_scrollbara( szerokosc_scrollbara );
@@ -215,7 +215,7 @@ $(document).ready(function () {
 jQuery(document).ready(function($)
 { 
 
-  $( 'body > div' ).perfectScrollbar({
+  $( '#BLOK_GLOWNY' ).perfectScrollbar({
     wheelSpeed: 2,
     minScrollbarLength: 20
   });

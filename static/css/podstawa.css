@@ -106,7 +106,7 @@ ul
 /********************* TRESC PODSTAWOWA **********************/
 
 
-body > div
+#BLOK_GLOWNY
 {
   display: none;
 
@@ -115,7 +115,7 @@ body > div
   left: 0px;
   right: 0px;
   bottom: 0px;
-  z-index: 0;
+  z-index: 3;
 
   padding-right:15px;
 
@@ -124,7 +124,7 @@ body > div
 
 
 
-body > div > .fragment
+#BLOK_GLOWNY > .fragment
 {
   position: relative;
   z-index: 5;
@@ -183,7 +183,7 @@ body > div > .fragment
 
 #MENU
 {
-  position: fixed;
+  position: fixed !important;
   top: 0px;
   right: -300px;
   

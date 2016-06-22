@@ -287,7 +287,7 @@ var zmiana = (function()
   function _ukryj_ladowanie()
   {
 
-    var $body = $( 'body > div' );
+    var $body = $( '#BLOK_GLOWNY' );
 
     $body.fadeIn(300);
 
@@ -338,19 +338,19 @@ var dostosuj = (function()
   var _strone_do_scrollbara = function( szerokosc_scrollbara )
   {
 
-    $( 'body > div' ).perfectScrollbar( 'update' );
+    $( '#BLOK_GLOWNY' ).perfectScrollbar( 'update' );
 
     var display_scrollbar = $( '.ps-container > .ps-scrollbar-y-rail' ).css( 'display' );  // Wysokość stopki
-    var czy_dostosowane = parseInt( $( 'body > div' ).css( 'padding-right' ) );
+    var czy_dostosowane = parseInt( $( '#BLOK_GLOWNY' ).css( 'padding-right' ) );
 
     if( display_scrollbar == 'none' && czy_dostosowane != 0 )
     {
-      $( 'body > div' ).css( 'padding-right', '0px' );
+      $( '#BLOK_GLOWNY' ).css( 'padding-right', '0px' );
       $( '#NAGLOWEK > div' ).css( 'right', '0px' );
     }
     else if( display_scrollbar == 'block' && czy_dostosowane != szerokosc_scrollbara )
     {
-      $( 'body > div' ).css( 'padding-right', szerokosc_scrollbara );
+      $( '#BLOK_GLOWNY' ).css( 'padding-right', szerokosc_scrollbara );
       $( '#NAGLOWEK > div' ).css( 'right', szerokosc_scrollbara );
     }
 
@@ -527,10 +527,10 @@ var ruch = (function()
   function _pozycja_scrollbara( element )
   {
 
-    var aktualna_pozycja = $( 'body > div' ).scrollTop();
+    var aktualna_pozycja = $( '#BLOK_GLOWNY' ).scrollTop();
     var pozycja_elementu = $( element ).position();
 
-    $( 'body > div' ).perfectScrollbar( 'update' )
+    $( '#BLOK_GLOWNY' ).perfectScrollbar( 'update' )
       .stop().animate( { scrollTop : pozycja_elementu.top  }, 500 );
       console.log( pozycja_elementu.top );
 
