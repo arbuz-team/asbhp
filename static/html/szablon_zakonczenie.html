@@ -3,11 +3,49 @@
 
     </div>
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="{% static 'js/dodatki/jquery.nanoscroller.js' %}"></script>
-    <script src="{% static 'js/dodatki/autosize-master/dist/autosize.js' %}"></script>
-    <script src="{% static 'js/funkcje.js' %}"></script>
-    <script src="{% static 'js/podstawa.js' %}"></script>
+    <script>
+
+      "use strict";
+      
+      function addScripts(uris, callback)
+      {
+        if(!uris instanceof Array || uris.length<1)
+          return false;
+
+        var add = function(i)
+        {
+          var uri = uris[i] 
+          ,s = document.createElement('script');
+
+          s.src = uri;
+
+          document.body.appendChild(s);
+
+          if(uris[++i])
+          s.onload = function()
+          {
+          add(i);
+          }
+          else if(typeof callback === 'function')
+          s.onload = callback;
+        };
+
+        add(0);
+      }
+
+      addScripts([
+        'http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'
+        ,'{% static 'js/dodatki/jquery.nanoscroller.js' %}'
+        ,'{% static 'js/dodatki/autosize-master/dist/autosize.js' %}'
+        ,'{% static 'js/funkcje.js' %}'
+        ,'{% static 'js/podstawa.js' %}'
+        ]
+      ,function()
+      {
+        console.log('Wczytano skrypt');
+      });
+
+    </script>
 
   </body>
 

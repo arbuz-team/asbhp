@@ -4,217 +4,201 @@
 
 
 
-$(document).ready(function () 
-{
+autosize( $( 'textarea' ) );
 
-  $(window).load(function()
-  {
+autosize.update( $( 'textarea' ));
 
-    autosize( $( 'textarea' ) );
 
-    autosize.update( $( 'textarea' ));
+$( '.nano' ).nanoScroller();
 
-    
-    $( '.nano' ).nanoScroller();
 
-    
-    /*$( '#BLOK_GLOWNY, #PRODUKT > .tresc, select[ multiple=multiple ]' ).perfectScrollbar({
-      wheelSpeed : 2,
-      minScrollbarLength : 20
-    });
-  
-    $( '#BLOK_GLOWNY' ).perfectScrollbar( 'update' );
+/*$( '#BLOK_GLOWNY, #PRODUKT > .tresc, select[ multiple=multiple ]' ).perfectScrollbar({
+  wheelSpeed : 2,
+  minScrollbarLength : 20
+});
+
+$( '#BLOK_GLOWNY' ).perfectScrollbar( 'update' );
 */
 
 
-    // rozmiary tapety
+// rozmiary tapety
 
-    var G_adres_tapety = $( '#TRESC > .BLOK1 > .tlo' ).css( 'background-image' );
+var G_adres_tapety = $( '#TRESC > .BLOK1 > .tlo' ).css( 'background-image' );
 
-    G_adres_tapety = G_adres_tapety.replace( 'url("', '' ).replace( '")', '' );
+G_adres_tapety = G_adres_tapety.replace( 'url("', '' ).replace( '")', '' );
 
-    pobierz.wymiary_grafiki(G_adres_tapety);
-
-
-
-
-    // Wybierz filtr
-
-    var G_numer_filtra = parseInt( $( '#FILTRY .lista > span' ).html() );
-
-    if( G_numer_filtra )
-    {
-      zmiana.przelacznik_zakladek( '#FILTRY', G_numer_filtra );
-
-      $(window).load(function()
-      {
-      
-        $( '#FILTRY .zakladka_'+ G_numer_filtra +' .focus' ).focus();
-
-      });
-    }
-
-
-
-    //window.onpopstate = ruch.sprawdz_cofnij(event);
-
-    window.onpopstate = function(event) {
-      ruch.sprawdz_cofnij( document.location, JSON.stringify(event.page) );
-    };
+pobierz.wymiary_grafiki(G_adres_tapety);
 
 
 
 
-    /********* Wysuwane MENU *********/
+// Wybierz filtr
 
-    $( '.guzik_menu' ).click(function ()
-    {
-    
-        zmiana.pokaz_menu();
+var G_numer_filtra = parseInt( $( '#FILTRY .lista > span' ).html() );
 
-    });
+if( G_numer_filtra )
+{
+  zmiana.przelacznik_zakladek( '#FILTRY', G_numer_filtra );
 
-
-
-
-    /********* DIV LINK *********/
-
-    $( '.link' ).mouseup(function (event)
-    {
-    
-      var adres = $(this).data( 'href' );
-      var domena = $(this).data( 'domena' );
-
-      var guzik = pobierz.ktory_guzik(event);
-
-      if( guzik == 1 )
-        ruch.przekieruj_do( domena, adres );
-
-      else if( guzik == 2 )
-        ruch.otworz_w_nowej_karcie( domena, adres );
-
-    });
+    $( '#FILTRY .zakladka_'+ G_numer_filtra +' .focus' ).focus();
+}
 
 
-    /********* SELECT LINK *********/
 
-    $( '.link_select > select' ).change(function () 
-    {
-    
-      ruch.przekieruj_do( $(this).children( ':selected' ).data( 'domena' ), $(this).val() );
-    
-    });
+//window.onpopstate = ruch.sprawdz_cofnij(event);
+
+window.onpopstate = function(event) {
+  ruch.sprawdz_cofnij( document.location, JSON.stringify(event.page) );
+};
 
 
-    /********* SELECT POST *********/
-
-    $( '.post_select > select' ).change(function () 
-    {
-    
-      ruch.post_i_odswiez( $(this).parent().data( 'href' ), 
-        { csrfmiddlewaretoken : $(this).parent().children( 'input[name=csrfmiddlewaretoken]' ).val(), 
-          zawartosc : $(this).val() } );
-    
-    });
 
 
-    /********* Pokazywanie produktu *********/
+/********* Wysuwane MENU *********/
 
-    $( '.lista_produktow > ul > li.produkt' ).click(function (event)
-    {
+$( '.guzik_menu' ).click(function ()
+{
 
-      var adres = $(this).data( 'href' );
-      var guzik = pobierz.ktory_guzik(event);
+    zmiana.pokaz_menu();
 
-      if( guzik == 1 )
-        ruch.pokaz_produkt( adres );
-
-      else if( guzik == 2 )
-        window.open( adres, '_blank' );
-
-    });
+});
 
 
-    /********* Ukrywanie produktu *********/
-
-    $( '#PRODUKT > .tlo' ).click(function (event)
-    {
-
-      event.stopPropagation();
-      var guzik = pobierz.ktory_guzik(event);
-
-      if( guzik == 1 || guzik == 2 )
-        ruch.ukryj_produkt();
-    
-    });
 
 
-    /********* FILTRY - ZAKŁADKI *********/
+/********* DIV LINK *********/
 
-    $( '.filtry > .lista > div' ).not( '.link' ).click(function () 
-    {
-    
-      zmiana.przelacznik_zakladek( '#' + $(this).parent().parent().attr( 'id' ), $(this).data( 'numer' ) );
+$( '.link' ).mouseup(function (event)
+{
 
-      wyslij.numer_filtra( $(this).data( 'numer' ) );
-    
-    });
+  var adres = $(this).data( 'href' );
+  var domena = $(this).data( 'domena' );
 
+  var guzik = pobierz.ktory_guzik(event);
 
-    /********* SCROLLBAR - Przesunięcie guzikiem *********/
+  if( guzik == 1 )
+    ruch.przekieruj_do( domena, adres );
 
-    $( '.strzalka > .obrazek, .strzalka > .podpis' ).mouseup(function(event)
-    {
-    
-      console.log( 'Ok' );
+  else if( guzik == 2 )
+    ruch.otworz_w_nowej_karcie( domena, adres );
 
-      event.stopPropagation();
-
-      ruch.pozycja_scrollbara( $(this).parent().data( 'href' ) );
-    
-    });
+});
 
 
-    /********* NAGLOWEK - Dostosowanie wysokosci *********/
+/********* SELECT LINK *********/
 
-    $( '#BLOK_GLOWNY' ).scroll(function () 
-    {
-    
-      var top = parseInt( $(this).scrollTop() );
+$( '.link_select > select' ).change(function () 
+{
 
-      if( top > 30 )
-        zmiana.zmniejsz_naglowek();
+  ruch.przekieruj_do( $(this).children( ':selected' ).data( 'domena' ), $(this).val() );
 
-      else
-        zmiana.zwieksz_naglowek();
+});
 
-    });
+
+/********* SELECT POST *********/
+
+$( '.post_select > select' ).change(function () 
+{
+
+  ruch.post_i_odswiez( $(this).parent().data( 'href' ), 
+    { csrfmiddlewaretoken : $(this).parent().children( 'input[name=csrfmiddlewaretoken]' ).val(), 
+      zawartosc : $(this).val() } );
+
+});
+
+
+/********* Pokazywanie produktu *********/
+
+$( '.lista_produktow > ul > li.produkt' ).click(function (event)
+{
+
+  var adres = $(this).data( 'href' );
+  var guzik = pobierz.ktory_guzik(event);
+
+  if( guzik == 1 )
+    ruch.pokaz_produkt( adres );
+
+  else if( guzik == 2 )
+    window.open( adres, '_blank' );
+
+});
+
+
+/********* Ukrywanie produktu *********/
+
+$( '#PRODUKT > .tlo' ).click(function (event)
+{
+
+  event.stopPropagation();
+  var guzik = pobierz.ktory_guzik(event);
+
+  if( guzik == 1 || guzik == 2 )
+    ruch.ukryj_produkt();
+
+});
+
+
+/********* FILTRY - ZAKŁADKI *********/
+
+$( '.filtry > .lista > div' ).not( '.link' ).click(function () 
+{
+
+  zmiana.przelacznik_zakladek( '#' + $(this).parent().parent().attr( 'id' ), $(this).data( 'numer' ) );
+
+  wyslij.numer_filtra( $(this).data( 'numer' ) );
+
+});
+
+
+/********* SCROLLBAR - Przesunięcie guzikiem *********/
+
+$( '.strzalka > .obrazek, .strzalka > .podpis' ).mouseup(function(event)
+{
+
+  console.log( 'Ok' );
+
+  event.stopPropagation();
+
+  ruch.pozycja_scrollbara( $(this).parent().data( 'href' ) );
+
+});
+
+
+/********* NAGLOWEK - Dostosowanie wysokosci *********/
+
+$( '#BLOK_GLOWNY' ).scroll(function () 
+{
+
+  var top = parseInt( $(this).scrollTop() );
+
+  if( top > 30 )
+    zmiana.zmniejsz_naglowek();
+
+  else
+    zmiana.zwieksz_naglowek();
+
+});
 
 
 
 /****************************************************************************/
 
-    var szerokosc_scrollbara = $( '#BLOK_GLOWNY' ).css( 'padding-right' ); 
+var szerokosc_scrollbara = $( '#BLOK_GLOWNY' ).css( 'padding-right' ); 
 
-    dostosuj.wysokosc_strony();
-    dostosuj.strone_do_scrollbara( szerokosc_scrollbara );
+dostosuj.wysokosc_strony();
+dostosuj.strone_do_scrollbara( szerokosc_scrollbara );
 
-    $(window).resize(function(){
-    
-      dostosuj.wysokosc_strony();
-      dostosuj.strone_do_scrollbara( szerokosc_scrollbara );
-    
-      var szerokosc_strony = parseInt( $(window).width() ); 
+$(window).resize(function(){
 
-      if( szerokosc_strony < 870 )
-        zmiana.zmniejsz_naglowek();
+  dostosuj.wysokosc_strony();
+  dostosuj.strone_do_scrollbara( szerokosc_scrollbara );
 
-    });
+  var szerokosc_strony = parseInt( $(window).width() ); 
 
-    zmiana.ukryj_ladowanie();
+  if( szerokosc_strony < 870 )
+    zmiana.zmniejsz_naglowek();
 
+});
 
-  }); 
-
-}); 
+zmiana.ukryj_ladowanie();
 
