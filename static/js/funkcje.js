@@ -334,7 +334,8 @@ var dostosuj = (function()
   var _strone_do_scrollbara = function( szerokosc_scrollbara )
   {
 
-    $( '#BLOK_GLOWNY' ).perfectScrollbar( 'update' );
+    $( '.nano' ).nanoScroller();
+    //$( '#BLOK_GLOWNY' ).perfectScrollbar( 'update' );
 
     var display_scrollbar = $( '#BLOK_GLOWNY.ps-container > .ps-scrollbar-y-rail' ).css( 'display' );
     var czy_dostosowane = parseInt( $( '#BLOK_GLOWNY' ).css( 'padding-right' ) );
@@ -532,7 +533,9 @@ var ruch = (function()
     var aktualna_pozycja = $( '#BLOK_GLOWNY' ).scrollTop();
     var pozycja_elementu = $( element ).position();
 
-    $( '#BLOK_GLOWNY' ).perfectScrollbar( 'update' )
+    $( '.nano' ).nanoScroller();
+
+    $( '#BLOK_GLOWNY' )//.perfectScrollbar( 'update' )
       .stop().animate( { scrollTop : pozycja_elementu.top  }, 500 );
       console.log( pozycja_elementu.top );
 

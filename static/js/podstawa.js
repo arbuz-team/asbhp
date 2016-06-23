@@ -14,15 +14,17 @@ $(document).ready(function ()
 
     autosize.update( $( 'textarea' ));
 
+    
+    $( '.nano' ).nanoScroller();
 
-
-    $( '#BLOK_GLOWNY, #PRODUKT > .tresc, select[ multiple=multiple ]' ).perfectScrollbar({
+    
+    /*$( '#BLOK_GLOWNY, #PRODUKT > .tresc, select[ multiple=multiple ]' ).perfectScrollbar({
       wheelSpeed : 2,
       minScrollbarLength : 20
     });
   
     $( '#BLOK_GLOWNY' ).perfectScrollbar( 'update' );
-
+*/
 
 
     // rozmiary tapety
