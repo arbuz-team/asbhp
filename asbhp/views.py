@@ -88,12 +88,16 @@ def Wyswietl_Kontakt(request):
 
 
 def Wyswietl_Edytuj(request):
-    Sprawdz_Czy_Zalogowany(request)
+    Sprawdz_Sesje(request)#Sprawdz_Czy_Zalogowany(request)
     css_menu = {'o_firmie': '', 'oferta': '',
                 'kontakt': '', 'edytuj': 'wybrany'}
 
+    produkt = Filtruj(request)
+
     return render(request, 'asbhp/edytuj.html',
-                            {'css_menu':            css_menu})
+                            {'css_menu':            css_menu,
+                             'wyszukiwarka':        request.session['wyszukiwarka'],
+                             'produkt':             produkt})
 
 
 ################## Zakładki: Edycja ##################

@@ -66,6 +66,18 @@ def Filtr_Wyszukiwarka(request):
     return redirect('Wyswietl_Oferta')
 
 
+def Filtr_Wyszukiwarka_Dla_Edytuj(request):
+
+    if request.method == 'POST':
+        filtr = Formularz_Wyszukiwarki(request.POST)
+        request.session['wyszukiwarka'] = filtr
+
+        if filtr.is_valid():
+            pass
+
+    return redirect('/edytuj/')
+
+
 def Filtr_Producent(request):
 
     if request.method == 'POST':

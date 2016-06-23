@@ -12,6 +12,7 @@ urlpatterns = [
         name='Usun_Sesje_Filtrow'),
 
     url(r'^$', views.Filtr_Wyszukiwarka, name='Filtr_Wyszukiwarka'),
+    url(r'^dla_edytuj/$', views.Filtr_Wyszukiwarka_Dla_Edytuj, name='Filtr_Wyszukiwarka_Dla_Edytuj'),
     url(r'^producent/$', views.Filtr_Producent, name='Filtr_Producent'),
     url(r'^kolor/$', views.Filtr_Kolor, name='Filtr_Kolor'),
     url(r'^zagrozenia/$', views.Filtr_Zagrozenia, name='Filtr_Zagrozenia'),

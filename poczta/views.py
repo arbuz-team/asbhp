@@ -75,7 +75,9 @@ def Pytanie_O_Produkt(request):
                  '\tProdukt:\t\t'   + produkt
 
             Wyslij_Email(request, wiadomosc, email)
-            return redirect('Wyswietl_Email_Wyslany')
+            request.session['potwierdzenie'] = \
+                'Email został wysłany.'
+            return redirect('/komunikat/potwierdzenie/')
 
     return redirect('Wyswietl_Kontakt')
 

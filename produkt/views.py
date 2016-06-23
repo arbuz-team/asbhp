@@ -25,7 +25,9 @@ def Dodaj_Produkt(request):
         if formularz.is_valid():
             produkt = formularz.save()
             Zarzadzaj_Zdjeciem_Produktu(produkt, formularz)
-            return redirect('Wyswietl_Produkt', produkt.pk)
+            request.session['potwierdzenie'] = \
+                'Produkt został poprawnie dodany.'
+            return redirect('/komunikat/potwierdzenie/')
 
     else:
         formularz = Formularz_Produktu()
@@ -47,9 +49,9 @@ def Dodaj_Producent(request):
 
         if formularz.is_valid():
             formularz.save()
-            opis = 'Producent została poprawnie dodana.'
-            return render(request, 'produkt/potwierdzenie.html',
-                                    {'opis': opis})
+            request.session['potwierdzenie'] = \
+                'Producent została poprawnie dodana.'
+            return redirect('/komunikat/potwierdzenie/')
 
     else:
         formularz = Formularz_Producent()
@@ -66,9 +68,9 @@ def Dodaj_Kolor(request):
 
         if formularz.is_valid():
             formularz.save()
-            opis = 'Kolor został poprawnie dodany.'
-            return render(request, 'produkt/potwierdzenie.html',
-                                    {'opis': opis})
+            request.session['potwierdzenie'] = \
+                'Kolor został poprawnie dodany.'
+            return redirect('/komunikat/potwierdzenie/')
 
     else:
         formularz = Formularz_Kolor()
@@ -85,9 +87,9 @@ def Dodaj_Certyfikat(request):
 
         if formularz.is_valid():
             formularz.save()
-            opis = 'Certyfikat został poprawnie dodany.'
-            return render(request, 'produkt/potwierdzenie.html',
-                                    {'opis': opis})
+            request.session['potwierdzenie'] = \
+                'Certyfikat został poprawnie dodany.'
+            return redirect('/komunikat/potwierdzenie/')
 
     else:
         formularz = Formularz_Certyfikat()
@@ -104,9 +106,9 @@ def Dodaj_Dodatek(request):
 
         if formularz.is_valid():
             formularz.save()
-            opis = 'Dodatek został poprawnie dodany.'
-            return render(request, 'produkt/potwierdzenie.html',
-                                    {'opis': opis})
+            request.session['potwierdzenie'] = \
+                'Dodatek został poprawnie dodany.'
+            return redirect('/komunikat/potwierdzenie/')
 
     else:
         formularz = Formularz_Dodatek()
@@ -123,10 +125,10 @@ def Dodaj_Polecane(request):
 
         if formularz.is_valid():
             formularz.save()
-            opis = 'Nowy produkt został poprawnie dodany do ' \
-                   'listy produktów polecanych.'
-            return render(request, 'produkt/potwierdzenie.html',
-                                    {'opis': opis})
+            request.session['potwierdzenie'] = \
+                'Nowy produkt został poprawnie dodany do ' \
+                'listy produktów polecanych.'
+            return redirect('/komunikat/potwierdzenie/')
 
     else:
         formularz = Formularz_Polecane()
@@ -140,37 +142,37 @@ def Dodaj_Polecane(request):
 def Usun_Produkt(request, pk):
     Sprawdz_Czy_Zalogowany(request)
     Produkt.objects.get(id=pk).delete()
-    return render(request, 'produkt/usun.html', {})
+    return redirect('/edytuj/')
 
 
 def Usun_Producent(request, pk):
     Sprawdz_Czy_Zalogowany(request)
     Producent.objects.get(id=pk).delete()
-    return render(request, 'produkt/usun.html', {})
+    return redirect('/edytuj/')
 
 
 def Usun_Kolor(request, pk):
     Sprawdz_Czy_Zalogowany(request)
     Kolor.objects.get(id=pk).delete()
-    return render(request, 'produkt/usun.html', {})
+    return redirect('/edytuj/')
 
 
 def Usun_Certyfikat(request, pk):
     Sprawdz_Czy_Zalogowany(request)
     Certyfikat.objects.get(id=pk).delete()
-    return render(request, 'produkt/usun.html', {})
+    return redirect('/edytuj/')
 
 
 def Usun_Dodatek(request, pk):
     Sprawdz_Czy_Zalogowany(request)
     Dodatek.objects.get(id=pk).delete()
-    return render(request, 'produkt/usun.html', {})
+    return redirect('/edytuj/')
 
 
 def Usun_Polecane(request, pk):
     Sprawdz_Czy_Zalogowany(request)
     Polecane.objects.get(id=pk).delete()
-    return render(request, 'produkt/usun.html', {})
+    return redirect('/edytuj/')
 
 
 ################## Edycja ##################
@@ -187,7 +189,7 @@ def Edytuj_Produkt(request, pk):
             produkt = formularz.save(commit=False)
             produkt.save()
             Zarzadzaj_Zdjeciem_Produktu(produkt, formularz)
-            return redirect('Wyswietl_Produkt', pk)
+            return redirect('/edytuj/')
 
     else:
         formularz = Formularz_Produktu(instance=produkt)

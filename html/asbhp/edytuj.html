@@ -14,26 +14,33 @@
 
     <div class="tresc">
 
-      {% for formularz in lista_formularzy %}
+      <div class="otoczka_pola wyszukaj">
 
-        <form method="post" action="{{ forloop.counter }}/">
+        <form method="POST" action="/wyszukiwarka/dla_edytuj/">
           {% csrf_token %}
 
-          {% for i in formularz %}
+          {{ wyszukiwarka.zapytanie }}
 
-
-            <div class="otoczka_pola">
-              {{ i }}
-            </div>
-
-          {% endfor %}
-
-          <div class="otoczka_pola button">
-            <button type="submit">Akceptuj</button>
-          </div>
-        
+          <button type="submit">Wyszukaj</button>
         </form>
 
+      </div>
+
+      <div class="komunikaty">
+        {% for e in wyszukiwarka.zapytanie.errors %}
+          {{ e }}
+        {% endfor %}
+      </div>
+      <br/>
+
+      <a href="/produkt/dodaj/">DODAJ NOWY PRODUKT</a>
+      <br/>
+
+      {% for p in produkt %}
+        {{ p }}
+        <a href="/produkt/edytuj/{{ p.pk }}">EDYTUJ</a>
+        <a href="/produkt/usun/{{ p.pk }}">USUŃ</a>
+        <br/>
       {% endfor %}
 
     </div>

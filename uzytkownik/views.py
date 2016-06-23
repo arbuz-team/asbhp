@@ -7,7 +7,7 @@ def Logowanie(request):
 
         if formularz.is_valid():
             request.session['zalogowany'] = True
-            return redirect('Wyswietl_Start')
+            return redirect('Wyswietl_Edytuj')
 
     else:
         formularz = Formularz_Logowania()
