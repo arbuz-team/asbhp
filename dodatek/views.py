@@ -14,6 +14,9 @@ from asbhp.models import *
 
 def Sprawdz_Sesje(request):
 
+        # WYWALIĆ PÓŹNIEJ - ZAWSZE ZALOGOWANY
+    request.session['zalogowany'] = True
+
         # filtry
     if 'wyszukiwarka' not in request.session:
         request.session['wyszukiwarka'] = Formularz_Wyszukiwarki()

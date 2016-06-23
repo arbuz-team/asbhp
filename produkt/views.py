@@ -25,6 +25,15 @@ def Dodaj_Produkt(request):
         if formularz.is_valid():
             produkt = formularz.save()
             Zarzadzaj_Zdjeciem_Produktu(produkt, formularz)
+
+            Meta_Tagi.objects.create(
+                adres_strony='/produkt/%s/' % str(produkt.pk),
+                description=produkt.opis[0:154],
+                og_type='produkt',
+                og_url='http://asbhp.arbuz.team/produkt/%s/' % str(produkt.pk),
+                og_image=str(produkt.zdjecie)
+            ).save()
+
             request.session['potwierdzenie'] = \
                 'Produkt został poprawnie dodany.'
             return redirect('/komunikat/potwierdzenie/')
@@ -141,7 +150,12 @@ def Dodaj_Polecane(request):
 
 def Usun_Produkt(request, pk):
     Sprawdz_Czy_Zalogowany(request)
-    Produkt.objects.get(id=pk).delete()
+    produkt = Produkt.objects.get(id=pk)
+    meta_tag = Meta_Tagi.objects.get(
+        adres_strony='/produkt/%s/' % str(produkt.pk))
+
+    produkt.delete()
+    meta_tag.delete()
     return redirect('/edytuj/')
 
 

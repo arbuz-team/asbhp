@@ -19,3 +19,16 @@ class Kontakt(models.Model):
 
     def __str__(self):
         return self.przeznaczenie.encode('utf8')
+
+
+class Meta_Tagi(models.Model):
+
+    adres_strony = models.URLField(primary_key=True)
+    description = models.CharField(max_length=155)
+
+    og_type = models.CharField(max_length=100)
+    og_url = models.CharField(max_length=200)
+    og_image = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.adres_strony.encode('utf8')
