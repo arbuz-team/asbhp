@@ -202,6 +202,13 @@ def Edytuj_Produkt(request, pk):
         if formularz.is_valid():
             produkt = formularz.save(commit=False)
             produkt.save()
+
+                # metatagi
+            meta_tag = Meta_Tagi.objects.get(pk='/produkt/%s/' % str(pk))
+            meta_tag.description = produkt.opis[0:154]
+            meta_tag.og_image = str(produkt.zdjecie)
+            meta_tag.save()
+
             Zarzadzaj_Zdjeciem_Produktu(produkt, formularz)
             return redirect('/edytuj/')
 
