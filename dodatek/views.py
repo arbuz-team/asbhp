@@ -75,6 +75,10 @@ def Sprawdz_Sesje(request):
             {'tytul': Kontakt.objects.get(przeznaczenie='tytul'),
              'tekst': Kontakt.objects.get(przeznaczenie='tekst')}
 
+        # meta tag
+    request.session['meta_tag'] = \
+        Meta_Tagi.objects.get(pk=request.path)
+
 
 def Usun_Sesje_Wyszukiwarki(request):
     del request.session['wyszukiwarka']
