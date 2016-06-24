@@ -93,11 +93,13 @@ def Wyswietl_Edytuj(request):
                 'kontakt': '', 'edytuj': 'wybrany'}
 
     produkt = Filtruj(request)
+    polecane = Polecane.objects.all()
 
     return render(request, 'asbhp/edytuj.html',
                             {'css_menu':            css_menu,
                              'wyszukiwarka':        request.session['wyszukiwarka'],
-                             'produkt':             produkt})
+                             'produkt':             produkt,
+                             'polecane':            polecane})
 
 
 ################## Zakładki: Edycja ##################

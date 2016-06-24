@@ -14,34 +14,48 @@
 
     <div class="tresc">
 
-      <div class="otoczka_pola wyszukaj">
+      Produkty
+      <div style="border: 1px solid black">
+        <div class="otoczka_pola wyszukaj">
 
-        <form method="POST" action="/wyszukiwarka/dla_edytuj/">
-          {% csrf_token %}
+          <form method="POST" action="/wyszukiwarka/dla_edytuj/">
+            {% csrf_token %}
 
-          {{ wyszukiwarka.zapytanie }}
+            {{ wyszukiwarka.zapytanie }}
 
-          <button type="submit">Wyszukaj</button>
-        </form>
+            <button type="submit">Wyszukaj</button>
+          </form>
 
-      </div>
+        </div>
 
-      <div class="komunikaty">
-        {% for e in wyszukiwarka.zapytanie.errors %}
-          {{ e }}
+        <div class="komunikaty">
+          {% for e in wyszukiwarka.zapytanie.errors %}
+            {{ e }}
+          {% endfor %}
+        </div>
+        <br/>
+
+        <a href="/produkt/dodaj/">DODAJ NOWY PRODUKT</a>
+        <br/>
+
+        {% for p in produkt %}
+          {{ p }}
+          <a href="/produkt/edytuj/{{ p.pk }}">EDYTUJ</a>
+          <a href="/produkt/usun/{{ p.pk }}">USUŃ</a>
+          <br/>
         {% endfor %}
       </div>
-      <br/>
 
-      <a href="/produkt/dodaj/">DODAJ NOWY PRODUKT</a>
-      <br/>
-
-      {% for p in produkt %}
-        {{ p }}
-        <a href="/produkt/edytuj/{{ p.pk }}">EDYTUJ</a>
-        <a href="/produkt/usun/{{ p.pk }}">USUŃ</a>
+      Promowanie
+      <div style="border: 1px solid black">
+        <a href="/produkt/dodaj/polecane/">DODAJ PRODUKT DO LISTY PRODUKTÓW PROMOWANYCH</a>
         <br/>
-      {% endfor %}
+        {% for p in polecane %}
+          {{ p }}
+          <a href="/produkt/usun/polecane/{{ p.pk }}">USUŃ</a>
+          <br/>
+        {% endfor %}
+      </div>
 
     </div>
 

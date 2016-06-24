@@ -4,7 +4,6 @@ from . import views
 urlpatterns = [
 
     url(r'^(?P<pk>\d+)/$', views.Wyswietl_Produkt, name='Wyswietl_Produkt'),
-    url(r'^polecane/$', views.Wyswietl_Polecane, name='Wyswietl_Polecane'),
 
     url(r'^dodaj/$', views.Dodaj_Produkt, name='Dodaj_Produkt'),
     url(r'^dodaj/producent/$', views.Dodaj_Producent, name='Dodaj_Producent'),

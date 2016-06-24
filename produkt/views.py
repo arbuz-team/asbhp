@@ -8,12 +8,6 @@ def Wyswietl_Produkt(request, pk):
     return redirect('Wyswietl_Oferta')
 
 
-def Wyswietl_Polecane(request):
-    polecane = Polecane.objects.all()
-    return render(request, 'produkt/polecane.html',
-                            {'polecane': polecane})
-
-
 ################## Dodawanie ##################
 
 def Dodaj_Produkt(request):
