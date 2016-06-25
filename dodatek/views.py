@@ -12,7 +12,7 @@ from asbhp.models import *
 
 ################## Zarządzanie sesją ##################
 
-def Sprawdz_Sesje(request):
+def Sprawdz_Sesje(request, meta_tag=True):
 
         # WYWALIĆ PÓŹNIEJ - ZAWSZE ZALOGOWANY
     request.session['zalogowany'] = True
@@ -76,8 +76,9 @@ def Sprawdz_Sesje(request):
              'tekst': Kontakt.objects.get(przeznaczenie='tekst')}
 
         # meta tag
-    request.session['meta_tag'] = \
-        Meta_Tagi.objects.get(pk=request.path)
+    if meta_tag:
+        request.session['meta_tag'] = \
+            Meta_Tagi.objects.get(pk=request.path)
 
 
 def Usun_Sesje_Wyszukiwarki(request):
@@ -147,7 +148,7 @@ def Szyfruj(haslo):
 
 
 def Sprawdz_Czy_Zalogowany(request):
-    Sprawdz_Sesje(request)
+    Sprawdz_Sesje(request, False)
 
     if not request.session['zalogowany']:
         request.session['404'] = 'Nic tu nie znajdziesz. ' \
