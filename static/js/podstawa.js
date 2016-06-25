@@ -12,15 +12,6 @@ autosize.update( $( 'textarea' ));
 $( '.nano' ).nanoScroller();
 
 
-/*$( '#BLOK_GLOWNY, #PRODUKT > .tresc, select[ multiple=multiple ]' ).perfectScrollbar({
-  wheelSpeed : 2,
-  minScrollbarLength : 20
-});
-
-$( '#BLOK_GLOWNY' ).perfectScrollbar( 'update' );
-*/
-
-
 // rozmiary tapety
 
 var G_adres_tapety = $( '#TRESC > .BLOK1 > .tlo' ).css( 'background-image' );
@@ -40,7 +31,7 @@ if( G_numer_filtra )
 {
   zmiana.przelacznik_zakladek( '#FILTRY', G_numer_filtra );
 
-    $( '#FILTRY .zakladka_'+ G_numer_filtra +' .focus' ).focus();
+  $( '#FILTRY .zakladka_'+ G_numer_filtra +' .focus' ).focus();
 }
 
 
@@ -154,8 +145,6 @@ $( '.filtry > .lista > div' ).not( '.link' ).click(function ()
 
 $( '.strzalka > .obrazek, .strzalka > .podpis' ).mouseup(function(event)
 {
-
-  console.log( 'Ok' );
 
   event.stopPropagation();
 
