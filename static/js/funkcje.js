@@ -226,9 +226,9 @@ var zmiana = (function()
   function _pokaz_produkt( dane, plynnosc )
   {
 
-    var $produkt = $( '#PRODUKT' );
-    var $tresc = $produkt.children( '.tresc' ).children();
-    
+    var $produkt = $( '#PRODUKT' )
+      , $tresc = $produkt.children( '.tresc' ).children( ':first-child' )
+      
     $tresc.children( '.nazwa' ).html( dane.nazwa );
     $tresc.children( '.zdjecie' ).children( 'img' )
       .attr( 'src', dane.zdjecie );//.attr( '', '');
@@ -238,9 +238,12 @@ var zmiana = (function()
     $tresc.children( '.zawody' ).html( dane.zawody );
 
     if( plynnosc )
-      $produkt.addClass( 'pelny' ).fadeIn(200);
+      $produkt.addClass( 'pelny' ).fadeIn(300);
     else
+    {
       $produkt.addClass( 'pelny' ).show();
+      zmiana.ukryj_ladowanie();
+    }
 
     $produkt.nanoScroller();
 
@@ -256,7 +259,6 @@ var zmiana = (function()
   {
 
     var $produkt = $( '#PRODUKT' );
-    var $tresc = $produkt.children( '.tresc' );
     
     $produkt.removeClass( 'pelny' ).fadeOut(200);
 
@@ -403,6 +405,7 @@ var dostosuj = (function()
 var ruch = (function()
 {
 
+  var stary_adres;
 
   function _przekieruj_do( domena, adres )
   {
@@ -438,15 +441,30 @@ var ruch = (function()
   function _pokaz_produkt( adres, plynnosc )
   {
 
-    var url = DOMENA + adres;
+    var czy_oferta = window.location.pathname.split( '/' )[1]
+      , id = adres.split( '/' )[2]
+      , url = DOMENA +'/produkt/szczegoly/'+ id +'/'
 
-    window.history.pushState(
-      { page : url },
-      url,
-      url);
+    console.log( adres );
 
-    if( typeof dane_produktu != 'undefined' )
-      zmiana.pokaz_produkt( dane_produktu, plynnosc );
+    if( czy_oferta == 'oferta' )
+    {
+      stary_adres = window.location.href
+
+      window.history.pushState(
+        { page : adres },
+        adres,
+        adres
+      );
+    }
+    else
+      stary_adres = DOMENA +'/oferta/'
+
+    $.get( url, function(dane){
+
+      $( 'head' ).append( '<script>'+ dane +'zmiana.pokaz_produkt( dane_produktu, '+ plynnosc +' ); </script>' );
+
+    });
 
   }
 
@@ -455,7 +473,12 @@ var ruch = (function()
   function _ukryj_produkt()
   {
 
-    window.history.back();
+    window.history.pushState(
+      { page : stary_adres },
+      stary_adres,
+      stary_adres
+    );
+
     zmiana.ukryj_produkt();
 
   }

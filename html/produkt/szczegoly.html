@@ -1,6 +1,4 @@
 
-<script>
-
 "use strict";
 
 var dane_produktu = {
@@ -12,14 +10,17 @@ var dane_produktu = {
   , producent : '{{ produkt.producent }}'
   , kolor : '{{ produkt.kolor }}'
   , rodzaj : '{{ produkt.rodzaj }}'
-  , certyfikaty : []
-  , zawody : []
-  , zagrozenia : []
+
+  , certyfikaty : [ {% for c in produkt.certyfikaty.all %}
+    [ '{{ c.numer }}', '{{ c.szczegoly }}' ],
+  {% endfor %} ]
+  
+  , zawody : [ {% for p in produkt.zawody.all %}
+    '{{ p.nazwa }}',
+  {% endfor %} ]
+  
+  , zagrozenia : [ {% for p in produkt.zagrozenia.all %}
+    '{{ p.nazwa }}',
+  {% endfor %} ]
+
 };
-
-//{{ produkt.certyfikaty.all }}
-//{{ produkt.zawody.all }}
-//{{ produkt.zagrozenia.all }}
-
-
-</script>

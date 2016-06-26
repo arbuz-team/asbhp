@@ -50,6 +50,18 @@
 
         $( '#BLOK_GLOWNY' ).nanoScroller();
 
+  
+
+        (function()
+        {
+
+          var sciezka = location.pathname;
+
+          if( sciezka != '' && sciezka.split( '/' )[1] == 'produkt' )
+            ruch.pokaz_produkt( sciezka, false );
+
+        }());
+
       });
 
     </script>
