@@ -32,18 +32,6 @@
 
 
 #TRESC > div > .tlo,
-#TRESC > div > .nakladka
-{
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-}
-
-
-
-#TRESC > div > .tlo,
 {
   z-index: 10;
 }

@@ -223,13 +223,30 @@ var zmiana = (function()
 
 
 
-  function _pokaz_produkt( dane )
+  function _pokaz_produkt( dane, plynnosc )
   {
 
     var $produkt = $( '#PRODUKT' );
-    var $tresc = $produkt.children( '.tresc' );
+    var $tresc = $produkt.children( '.tresc' ).children();
     
-    $tresc.html( dane ).parent().addClass( 'pelny' ).show(200);
+    $tresc.children( '.nazwa' ).html( dane.nazwa );
+    $tresc.children( '.zdjecie' ).children( 'img' )
+      .attr( 'src', dane.zdjecie );//.attr( '', '');
+    $tresc.children( '.opis' ).html( dane.opis );
+    $tresc.children( '.certyfikaty' ).html( dane.certyfikaty );
+    $tresc.children( '.zagrozenia' ).html( dane.zagrozenia );
+    $tresc.children( '.zawody' ).html( dane.zawody );
+
+    if( plynnosc )
+      $produkt.addClass( 'pelny' ).fadeIn(200);
+    else
+      $produkt.addClass( 'pelny' ).show();
+
+    $produkt.nanoScroller();
+
+    $produkt.nanoScroller({
+      scrollTop: $tresc.children( '.nazwa' )
+    });
 
   }
 
@@ -241,7 +258,7 @@ var zmiana = (function()
     var $produkt = $( '#PRODUKT' );
     var $tresc = $produkt.children( '.tresc' );
     
-    $tresc.html( '' ).parent().removeClass( 'pelny' ).hide(200);
+    $produkt.removeClass( 'pelny' ).fadeOut(200);
 
   }
 
@@ -349,6 +366,17 @@ var dostosuj = (function()
 
   }
 
+  function _stopBubble(e) 
+  {
+    if(!e)
+      var e = window.event;
+
+    e.cancelBubble = true; 
+
+    if(e.stopPropagation)
+      e.stopPropagation();
+
+  }
 
 
   var udostepnione = 
@@ -356,6 +384,7 @@ var dostosuj = (function()
 
     wysokosc_strony : _wysokosc_strony
     , tapete : _tapete
+    , stopBubble : _stopBubble
 
 
   }
@@ -406,35 +435,17 @@ var ruch = (function()
 
 
 
-  function _pokaz_produkt( adres )
+  function _pokaz_produkt( adres, plynnosc )
   {
 
     var url = DOMENA + adres;
 
-    $.ajax({
-      type: 'GET',
-      url: url,
+    window.history.pushState(
+      { page : url },
+      url,
+      url);
 
-      success: function(dane)
-      {
-
-        window.history.pushState(
-          { page : url },
-          url,
-          url);
-        zmiana.pokaz_produkt(dane);
-      
-      },
-
-      error: function() 
-      {
-      
-        console.warn( 'Taki produkt nie istnieje.' );
-        //window.location.href = DOMENA + '/404/';
-      
-      }
-
-    });
+    zmiana.pokaz_produkt( dane_produktu, plynnosc );
 
   }
 
@@ -477,8 +488,6 @@ var ruch = (function()
 
     $( '#BLOK_GLOWNY' ).nanoScroller({ 
       scrollTo: $( element )
-      ,flash: true
-      ,flashDelay: 1000
     });
 
   }

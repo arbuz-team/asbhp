@@ -8,7 +8,7 @@ autosize( $( 'textarea' ) );
 
 autosize.update( $( 'textarea' ));
 
-$( '.nano' ).nanoScroller();
+$( '#BLOK_GLOWNY' ).nanoScroller();
 
 
 // rozmiary tapety
@@ -106,7 +106,7 @@ $( '.lista_produktow > ul > li.produkt' ).click(function (event)
   var guzik = pobierz.ktory_guzik(event);
 
   if( guzik == 1 )
-    ruch.pokaz_produkt( adres );
+    ruch.pokaz_produkt( adres, true );
 
   else if( guzik == 2 )
     window.open( adres, '_blank' );
@@ -114,18 +114,26 @@ $( '.lista_produktow > ul > li.produkt' ).click(function (event)
 });
 
 
+
 /********* Ukrywanie produktu *********/
 
-$( '#PRODUKT > .tlo' ).click(function (event)
+$( '#PRODUKT > .tresc' ).click(function(event)
 {
 
-  event.stopPropagation();
   var guzik = pobierz.ktory_guzik(event);
 
   if( guzik == 1 || guzik == 2 )
     ruch.ukryj_produkt();
 
 });
+
+
+
+$( '#PRODUKT > .tresc *' ).click(function(event)
+{
+  dostosuj.stopBubble(event);
+});
+
 
 
 /********* FILTRY - ZAKŁADKI *********/
@@ -140,6 +148,7 @@ $( '.filtry > .lista > div' ).not( '.link' ).click(function ()
 });
 
 
+
 /********* SCROLLBAR - Przesunięcie guzikiem *********/
 
 $( '.strzalka > .obrazek, .strzalka > .podpis' ).mouseup(function(event)
@@ -150,9 +159,10 @@ $( '.strzalka > .obrazek, .strzalka > .podpis' ).mouseup(function(event)
 });
 
 
+
 /********* NAGLOWEK - Dostosowanie wysokosci *********/
 
-$( '#BLOK_GLOWNY' ).scroll(function () 
+$( '#BLOK_GLOWNY' ).scroll(function()
 {
 
   var top = parseInt( $(this).scrollTop() );
@@ -185,4 +195,17 @@ $(window).resize(function(){
 });
 
 zmiana.ukryj_ladowanie();
+
+
+
+
+
+/****************************************************************************/
+
+if( typeof dane_produktu != 'undefined' && dane_produktu.id != '' )
+{
+
+  ruch.pokaz_produkt( '/produkt/'+ dane_produktu.id +'/', false );
+
+}
 

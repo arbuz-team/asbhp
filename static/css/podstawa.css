@@ -103,18 +103,47 @@ ul
 }
 
 
+
+.abs_pelny
+{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+
+
+.rel_pelny
+{
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+
+
+.fix_pelny
+{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+
+
+
 /********************* TRESC PODSTAWOWA **********************/
 
 
 #BLOK_GLOWNY
 {
   display: none;
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
 
   padding-right: 15px;
 
@@ -137,12 +166,6 @@ ul
 {
   display: none;
 
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-
   z-index: 100;
 }
 
@@ -150,35 +173,91 @@ ul
 
 #PRODUKT > .tlo
 {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
+  background-color: rgba( 180, 180, 180, 0.7 );
 
-  background-color: rgba( 66, 66, 66, 0.8 );
+  z-index: 102;
+}
 
-  z-index: 100;
+
+
+#PRODUKT .nano-pane
+{
+  z-index: 120;
 }
 
 
 
 #PRODUKT > .tresc
 {
-  position: relative;
-  margin: 150px auto;
+  margin: 0 !important; 
 
-  padding: 15px 20px;
-
-  width: 800px;
-  height: 600px;
-
-  background-color: rgba( 233, 233, 233, 1 );
-
-  z-index: 101;
+  z-index: 103;
 }
 
 
+
+#PRODUKT > .tresc > div:first-child
+{
+  position: relative;
+
+  margin: 60px auto !important;
+  padding: 10px 15px;
+
+  color: #333;
+  background-color: rgba( 256, 256, 256, 1 );
+
+  z-index: 103;
+}
+
+
+
+#PRODUKT .nazwa
+{
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+
+
+#PRODUKT .zdjecie
+{
+  margin: 10px 15px;
+}
+
+
+
+#PRODUKT .zdjecie > img
+{
+  width: 100%;
+}
+
+
+
+#PRODUKT .opis
+{
+}
+
+
+
+#PRODUKT .certyfikaty
+{
+}
+
+
+
+#PRODUKT .zagrozenia
+{
+}
+
+
+
+#PRODUKT .zawody
+{
+}
+
+
+
+/******************** MENU ********************/
 
 #MENU
 {
@@ -266,10 +345,11 @@ ul
 @media (min-width: 768px)
 {
 
-  #TRESC.standardowa > div > .tresc,
-  #TRESC.start > div > .tresc,
-  #TRESC.oferta > div > .tresc,
-  #STOPKA > div > div
+  #TRESC.standardowa > div > .tresc
+  , #TRESC.start > div > .tresc
+  , #TRESC.oferta > div > .tresc
+  , #STOPKA > div > div
+  , #PRODUKT .tresc > div:first-child
   {
     width: 650px;
   }
@@ -281,10 +361,11 @@ ul
 @media screen and (min-width: 870px)
 {
 
-  #TRESC.standardowa > div > .tresc,
-  #TRESC.start > div > .tresc,
-  #TRESC.oferta > div > .tresc,
-  #STOPKA > div > div
+  #TRESC.standardowa > div > .tresc
+  , #TRESC.start > div > .tresc
+  , #TRESC.oferta > div > .tresc
+  , #STOPKA > div > div
+  , #PRODUKT .tresc > div:first-child
   {
     margin: 50px auto;
   }
@@ -296,10 +377,11 @@ ul
 @media (min-width: 992px)
 {
 
-  #TRESC.standardowa > div > .tresc,
-  #TRESC.start > div > .tresc,
-  #TRESC.oferta > div > .tresc,
-  #STOPKA > div > div
+  #TRESC.standardowa > div > .tresc
+  , #TRESC.start > div > .tresc
+  , #TRESC.oferta > div > .tresc
+  , #STOPKA > div > div
+  , #PRODUKT .tresc > div:first-child
   {
     width: 800px;
   }
@@ -309,10 +391,11 @@ ul
 @media (min-width: 1200px)
 {
 
-  #TRESC.standardowa > div > .tresc,
-  #TRESC.start > div > .tresc,
-  #TRESC.oferta > div > .tresc,
-  #STOPKA > div > div
+  #TRESC.standardowa > div > .tresc
+  , #TRESC.start > div > .tresc
+  , #TRESC.oferta > div > .tresc
+  , #STOPKA > div > div
+  , #PRODUKT .tresc > div:first-child
   {
     width: 970px;
   }
@@ -321,10 +404,11 @@ ul
 
 
 
-#TRESC.standardowa > div > .tresc,
-#TRESC.start > div > .tresc,
-#TRESC.oferta > div > .tresc,
-#STOPKA > div > div
+#TRESC.standardowa > div > .tresc
+, #TRESC.start > div > .tresc
+, #TRESC.oferta > div > .tresc
+, #STOPKA > div > div
+, #PRODUKT .tresc > div:first-child
 {
   margin: 10px auto 30px auto;
 
@@ -366,13 +450,13 @@ ul
 
 .nano > .nano-content
 {
-  position      : absolute;
-  overflow      : scroll;
-  overflow-x    : hidden;
-  top           : 0;
-  right         : 0;
-  bottom        : 0;
-  left          : 0;
+  position: absolute;
+  overflow: scroll;
+  overflow-x: hidden;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 

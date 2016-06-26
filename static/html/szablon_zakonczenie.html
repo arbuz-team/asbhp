@@ -6,7 +6,28 @@
     <script>
 
       "use strict";
+
+      var dane_produktu = {
+        id : '{{ request.session.wybrany_produkt.pk }}'
+        , nazwa : '{{ request.session.wybrany_produkt.nazwa }}'
+        , zdjecie : '{{ request.session.wybrany_produkt.zdjecie }}'
+        , opis : '{{ request.session.wybrany_produkt.opis }}'
+        , rozmiar : '{{ request.session.wybrany_produkt.rozmiar }}'
+        , producent : '{{ request.session.wybrany_produkt.producent }}'
+        , kolor : '{{ request.session.wybrany_produkt.kolor }}'
+        , rodzaj : '{{ request.session.wybrany_produkt.rodzaj }}'
+        , certyfikaty : []
+        , zawody : []
+        , zagrozenia : []
+      };
+
+      //{{ request.session.wybrany_produkt.certyfikaty }}
+      //{{ request.session.wybrany_produkt.zawody }}
+      //{{ request.session.wybrany_produkt.zagrozenia }}
       
+
+
+
       function addScripts(uris, callback)
       {
         if(!uris instanceof Array || uris.length<1)
