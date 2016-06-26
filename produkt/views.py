@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 from dodatek.views import *
+from asbhp.views import Oferta_Cialo
 
 ################## Wyświetlanie ##################
 
 def Wyswietl_Produkt(request, pk):
-    request.session['wybrany_produkt'] = Produkt.objects.filter(id=pk).first()
-    return redirect('Wyswietl_Oferta')
+    Sprawdz_Sesje(request)
+    request.session['wybrany_produkt'] = Produkt.objects.get(id=pk)
+    return Oferta_Cialo(request)
 
 
 ################## Dodawanie ##################
@@ -194,7 +196,7 @@ def Edytuj_Produkt(request, pk):
                                        instance=produkt)
 
         if formularz.is_valid():
-            produkt = formularz.save(commit=False)
+            produkt = formularz.save()
             produkt.save()
 
                 # metatagi
