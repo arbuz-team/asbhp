@@ -74,8 +74,8 @@ def Sprawdz_Sesje(request, meta_tag=True):
         # stopka_kontakt
     if 'stopka_kontakt' not in request.session:
         request.session['stopka_kontakt'] = \
-            {'tytul': Kontakt.objects.get(przeznaczenie='tytul'),
-             'tekst': Kontakt.objects.get(przeznaczenie='tekst')}
+            {'tytul': Zawartosc_Zakladki.objects.get(pk='/kontakt/').tytul,
+             'tekst': Zawartosc_Zakladki.objects.get(pk='/kontakt/').tekst,}
 
         # meta tag
     if meta_tag:

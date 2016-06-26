@@ -22,7 +22,7 @@ def Wyswietl_O_Firmie(request):
     css_menu = {'o_firmie': 'wybrany', 'oferta': '',
                 'kontakt': '', 'edytuj': ''}
 
-    o_firmie = O_Firmie.objects.all()
+    o_firmie = Zawartosc_Zakladki.objects.get(pk='/o_firmie/')
     return render(request, 'asbhp/o_firmie.html',
                             {'css_menu':            css_menu,
                              'o_firmie':            o_firmie})
@@ -87,7 +87,7 @@ def Wyswietl_Kontakt(request):
     css_menu = {'o_firmie': '', 'oferta': '',
                 'kontakt': 'wybrany', 'edytuj': ''}
 
-    kontakt = Kontakt.objects.all()
+    kontakt = Zawartosc_Zakladki.objects.get(pk='/kontakt/')
     formularz = Pobierz_Fromularz_Email(request)
     return render(request, 'asbhp/kontakt.html',
                             {'css_menu':            css_menu,
@@ -105,70 +105,49 @@ def Wyswietl_Edytuj(request):
     produkt = Filtruj(request)
     polecane = Polecane.objects.all()
 
+        # edycja zakładek 'o_firmie' 'kontakt'
+    o = Zawartosc_Zakladki.objects.get(pk='/o_firmie/')
+    o_firmie = Formularz_Zawartosc_Zakladki(instance=o)
+
+    k = Zawartosc_Zakladki.objects.get(pk='/kontakt/')
+    kontakt = Formularz_Zawartosc_Zakladki(instance=k)
+
     return render(request, 'asbhp/edytuj.html',
                             {'css_menu':            css_menu,
                              'wyszukiwarka':        request.session['wyszukiwarka'],
                              'produkt':             produkt,
-                             'polecane':            polecane})
+                             'polecane':            polecane,
+                             'o_firmie':            o_firmie,
+                             'kontakt':             kontakt})
 
 
 
 
 ################## Zakładki: Edycja ##################
 
-def Edytuj_O_Firmie(request):
-    Sprawdz_Czy_Zalogowany(request)
-    o_firmie = O_Firmie.objects.all()
-    lista_formularzy = []
-
-    for o in o_firmie:
-        lista_formularzy.append(Formularz_O_Firmie(instance=o))
-
-    return render(request, 'asbhp/edytuj_zakladke.html',
-                            {'lista_formularzy':    lista_formularzy})
-
-
-
-
-def Edytuj_O_Firmie_Zapisz(request, pk):
+def Edytuj_O_Firmie_Zapisz(request):
     Sprawdz_Czy_Zalogowany(request)
 
     if request.method == 'POST':
-        o_firmie = O_Firmie.objects.get(id=pk)
-        formularz = Formularz_O_Firmie(request.POST, instance=o_firmie)
+        o = Zawartosc_Zakladki.objects.get(pk='/o_firmie/')
+        formularz = Formularz_Zawartosc_Zakladki(request.POST, instance=o)
 
         if formularz.is_valid():
             formularz.save()
-            return redirect('Wyswietl_O_Firmie')
 
-    return redirect('Edytuj_O_Firmie')
-
-
-
-
-def Edytuj_Kontakt(request):
-    Sprawdz_Czy_Zalogowany(request)
-    kontakt = Kontakt.objects.all()
-    lista_formularzy = []
-
-    for k in kontakt:
-        lista_formularzy.append(Formularz_Kontakt(instance=k))
-
-    return render(request, 'asbhp/edytuj_zakladke.html',
-                            {'lista_formularzy':    lista_formularzy})
+    return redirect('Wyswietl_Edytuj')
 
 
 
 
-def Edytuj_Kontakt_Zapisz(request, pk):
+def Edytuj_Kontakt_Zapisz(request):
     Sprawdz_Czy_Zalogowany(request)
 
     if request.method == 'POST':
-        kontakt = Kontakt.objects.get(id=pk)
-        formularz = Formularz_Kontakt(request.POST, instance=kontakt)
+        k = Zawartosc_Zakladki.objects.get(pk='/kontakt/')
+        formularz = Formularz_Zawartosc_Zakladki(request.POST, instance=k)
 
         if formularz.is_valid():
             formularz.save()
-            return redirect('Wyswietl_Kontakt')
 
-    return redirect('Edytuj_Kontakt')
+    return redirect('Wyswietl_Edytuj')

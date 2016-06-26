@@ -57,6 +57,46 @@
         {% endfor %}
       </div>
 
+      O Firmie
+      <div style="border: 1px solid black">
+
+        <form method="post" action="/zapisz/o_firmie/">
+          {% csrf_token %}
+
+          {% for i in o_firmie %}
+            <div class="otoczka_pola">
+              {{ i }}
+            </div>
+          {% endfor %}
+
+          <div class="otoczka_pola button">
+            <button type="submit">Akceptuj</button>
+          </div>
+
+        </form>
+
+      </div>
+
+      Kontakt
+      <div style="border: 1px solid black">
+
+        <form method="post" action="/zapisz/kontakt/">
+          {% csrf_token %}
+
+          {% for i in kontakt %}
+            <div class="otoczka_pola">
+              {{ i }}
+            </div>
+          {% endfor %}
+
+          <div class="otoczka_pola button">
+            <button type="submit">Akceptuj</button>
+          </div>
+
+        </form>
+
+      </div>
+
     </div>
 
   </div>

@@ -4,27 +4,13 @@ from models import *
 
 
 
-class Formularz_O_Firmie(forms.ModelForm):
+class Formularz_Zawartosc_Zakladki(forms.ModelForm):
 
     class Meta:
-        model = O_Firmie
-        fields = ('zawartosc',)
+        model = Zawartosc_Zakladki
+        fields = ('tytul', 'tekst')
 
         widgets = {
-            'zawartosc': forms.Textarea(attrs={'rows': 'none',
-                                               'cols': 'none'}),
-        }
-
-
-
-
-class Formularz_Kontakt(forms.ModelForm):
-
-    class Meta:
-        model = Kontakt
-        fields = ('zawartosc',)
-
-        widgets = {
-            'zawartosc': forms.Textarea(attrs={'rows': 'none',
-                                               'cols': 'none'}),
+            'tekst': forms.Textarea(attrs={'rows': 'none',
+                                           'cols': 'none'}),
         }
