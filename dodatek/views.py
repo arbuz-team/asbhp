@@ -84,9 +84,6 @@ def Sprawdz_Sesje(request, meta_tag=True):
     else: # opcja dla zakładek do edycji
         request.session['meta_tag'] = None
 
-        # wyświetlanie produktu
-    request.session['wybrany_produkt'] = None
-
 
 
 

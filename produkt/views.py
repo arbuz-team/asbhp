@@ -1,15 +1,12 @@
 # -*- coding: utf-8 -*-
 from dodatek.views import *
-from asbhp.views import Oferta_Cialo
 
 
 
 ################## Wyświetlanie ##################
 
 def Wyswietl_Produkt(request, pk):
-    Sprawdz_Sesje(request)
-    request.session['wybrany_produkt'] = Produkt.objects.get(id=pk)
-    return Oferta_Cialo(request)
+    return redirect('Wyswietl_Oferta')
 
 
 
@@ -241,6 +238,16 @@ def Edytuj_Produkt(request, pk):
 
     return render(request, 'produkt/edytuj.html',
                             {'formularz': formularz})
+
+
+
+
+################## Pobieranie ##################
+
+def Pobierz_Szczegoly_Produktu(request, pk):
+    produkt = Produkt.objects.get(id=pk)
+    return render(request, 'produkt/szczegoly.html',
+                            {'produkt': produkt})
 
 
 
