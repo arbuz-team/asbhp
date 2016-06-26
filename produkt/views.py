@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 from dodatek.views import *
+from asbhp.views import Wyswietl_Oferta
 
 
 
 ################## Wyświetlanie ##################
 
 def Wyswietl_Produkt(request, pk):
-    return redirect('Wyswietl_Oferta')
+    return Wyswietl_Oferta(request)
 
 
 
