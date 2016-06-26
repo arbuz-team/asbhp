@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.db import models
+from django.utils import timezone
 from arbuz.settings import *
 from PIL import Image
 import os, cStringIO, urllib
@@ -136,6 +137,15 @@ class Polecane(models.Model):
 
     produkt = models.ForeignKey(Produkt, on_delete=models.CASCADE)
     data_zakonczenia = models.DateField()
+
+    @staticmethod
+    def Pobierz_Sprawdzone_Produkty():
+        produkt = []
+        for p in Polecane.objects.all():
+            if p.data_zakonczenia >= timezone.now().date():
+                produkt.append(p)
+
+        return produkt
 
     def __str__(self):
         return str(self.produkt)

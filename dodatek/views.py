@@ -79,6 +79,8 @@ def Sprawdz_Sesje(request, meta_tag=True):
     if meta_tag:
         request.session['meta_tag'] = \
             Meta_Tagi.objects.get(pk=request.path)
+    else: # opcja dla zakładek do edycji
+        request.session['meta_tag'] = None
 
 
 def Usun_Sesje_Wyszukiwarki(request):

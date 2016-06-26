@@ -8,7 +8,7 @@ from forms import *
 
 def Wyswietl_Start(request):
     Sprawdz_Sesje(request)
-    polecane = Polecane.objects.all()
+    polecane = Polecane.Pobierz_Sprawdzone_Produkty()
     return render(request, 'asbhp/start.html',
                             {'polecane':            polecane})
 
