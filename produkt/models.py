@@ -6,6 +6,8 @@ from arbuz.settings import *
 from PIL import Image
 import os, cStringIO, urllib
 
+
+
 ################## Produkt: Kontenery ##################
 
 class Typ_Odziezy(models.Model):
@@ -15,6 +17,8 @@ class Typ_Odziezy(models.Model):
 
     def __str__(self):
         return self.nazwa.encode('utf8')
+
+
 
 
 class Dziedzina_Odziezy(models.Model):
@@ -27,6 +31,8 @@ class Dziedzina_Odziezy(models.Model):
         return self.nazwa.encode('utf8')
 
 
+
+
 class Rodzaj_Odziezy(models.Model):
 
     nazwa = models.CharField(max_length=100)
@@ -35,6 +41,8 @@ class Rodzaj_Odziezy(models.Model):
 
     def __str__(self):
         return self.nazwa.encode('utf8')
+
+
 
 
 ################## Produkt: Produkty ##################
@@ -47,12 +55,16 @@ class Producent(models.Model):
         return self.nazwa.encode('utf8')
 
 
+
+
 class Kolor(models.Model):
 
     nazwa = models.CharField(max_length=50)
 
     def __str__(self):
         return self.nazwa.encode('utf8')
+
+
 
 
 class Certyfikat(models.Model):
@@ -64,6 +76,8 @@ class Certyfikat(models.Model):
         return self.numer.encode('utf8')
 
 
+
+
 class Zagrozenie(models.Model):
 
     nazwa = models.CharField(max_length=50)
@@ -72,12 +86,16 @@ class Zagrozenie(models.Model):
         return self.nazwa.encode('utf8')
 
 
+
+
 class Zawod(models.Model):
 
     nazwa = models.CharField(max_length=50)
 
     def __str__(self):
         return self.nazwa.encode('utf8')
+
+
 
 
 class Produkt(models.Model):
@@ -120,6 +138,8 @@ class Produkt(models.Model):
         return self.nazwa.encode('utf8')
 
 
+
+
 class Dodatek(models.Model):
 
     numer = models.IntegerField()
@@ -129,6 +149,8 @@ class Dodatek(models.Model):
 
     def __str__(self):
         return self.opis.encode('utf8')
+
+
 
 
 ################## Promowanie ##################

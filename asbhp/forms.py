@@ -2,6 +2,8 @@
 from django import forms
 from models import *
 
+
+
 class Formularz_O_Firmie(forms.ModelForm):
 
     class Meta:
@@ -12,6 +14,8 @@ class Formularz_O_Firmie(forms.ModelForm):
             'zawartosc': forms.Textarea(attrs={'rows': 'none',
                                                'cols': 'none'}),
         }
+
+
 
 
 class Formularz_Kontakt(forms.ModelForm):

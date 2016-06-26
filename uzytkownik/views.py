@@ -1,5 +1,7 @@
 from forms import *
 
+
+
 def Logowanie(request):
 
     if request.method == 'POST':
@@ -16,6 +18,8 @@ def Logowanie(request):
                             {'formularz': formularz})
 
 
+
+
 def Rejestracja(request):
 
     if request.method == 'POST':
@@ -30,6 +34,8 @@ def Rejestracja(request):
 
     return render(request, 'uzytkownik/rejestracja.html',
                             {'formularz': formularz})
+
+
 
 
 def Wyloguj(request):

@@ -2,6 +2,8 @@
 from django import forms
 
 
+
+
 class Formularz_Wybierz_Temat(forms.Form):
     temat = forms.ChoiceField(
         choices=
@@ -13,6 +15,8 @@ class Formularz_Wybierz_Temat(forms.Form):
         ))
 
 
+
+
 class Formularz_Pytanie_O_Produkt(forms.Form):
     nadawca = forms.CharField()
     email = forms.EmailField()
@@ -21,12 +25,16 @@ class Formularz_Pytanie_O_Produkt(forms.Form):
         attrs={'rows': 'none', 'cols': 'none'}))
 
 
+
+
 class Formularz_Uwagi_WWW(forms.Form):
     nadawca = forms.CharField()
     email = forms.EmailField()
     url = forms.URLField()
     wiadomosc = forms.CharField(widget=forms.Textarea(
         attrs={'rows': 'none', 'cols': 'none'}))
+
+
 
 
 class Formularz_Inny_Temat(forms.Form):

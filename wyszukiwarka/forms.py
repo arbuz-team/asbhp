@@ -2,6 +2,8 @@
 from django import forms
 from produkt.models import *
 
+
+
 class Formularz_Wyszukiwarki(forms.Form):
 
     zapytanie = forms.CharField(
@@ -16,6 +18,8 @@ class Formularz_Wyszukiwarki(forms.Form):
             raise forms.ValidationError('Wyszukiwana fraza musi '
                                         'zawierać minimum 3 znaki.')
         return zapytanie
+
+
 
 
 class Formularz_Filtru_Producent(forms.Form):
@@ -40,6 +44,8 @@ class Formularz_Filtru_Producent(forms.Form):
             if self.Waliduj() else None
 
 
+
+
 class Formularz_Filtru_Kolor(forms.Form):
 
     kolor = forms.ChoiceField(
@@ -62,6 +68,8 @@ class Formularz_Filtru_Kolor(forms.Form):
             if self.Waliduj() else None
 
 
+
+
 class Formularz_Filtru_Zagrozenia(forms.ModelForm):
 
     class Meta:
@@ -70,12 +78,16 @@ class Formularz_Filtru_Zagrozenia(forms.ModelForm):
         widgets = {'zagrozenia': forms.SelectMultiple(attrs={'class': 'focus'})}
 
 
+
+
 class Formularz_Filtru_Zawody(forms.ModelForm):
 
     class Meta:
         model = Produkt
         fields = ('zawody',)
         widgets = {'zawody': forms.SelectMultiple(attrs={'class': 'focus'})}
+
+
 
 
 class Formularz_Filtru_Liczba_Produktow(forms.Form):
@@ -90,6 +102,8 @@ class Formularz_Filtru_Liczba_Produktow(forms.Form):
             (20, 20),
         ),
         widget=forms.Select(attrs={'class': 'focus'}))
+
+
 
 
 class Formularz_Kontener(forms.Form):

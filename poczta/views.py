@@ -3,6 +3,8 @@ from dodatek.views import *
 from forms import *
 from django.core.mail import EmailMessage
 
+
+
 def Wyslij_Email(request, wiadomosc, nadawca_email):
 
     email = EmailMessage(
@@ -15,6 +17,8 @@ def Wyslij_Email(request, wiadomosc, nadawca_email):
 
     email.send()
     request.session['wybrany_temat'] = ''
+
+
 
 
 def Pobierz_Fromularz_Email(request):
@@ -38,10 +42,14 @@ def Pobierz_Fromularz_Email(request):
     return Formularz_Wybierz_Temat()
 
 
+
+
 def Pobierz_Temat(request):
     return {'1': 'Pytanie o dostępność produktu',
             '2': 'Uwagi dotyczące strony www',
             '3': 'Inny temat'}.get(request.session['wybrany_temat'])
+
+
 
 
 ################## Odbiór formularzy ##################
@@ -56,6 +64,8 @@ def Wybierz_Temat(request):
                 formularz.cleaned_data['temat']
 
     return redirect('Wyswietl_Kontakt')
+
+
 
 
 def Pytanie_O_Produkt(request):
@@ -82,6 +92,8 @@ def Pytanie_O_Produkt(request):
     return redirect('Wyswietl_Kontakt')
 
 
+
+
 def Uwagi_WWW(request):
 
     if request.method == 'POST':
@@ -102,6 +114,8 @@ def Uwagi_WWW(request):
             return redirect('Wyswietl_Email_Wyslany')
 
     return redirect('Wyswietl_Kontakt')
+
+
 
 
 def Inny_Temat(request):

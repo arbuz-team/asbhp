@@ -2,12 +2,16 @@
 from dodatek.views import *
 from asbhp.views import Oferta_Cialo
 
+
+
 ################## Wyświetlanie ##################
 
 def Wyswietl_Produkt(request, pk):
     Sprawdz_Sesje(request)
     request.session['wybrany_produkt'] = Produkt.objects.get(id=pk)
     return Oferta_Cialo(request)
+
+
 
 
 ################## Dodawanie ##################
@@ -46,6 +50,8 @@ def Dodaj_Produkt(request):
                             {'formularz': formularz})
 
 
+
+
 def Dodaj_Producent(request):
     Sprawdz_Czy_Zalogowany(request)
 
@@ -63,6 +69,8 @@ def Dodaj_Producent(request):
 
     return render(request, 'produkt/dodaj.html',
                   {'formularz': formularz})
+
+
 
 
 def Dodaj_Kolor(request):
@@ -84,6 +92,8 @@ def Dodaj_Kolor(request):
                             {'formularz': formularz})
 
 
+
+
 def Dodaj_Certyfikat(request):
     Sprawdz_Czy_Zalogowany(request)
 
@@ -103,6 +113,8 @@ def Dodaj_Certyfikat(request):
                             {'formularz': formularz})
 
 
+
+
 def Dodaj_Dodatek(request):
     Sprawdz_Czy_Zalogowany(request)
 
@@ -120,6 +132,8 @@ def Dodaj_Dodatek(request):
 
     return render(request, 'produkt/dodaj.html',
                             {'formularz': formularz})
+
+
 
 
 def Dodaj_Polecane(request):
@@ -142,6 +156,8 @@ def Dodaj_Polecane(request):
                             {'formularz': formularz})
 
 
+
+
 ################## Usuwanie ##################
 
 def Usun_Produkt(request, pk):
@@ -155,10 +171,14 @@ def Usun_Produkt(request, pk):
     return redirect('/edytuj/')
 
 
+
+
 def Usun_Producent(request, pk):
     Sprawdz_Czy_Zalogowany(request)
     Producent.objects.get(id=pk).delete()
     return redirect('/edytuj/')
+
+
 
 
 def Usun_Kolor(request, pk):
@@ -167,10 +187,14 @@ def Usun_Kolor(request, pk):
     return redirect('/edytuj/')
 
 
+
+
 def Usun_Certyfikat(request, pk):
     Sprawdz_Czy_Zalogowany(request)
     Certyfikat.objects.get(id=pk).delete()
     return redirect('/edytuj/')
+
+
 
 
 def Usun_Dodatek(request, pk):
@@ -179,10 +203,14 @@ def Usun_Dodatek(request, pk):
     return redirect('/edytuj/')
 
 
+
+
 def Usun_Polecane(request, pk):
     Sprawdz_Czy_Zalogowany(request)
     Polecane.objects.get(id=pk).delete()
     return redirect('/edytuj/')
+
+
 
 
 ################## Edycja ##################
@@ -213,6 +241,8 @@ def Edytuj_Produkt(request, pk):
 
     return render(request, 'produkt/edytuj.html',
                             {'formularz': formularz})
+
+
 
 
 ################## Dodatki ##################

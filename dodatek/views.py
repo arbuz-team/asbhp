@@ -10,6 +10,8 @@ from wyszukiwarka.forms import *
 from produkt.forms import *
 from asbhp.models import *
 
+
+
 ################## Zarządzanie sesją ##################
 
 def Sprawdz_Sesje(request, meta_tag=True):
@@ -86,6 +88,8 @@ def Sprawdz_Sesje(request, meta_tag=True):
     request.session['wybrany_produkt'] = None
 
 
+
+
 def Usun_Sesje_Wyszukiwarki(request):
     del request.session['wyszukiwarka']
 
@@ -93,6 +97,8 @@ def Usun_Sesje_Wyszukiwarki(request):
         del request.session['wyszukane_produkty']
 
     return redirect('Wyswietl_Oferta')
+
+
 
 
 def Usun_Sesje_Filtrow(request):
@@ -113,9 +119,13 @@ def Usun_Sesje_Filtrow(request):
     return redirect('Wyswietl_Oferta')
 
 
+
+
 def Usun_Sesje(request):
     for klucz in request.session.keys():
         del request.session[klucz]
+
+
 
 
 ################## Funkcje dodatkowe ##################
@@ -127,6 +137,8 @@ def Iloczyn_Zbiorow(pierwszy_kolejnosc, drugi):
             iloczyn.append(w)
 
     return iloczyn
+
+
 
 
 def Pobierz_Listy_Produktow(request, produkt):
@@ -146,10 +158,14 @@ def Pobierz_Listy_Produktow(request, produkt):
     return wynik
 
 
+
+
 ################## Logowanie ##################
 
 def Szyfruj(haslo):
     return make_password(password=haslo, salt='arbuz-team')
+
+
 
 
 def Sprawdz_Czy_Zalogowany(request):

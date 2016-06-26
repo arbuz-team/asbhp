@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from dodatek.views import *
 
+
+
 ################## Wyszukiwarka ##################
 
 def Wyszukaj(request):
@@ -52,6 +54,8 @@ def Wyszukaj(request):
     return wynik
 
 
+
+
 ################## Filtry ##################
 
 def Filtr_Wyszukiwarka(request):
@@ -66,6 +70,8 @@ def Filtr_Wyszukiwarka(request):
     return redirect('Wyswietl_Oferta')
 
 
+
+
 def Filtr_Wyszukiwarka_Dla_Edytuj(request):
 
     if request.method == 'POST':
@@ -76,6 +82,8 @@ def Filtr_Wyszukiwarka_Dla_Edytuj(request):
             pass
 
     return redirect('/edytuj/')
+
+
 
 
 def Filtr_Producent(request):
@@ -90,6 +98,8 @@ def Filtr_Producent(request):
     return redirect('Wyswietl_Oferta')
 
 
+
+
 def Filtr_Kolor(request):
 
     if request.method == 'POST':
@@ -100,6 +110,8 @@ def Filtr_Kolor(request):
             pass
 
     return redirect('Wyswietl_Oferta')
+
+
 
 
 def Filtr_Zagrozenia(request):
@@ -114,6 +126,8 @@ def Filtr_Zagrozenia(request):
     return redirect('Wyswietl_Oferta')
 
 
+
+
 def Filtr_Zawody(request):
 
     if request.method == 'POST':
@@ -126,6 +140,8 @@ def Filtr_Zawody(request):
     return redirect('Wyswietl_Oferta')
 
 
+
+
 def Filtr_Liczba_Produktow(request):
 
     if request.method == 'POST':
@@ -136,6 +152,8 @@ def Filtr_Liczba_Produktow(request):
             pass
 
     return redirect('Wyswietl_Oferta')
+
+
 
 
 def Filtruj(request):
@@ -165,6 +183,8 @@ def Filtruj(request):
     return wynik
 
 
+
+
 ################## Kontenery ##################
 
 def Kontener_Typ(request):
@@ -187,6 +207,8 @@ def Kontener_Typ(request):
     return redirect('Wyswietl_Oferta')
 
 
+
+
 def Kontener_Dziedzina(request):
 
     request.session['rodzaj'] = []
@@ -205,6 +227,8 @@ def Kontener_Dziedzina(request):
     return redirect('Wyswietl_Oferta')
 
 
+
+
 def Kontener_Rodzaj(request):
 
     if request.method == 'POST':
@@ -218,6 +242,8 @@ def Kontener_Rodzaj(request):
             del request.session['wybrany_rodzaj']
 
     return redirect('Wyswietl_Oferta')
+
+
 
 
 def Konteneruj(request):

@@ -4,6 +4,8 @@ from produkt.views import *
 from poczta.views import *
 from forms import *
 
+
+
 ################## Zakładki: Wyświetlanie ##################
 
 def Wyswietl_Start(request):
@@ -11,6 +13,8 @@ def Wyswietl_Start(request):
     polecane = Polecane.Pobierz_Sprawdzone_Produkty()
     return render(request, 'asbhp/start.html',
                             {'polecane':            polecane})
+
+
 
 
 def Wyswietl_O_Firmie(request):
@@ -24,9 +28,13 @@ def Wyswietl_O_Firmie(request):
                              'o_firmie':            o_firmie})
 
 
+
+
 def Wyswietl_Oferta(request, wybrany_strona=None, wybrany_filtr=None):
     Sprawdz_Sesje(request, False)
     return Oferta_Cialo(request, wybrany_strona, wybrany_filtr)
+
+
 
 
 def Oferta_Cialo(request, wybrany_strona=None, wybrany_filtr=None):
@@ -77,6 +85,8 @@ def Oferta_Cialo(request, wybrany_strona=None, wybrany_filtr=None):
                              'filtr':               filtr})
 
 
+
+
 def Wyswietl_Kontakt(request):
     Sprawdz_Sesje(request)
     css_menu = {'o_firmie': '', 'oferta': '',
@@ -88,6 +98,8 @@ def Wyswietl_Kontakt(request):
                             {'css_menu':            css_menu,
                              'kontakt':             kontakt,
                              'formularz':           formularz})
+
+
 
 
 def Wyswietl_Edytuj(request):
@@ -105,6 +117,8 @@ def Wyswietl_Edytuj(request):
                              'polecane':            polecane})
 
 
+
+
 ################## Zakładki: Edycja ##################
 
 def Edytuj_O_Firmie(request):
@@ -117,6 +131,8 @@ def Edytuj_O_Firmie(request):
 
     return render(request, 'asbhp/edytuj_zakladke.html',
                             {'lista_formularzy':    lista_formularzy})
+
+
 
 
 def Edytuj_O_Firmie_Zapisz(request, pk):
@@ -133,6 +149,8 @@ def Edytuj_O_Firmie_Zapisz(request, pk):
     return redirect('Edytuj_O_Firmie')
 
 
+
+
 def Edytuj_Kontakt(request):
     Sprawdz_Czy_Zalogowany(request)
     kontakt = Kontakt.objects.all()
@@ -143,6 +161,8 @@ def Edytuj_Kontakt(request):
 
     return render(request, 'asbhp/edytuj_zakladke.html',
                             {'lista_formularzy':    lista_formularzy})
+
+
 
 
 def Edytuj_Kontakt_Zapisz(request, pk):

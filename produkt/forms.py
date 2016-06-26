@@ -4,6 +4,8 @@ from django import forms
 from models import *
 import imghdr
 
+
+
 class Formularz_Produktu(forms.ModelForm):
 
     zewnetrzny_url = forms.CharField(required=False,
@@ -51,11 +53,16 @@ class Formularz_Produktu(forms.ModelForm):
             'zdjecie': {'invalid_image': 'To przecież nie jest obrazek!'}
         }
 
+
+
+
 class Formularz_Promowania(forms.ModelForm):
 
     class Meta:
         model = Polecane
         fields = ('produkt', 'data_zakonczenia')
+
+
 
 
 class Formularz_Producent(forms.ModelForm):
@@ -65,6 +72,8 @@ class Formularz_Producent(forms.ModelForm):
         fields = ('nazwa',)
 
 
+
+
 class Formularz_Kolor(forms.ModelForm):
 
     class Meta:
@@ -72,11 +81,15 @@ class Formularz_Kolor(forms.ModelForm):
         fields = ('nazwa',)
 
 
+
+
 class Formularz_Certyfikat(forms.ModelForm):
 
     class Meta:
         model = Certyfikat
         fields = ('numer', 'szczegoly')
+
+
 
 
 class Formularz_Dodatek(forms.ModelForm):
@@ -89,6 +102,8 @@ class Formularz_Dodatek(forms.ModelForm):
             'opis': forms.Textarea(
                 attrs={'placeholder': 'Wpisz opis', 'rows': 'none', 'cols': 'none'}),
         }
+
+
 
 
 class Formularz_Polecane(forms.ModelForm):

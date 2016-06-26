@@ -3,6 +3,8 @@ from django import forms
 from dodatek.views import *
 from models import *
 
+
+
 class Formularz_Logowania(forms.Form):
 
     login = forms.CharField(
@@ -30,6 +32,8 @@ class Formularz_Logowania(forms.Form):
             raise forms.ValidationError('Błędne hasło. '
                                         'Spróbuj jeszcze raz.')
         return haslo
+
+
 
 
 class Formularz_Rejestracji(forms.ModelForm):
