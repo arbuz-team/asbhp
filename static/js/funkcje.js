@@ -445,7 +445,8 @@ var ruch = (function()
       url,
       url);
 
-    zmiana.pokaz_produkt( dane_produktu, plynnosc );
+    if( typeof dane_produktu != 'undefined' )
+      zmiana.pokaz_produkt( dane_produktu, plynnosc );
 
   }
 
