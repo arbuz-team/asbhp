@@ -11,27 +11,38 @@ autosize.update( $( 'textarea' ));
 $( '#BLOK_GLOWNY' ).nanoScroller();
 
 
+
 // rozmiary tapety
 
-var G_adres_tapety = $( '#TRESC > .BLOK1 > .tlo' ).css( 'background-image' );
+(function()
+{
 
-G_adres_tapety = G_adres_tapety.replace( 'url("', '' ).replace( '")', '' );
+  var adres_tapety = $( '#TRESC > .BLOK1 > .tlo' ).css( 'background-image' );
 
-pobierz.wymiary_grafiki(G_adres_tapety);
+  adres_tapety = adres_tapety.replace( 'url("', '' ).replace( '")', '' );
 
+  pobierz.wymiary_grafiki(adres_tapety);
+
+}());
 
 
 
 // Wybierz filtr
 
-var G_numer_filtra = parseInt( $( '#FILTRY .lista > span' ).html() );
-
-if( G_numer_filtra )
+(function()
 {
-  zmiana.przelacznik_zakladek( '#FILTRY', G_numer_filtra );
 
-  $( '#FILTRY .zakladka_'+ G_numer_filtra +' .focus' ).focus();
-}
+  var numer_filtra = parseInt( $( '#FILTRY .lista > span' ).html() );
+
+  if( numer_filtra )
+  {
+    zmiana.przelacznik_zakladek( '#FILTRY', numer_filtra );
+
+    $( '#FILTRY .zakladka_'+ numer_filtra +' .focus' ).focus();
+  }
+
+}());
+
 
 
 
@@ -194,18 +205,8 @@ $(window).resize(function(){
 
 });
 
-zmiana.ukryj_ladowanie();
+if( location.pathname.split('/')[1] != 'produkt' )
+  zmiana.ukryj_ladowanie();
 
 
-
-
-
-/****************************************************************************/
-
-if( typeof dane_produktu != 'undefined' && dane_produktu.id != '' )
-{
-
-  ruch.pokaz_produkt( '/produkt/'+ dane_produktu.id +'/', false );
-
-}
 
