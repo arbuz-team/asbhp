@@ -48,6 +48,7 @@ var pobierz = (function()
     {
       strona : $(window).height(),
       naglowek : $( '#NAGLOWEK' ).outerHeight(),
+      tresc : $( '#TRESC' ).outerHeight(),
       stopka : $( '#STOPKA' ).outerHeight(),
 
       padding : parseInt( $( '#TRESC' ).css( 'padding-top' ) )
@@ -331,32 +332,6 @@ var dostosuj = (function()
 
 
 
-  var _strone_do_scrollbara = function( szerokosc_scrollbara )
-  {
-
-    $( '.nano' ).nanoScroller();
-    //$( '#BLOK_GLOWNY' ).perfectScrollbar( 'update' );
-
-    var display_scrollbar = $( '#BLOK_GLOWNY.ps-container > .ps-scrollbar-y-rail' ).css( 'display' );
-    var czy_dostosowane = parseInt( $( '#BLOK_GLOWNY' ).css( 'padding-right' ) );
-
-    if( display_scrollbar == 'none' && czy_dostosowane != 0 )
-    {
-
-      $( '#BLOK_GLOWNY' ).css( 'padding-right', '0px' );
-      $( '#NAGLOWEK > div' ).css( 'right', '0px' );
-    }
-    else if( display_scrollbar == 'block' && czy_dostosowane != szerokosc_scrollbara )
-    {
-
-      $( '#BLOK_GLOWNY' ).css( 'padding-right', szerokosc_scrollbara );
-      $( '#NAGLOWEK > div' ).css( 'right', szerokosc_scrollbara );
-    }
-
-  };
-
-
-
   function _tapete( tapeta )
   {
 
@@ -379,9 +354,8 @@ var dostosuj = (function()
   var udostepnione = 
   {
 
-    wysokosc_strony : _wysokosc_strony,
-    strone_do_scrollbara : _strone_do_scrollbara,
-    tapete : _tapete
+    wysokosc_strony : _wysokosc_strony
+    , tapete : _tapete
 
 
   }
@@ -501,13 +475,12 @@ var ruch = (function()
 
     $( '#BLOK_GLOWNY' ).nanoScroller();
 
-    $( '#BLOK_GLOWNY' ).scrollTo('element', {duration:3000});
-/*    .nanoScroller({ 
+    $( '#BLOK_GLOWNY' ).nanoScroller({ 
       scrollTo: $( element )
       ,flash: true
       ,flashDelay: 1000
     });
-*/
+
   }
 
 

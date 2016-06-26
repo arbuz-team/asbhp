@@ -8,7 +8,6 @@ autosize( $( 'textarea' ) );
 
 autosize.update( $( 'textarea' ));
 
-
 $( '.nano' ).nanoScroller();
 
 
@@ -146,8 +145,6 @@ $( '.filtry > .lista > div' ).not( '.link' ).click(function ()
 $( '.strzalka > .obrazek, .strzalka > .podpis' ).mouseup(function(event)
 {
 
-  event.stopPropagation();
-
   ruch.pozycja_scrollbara( $(this).parent().data( 'href' ) );
 
 });
@@ -175,12 +172,10 @@ $( '#BLOK_GLOWNY' ).scroll(function ()
 var szerokosc_scrollbara = $( '#BLOK_GLOWNY' ).css( 'padding-right' ); 
 
 dostosuj.wysokosc_strony();
-dostosuj.strone_do_scrollbara( szerokosc_scrollbara );
 
 $(window).resize(function(){
 
   dostosuj.wysokosc_strony();
-  dostosuj.strone_do_scrollbara( szerokosc_scrollbara );
 
   var szerokosc_strony = parseInt( $(window).width() ); 
 

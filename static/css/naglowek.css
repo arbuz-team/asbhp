@@ -4,6 +4,8 @@
 
 #NAGLOWEK 
 {
+  position: relative;
+  
   height: 70px;
   min-height: 70px;
   max-height: 70px;
@@ -26,6 +28,8 @@
 
   height: 70px;
   min-height: 70px;
+
+  padding-right: 15px;
 
   background-color: rgba(30, 29, 28, 1);
   overflow: hidden;
