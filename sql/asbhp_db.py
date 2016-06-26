@@ -140,14 +140,6 @@ Meta_Tagi.objects.create(
 ).save()
 
 Meta_Tagi.objects.create(
-    adres_strony='/oferta/',
-    description='Nasze produkty',
-    og_type='Oferta',
-    og_url='http://asbhp.arbuz.team/oferta/',
-    og_image='/static/img/AS_C,S.png'
-).save()
-
-Meta_Tagi.objects.create(
     adres_strony='/kontakt/',
     description='Firma Handlowa "AS BHP"',
     og_type='Kontakt',

@@ -17,17 +17,20 @@ class Formularz_Pytanie_O_Produkt(forms.Form):
     nadawca = forms.CharField()
     email = forms.EmailField()
     produkt = forms.CharField()
-    wiadomosc = forms.CharField(widget=forms.Textarea)
+    wiadomosc = forms.CharField(widget=forms.Textarea(
+        attrs={'rows': 'none', 'cols': 'none'}))
 
 
 class Formularz_Uwagi_WWW(forms.Form):
     nadawca = forms.CharField()
     email = forms.EmailField()
     url = forms.URLField()
-    wiadomosc = forms.CharField(widget=forms.Textarea)
+    wiadomosc = forms.CharField(widget=forms.Textarea(
+        attrs={'rows': 'none', 'cols': 'none'}))
 
 
 class Formularz_Inny_Temat(forms.Form):
     nadawca = forms.CharField()
     email = forms.EmailField()
-    wiadomosc = forms.CharField(widget=forms.Textarea)
+    wiadomosc = forms.CharField(widget=forms.Textarea(
+        attrs={'rows': 'none', 'cols': 'none'}))

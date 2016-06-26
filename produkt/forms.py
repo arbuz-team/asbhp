@@ -33,9 +33,13 @@ class Formularz_Produktu(forms.ModelForm):
 
         widgets = {
             'nazwa':    forms.TextInput(attrs={'placeholder': 'Wpisz nazwę'}),
-            'opis':     forms.Textarea(attrs={'placeholder': 'Wpisz opis'}),
-            'slowa_kluczowe': forms.Textarea(attrs={'placeholder': 'Wpisz słowa kluczowe'}),
-            'rozmiar':  forms.TextInput(attrs={'placeholder': 'Wpisz rozmiar'}),
+            'rozmiar': forms.TextInput(attrs={'placeholder': 'Wpisz rozmiar'}),
+
+            'opis':     forms.Textarea(
+                attrs={'placeholder': 'Wpisz opis','rows': 'none', 'cols': 'none'}),
+
+            'slowa_kluczowe': forms.Textarea(
+                attrs={'placeholder': 'Wpisz opis', 'rows': 'none', 'cols': 'none'}),
         }
 
         error_messages = {
@@ -80,6 +84,11 @@ class Formularz_Dodatek(forms.ModelForm):
     class Meta:
         model = Dodatek
         fields = ('opis', 'rodzaj', 'producent')
+
+        widgets = {
+            'opis': forms.Textarea(
+                attrs={'placeholder': 'Wpisz opis', 'rows': 'none', 'cols': 'none'}),
+        }
 
 
 class Formularz_Polecane(forms.ModelForm):

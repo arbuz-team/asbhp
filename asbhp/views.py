@@ -25,7 +25,7 @@ def Wyswietl_O_Firmie(request):
 
 
 def Wyswietl_Oferta(request, wybrany_strona=None, wybrany_filtr=None):
-    Sprawdz_Sesje(request)
+    Sprawdz_Sesje(request, False)
     return Oferta_Cialo(request, wybrany_strona, wybrany_filtr)
 
 
