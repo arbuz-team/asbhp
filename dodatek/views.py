@@ -85,10 +85,10 @@ def Sprawdz_Sesje(request, meta_tag=True):
         request.session['meta_tag'] = None
 
         # informuje skrypt JS, aby wyświetlił szczegóły
-    request.session['wyswietl_szczegoly_produktu'] = False
+    request.session['wyswietl_szczegoly_produktu'] = 'false'
     if request.path.split('/')[1] == 'produkt':
         if request.path.split('/')[2].isdigit():
-            request.session['wyswietl_szczegoly_produktu'] = True
+            request.session['wyswietl_szczegoly_produktu'] = 'true'
 
 
 
