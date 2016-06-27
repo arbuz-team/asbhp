@@ -120,7 +120,7 @@ Meta_Tagi.objects.create(
     description='Strona startowa',
     og_type='Start',
     og_url='http://asbhp.arbuz.team/',
-    og_image='/static/img/AS_C,S.png'
+    og_image='/static/img/tlo.jpg'
 ).save()
 
 Meta_Tagi.objects.create(
@@ -128,7 +128,7 @@ Meta_Tagi.objects.create(
     description='Firma Handlowa "AS BHP"',
     og_type='O Firmie',
     og_url='http://asbhp.arbuz.team/o_firmie/',
-    og_image='/static/img/AS_C,S.png'
+    og_image='/static/img/tlo.jpg'
 ).save()
 
 Meta_Tagi.objects.create(
@@ -136,6 +136,6 @@ Meta_Tagi.objects.create(
     description='Firma Handlowa "AS BHP"',
     og_type='Kontakt',
     og_url='http://asbhp.arbuz.team/kontakt/',
-    og_image='/static/img/AS_C,S.png'
+    og_image='/static/img/tlo.jpg'
 ).save()
 
