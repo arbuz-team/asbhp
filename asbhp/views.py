@@ -103,8 +103,15 @@ def Wyswietl_Edytuj(request):
                 'kontakt': '', 'edytuj': 'wybrany'}
 
     produkt = Filtruj(request)
-    polecane = {'aktywne':      Polecane.Pobierz_Aktywne_Oferty(),
-                'nieaktywne':   Polecane.Pobierz_Nieaktywne_Oferty()}
+
+        # polecane produkty
+    polecane = {'aktywne':      [{'produkt': p,
+                                  'formularz': Formularz_Polecane(instance=p)}
+                                 for p in Polecane.Pobierz_Aktywne_Oferty()],
+
+                'nieaktywne':   [{'produkt': p,
+                                  'formularz': Formularz_Polecane(instance=p)}
+                                 for p in Polecane.Pobierz_Nieaktywne_Oferty()]}
 
         # edycja zakładek 'o_firmie' 'kontakt'
     o = Zawartosc_Zakladki.objects.get(pk='/o_firmie/')

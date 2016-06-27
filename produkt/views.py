@@ -243,6 +243,27 @@ def Edytuj_Produkt(request, pk):
 
 
 
+def Edytuj_Polecane(request, pk):
+    Sprawdz_Czy_Zalogowany(request)
+
+    if request.method == 'POST':
+
+            # edycja POSTa
+        dane_form = request.POST.copy()
+        dane_form['produkt'] = str(pk)
+
+        polecany = Polecane.objects.get(id=pk)
+        formularz = Formularz_Polecane(data=dane_form,
+                                       instance=polecany)
+
+        if formularz.is_valid():
+            formularz.save()
+
+    return redirect('Wyswietl_Edytuj')
+
+
+
+
 ################## Pobieranie ##################
 
 def Pobierz_Szczegoly_Produktu(request, pk):

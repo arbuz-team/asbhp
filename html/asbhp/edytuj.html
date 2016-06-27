@@ -54,8 +54,17 @@
         Aktywne
         <div style="border: 1px solid black; padding: 5px">
           {% for p in polecane.aktywne %}
-            {{ p }}
-            <a href="/produkt/usun/polecane/{{ p.pk }}">USUŃ</a>
+            {{ p.produkt }}
+            <a href="/produkt/usun/polecane/{{ p.produkt.pk }}/">USUŃ</a>
+
+            <form method="POST" action="/produkt/edytuj/polecane/{{ p.produkt.pk }}/">
+              {% csrf_token %}
+
+              {{ p.formularz.data_zakonczenia }}
+
+              <button type="submit">Ustaw</button>
+            </form>
+
             <br/>
           {% endfor %}
         </div>
@@ -63,8 +72,17 @@
         Nieaktywne
         <div style="border: 1px solid black; padding: 5px">
           {% for p in polecane.nieaktywne %}
-            {{ p }}
-            <a href="/produkt/usun/polecane/{{ p.pk }}">USUŃ</a>
+            {{ p.produkt }}
+            <a href="/produkt/usun/polecane/{{ p.produkt.pk }}/">USUŃ</a>
+
+            <form method="POST" action="/produkt/edytuj/polecane/{{ p.produkt.pk }}/">
+              {% csrf_token %}
+
+              {{ p.formularz.data_zakonczenia }}
+
+              <button type="submit">Ustaw</button>
+            </form>
+
             <br/>
           {% endfor %}
         </div>

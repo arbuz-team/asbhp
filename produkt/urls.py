@@ -19,8 +19,12 @@ urlpatterns = [
     url(r'^usun/dodatek/(?P<pk>\d+)/$', views.Usun_Dodatek, name='Usun_Dodatek'),
     url(r'^usun/polecane/(?P<pk>\d+)/$', views.Usun_Polecane, name='Usun_Polecane'),
 
+    url(r'^edytuj/(?P<pk>\d+)/$', views.Edytuj_Produkt, name='Edytuj_Produkt'),
+    url(r'^edytuj/polecane/(?P<pk>\d+)/$', views.Edytuj_Polecane, name='Edytuj_Polecane'),
     url(r'^szczegoly/(?P<pk>\d+)/$', views.Pobierz_Szczegoly_Produktu, name='Pobierz_Szczegoly_Produktu'),
 
-    url(r'^edytuj/(?P<pk>\d+)/$', views.Edytuj_Produkt, name='Edytuj_Produkt'),
-
 ]
+
+
+
+
