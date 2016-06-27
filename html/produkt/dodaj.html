@@ -13,15 +13,16 @@
     <div class="tytul">Formularz:</div>
 
     <div class="tresc">
-      <form method="post">
+      <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
 
         {% for i in formularz %}
 
+          {{ i.label_tag }}
+          {{ i.errors }}
+
           <div class="otoczka_pola">
-
             {{ i }}
-
           </div>
 
         {% endfor %}

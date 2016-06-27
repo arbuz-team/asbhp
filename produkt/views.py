@@ -44,7 +44,7 @@ def Dodaj_Produkt(request):
         if f.label not in ['Certyfikaty', 'Zagrozenia', 'Zawody']:
             f.label = ''
 
-    return render(request, 'produkt/dodaj_produkt.html',
+    return render(request, 'produkt/dodaj.html',
                             {'formularz': formularz})
 
 
