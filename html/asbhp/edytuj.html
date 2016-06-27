@@ -15,7 +15,7 @@
     <div class="tresc">
 
       Produkty
-      <div style="border: 1px solid black">
+      <div style="border: 1px solid black; padding: 5px">
         <div class="otoczka_pola wyszukaj">
 
           <form method="POST" action="/wyszukiwarka/dla_edytuj/">
@@ -47,18 +47,32 @@
       </div>
 
       Promowanie
-      <div style="border: 1px solid black">
+      <div style="border: 1px solid black; padding: 5px">
         <a href="/produkt/dodaj/polecane/">DODAJ PRODUKT DO LISTY PRODUKTÓW PROMOWANYCH</a>
         <br/>
-        {% for p in polecane %}
-          {{ p }}
-          <a href="/produkt/usun/polecane/{{ p.pk }}">USUŃ</a>
-          <br/>
-        {% endfor %}
+
+        Aktywne
+        <div style="border: 1px solid black; padding: 5px">
+          {% for p in polecane.aktywne %}
+            {{ p }}
+            <a href="/produkt/usun/polecane/{{ p.pk }}">USUŃ</a>
+            <br/>
+          {% endfor %}
+        </div>
+
+        Nieaktywne
+        <div style="border: 1px solid black; padding: 5px">
+          {% for p in polecane.nieaktywne %}
+            {{ p }}
+            <a href="/produkt/usun/polecane/{{ p.pk }}">USUŃ</a>
+            <br/>
+          {% endfor %}
+        </div>
+
       </div>
 
       O Firmie
-      <div style="border: 1px solid black">
+      <div style="border: 1px solid black; padding: 5px">
 
         <form method="post" action="/zapisz/o_firmie/">
           {% csrf_token %}
@@ -78,7 +92,7 @@
       </div>
 
       Kontakt
-      <div style="border: 1px solid black">
+      <div style="border: 1px solid black; padding: 5px">
 
         <form method="post" action="/zapisz/kontakt/">
           {% csrf_token %}

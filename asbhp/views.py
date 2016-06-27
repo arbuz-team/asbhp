@@ -10,7 +10,7 @@ from forms import *
 
 def Wyswietl_Start(request):
     Sprawdz_Sesje(request)
-    polecane = Polecane.Pobierz_Sprawdzone_Produkty()
+    polecane = Polecane.Pobierz_Aktywne_Oferty()
     return render(request, 'asbhp/start.html',
                             {'polecane':            polecane})
 
@@ -103,7 +103,8 @@ def Wyswietl_Edytuj(request):
                 'kontakt': '', 'edytuj': 'wybrany'}
 
     produkt = Filtruj(request)
-    polecane = Polecane.objects.all()
+    polecane = {'aktywne':      Polecane.Pobierz_Aktywne_Oferty(),
+                'nieaktywne':   Polecane.Pobierz_Nieaktywne_Oferty()}
 
         # edycja zakładek 'o_firmie' 'kontakt'
     o = Zawartosc_Zakladki.objects.get(pk='/o_firmie/')

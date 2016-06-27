@@ -161,10 +161,19 @@ class Polecane(models.Model):
     data_zakonczenia = models.DateField()
 
     @staticmethod
-    def Pobierz_Sprawdzone_Produkty():
+    def Pobierz_Aktywne_Oferty():
         produkt = []
         for p in Polecane.objects.all():
             if p.data_zakonczenia >= timezone.now().date():
+                produkt.append(p)
+
+        return produkt
+
+    @staticmethod
+    def Pobierz_Nieaktywne_Oferty():
+        produkt = []
+        for p in Polecane.objects.all():
+            if p.data_zakonczenia < timezone.now().date():
                 produkt.append(p)
 
         return produkt
