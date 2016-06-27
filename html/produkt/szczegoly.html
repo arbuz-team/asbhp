@@ -11,8 +11,8 @@ var dane_produktu = {
   , kolor : '{{ produkt.kolor }}'
   , rodzaj : '{{ produkt.rodzaj }}'
 
-  , certyfikaty : [ {% for c in produkt.certyfikaty.all %}
-    [ '{{ c.numer }}', '{{ c.szczegoly }}' ],
+  , certyfikaty : [ {% for p in produkt.certyfikaty.all %}
+    [ '{{ p.numer }}', '{{ p.szczegoly }}' ],
   {% endfor %} ]
   
   , zawody : [ {% for p in produkt.zawody.all %}

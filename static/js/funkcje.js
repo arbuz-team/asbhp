@@ -226,15 +226,45 @@ var zmiana = (function()
   {
 
     var $produkt = $( '#PRODUKT' )
-      , $tresc = $produkt.children( '.tresc' ).children( ':first-child' )
+      , $tresc = $produkt.find( '.tresc div:first-child' )
+      , $tabela = $tresc.children( '.tabela' )
+      , certyfikaty = ''
+      , zagrozenia = ''
+      , zawody = ''
+
+
+    
+    for( var x in dane.certyfikaty )
+      certyfikaty = certyfikaty +'<div class="piktogram" title="'+ dane.certyfikaty[x] +'" style="background-image: url(/static/img/zawody/'+ ( parseInt( x ) + 1 ) +'.png)"></div>';
+    
+    for( var x in dane.zagrozenia )
+      zagrozenia = zagrozenia +'<div class="piktogram" title="'+ dane.zagrozenia[x] +'" style="background-image: url(/static/img/zagrozenia/'+ ( parseInt( x ) + 1 ) +'.png)"></div>';
+    
+    for( var x in dane.zawody )
+      zawody = zawody +'<div class="piktogram" title="'+ dane.zawody[x] +'" style="background-image: url(/static/img/zawody/'+ ( parseInt( x ) + 1 ) +'.png)"></div>';
+
       
-    $tresc.children( '.nazwa' ).html( dane.nazwa +' - '+ dane.producent );
-    $tresc.children( '.zdjecie' ).children( 'img' )
-      .attr( 'src', dane.zdjecie ).attr( 'alt', dane.nazwa );
-    $tresc.children( '.opis' ).html( dane.opis );
-    $tresc.children( '.certyfikaty' ).html( dane.certyfikaty );
-    $tresc.children( '.zagrozenia' ).html( dane.zagrozenia );
-    $tresc.children( '.zawody' ).html( dane.zawody );
+    $tresc.children( '.producent' ).html( dane.producent );
+    $tresc.children( '.nazwa' ).html( dane.nazwa );
+    $tresc.find( '.zdjecie > img' ).attr( 'src', dane.zdjecie ).attr( 'alt', dane.nazwa );
+
+    $tabela.find( '.opis > div' ).eq(1).html( dane.opis );
+    $tabela.find( '.kolor > div' ).eq(1).html( dane.kolor );
+    $tabela.find( '.rozmiar > div' ).eq(1).html( dane.rozmiar );
+
+    $tabela.find( '.certyfikaty > div' ).eq(1).html( dane.certyfikaty );
+    $tabela.find( '.zagrozenia > div' ).eq(1).html( zagrozenia );
+    $tabela.find( '.zawody > div' ).eq(1).html( zawody );
+
+    $tabela.children().removeClass( 'wypelniony' );
+
+    $tabela.find( 'div > div:nth-child(2)' ).each(function()
+    {
+      
+      if( $(this).html() != '' )
+        $(this).parent().addClass( 'wypelniony' );
+
+    });
 
     if( plynnosc )
       $produkt.addClass( 'pelny' ).fadeIn(300);

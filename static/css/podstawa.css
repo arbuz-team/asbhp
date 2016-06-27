@@ -200,21 +200,46 @@ ul
 {
   position: relative;
 
-  margin: 60px auto !important;
-  padding: 10px 15px;
+  margin: 40px auto !important;
+  padding: 0 !important;
 
   color: #333;
-  background-color: rgba( 256, 256, 256, 1 );
+  background-color: #fff;
+  box-shadow: 1px 1px 3px 1px #999;
+  border-radius: 3px;
+
+  overflow: hidden;
 
   z-index: 103;
 }
 
 
 
+#PRODUKT .producent
+{
+  padding: 0px 15px;
+  padding-top: 5px;
+
+  line-height: 26px;
+  font-size: 16px;
+
+  color: #ddd;
+  background-color: #333;
+}
+
+
+
 #PRODUKT .nazwa
 {
+  padding: 0px 15px;
+  padding-bottom: 10px;
+
+  line-height: 26px;
   font-weight: bold;
-  margin-bottom: 10px;
+  font-size: 24px;
+
+  color: #ddd;
+  background-color: #333;
 }
 
 
@@ -222,6 +247,10 @@ ul
 #PRODUKT .zdjecie
 {
   margin: 10px 30px;
+
+  border-radius: 3px;
+
+  overflow: hidden;
 }
 
 
@@ -233,26 +262,70 @@ ul
 
 
 
-#PRODUKT .opis
+#PRODUKT .kreska
 {
+  width: 100%;
+  height: 30px;
+  background-color: #e9ebee;
 }
 
 
 
-#PRODUKT .certyfikaty
+#PRODUKT .tabela
+, #PRODUKT .tabela > div
 {
+  position: relative;
+  width: 100%;
 }
 
 
 
-#PRODUKT .zagrozenia
+#PRODUKT .tabela > div
 {
+  display: none;
 }
 
 
 
-#PRODUKT .zawody
+#PRODUKT .tabela > div > div
 {
+  margin-left: 215px;
+  padding: 10px 15px;
+}
+
+
+
+#PRODUKT .tabela > div > div:first-child
+{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+
+  width: 185px;
+
+  margin-left: 0;
+
+  color: #333;
+  background-color: #fff;
+}
+
+
+
+#PRODUKT .tabela > .wypelniony
+{
+  display: block;
+}
+
+
+
+#PRODUKT .tabela .piktogram
+{
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  margin: 5px 10px;
+  margin-top: 0;
 }
 
 

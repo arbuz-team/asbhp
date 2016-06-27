@@ -59,7 +59,7 @@
             , rozbij = sciezka.split( '/' );
 
           if( sciezka != '' && rozbij[1] == 'produkt' 
-              && Number.isInteger( rozbij[2] ) )
+              && {{ request.session.wyswietl_szczegoly_produktu }} == true )
             ruch.pokaz_produkt( sciezka, false );
           else
             zmiana.ukryj_ladowanie();
