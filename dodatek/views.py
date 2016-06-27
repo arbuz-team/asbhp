@@ -84,6 +84,12 @@ def Sprawdz_Sesje(request, meta_tag=True):
     else: # opcja dla zakładek do edycji
         request.session['meta_tag'] = None
 
+        # informuje skrypt JS, aby wyświetlił szczegóły
+    request.session['wyswietl_szczegoly_produktu'] = False
+    if request.path.split('/')[1] == 'produkt':
+        if request.path.split('/')[2].isdigit():
+            request.session['wyswietl_szczegoly_produktu'] = True
+
 
 
 
