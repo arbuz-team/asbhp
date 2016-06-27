@@ -205,8 +205,6 @@ $(window).resize(function(){
 
 });
 
-if( location.pathname.split('/')[1] != 'produkt' )
-  zmiana.ukryj_ladowanie();
 
 
 

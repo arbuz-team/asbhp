@@ -15,7 +15,7 @@ var wyslij = (function()
   function _numer_filtra( numer )
   {
 
-    $.get( DOMENA +'/oferta/f_'+ numer +'/');
+    //$.get( DOMENA +'/oferta/f_'+ numer +'/');
 
   }
 
@@ -206,18 +206,17 @@ var zmiana = (function()
   function _przelacznik_zakladek( element, numer )
   {
 
-    var $filtry = $(element);
-    var $lista = $filtry.children( '.lista' );
-    var $zakladki = $filtry.children( '.zakladka' );
+    var $filtry = $(element)
+      , $lista = $filtry.children( '.lista' )
+      , $zakladki = $filtry.children( '.zakladka' )
 
     $lista.children( '.wybrana' ).removeClass( 'wybrana' );
     $lista.children( '[data-numer="'+ numer +'"]' ).addClass( 'wybrana' );
     
-    $filtry.children( '.zakladka.wybrana' ).removeClass( 'wybrana' ).fadeOut(200, 
-      function() 
-      {
-        $filtry.children( '.zakladka_' + numer ).fadeIn(200).addClass( 'wybrana' );
-      });
+    $filtry.children( '.zakladka.wybrana' ).removeClass( 'wybrana' ).fadeOut(200, function() 
+    {
+      $filtry.children( '.zakladka_' + numer ).fadeIn(200).addClass( 'wybrana' );
+    });
 
   }
 
@@ -229,9 +228,9 @@ var zmiana = (function()
     var $produkt = $( '#PRODUKT' )
       , $tresc = $produkt.children( '.tresc' ).children( ':first-child' )
       
-    $tresc.children( '.nazwa' ).html( dane.nazwa );
+    $tresc.children( '.nazwa' ).html( dane.nazwa +' - '+ dane.producent );
     $tresc.children( '.zdjecie' ).children( 'img' )
-      .attr( 'src', dane.zdjecie );//.attr( '', '');
+      .attr( 'src', dane.zdjecie ).attr( 'alt', dane.nazwa );
     $tresc.children( '.opis' ).html( dane.opis );
     $tresc.children( '.certyfikaty' ).html( dane.certyfikaty );
     $tresc.children( '.zagrozenia' ).html( dane.zagrozenia );

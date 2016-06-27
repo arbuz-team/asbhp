@@ -44,7 +44,7 @@
       ,function()
       {
         
-        console.log('Wczytano skrypt');
+        console.log('Wczytano skrypty');
 
 /****************************************************************/
 
@@ -55,10 +55,14 @@
         (function()
         {
 
-          var sciezka = location.pathname;
+          var sciezka = location.pathname
+            , rozbij = sciezka.split( '/' );
 
-          if( sciezka != '' && sciezka.split( '/' )[1] == 'produkt' )
+          if( sciezka != '' && rozbij[1] == 'produkt' 
+              && Number.isInteger( rozbij[2] ) )
             ruch.pokaz_produkt( sciezka, false );
+          else
+            zmiana.ukryj_ladowanie();
 
         }());
 
