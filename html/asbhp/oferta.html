@@ -308,12 +308,30 @@
           </li>
 
         {% endfor %}
+
+          <li class="numery_stron">
+
+                <span class="link wybrana" data-href="/oferta/1/">1</span>
+                <span class="kropki">...</span>
+
+              {% for s in numery_stron %}
+                <span class="link" data-href="/oferta/{{ s }}/">{{ s }}</span>
+              {% endfor %}
+                
+                <span class="kropki">...</span>
+                <span class="link" data-href="/oferta/3/">3</span>
+
+          </li>
     
       </ul>
     
+
+
     </div>
 
   </div>
+
+
 
 </div>
 

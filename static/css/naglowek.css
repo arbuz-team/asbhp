@@ -12,8 +12,8 @@
 
   overflow: visible !important;
 
-/*  background-color: #fff;
-*/
+  background-color: #fff;
+
   z-index: 37 !important;
 }
 
@@ -113,7 +113,7 @@
 #NAGLOWEK > div > .guzik_menu
 {
   float: right;
-  display: block-inline;
+  display: inline-block;
 
   position: relative;
   top: -30px;
@@ -127,7 +127,7 @@
   margin-top: 50px;
 
 
-  background-image: url( '../img/menu.png' );
+  background-image: url( '../img/menu_b64.png' );
   background-size: 100% 100%;
   background-position: center bottom;
   background-repeat: no-repeat;
@@ -138,13 +138,6 @@
 #NAGLOWEK > div > .menu
 {
   display: none;
-}
-
-
-
-#NAGLOWEK > div > .guzik_menu
-{
-  display: inline-block;
 }
 
 
