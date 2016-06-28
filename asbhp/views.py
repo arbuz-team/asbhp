@@ -30,7 +30,7 @@ def Wyswietl_O_Firmie(request):
 
 
 
-def Wyswietl_Oferta(request, wybrany_strona=None, wybrany_filtr=None):
+def Wyswietl_Oferta(request, wybrana_strona=None, wybrany_filtr=None):
 
     Sprawdz_Sesje(request, False)
 
@@ -44,7 +44,11 @@ def Wyswietl_Oferta(request, wybrany_strona=None, wybrany_filtr=None):
 
         # pobieranie listy produktów
     wynik = Pobierz_Listy_Produktow(request, produkt)
-    produkt = wynik[(int(wybrany_strona) - 1) if wybrany_strona else 0]
+    liczba_stron = len(wynik)
+    wybrana_strona = int(wybrana_strona) if wybrana_strona else 1
+
+    numery_stron = Pobierz_Liste_Numerow_Stron(liczba_stron, wybrana_strona)
+    produkt = wynik[wybrana_strona - 1]
 
         # wybrany filtr = liczba (format: f_<liczba>)
     if wybrany_filtr:
@@ -61,7 +65,7 @@ def Wyswietl_Oferta(request, wybrany_strona=None, wybrany_filtr=None):
     wybrany =   {'typ':                 request.session['wybrany_typ'],
                  'dziedzina':           request.session['wybrany_dziedzina'],
                  'rodzaj':              request.session['wybrany_rodzaj'],
-                 'strona':              wybrany_strona,
+                 'strona':              wybrana_strona,
                  'filtr':               request.session['wybrany_filtr']}
 
     filtr =     {'wyszukiwarka':        request.session['wyszukiwarka'],
@@ -74,7 +78,7 @@ def Wyswietl_Oferta(request, wybrany_strona=None, wybrany_filtr=None):
     return render(request, 'asbhp/oferta.html',
                             {'css_menu':            css_menu,
                              'produkt':             produkt,
-                             'numery_stron':        range(1, len(wynik) + 1),
+                             'numery_stron':        numery_stron,
                              'kontener':            kontener,
                              'wybrany':             wybrany,
                              'filtr':               filtr})
