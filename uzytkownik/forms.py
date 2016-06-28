@@ -7,27 +7,33 @@ from models import *
 
 class Formularz_Logowania(forms.Form):
 
-    login = forms.CharField(
+    login = forms.CharField\
+    (
         widget=forms.TextInput(attrs={'placeholder': 'Login'}),
         error_messages={'required': 'Wpisz login.'}
     )
 
-    haslo = forms.CharField(
+    haslo = forms.CharField\
+    (
         widget=forms.PasswordInput(attrs={'placeholder': 'Hasło'}),
         error_messages = {'required': 'Wpisz hasło.'}
     )
 
+
     def clean_login(self):
         login = self.cleaned_data['login']
+
         if not Uzytkownicy.objects.filter(login=login):
-            raise forms.ValidationError('Użytkownik o podanym loginie'
-                                        'nie istnieje.')
+            raise forms.ValidationError('Użytkownik o podanym '
+                                        'loginie nie istnieje.')
         return login
+
 
     def clean_haslo(self):
         login = self.cleaned_data['login']
         haslo = self.cleaned_data['haslo']
         uzytkownik = Uzytkownicy.objects.get(login=login)
+
         if uzytkownik.haslo != Szyfruj(haslo):
             raise forms.ValidationError('Błędne hasło. '
                                         'Spróbuj jeszcze raz.')
@@ -38,19 +44,26 @@ class Formularz_Logowania(forms.Form):
 
 class Formularz_Rejestracji(forms.ModelForm):
 
+
     def clean_haslo(self):
         return Szyfruj(self.cleaned_data['haslo'])
+
 
     class Meta:
         model = Uzytkownicy
         fields = ('login', 'haslo')
 
-        widgets = {
-            'login': forms.TextInput(attrs={'placeholder': 'Login'}),
-            'haslo': forms.PasswordInput(attrs={'placeholder': 'Hasło'}),
+        widgets = \
+        {
+            'login': forms.TextInput(
+                attrs={'placeholder': 'Login'}),
+
+            'haslo': forms.PasswordInput(
+                attrs={'placeholder': 'Hasło'}),
         }
 
-        error_messages = {
+        error_messages = \
+        {
             'login': {'required': 'Wpisz login.'},
             'haslo': {'required': 'Wpisz hasło'},
         }

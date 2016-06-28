@@ -140,19 +140,6 @@ class Produkt(models.Model):
 
 
 
-class Dodatek(models.Model):
-
-    numer = models.IntegerField()
-    opis = models.TextField()
-    rodzaj = models.ForeignKey(Rodzaj_Odziezy, on_delete=models.CASCADE)
-    producent = models.ForeignKey(Producent, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.opis.encode('utf8')
-
-
-
-
 ################## Promowanie ##################
 
 class Polecane(models.Model):

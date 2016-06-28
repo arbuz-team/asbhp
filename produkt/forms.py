@@ -8,8 +8,13 @@ import imghdr
 
 class Formularz_Produktu(forms.ModelForm):
 
-    zewnetrzny_url = forms.CharField(required=False,
-        widget=forms.TextInput(attrs={'placeholder': 'Wklej adres url zdjęcia'}))
+    zewnetrzny_url = forms.CharField\
+    (
+        required=False,
+        widget=forms.TextInput(attrs={'placeholder':
+                                'Wklej adres url zdjęcia'})
+    )
+
 
     def __init__(self, *args, **kwargs):
         super(Formularz_Produktu, self).__init__(*args, **kwargs)
@@ -18,39 +23,51 @@ class Formularz_Produktu(forms.ModelForm):
         self.fields['kolor'].empty_label = 'Wybierz kolor...'
         self.fields['rodzaj'].empty_label = 'Wybierz rodzaj odzieży...'
 
+
     def clean_zewnetrzny_url(self):
         zewnetrzny_url = self.cleaned_data['zewnetrzny_url']
+
         if zewnetrzny_url:
-            plik = cStringIO.StringIO(urllib.urlopen(zewnetrzny_url).read())
+            plik = cStringIO.StringIO(
+                urllib.urlopen(zewnetrzny_url).read())
+
             if not imghdr.what(plik):
-                raise forms.ValidationError('To przecież nie jest obrazek!')
+                raise forms.ValidationError(
+                    'To przecież nie jest obrazek!')
 
         return zewnetrzny_url
 
+
     class Meta:
+
         model = Produkt
         fields = ('nazwa', 'opis', 'slowa_kluczowe', 'rozmiar',
                   'producent', 'kolor', 'rodzaj', 'certyfikaty',
                   'zagrozenia', 'zawody', 'zdjecie', 'zewnetrzny_url')
 
-        widgets = {
-            'nazwa':    forms.TextInput(attrs={'placeholder': 'Wpisz nazwę'}),
-            'rozmiar': forms.TextInput(attrs={'placeholder': 'Wpisz rozmiar'}),
+        widgets = \
+        {
+            'nazwa': forms.TextInput(
+                attrs={'placeholder': 'Wpisz nazwę'}),
 
-            'opis':     forms.Textarea(
-                attrs={'placeholder': 'Wpisz opis','rows': 'none', 'cols': 'none'}),
+            'rozmiar': forms.TextInput(
+                attrs={'placeholder': 'Wpisz rozmiar'}),
+
+            'opis': forms.Textarea(
+                attrs={'placeholder': 'Wpisz opis',
+                       'rows': 'none', 'cols': 'none'}),
 
             'slowa_kluczowe': forms.Textarea(
-                attrs={'placeholder': 'Wpisz opis', 'rows': 'none', 'cols': 'none'}),
+                attrs={'placeholder': 'Wpisz opis',
+                       'rows': 'none', 'cols': 'none'}),
         }
 
-        error_messages = {
-            'nazwa': {'required': 'Co to za produkt, bez nazwy...'},
-            'opis': {'required': 'Ludzie chcą wiedzieć, co kupują.'},
-            'producent': {'required': 'Minimum, potrzebne do filtrowania.'},
-            'kolor': {'required': 'Minimum, potrzebne do filtrowania.'},
-            'rodzaj': {'required': 'Minimum, potrzebne do filtrowania.'},
-            'zdjecie': {'invalid_image': 'To przecież nie jest obrazek!'}
+        error_messages = \
+        {
+            'producent':    {'required': 'Minimum, potrzebne do filtrowania.'},
+            'kolor':        {'required': 'Minimum, potrzebne do filtrowania.'},
+            'rodzaj':       {'required': 'Minimum, potrzebne do filtrowania.'},
+            'zdjecie':      {'invalid_image': 'To przecież nie jest obrazek!'}
         }
 
 
@@ -88,20 +105,6 @@ class Formularz_Certyfikat(forms.ModelForm):
     class Meta:
         model = Certyfikat
         fields = ('numer', 'szczegoly')
-
-
-
-
-class Formularz_Dodatek(forms.ModelForm):
-
-    class Meta:
-        model = Dodatek
-        fields = ('opis', 'rodzaj', 'producent')
-
-        widgets = {
-            'opis': forms.Textarea(
-                attrs={'placeholder': 'Wpisz opis', 'rows': 'none', 'cols': 'none'}),
-        }
 
 
 
