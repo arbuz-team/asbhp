@@ -7,8 +7,9 @@
 
 .otoczka_pola
 {
-  min-width: 400px;
+  min-width: 200px;
   width: 600px;
+  max-width: 100%;
   min-height: 36px;
   margin: 5px auto;
 
