@@ -107,6 +107,8 @@ class Formularz_Filtru_Liczba_Produktow(forms.Form):
     (
         choices=
         (
+            (1, 1),
+            (2, 2),
             (4, 4),
             (8, 8),
             (12, 12),
