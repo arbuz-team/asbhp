@@ -84,15 +84,15 @@ def Wyswietl_Oferta(request, wybrany_strona=None, wybrany_filtr=None):
 
 def Wyswietl_Kontakt(request):
     Sprawdz_Sesje(request)
+    Ustaw_Fromularz_Email(request)
     css_menu = {'o_firmie': '', 'oferta': '',
                 'kontakt': 'wybrany', 'edytuj': ''}
 
     kontakt = Zawartosc_Zakladki.objects.get(pk='/kontakt/')
-    formularz = Pobierz_Fromularz_Email(request)
     return render(request, 'asbhp/kontakt.html',
                             {'css_menu':            css_menu,
                              'kontakt':             kontakt,
-                             'formularz':           formularz})
+                             'formularz':           request.session['formularz_poczta']})
 
 
 

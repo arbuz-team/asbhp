@@ -28,8 +28,8 @@
           <form method="post" action="{{ request.session.poczta_url }}">
             {% csrf_token %}
 
-            
             {% if formularz.temat %}
+              {{ formularz.temat.errors }}
               <div class="otoczka_pola">
                 {{ formularz.temat }}
               </div>
@@ -37,30 +37,35 @@
 
 
             {% if formularz.nadawca %}
+              {{ formularz.nadawca.errors }}
               <div class="otoczka_pola">
                 {{ formularz.nadawca }}
               </div>
             {% endif %}
 
             {% if formularz.email %}
+              {{ formularz.email.errors }}
               <div class="otoczka_pola">
                 {{ formularz.email }}
               </div>
             {% endif %}
 
             {% if formularz.produkt %}
+              {{ formularz.produkt.errors }}
               <div class="otoczka_pola">
                 {{ formularz.produkt }}
               </div>
             {% endif %}
 
             {% if formularz.url %}
+              {{ formularz.url.errors }}
               <div class="otoczka_pola">
                 {{ formularz.url }}
               </div>
             {% endif %}
 
             {% if formularz.wiadomosc %}
+              {{ formularz.wiadomosc.errors }}
               <div class="otoczka_pola">
                 {{ formularz.wiadomosc }}
               </div>

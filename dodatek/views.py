@@ -97,6 +97,10 @@ def Sprawdz_Sesje(request, meta_tag=True):
     if 'formularz_kontakt' not in request.session:
         request.session['formularz_kontakt'] = None
 
+        # formularz poczty
+    if 'formularz_poczta' not in request.session:
+        request.session['formularz_poczta'] = None
+
 
 
 
@@ -133,6 +137,7 @@ def Usun_Sesje_Filtrow(request):
 
 def Usun_Sesje_Poczty(request):
     del request.session['wybrany_temat']
+    del request.session['formularz_poczta']
     return redirect('Wyswietl_Kontakt')
 
 
