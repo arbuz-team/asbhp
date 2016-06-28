@@ -114,19 +114,23 @@ def Wyswietl_Edytuj(request):
                                  for p in Polecane.Pobierz_Nieaktywne_Oferty()]}
 
         # edycja zakładek 'o_firmie' 'kontakt'
-    o = Zawartosc_Zakladki.objects.get(pk='/o_firmie/')
-    o_firmie = Formularz_Zawartosc_Zakladki(instance=o)
+    if not request.session['formularz_o_firmie']:
+        o = Zawartosc_Zakladki.objects.get(pk='/o_firmie/')
+        request.session['formularz_o_firmie'] = \
+            Formularz_Zawartosc_Zakladki(instance=o)
 
-    k = Zawartosc_Zakladki.objects.get(pk='/kontakt/')
-    kontakt = Formularz_Zawartosc_Zakladki(instance=k)
+    if not request.session['formularz_kontakt']:
+        k = Zawartosc_Zakladki.objects.get(pk='/kontakt/')
+        request.session['formularz_kontakt'] = \
+            Formularz_Zawartosc_Zakladki(instance=k)
 
     return render(request, 'asbhp/edytuj.html',
                             {'css_menu':            css_menu,
                              'wyszukiwarka':        request.session['wyszukiwarka'],
                              'produkt':             produkt,
                              'polecane':            polecane,
-                             'o_firmie':            o_firmie,
-                             'kontakt':             kontakt})
+                             'o_firmie':            request.session['formularz_o_firmie'],
+                             'kontakt':             request.session['formularz_kontakt']})
 
 
 
@@ -138,10 +142,11 @@ def Edytuj_O_Firmie_Zapisz(request):
 
     if request.method == 'POST':
         o = Zawartosc_Zakladki.objects.get(pk='/o_firmie/')
-        formularz = Formularz_Zawartosc_Zakladki(request.POST, instance=o)
+        request.session['formularz_o_firmie'] = \
+            Formularz_Zawartosc_Zakladki(request.POST, instance=o)
 
-        if formularz.is_valid():
-            formularz.save()
+        if request.session['formularz_o_firmie'].is_valid():
+            request.session['formularz_o_firmie'].save()
 
     return redirect('Wyswietl_Edytuj')
 
@@ -153,9 +158,10 @@ def Edytuj_Kontakt_Zapisz(request):
 
     if request.method == 'POST':
         k = Zawartosc_Zakladki.objects.get(pk='/kontakt/')
-        formularz = Formularz_Zawartosc_Zakladki(request.POST, instance=k)
+        request.session['formularz_kontakt'] = \
+            Formularz_Zawartosc_Zakladki(request.POST, instance=k)
 
-        if formularz.is_valid():
-            formularz.save()
+        if request.session['formularz_kontakt'].is_valid():
+            request.session['formularz_kontakt'].save()
 
     return redirect('Wyswietl_Edytuj')

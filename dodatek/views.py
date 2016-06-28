@@ -90,6 +90,13 @@ def Sprawdz_Sesje(request, meta_tag=True):
         if request.path.split('/')[2].isdigit():
             request.session['wyswietl_szczegoly_produktu'] = 'true'
 
+        # edycja zakładek 'o_firmie' 'kontakt'
+    if 'formularz_o_firmie' not in request.session:
+        request.session['formularz_o_firmie'] = None
+
+    if 'formularz_kontakt' not in request.session:
+        request.session['formularz_kontakt'] = None
+
 
 
 
