@@ -14,3 +14,8 @@ class Formularz_Zawartosc_Zakladki(forms.ModelForm):
             'tekst': forms.Textarea(attrs={'rows': 'none',
                                            'cols': 'none'}),
         }
+
+        error_messages = {
+            'tytul':    {'required': 'Pole nie powinno być puste.'},
+            'tekst':    {'required': 'Pole nie powinno być puste.'}
+        }
