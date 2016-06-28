@@ -314,6 +314,42 @@
 
 
 
+#TRESC.kontakt > .BLOK1 > .tresc > .lewa.kolumna .otoczka_pola.button
+{
+  display: inline-block;
+
+  min-width: 150px !important;
+  max-width: 150px !important;
+}
+  
+
+
+#TRESC.kontakt > .BLOK1 > .tresc > .lewa.kolumna .otoczka_pola.button button
+{
+  min-width: 148px !important;
+  max-width: 148px !important;
+}
+
+
+
+#TRESC.kontakt > .BLOK1 > .tresc > .lewa.kolumna .otoczka_pola.button.szeroki
+{
+  display: inline-block;
+
+  min-width: 300px !important;
+  max-width: 300px !important;
+}
+  
+
+
+#TRESC.kontakt > .BLOK1 > .tresc > .lewa.kolumna .otoczka_pola.button.szeroki button
+{
+  min-width: 298px !important;
+  max-width: 298px !important;
+}
+
+
+
 #TRESC.kontakt > .BLOK1 > .tresc .mapa
 {
   width: 100%;
