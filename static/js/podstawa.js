@@ -173,7 +173,7 @@ $( '.strzalka > .obrazek, .strzalka > .podpis' ).mouseup(function(event)
 
 /********* NAGLOWEK - Dostosowanie wysokosci *********/
 
-$( '#BLOK_GLOWNY' ).scroll(function()
+$( '#BLOK_GLOWNY > div' ).scroll(function()
 {
 
   var top = parseInt( $(this).scrollTop() );

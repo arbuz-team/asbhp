@@ -135,27 +135,29 @@
 
 
 
-@media screen and (max-width: 600px)
+#NAGLOWEK > div > .menu
 {
-
-  #NAGLOWEK > div > .menu
-  {
-    display: none;
-  }
-
-
-
-  #NAGLOWEK > div > .guzik_menu
-  {
-    display: inline-block;
-  }
-
+  display: none;
 }
 
 
 
-@media screen and (min-width: 600px)
+#NAGLOWEK > div > .guzik_menu
 {
+  display: inline-block;
+}
+
+
+
+@media screen and (min-width: 750px)
+{
+
+  #NAGLOWEK > div > .menu
+  {
+    display: inline-block;
+  }
+
+
 
   #NAGLOWEK > div > .guzik_menu
   {
@@ -200,7 +202,7 @@
 
 /***************** MOBILE *****************/
 
-@media screen and (min-width: 600px)
+@media screen and (min-width: 750px)
 {
 
   #NAGLOWEK > div > .menu
@@ -210,7 +212,7 @@
 
 }
 
-@media screen and (min-width: 870px)
+@media screen and (min-width: 1000px)
 {
 
   #NAGLOWEK 
@@ -246,15 +248,15 @@
 
     position: absolute;
     bottom: 10px;
-    left: 120px;
+    left: 110px;
 
     width: 180px;
     height: 100px;
     max-height: 100px;
 
-    background-image: url('../img/ODZIERZ ROBOCZA_S.png');
+    background-image: url('../img/odziez_robocza_b.png');
     background-position: center;
-    background-size: 120px auto;
+    background-size: 130px auto;
     background-repeat: no-repeat;
 
     z-index: 38;
