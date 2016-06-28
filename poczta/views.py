@@ -133,7 +133,9 @@ def Uwagi_WWW(request):
                          '\tUrl:\t\t' + url
 
             Wyslij_Email(request, wiadomosc, email)
-            return redirect('Wyswietl_Email_Wyslany')
+            request.session['potwierdzenie'] = \
+                'Email został wysłany.'
+            return redirect('/komunikat/potwierdzenie/')
 
             # zapisanie formularza do sesji
         request.session['formularz_poczta'] = formularz
@@ -158,7 +160,9 @@ def Inny_Temat(request):
                          '\tEmail:\t\t' + email + '\n'
 
             Wyslij_Email(request, wiadomosc, email)
-            return redirect('Wyswietl_Email_Wyslany')
+            request.session['potwierdzenie'] = \
+                'Email został wysłany.'
+            return redirect('/komunikat/potwierdzenie/')
 
             # zapisanie formularza do sesji
         request.session['formularz_poczta'] = formularz
