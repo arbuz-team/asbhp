@@ -21,25 +21,43 @@ def Wyslij_Email(request, wiadomosc, nadawca_email):
 
 
 
-def Pobierz_Fromularz_Email(request):
+def Ustaw_Fromularz_Email(request):
 
         # Pytanie o dostępność produktu
     if request.session['wybrany_temat'] == '1':
         request.session['poczta_url'] = '/poczta/pytanie_o_produkt/'
-        return Formularz_Pytanie_O_Produkt()
+
+        if not request.session['formularz_poczta']:
+            request.session['formularz_poczta'] = \
+                Formularz_Pytanie_O_Produkt()
+
+        return
 
         # Uwagi dotyczące strony www
     if request.session['wybrany_temat'] == '2':
         request.session['poczta_url'] = '/poczta/uwagi_www/'
-        return Formularz_Uwagi_WWW()
+
+        if not request.session['formularz_poczta']:
+            request.session['formularz_poczta'] = \
+                Formularz_Uwagi_WWW()
+
+        return
 
         # Inny temat
     if request.session['wybrany_temat'] == '3':
         request.session['poczta_url'] = '/poczta/inny_temat/'
-        return Formularz_Inny_Temat()
 
+        if not request.session['formularz_poczta']:
+            request.session['formularz_poczta'] = \
+                Formularz_Inny_Temat()
+
+        return
+
+        # formularz startowy
     request.session['poczta_url'] = '/poczta/wybierz_temat/'
-    return Formularz_Wybierz_Temat()
+    if not request.session['formularz_poczta']:
+        request.session['formularz_poczta'] = \
+            Formularz_Wybierz_Temat()
 
 
 
@@ -63,6 +81,7 @@ def Wybierz_Temat(request):
             request.session['wybrany_temat'] = \
                 formularz.cleaned_data['temat']
 
+    del request.session['formularz_poczta']
     return redirect('Wyswietl_Kontakt')
 
 
@@ -89,6 +108,9 @@ def Pytanie_O_Produkt(request):
                 'Email został wysłany.'
             return redirect('/komunikat/potwierdzenie/')
 
+            # zapisanie formularza do sesji
+        request.session['formularz_poczta'] = formularz
+
     return redirect('Wyswietl_Kontakt')
 
 
@@ -113,6 +135,9 @@ def Uwagi_WWW(request):
             Wyslij_Email(request, wiadomosc, email)
             return redirect('Wyswietl_Email_Wyslany')
 
+            # zapisanie formularza do sesji
+        request.session['formularz_poczta'] = formularz
+
     return redirect('Wyswietl_Kontakt')
 
 
@@ -134,5 +159,8 @@ def Inny_Temat(request):
 
             Wyslij_Email(request, wiadomosc, email)
             return redirect('Wyswietl_Email_Wyslany')
+
+            # zapisanie formularza do sesji
+        request.session['formularz_poczta'] = formularz
 
     return redirect('Wyswietl_Kontakt')
