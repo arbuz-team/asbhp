@@ -145,8 +145,6 @@ ul
 {
   display: none;
 
-  padding-right: 15px;
-
   z-index: 3;
 }
 
@@ -525,78 +523,6 @@ ul
 
 .nano > .nano-content
 {
-  position: absolute;
-  overflow: scroll;
+  overflow: auto;
   overflow-x: hidden;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
 }
-
-
-
-.nano > .nano-content:focus
-{
-  outline: thin dotted;
-}
-
-
-
-.nano > .nano-content::-webkit-scrollbar
-{
-  display: none;
-}
-
-
-
-.has-scrollbar > .nano-content::-webkit-scrollbar
-{
-  display: block;
-}
-
-
-
-.nano > .nano-pane
-{
-  background            : rgba(160, 160, 160, 1);
-  position              : absolute;
-  width                 : 15px;
-  right                 : 0;
-  top                   : 0;
-  bottom                : 0;
-/*
-  visibility            : hidden\9; /* Target only IE7 and IE8 with this hack /
-  opacity               : 0.01;
-*/
-  -webkit-transition    : .2s;
-  -moz-transition       : .2s;
-  -o-transition         : .2s;
-  transition            : .2s;
-
-  z-index: 50;
-}
-
-
-
-.nano > .nano-pane > .nano-slider
-{
-  background            : #444;
-  background            : rgba(0,0,0,.6);
-  position              : relative;
-  margin                : 0 1px;
-  -moz-border-radius    : 2px;
-  -webkit-border-radius : 2px;
-  border-radius         : 2px;
-
-  z-index: 51;
-}
-
-
-/*
-.nano:hover > .nano-pane, .nano-pane.active, .nano-pane.flashed
-{
-  visibility            : visible\9; /* Target only IE7 and IE8 with this hack /
-  opacity               : 0.99;
-}
-*/

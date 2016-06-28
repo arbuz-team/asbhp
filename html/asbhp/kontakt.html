@@ -48,12 +48,6 @@
               </div>
             {% endif %}
 
-            {% if formularz.wiadomosc %}
-              <div class="otoczka_pola">
-                {{ formularz.wiadomosc }}
-              </div>
-            {% endif %}
-
             {% if formularz.produkt %}
               <div class="otoczka_pola">
                 {{ formularz.produkt }}
@@ -63,6 +57,12 @@
             {% if formularz.url %}
               <div class="otoczka_pola">
                 {{ formularz.url }}
+              </div>
+            {% endif %}
+
+            {% if formularz.wiadomosc %}
+              <div class="otoczka_pola">
+                {{ formularz.wiadomosc }}
               </div>
             {% endif %}
 
