@@ -527,7 +527,7 @@
 
 
 
-#TRESC div.lista_produktow > ul > li.komentarz > div
+#TRESC div.lista_produktow > ul > .komentarz > div
 {
   position: relative;
 
@@ -542,7 +542,7 @@
 
 
 
-#TRESC div.lista_produktow > ul > li > .nazwa
+#TRESC div.lista_produktow > ul > .produkt > .nazwa
 {
   position: absolute;
   left: 10px;
@@ -556,7 +556,7 @@
 
 
 
-#TRESC div.lista_produktow > ul > li > .obrazek
+#TRESC div.lista_produktow > ul > .produkt > .obrazek
 {
   position: absolute;
   left: 10px;
@@ -573,7 +573,7 @@
 
 
 
-#TRESC div.lista_produktow > ul > li > .opis
+#TRESC div.lista_produktow > ul > .produkt > .opis
 {
   position: relative;
   left: 270px;
@@ -588,7 +588,7 @@
 
 
 
-#TRESC div.lista_produktow > ul > li > .przeznaczenie
+#TRESC div.lista_produktow > ul > .produkt > .przeznaczenie
 {
   position: absolute;
   right: 0px;
@@ -601,7 +601,7 @@
 
 
 
-#TRESC div.lista_produktow > ul > li > .zagrozenia
+#TRESC div.lista_produktow > ul > .produkt > .zagrozenia
 {
   position: absolute;
   right: 0px;
@@ -610,6 +610,43 @@
   width: 200px;
   height: 50px;
   overflow: hidden;
+}
+
+
+
+#TRESC div.lista_produktow > ul > .numery_stron
+{
+  height: 50px;
+  padding: 5px 0px;
+
+  text-align: center;
+  background: none;
+}
+
+
+
+#TRESC div.lista_produktow > ul > .numery_stron > span
+{
+  height: 40px;
+
+  padding: 5px 15px;
+}
+
+
+
+#TRESC div.lista_produktow > ul > .numery_stron > .kropki
+{
+  padding: 5px 5px;
+}
+
+
+
+#TRESC div.lista_produktow > ul > .numery_stron > .link.wybrana
+, #TRESC div.lista_produktow > ul > .numery_stron > .link:hover
+{
+  color: #ddd;
+  background-color: rgba(30, 29, 28, 1);
+  border-radius: 5px;
 }
 
 

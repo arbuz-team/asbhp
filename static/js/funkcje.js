@@ -272,7 +272,7 @@ var zmiana = (function()
     var $menu = $( '#MENU' );
 
     $menu.children( '.nakladka' ).fadeOut(100);
-    $menu.animate({ right : '-300px' }, 200);
+    $menu.animate({ right : '-250px' }, 200);
   }
 
 
