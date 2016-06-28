@@ -3,26 +3,25 @@
 "use strict"; 
 
 
-autosize( $( 'textarea' ) );
-
-autosize.update( $( 'textarea' ));
 
 
-
-// rozmiary tapety
+// rozmiary tapety */
 
 (function()
 {
   var adres_tapety = $( '#TRESC > .BLOK1 > .tlo' ).css( 'background-image' );
 
-  adres_tapety = adres_tapety.replace( 'url("', '' ).replace( '")', '' );
+  if( adres_tapety != 'none' )
+  {
+    adres_tapety = adres_tapety.replace( 'url("', '' ).replace( '")', '' );
 
-  pobierz.wymiary_grafiki(adres_tapety);
+    pobierz.wymiary_grafiki(adres_tapety);
+  }
 }());
 
 
 
-// Wybierz filtr
+// Wybierz filtr */
 
 (function()
 {
@@ -163,5 +162,15 @@ $( '#BLOK_GLOWNY > div' ).scroll(function()
 
 /****************************************************************************/
 
+$(window).resize(function()
+{
+  dostosuj.wysokosc_strony();
+  dostosuj.strone_do_scrollbara();
+
+  var szerokosc_strony = parseInt( $(window).width() ); 
+
+  if( szerokosc_strony < 870 )
+    zmiana.zmniejsz_naglowek();
+});
 
 

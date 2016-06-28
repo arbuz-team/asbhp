@@ -283,19 +283,10 @@ var zmiana = (function()
 
     $body.fadeIn(300);
 
+    autosize( $( 'textarea' ) );
+    autosize.update( $( 'textarea' ));
     dostosuj.wysokosc_strony();
     dostosuj.strone_do_scrollbara();
-
-    $(window).resize(function()
-    {
-      dostosuj.wysokosc_strony();
-      dostosuj.strone_do_scrollbara();
-
-      var szerokosc_strony = parseInt( $(window).width() ); 
-
-      if( szerokosc_strony < 870 )
-        zmiana.zmniejsz_naglowek();
-    });
   }
 
 
@@ -357,7 +348,7 @@ var dostosuj = (function()
     var wysokosci = pobierz.zmienne_wysokosc()
       , strona = wysokosci.strona
       , tresc = wysokosci.naglowek + wysokosci.tresc + wysokosci.stopka
-      , margin = parseInt( $( '#NAGLOWEK > div' ).css( 'right' ) )
+      , right = parseInt( $( '#NAGLOWEK > div' ).css( 'right' ) )
 
     if( strona < tresc && right == 0 )
       $( '#NAGLOWEK > div' ).css( 'right', '15px' );
