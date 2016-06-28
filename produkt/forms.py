@@ -73,15 +73,6 @@ class Formularz_Produktu(forms.ModelForm):
 
 
 
-class Formularz_Promowania(forms.ModelForm):
-
-    class Meta:
-        model = Polecane
-        fields = ('produkt', 'data_zakonczenia')
-
-
-
-
 class Formularz_Producent(forms.ModelForm):
 
     class Meta:
