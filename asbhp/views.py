@@ -44,7 +44,7 @@ def Wyswietl_Oferta(request, wybrany_strona=None, wybrany_filtr=None):
 
         # pobieranie listy produktów
     wynik = Pobierz_Listy_Produktow(request, produkt)
-    produkt = wynik[int(wybrany_strona) if wybrany_strona else 0]
+    produkt = wynik[(int(wybrany_strona) - 1) if wybrany_strona else 0]
 
         # wybrany filtr = liczba (format: f_<liczba>)
     if wybrany_filtr:
