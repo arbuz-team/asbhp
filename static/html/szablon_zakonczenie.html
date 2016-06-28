@@ -34,38 +34,24 @@
         add(0);
       }
 
-      addScripts([
+      
+
+      window.onload = addScripts([
         'http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'
-        ,'{% static 'js/dodatki/jquery.nanoscroller.js' %}'
         ,'{% static 'js/dodatki/autosize-master/dist/autosize.js' %}'
         ,'{% static 'js/funkcje.js' %}'
         ,'{% static 'js/podstawa.js' %}'
         ]
-      ,function()
+      , function()
       {
-        
-        console.log('Wczytano skrypty');
+        var sciezka = location.pathname
+          , rozbij = sciezka.split( '/' );
 
-/****************************************************************/
-
-        $( '#BLOK_GLOWNY' ).nanoScroller();
-
-  
-
-        (function()
-        {
-
-          var sciezka = location.pathname
-            , rozbij = sciezka.split( '/' );
-
-          if( sciezka != '' && rozbij[1] == 'produkt' 
-              && {{ request.session.wyswietl_szczegoly_produktu }} == true )
-            ruch.pokaz_produkt( sciezka, false );
-          else
-            zmiana.ukryj_ladowanie();
-
-        }());
-
+        if( sciezka != '' && rozbij[1] == 'produkt' 
+            && {{ request.session.wyswietl_szczegoly_produktu }} == true )
+          ruch.pokaz_produkt( sciezka, false );
+        else
+          zmiana.ukryj_ladowanie();
       });
 
     </script>

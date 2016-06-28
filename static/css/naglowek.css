@@ -12,8 +12,8 @@
 
   overflow: visible !important;
 
-  background-color: #fff;
-
+/*  background-color: #fff;
+*/
   z-index: 37 !important;
 }
 
@@ -23,7 +23,7 @@
 {
   position: fixed;
   left: 0px;
-  right: 0px;
+  right: 15px;
   top: 0px;
 
   height: 70px;

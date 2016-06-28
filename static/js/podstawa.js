@@ -3,12 +3,9 @@
 "use strict"; 
 
 
-
 autosize( $( 'textarea' ) );
 
 autosize.update( $( 'textarea' ));
-
-$( '#BLOK_GLOWNY' ).nanoScroller();
 
 
 
@@ -16,13 +13,11 @@ $( '#BLOK_GLOWNY' ).nanoScroller();
 
 (function()
 {
-
   var adres_tapety = $( '#TRESC > .BLOK1 > .tlo' ).css( 'background-image' );
 
   adres_tapety = adres_tapety.replace( 'url("', '' ).replace( '")', '' );
 
   pobierz.wymiary_grafiki(adres_tapety);
-
 }());
 
 
@@ -31,7 +26,6 @@ $( '#BLOK_GLOWNY' ).nanoScroller();
 
 (function()
 {
-
   var numer_filtra = parseInt( $( '#FILTRY .lista > span' ).html() );
 
   if( numer_filtra )
@@ -40,9 +34,7 @@ $( '#BLOK_GLOWNY' ).nanoScroller();
 
     $( '#FILTRY .zakladka_'+ numer_filtra +' .focus' ).focus();
   }
-
 }());
-
 
 
 
@@ -54,16 +46,12 @@ window.onpopstate = function(event) {
 
 
 
-
 /********* Wysuwane MENU *********/
 
 $( '.guzik_menu' ).click(function ()
 {
-
     zmiana.pokaz_menu();
-
 });
-
 
 
 
@@ -71,7 +59,6 @@ $( '.guzik_menu' ).click(function ()
 
 $( '.link' ).mouseup(function (event)
 {
-
   var adres = $(this).data( 'href' );
   var domena = $(this).data( 'domena' );
 
@@ -82,37 +69,34 @@ $( '.link' ).mouseup(function (event)
 
   else if( guzik == 2 )
     ruch.otworz_w_nowej_karcie( domena, adres );
-
 });
+
 
 
 /********* SELECT LINK *********/
 
 $( '.link_select > select' ).change(function () 
 {
-
   ruch.przekieruj_do( $(this).children( ':selected' ).data( 'domena' ), $(this).val() );
-
 });
+
 
 
 /********* SELECT POST *********/
 
 $( '.post_select > select' ).change(function () 
 {
-
   ruch.post_i_odswiez( $(this).parent().data( 'href' ), 
     { csrfmiddlewaretoken : $(this).parent().children( 'input[name=csrfmiddlewaretoken]' ).val(), 
       zawartosc : $(this).val() } );
-
 });
+
 
 
 /********* Pokazywanie produktu *********/
 
 $( '.lista_produktow > ul > li.produkt' ).click(function (event)
 {
-
   var adres = $(this).data( 'href' );
   var guzik = pobierz.ktory_guzik(event);
 
@@ -121,7 +105,6 @@ $( '.lista_produktow > ul > li.produkt' ).click(function (event)
 
   else if( guzik == 2 )
     window.open( adres, '_blank' );
-
 });
 
 
@@ -130,15 +113,11 @@ $( '.lista_produktow > ul > li.produkt' ).click(function (event)
 
 $( '#PRODUKT > .tresc' ).click(function(event)
 {
-
   var guzik = pobierz.ktory_guzik(event);
 
   if( guzik == 1 || guzik == 2 )
     ruch.ukryj_produkt();
-
 });
-
-
 
 $( '#PRODUKT > .tresc *' ).click(function(event)
 {
@@ -149,13 +128,11 @@ $( '#PRODUKT > .tresc *' ).click(function(event)
 
 /********* FILTRY - ZAKŁADKI *********/
 
-$( '.filtry > .lista > div' ).not( '.link' ).click(function () 
+$( '.filtry > .lista > div' ).not( '.link' ).click(function()
 {
-
   zmiana.przelacznik_zakladek( '#' + $(this).parent().parent().attr( 'id' ), $(this).data( 'numer' ) );
 
   wyslij.numer_filtra( $(this).data( 'numer' ) );
-
 });
 
 
@@ -164,9 +141,7 @@ $( '.filtry > .lista > div' ).not( '.link' ).click(function ()
 
 $( '.strzalka > .obrazek, .strzalka > .podpis' ).mouseup(function(event)
 {
-
   ruch.pozycja_scrollbara( $(this).parent().data( 'href' ) );
-
 });
 
 
@@ -175,7 +150,6 @@ $( '.strzalka > .obrazek, .strzalka > .podpis' ).mouseup(function(event)
 
 $( '#BLOK_GLOWNY > div' ).scroll(function()
 {
-
   var top = parseInt( $(this).scrollTop() );
 
   if( top > 30 )
@@ -183,28 +157,11 @@ $( '#BLOK_GLOWNY > div' ).scroll(function()
 
   else
     zmiana.zwieksz_naglowek();
-
 });
 
 
 
 /****************************************************************************/
-
-var szerokosc_scrollbara = $( '#BLOK_GLOWNY' ).css( 'padding-right' ); 
-
-dostosuj.wysokosc_strony();
-
-$(window).resize(function(){
-
-  dostosuj.wysokosc_strony();
-
-  var szerokosc_strony = parseInt( $(window).width() ); 
-
-  if( szerokosc_strony < 870 )
-    zmiana.zmniejsz_naglowek();
-
-});
-
 
 
 
