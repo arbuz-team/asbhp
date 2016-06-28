@@ -235,17 +235,17 @@
 
         <div class="zakladka zakladka_6" style="display: none;">
 
-          <form method="POST" action="/wyszukiwarka/liczba_produktow/">{% csrf_token %}
+          <div class="otoczka_pola select">
 
-            <div class="otoczka_pola">
+            <form method="POST" action="/wyszukiwarka/liczba_produktow/">{% csrf_token %}
 
               {{ filtr.liczba_produktow.liczba }}
 
-            </div>
-
-            <button type="submit">Ustaw</button>
+              <button type="submit">Ustaw</button>
               
-          </form>
+            </form>
+
+          </div>
 
           <div class="komunikaty">
           </div>
@@ -269,6 +269,21 @@
   
       <ul>
 
+        {% if numery_stron %}
+          <li class="numery_stron">
+            {% for s in numery_stron %}
+              {% if s == 0 %}
+                <span class="kropki">...</span>
+
+              {% elif s == wybrany.strona %}
+                <span class="link wybrana" data-href="/oferta/{{ s }}/">{{ s }}</span>
+              {% else %}
+                <span class="link" data-href="/oferta/{{ s }}/">{{ s }}</span>
+              {% endif %}
+            {% endfor %}
+          </li>
+        {% endif %}
+
         {% if not produkt %}
           <li class="komentarz">
           
@@ -278,29 +293,26 @@
         {% endif %}
 
 
-
         {% for p in produkt %}
 
           <li class="produkt" data-href="/produkt/{{ p.id }}/" data-nazwa="{{ p.nazwa }}">
           
-            <div class="nazwa">{{ p.nazwa }}</div>
-          
             <div class="obrazek" style="background-image: url({{ p.zdjecie }});"></div>
+          
+            <div class="nazwa">{{ p.nazwa }}</div>
 
-            <div class="opis">{{ p.opis }}</div>
-
-            <div class="przeznaczenie">
+            <div class="zawody">
             
-              {% for zawod in p.zawody.all %}
-                <div class="zawod.id"></div>
+              {% for z in p.zawody.all %}
+                <div class="piktogram" style="background-image: url( '/static/img/zawody/{{ z.id }}.png' )"></div>
               {% endfor %}
             
             </div>
 
             <div class="zagrozenia">
             
-              {% for zagrozenie in p.zagrozenia.all %}
-                <div css="zagrozenie.id"></div>
+              {% for z in p.zagrozenia.all %}
+                <div class="piktogram" style="background-image: url( '/static/img/zagrozenia/{{ z.id }}.png' )"></div>
               {% endfor %}
             
             </div>
@@ -309,19 +321,20 @@
 
         {% endfor %}
 
+        {% if numery_stron %}
           <li class="numery_stron">
-
-                <span class="link wybrana" data-href="/oferta/1/">1</span>
-                <span class="kropki">...</span>
-
               {% for s in numery_stron %}
-                <span class="link" data-href="/oferta/{{ s }}/">{{ s }}</span>
-              {% endfor %}
-                
-                <span class="kropki">...</span>
-                <span class="link" data-href="/oferta/3/">3</span>
+                {% if s == 0 %}
+                  <span class="kropki">...</span>
 
+                {% elif s == wybrany.strona %}
+                  <span class="link wybrana" data-href="/oferta/{{ s }}/">{{ s }}</span>
+                {% else %}
+                  <span class="link" data-href="/oferta/{{ s }}/">{{ s }}</span>
+                {% endif %}
+              {% endfor %}
           </li>
+        {% endif %}
     
       </ul>
     
