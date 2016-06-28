@@ -131,6 +131,13 @@ def Usun_Sesje_Filtrow(request):
 
 
 
+def Usun_Sesje_Poczty(request):
+    del request.session['wybrany_temat']
+    return redirect('Wyswietl_Kontakt')
+
+
+
+
 def Usun_Sesje(request):
     for klucz in request.session.keys():
         del request.session[klucz]

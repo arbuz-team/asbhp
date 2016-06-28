@@ -9,4 +9,6 @@ urlpatterns = [
     url(r'^uwagi_www/$', views.Uwagi_WWW, name='Uwagi_WWW'),
     url(r'^inny_temat/$', views.Inny_Temat, name='Inny_Temat'),
 
+    url(r'^wstecz/$', views.Usun_Sesje_Poczty, name='Usun_Sesje_Poczty'),
+
 ]
