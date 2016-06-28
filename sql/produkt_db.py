@@ -183,10 +183,6 @@ Produkt.objects.create(nazwa='Anatom har32',
                        zdjecie='/static/img/produkt/10.jpg'
                        ).save()
 
-################## Dodatek ##################
-Dodatek.objects.create(numer=1, opis='Nylonowa matowa oprawka dla większej wygody i trwałości', rodzaj=Rodzaj_Odziezy.objects.get(nazwa='Okulary ochronne'), producent=Producent.objects.get(nazwa='Kilauea')).save()
-Dodatek.objects.create(numer=2, opis='Z soczewkami polaryzacyjnymi', rodzaj=Rodzaj_Odziezy.objects.get(nazwa='Okulary ochronne'), producent=Producent.objects.get(nazwa='Kilauea')).save()
-
 ################## Promowanie ##################
 Polecane.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea polarised'), data_zakonczenia=timezone.now()).save()
 Polecane.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea mirror'), data_zakonczenia=timezone.now()).save()

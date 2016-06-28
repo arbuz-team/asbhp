@@ -113,27 +113,6 @@ def Dodaj_Certyfikat(request):
 
 
 
-def Dodaj_Dodatek(request):
-    Sprawdz_Czy_Zalogowany(request)
-
-    if request.method == 'POST':
-        formularz = Formularz_Dodatek(request.POST)
-
-        if formularz.is_valid():
-            formularz.save()
-            request.session['potwierdzenie'] = \
-                'Dodatek został poprawnie dodany.'
-            return redirect('/komunikat/potwierdzenie/')
-
-    else:
-        formularz = Formularz_Dodatek()
-
-    return render(request, 'produkt/dodaj.html',
-                            {'formularz': formularz})
-
-
-
-
 def Dodaj_Polecane(request):
     Sprawdz_Czy_Zalogowany(request)
 
@@ -190,14 +169,6 @@ def Usun_Kolor(request, pk):
 def Usun_Certyfikat(request, pk):
     Sprawdz_Czy_Zalogowany(request)
     Certyfikat.objects.get(id=pk).delete()
-    return redirect('/edytuj/')
-
-
-
-
-def Usun_Dodatek(request, pk):
-    Sprawdz_Czy_Zalogowany(request)
-    Dodatek.objects.get(id=pk).delete()
     return redirect('/edytuj/')
 
 
