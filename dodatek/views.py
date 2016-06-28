@@ -163,26 +163,38 @@ def Iloczyn_Zbiorow(pierwszy_kolejnosc, drugi):
 
 
 
-def Pobierz_Listy_Produktow(request, produkt):
+def Pobierz_Zawartosc_Strony(request, produkt, wybrana_strona):
 
-    wynik = []
-    liczba = 4
+    liczba = 8 # początkowa ilość stron
 
+        # pobieram liczbę produktów na stronie
     if request.session['liczba_produktow'].is_valid():
         liczba = int(request.session['liczba_produktow']
                      .cleaned_data['liczba'])
 
-        # tworzę listę zawierającą listy po określonej
-        # ilości produktów w zmiennej liczba
-    for i in range(0, (len(produkt) / liczba) + 1):
-        wynik.append(produkt[i * liczba: (i * liczba) + liczba])
+        # podstawowe obliczenia
+    liczba_stron = len(produkt) / float(liczba)
+    wybrana_strona -= 1 # aby wyciągnąć prawidłową wartość z tablicy
 
-    return wynik
+        # dla pętli: [i * liczba: (i * liczba) + liczba]
+    zawartosc_strony = produkt[wybrana_strona * liczba:
+                        (wybrana_strona * liczba) + liczba]
+
+        # zamieniam liczba_stron na integer
+    if liczba_stron > int(liczba_stron):
+        liczba_stron = int(liczba_stron) + 1
+
+    return {'zawartosc_strony': zawartosc_strony,
+            'liczba_stron':     int(liczba_stron)}
 
 
 
 
 def Pobierz_Liste_Numerow_Stron(liczba_stron, wybrana_strona):
+
+        # dla jednej strony zwraca pustą tablicę
+    if liczba_stron < 2:
+        return []
 
         # wyświetl wszystkie strony
     if liczba_stron <= 7:

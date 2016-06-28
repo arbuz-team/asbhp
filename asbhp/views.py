@@ -43,12 +43,12 @@ def Wyswietl_Oferta(request, wybrana_strona=None, wybrany_filtr=None):
     request.session['kolor'].Ustaw_Pola(Iloczyn_Zbiorow(Wyszukaj(request), Konteneruj(request)))
 
         # pobieranie listy produktów
-    wynik = Pobierz_Listy_Produktow(request, produkt)
-    liczba_stron = len(wynik)
     wybrana_strona = int(wybrana_strona) if wybrana_strona else 1
+    zawartosc = Pobierz_Zawartosc_Strony(request, produkt, wybrana_strona)
 
+    liczba_stron = zawartosc['liczba_stron']
+    produkt = zawartosc['zawartosc_strony']
     numery_stron = Pobierz_Liste_Numerow_Stron(liczba_stron, wybrana_strona)
-    produkt = wynik[wybrana_strona - 1]
 
         # wybrany filtr = liczba (format: f_<liczba>)
     if wybrany_filtr:
