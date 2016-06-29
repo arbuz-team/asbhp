@@ -276,7 +276,7 @@
                 <span class="kropki">...</span>
 
               {% elif s == wybrany.strona %}
-                <span class="link wybrana" data-href="/oferta/{{ s }}/">{{ s }}</span>
+                  <span class="wybrana">{{ s }}</span>
               {% else %}
                 <span class="link" data-href="/oferta/{{ s }}/">{{ s }}</span>
               {% endif %}
@@ -297,25 +297,34 @@
 
           <li class="produkt" data-href="/produkt/{{ p.id }}/" data-nazwa="{{ p.nazwa }}">
           
-            <div class="obrazek" style="background-image: url({{ p.zdjecie }});"></div>
-          
             <div class="nazwa">{{ p.nazwa }}</div>
 
-            <div class="zawody">
-            
-              {% for z in p.zawody.all %}
-                <div class="piktogram" style="background-image: url( '/static/img/zawody/{{ z.id }}.png' )"></div>
-              {% endfor %}
-            
-            </div>
+            <div class="producent">{{ p.producent }}</div>
+          
+            <div class="obrazek" style="background-image: url({{ p.zdjecie }});"></div>
 
+            {% if p.zagrozenia.all %}
             <div class="zagrozenia">
+
+              <div class="piktogram podpis">Zagrożenia:</div>
             
               {% for z in p.zagrozenia.all %}
-                <div class="piktogram" style="background-image: url( '/static/img/zagrozenia/{{ z.id }}.png' )"></div>
+                <div class="piktogram" title="{{ z.nazwa }}" style="background-image: url( '/static/img/zagrozenia/{{ z.id }}.png' )"></div>
               {% endfor %}
             
             </div>
+            {% endif %}
+
+            {% if p.zawody.all %}
+            <div class="zawody">
+
+              <div class="piktogram podpis">Zawody:</div>
+              {% for z in p.zawody.all %}
+                <div class="piktogram" title="{{ z.nazwa }}" style="background-image: url( '/static/img/zawody/{{ z.id }}.png' )"></div>
+              {% endfor %}
+            
+            </div>
+            {% endif %}
           
           </li>
 
@@ -328,7 +337,7 @@
                   <span class="kropki">...</span>
 
                 {% elif s == wybrany.strona %}
-                  <span class="link wybrana" data-href="/oferta/{{ s }}/">{{ s }}</span>
+                  <span class="wybrana">{{ s }}</span>
                 {% else %}
                   <span class="link" data-href="/oferta/{{ s }}/">{{ s }}</span>
                 {% endif %}

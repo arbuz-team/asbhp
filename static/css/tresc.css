@@ -69,15 +69,9 @@
     width: 435px;
     height: 185px;
 
-    top: 90px;
-    right: 100px;
-/*
-    color: #ff7000;
-    font-size: 76px;
-    font-family: 'OS_Bold', sans-serif;
-
-    text-shadow: 1px 1px 1px #000;
-*/
+    top: 40px;
+    right: 340px;
+    
     background-image: url( '/static/img/2.png' );
     background-position: right;
     background-repeat: no-repeat;
@@ -183,6 +177,13 @@
 
 
 
+#TRESC.oferta > .BLOK2
+{
+  min-height: 300px;
+}
+
+
+
 #TRESC.oferta > .BLOK2 > .tlo
 {
   background-color: #e9ebee;
@@ -190,14 +191,6 @@
   -webkit-box-shadow: inset 0px 1px 8px 0px #aaa;
   -moz-box-shadow: inset 0px 1px 8px 0px #aaa;
   box-shadow: inset 0px 1px 4px 0px #aaa;
-}
-
-
-
-#TRESC.oferta > .BLOK1 > .tresc
-{
-  margin-top: 30px;
-  margin-bottom: 30px;
 }
 
 
@@ -512,7 +505,7 @@
 {
   position: relative;
 
-  height: 250px;
+  height: 330px;
   margin-bottom: 10px;
 
   color: inherit;
@@ -527,6 +520,17 @@
 
 
 
+#TRESC div.lista_produktow > ul > .komentarz
+{
+  max-height: 150px;
+
+  background: none;
+  border: none;
+  cursor: default;
+}
+
+
+
 #TRESC div.lista_produktow > ul > .komentarz > div
 {
   position: relative;
@@ -535,22 +539,23 @@
   min-height: 30px;
 
   margin: 0px auto;
+  margin-top: 80px;
   line-height: 30px;
 
+  text-align: center;
   font-weight: bold;
+  font-size: 28px;
 }
 
 
 
 #TRESC div.lista_produktow > ul > .produkt > .obrazek
 {
-  position: absolute;
-  top: 10px;
-  bottom: 10px;
-  left: 10px;
-
+  max-width: 100%;
   width: 260px;
   height: 220px;
+
+  margin: 10px auto;
 
   background-size: 100% auto;
   background-repeat: no-repeat;
@@ -561,25 +566,16 @@
 
 
 #TRESC div.lista_produktow > ul > .produkt > .nazwa
+, #TRESC div.lista_produktow > ul > .produkt > .producent
+, #TRESC div.lista_produktow > ul > .produkt > .zawody
+, #TRESC div.lista_produktow > ul > .produkt > .zagrozenia
 {
-  position: absolute;
-  top: 15px;
-  left: 280px;
+  margin-right: auto;
+  margin-left: 300px;
 
-  width: 200px;
-  height: 30px;
+  min-height: 50px;
 
-  font-weight: bold;
-}
-
-
-
-#TRESC div.lista_produktow .piktogram
-{
-  width: 42px;
-  height: 42px;
-
-  background-size: 100% 100%;
+  overflow: hidden;
 }
 
 
@@ -587,23 +583,129 @@
 #TRESC div.lista_produktow > ul > .produkt > .zawody
 , #TRESC div.lista_produktow > ul > .produkt > .zagrozenia
 {
-  position: absolute;
-  top: 10px;
-  left: 490px;
+  display: none;
+}
 
-  width: 400px;
-  height: 100px;
 
-  padding-top: 20px;
+#TRESC div.lista_produktow > ul > .produkt > .nazwa
+, #TRESC div.lista_produktow > ul > .produkt > .producent
+{
+  min-height: 30px;
+  height: 30px;
 
-  overflow: hidden;
+  margin-right: auto;
+  margin-left: auto;
+
+  font-weight: bold;
+  text-align: center;
 }
 
 
 
-#TRESC div.lista_produktow > ul > .produkt > .zagrozenia
+#TRESC div.lista_produktow > ul > .produkt > .nazwa
 {
-  top: 110px;
+
+  margin-top: 10px;
+  padding-top: 20px;
+
+  font-size: 24px;
+}
+
+
+
+#TRESC div.lista_produktow > ul > .produkt > .producent
+{
+  padding-top: 0px;
+}
+
+
+
+@media screen and (min-width:650px)
+{
+  #TRESC div.lista_produktow > ul > li
+  {
+    height: 250px;
+  }
+
+
+
+  #TRESC div.lista_produktow > ul > .produkt > .obrazek
+  {
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 10px;
+  }
+
+
+
+  #TRESC div.lista_produktow > ul > .produkt > .nazwa
+  {
+    margin-top: 0px;
+    margin-left: 280px;
+    text-align: left;
+  }
+
+
+
+  #TRESC div.lista_produktow > ul > .produkt > .producent
+  {
+    margin-left: 300px;
+    text-align: left;
+  }
+
+
+
+  #TRESC div.lista_produktow > ul > .produkt > .zagrozenia
+  , #TRESC div.lista_produktow > ul > .produkt > .zawody
+  {
+    display: inline-block;
+  }
+
+
+
+  #TRESC div.lista_produktow > ul > .produkt > .zagrozenia
+  {
+    padding-top: 10px;
+  }
+
+
+
+  #TRESC div.lista_produktow .piktogram
+  {
+    width: 36px;
+    height: 36px;
+    
+    margin: 5px;
+
+    vertical-align: top;
+
+    background-size: 100% 100%;
+  }
+
+
+
+  #TRESC div.lista_produktow .podpis
+  {
+    display: none;
+
+    width: 100px;
+
+    color: #666;
+    text-align: right;
+    font-weight: bold;
+    line-height: 36px;
+  }
+}
+
+
+
+@media screen and (min-width:1200px)
+{
+  #TRESC div.lista_produktow .podpis
+  {
+    display: inline-block;
+  }
 }
 
 
@@ -611,19 +713,31 @@
 #TRESC div.lista_produktow > ul > .numery_stron
 {
   height: 50px;
-  padding: 5px 0px;
+  padding: 10px 0px 0px 0px;
 
   text-align: center;
   background: none;
+  cursor: default;
+  border-width: 0px;
+  border-top: 2px solid #d0d1d5;
+}
+
+
+
+#TRESC div.lista_produktow > ul > .numery_stron:first-child
+{
+  padding: 0px 0px 10px 0px;
+  border-width: 0px;
+  border-bottom-width: 2px;
 }
 
 
 
 #TRESC div.lista_produktow > ul > .numery_stron > span
 {
-  height: 40px;
-
+  margin-top: 10px;
   padding: 5px 15px;
+  line-height: 50px;
 }
 
 
@@ -635,12 +749,14 @@
 
 
 
-#TRESC div.lista_produktow > ul > .numery_stron > .link.wybrana
+#TRESC div.lista_produktow > ul > .numery_stron > .wybrana
 , #TRESC div.lista_produktow > ul > .numery_stron > .link:hover
 {
-  color: #ddd;
-  background-color: rgba(30, 29, 28, 1);
   border-radius: 5px;
+  background-color: rgba(30, 29, 28, 1);
+
+  color: #ddd;
+  font-weight: bold;
 }
 
 

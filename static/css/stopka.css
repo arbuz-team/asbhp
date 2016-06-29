@@ -5,9 +5,10 @@
 {
   position: relative;
 
-  height:250px;
+  min-height:250px;
 
   color: #aaa;
+  background-color: rgba( 30, 29, 28, 1 );
   font-size: 16px;
 
   padding-right: 15px;
