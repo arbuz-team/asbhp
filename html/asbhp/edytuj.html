@@ -10,12 +10,10 @@
 
     <div class="tlo abs_pelny"></div>
 
-    <div class="tytul">Formularz:</div>
-
     <div class="tresc">
 
-      Produkty
-      <div style="border: 1px solid black; padding: 5px">
+      <div class="tytul">Produkty</div>
+      <div class="tekst">
         <div class="otoczka_pola wyszukaj">
 
           <form method="POST" action="/wyszukiwarka/dla_edytuj/">
@@ -35,8 +33,7 @@
         </div>
         <br/>
 
-        <a href="/produkt/dodaj/">DODAJ NOWY PRODUKT</a>
-        <br/>
+        <div class="otoczka_pola link" data-href="/produkt/dodaj/"><button>Dodaj nowy produkt</button></div>
 
         {% for p in produkt %}
           {{ p }}
@@ -46,16 +43,16 @@
         {% endfor %}
       </div>
 
-      Promowanie
-      <div style="border: 1px solid black; padding: 5px">
-        <a href="/produkt/dodaj/polecane/">DODAJ PRODUKT DO LISTY PRODUKTÓW PROMOWANYCH</a>
+      <div class="tytul">Promowanie</div>
+      <div class="tekst">
+        <div class="otoczka_pola link" data-href="/produkt/dodaj/polecane/"><button>Dodaj produkt do listy produktów promowanych</button></div>
         <br/>
 
-        Aktywne
-        <div style="border: 1px solid black; padding: 5px">
+        <div class="podtytul">Aktywne</div>
+        <div>
           {% for p in polecane.aktywne %}
             {{ p.produkt }}
-            <a href="/produkt/usun/polecane/{{ p.produkt.pk }}/">USUŃ</a>
+            <div class="otoczka_pola link" data-href="/produkt/usun/polecane/{{ p.produkt.pk }}/"><button>Usuń</button></div>
 
             <form method="POST" action="/produkt/edytuj/polecane/{{ p.produkt.pk }}/">
               {% csrf_token %}
@@ -69,11 +66,11 @@
           {% endfor %}
         </div>
 
-        Nieaktywne
-        <div style="border: 1px solid black; padding: 5px">
+        <div class="podtytul">Nieaktywne</div>
+        <div>
           {% for p in polecane.nieaktywne %}
             {{ p.produkt }}
-            <a href="/produkt/usun/polecane/{{ p.produkt.pk }}/">USUŃ</a>
+            <div class="otoczka_pola link" data-href="/produkt/usun/polecane/{{ p.produkt.pk }}/"><button>Usuń</button></div>
 
             <form method="POST" action="/produkt/edytuj/polecane/{{ p.produkt.pk }}/">
               {% csrf_token %}
@@ -89,8 +86,8 @@
 
       </div>
 
-      O Firmie
-      <div style="border: 1px solid black; padding: 5px">
+      <div class="tytul">O Firmie</div>
+      <div class="tekst">
 
         <form method="post" action="/zapisz/o_firmie/">
           {% csrf_token %}
@@ -110,8 +107,8 @@
 
       </div>
 
-      Kontakt
-      <div style="border: 1px solid black; padding: 5px">
+      <div class="tytul">Kontakt</div>
+      <div class="tekst">
 
         <form method="post" action="/zapisz/kontakt/">
           {% csrf_token %}

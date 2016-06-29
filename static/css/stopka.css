@@ -5,7 +5,7 @@
 {
   position: relative;
 
-  min-height:250px;
+  min-height:300px;
 
   color: #aaa;
   background-color: rgba( 30, 29, 28, 1 );
@@ -48,7 +48,7 @@
 
 #STOPKA .menu
 {
-  width: 200px;
+  width: 300px;
   height: inherit;
 
   z-index: 11;
@@ -58,11 +58,15 @@
 
 #STOPKA .menu > div
 {
-  width: 200px;
+  display: inline-block;
+
+  width: 140px;
   height: 40px;
+
+  margin-top: 60px;
   
   line-height: 40px;
-  font-size: 15px;
+  font-size: 18px;
 
   z-index: 12;
 }
@@ -78,7 +82,7 @@
 
 #STOPKA .kontakt
 {
-  width: 300px;
+  width: 250px;
 }
 
 
@@ -101,24 +105,17 @@
 
 
 
-#STOPKA .spolecznosci
-{
-  width: 200px;
-  height: 100px;
-
-  margin-left: 20px;
-}
-
-
-
-#STOPKA .spolecznosci > div
+#STOPKA .kontakt > .strzalka
+, #STOPKA .kontakt > .fb
+, #STOPKA .kontakt > .mail
 {
   display: inline-block;
   
   width: 32px;
   height: 32px;
 
-  margin-left: 20px;
+  margin-top: 30px;
+  margin-left: 30px;
 
   background-position: center;
   background-repeat: no-repeat;
@@ -129,11 +126,26 @@
 
 
 
-#STOPKA .spolecznosci > .fb
+#STOPKA .kontakt > .fb
 {
-  margin-top: 30px;
+  margin-left: 0;
 
   background-image: url( '../img/fb.png' );
+}
+
+
+
+#STOPKA .kontakt > .mail
+{
+  background-image: url( '../img/mail.png' );
+  background-size: 100% 110%;
+}
+
+
+
+#STOPKA .kontakt > .strzalka
+{
+  width: 54px;
 }
 
 
@@ -141,9 +153,10 @@
 #STOPKA .strzalka > .obrazek
 {
   position: relative;
+  top: -10px;
 
-  width: 40px;
-  height: 40px;
+  width: inherit;
+  height: 54px;
 
   background-image: url('../img/strzalki_g.png');
   background-size: 100% 100%;

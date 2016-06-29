@@ -62,7 +62,6 @@
 
 @media screen and (min-width:600px)
 {
-
   #TRESC.start > .BLOK1 > .napis
   {
     position: absolute;
@@ -78,7 +77,37 @@
 
     z-index:12;
   }
+}
 
+
+
+@media screen and (min-width:1000px)
+{
+  #TRESC.start > .BLOK1 > .napis
+  {
+    top: 20px;
+    right: 130px;
+  }
+}
+
+
+
+@media screen and (min-width:1350px)
+{
+  #TRESC.start > .BLOK1 > .napis
+  {
+    right: 200px;
+  }
+}
+
+
+
+@media screen and (min-width:1650px)
+{
+  #TRESC.start > .BLOK1 > .napis
+  {
+    right: 340px;
+  }
 }
 
 
@@ -549,6 +578,13 @@
 
 
 
+#TRESC div.lista_produktow > ul > .produkt
+{
+  color: #333;
+}
+
+
+
 #TRESC div.lista_produktow > ul > .produkt > .obrazek
 {
   max-width: 100%;
@@ -616,9 +652,36 @@
 #TRESC div.lista_produktow > ul > .produkt > .producent
 {
   padding-top: 0px;
+
+  color: #666;
 }
 
 
+
+/******************* HOVER *******************/
+
+#TRESC div.lista_produktow > ul > .produkt:hover
+{
+  color: #222;
+}
+
+
+
+#TRESC div.lista_produktow > ul > .produkt:hover > .producent
+{
+  color: #555;
+}
+
+
+
+#TRESC div.lista_produktow .produkt:hover .podpis
+{
+  color: #555;
+}
+
+
+
+/******************* MEDIA *******************/
 
 @media screen and (min-width:650px)
 {
@@ -695,6 +758,30 @@
     text-align: right;
     font-weight: bold;
     line-height: 36px;
+  }
+
+
+
+  #TRESC div.lista_produktow .pokaz_wiecej
+  {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    padding: 10px 30px 10px 10px;
+
+    color: #999;
+    text-align: right;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 36px;
+  }
+
+
+
+  #TRESC div.lista_produktow .pokaz_wiecej:hover
+  {
+    color: #666;
   }
 }
 

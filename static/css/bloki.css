@@ -105,7 +105,7 @@
 
 
 
-#TRESC.o_firmie > .BLOK1 > .tresc > .tytul
+#TRESC > .BLOK1 > .tresc > .tytul
 {
   font-size: 30px;
   font-weight: bold;
@@ -115,7 +115,34 @@
 
 
 
-#TRESC.o_firmie > .BLOK1 > .tresc > .tekst,
+#TRESC > .BLOK1 > .tresc .podtytul
+{
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+
+
+#TRESC > .BLOK1 > .tresc form
+{
+  max-width: 600px;
+
+}
+
+
+
+#TRESC > .BLOK1 > .tresc .otoczka_pola.link
+{
+  width: 300px;
+  margin-left: 10px;
+}
+
+
+
+#TRESC > .BLOK1 > .tresc > .tekst,
 #TRESC.o_firmie > .BLOK1 > .tresc > .loga_firm
 {
   margin-bottom: 50px;

@@ -31,31 +31,40 @@
 
         {% for p in polecane %}
 
-        <li class="link" data-href="/produkt/{{ p.produkt.id }}/">
-        
-          <div class="nazwa">{{ p.produkt.nazwa }}</div>
-        
-          <div class="obrazek" style="background-image: url({{ p.produkt.zdjecie }});"></div>
+          <li class="produkt link" data-href="/produkt/{{ p.produkt.id }}/" data-nazwa="{{ p.produkt.nazwa }}">
+          
+            <div class="nazwa">{{ p.produkt.nazwa }}</div>
 
-          <div class="opis">{{ p.produkt.opis }}</div>
+            <div class="producent">{{ p.produkt.producent }}</div>
+          
+            <div class="obrazek" style="background-image: url({{ p.produkt.zdjecie }});"></div>
 
-          <div class="przeznaczenie">
-          
-            {% for zawod in p.zawody.all %}
-              <div class="zawod.id"></div>
-            {% endfor %}
-          
-          </div>
+            {% if p.produkt.zagrozenia.all %}
+            <div class="zagrozenia">
 
-          <div class="zagrozenia">
+              <div class="piktogram podpis">Zagrożenia:</div>
+            
+              {% for z in p.produkt.zagrozenia.all %}
+                <div class="piktogram" title="{{ z.nazwa }}" style="background-image: url( '/static/img/zagrozenia/{{ z.id }}.png' )"></div>
+              {% endfor %}
+            
+            </div>
+            {% endif %}
+
+            {% if p.produkt.zawody.all %}
+            <div class="zawody">
+
+              <div class="piktogram podpis">Zawody:</div>
+              {% for z in p.produkt.zawody.all %}
+                <div class="piktogram" title="{{ z.nazwa }}" style="background-image: url( '/static/img/zawody/{{ z.id }}.png' )"></div>
+              {% endfor %}
+            
+            </div>
+            {% endif %}
+
+            <div class="pokaz_wiecej">Pokaż więcej...</div>
           
-            {% for zagrozenie in p.zagrozenia.all %}
-              <div css="zagrozenie.id"></div>
-            {% endfor %}
-          
-          </div>
-        
-        </li>
+          </li>
 
         {% endfor %}
       

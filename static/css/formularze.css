@@ -111,7 +111,7 @@ textarea:disabled
 button
 {
   min-width: 298px;
-  width: auto;
+  width: 100%;
   cursor: pointer;
   
   text-align: center;
