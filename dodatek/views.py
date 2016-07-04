@@ -217,6 +217,12 @@ def Pobierz_Liste_Numerow_Stron(liczba_stron, wybrana_strona):
 
 
 
+def Konwertuj_Nazwe_Na_URL(nazwa):
+    return nazwa.replace(' ', '_').lower()
+
+
+
+
 ################## Logowanie ##################
 
 def Szyfruj(haslo):

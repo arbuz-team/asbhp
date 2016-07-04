@@ -30,7 +30,7 @@ Zawartosc_Zakladki.objects.create(zakladka='/o_firmie/',
 
 ################## Meta Tagi ##################
 
-Meta_Tagi.objects.create(
+'''Meta_Tagi.objects.create(
     adres_strony='/produkt/1/',
     description=Produkt.objects.get(pk=1).opis[0:154],
     og_type='produkt',
@@ -109,7 +109,7 @@ Meta_Tagi.objects.create(
     og_type='produkt',
     og_url='http://asbhp.arbuz.team/produkt/10/',
     og_image=str(Produkt.objects.get(pk=10).zdjecie)
-).save()
+).save()'''
 
 
 
