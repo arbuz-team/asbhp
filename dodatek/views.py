@@ -101,6 +101,12 @@ def Sprawdz_Sesje(request, meta_tag=True):
     if 'formularz_poczta' not in request.session:
         request.session['formularz_poczta'] = None
 
+    if 'iloczyn' not in request.session:
+        request.session['iloczyn'] = []
+
+    if 'wyszukane' not in request.session:
+        request.session['wyszukane'] = []
+
 
 
 

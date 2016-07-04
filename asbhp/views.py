@@ -39,8 +39,8 @@ def Wyswietl_Oferta(request, wybrana_strona=None, wybrany_filtr=None):
                 'kontakt': '', 'edytuj': ''}
 
     produkt = Iloczyn_Zbiorow(Filtruj(request), Konteneruj(request))
-    request.session['producent'].Ustaw_Pola(Iloczyn_Zbiorow(Wyszukaj(request), Konteneruj(request)))
-    request.session['kolor'].Ustaw_Pola(Iloczyn_Zbiorow(Wyszukaj(request), Konteneruj(request)))
+    request.session['producent'].Ustaw_Pola(request.session['iloczyn'])
+    request.session['kolor'].Ustaw_Pola(request.session['iloczyn'])
 
         # pobieranie listy produktów
     wybrana_strona = int(wybrana_strona) if wybrana_strona else 1

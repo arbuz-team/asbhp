@@ -65,7 +65,9 @@ def Filtr_Wyszukiwarka(request):
         request.session['wyszukiwarka'] = filtr
 
         if filtr.is_valid():
-            pass
+            request.session['wyszukane'] = Wyszukaj(request)
+            Iloczyn_Zbiorow(request.session['wyszukane'],
+                            Konteneruj(request))
 
     return redirect('Wyswietl_Oferta')
 
@@ -160,7 +162,7 @@ def Filtruj(request):
     wynik = Produkt.objects.all()
 
     if request.session['wyszukiwarka'].is_valid():
-        wynik = Wyszukaj(request)
+        wynik = request.session['wyszukane']
 
     if request.session['producent'].Waliduj():
         wynik = Iloczyn_Zbiorow(wynik, Produkt.objects.filter(
