@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from produkt.models import *
 from django.utils import timezone
-
+'''
 ################## Producent ##################
 Producent.objects.create(nazwa='Kilauea').save()
 Producent.objects.create(nazwa='Saba').save()
@@ -19,34 +19,34 @@ Kolor.objects.create(nazwa='Brak').save()
 Certyfikat.objects.create(numer='EN166', szczegoly='1 FT/FT').save()
 Certyfikat.objects.create(numer='EN172', szczegoly='UV 5-3.1').save()
 Certyfikat.objects.create(numer='EN170', szczegoly='UV 2C-1.2').save()
-
+'''
 ################## Zagrożenie ##################
 Zagrozenie.objects.create(nazwa='Antyelektrostatyczność').save()
 Zagrozenie.objects.create(nazwa='Hałas').save()
 Zagrozenie.objects.create(nazwa='Ciepło').save()
 Zagrozenie.objects.create(nazwa='Uderzenie').save()
 Zagrozenie.objects.create(nazwa='Upadek').save()
-Zagrozenie.objects.create(nazwa='Przecięcie/Przekłucie').save()
-Zagrozenie.objects.create(nazwa='Zimno/Niepogoda').save()
+Zagrozenie.objects.create(nazwa='Przecięcie / przekłucie').save()
+Zagrozenie.objects.create(nazwa='Zimno / niepogoda').save()
 Zagrozenie.objects.create(nazwa='Poślizg').save()
-Zagrozenie.objects.create(nazwa='Cząsteczki biologiczne, chemiczne').save()
+Zagrozenie.objects.create(nazwa='Cząstki biologiczne, chemiczne').save()
 Zagrozenie.objects.create(nazwa='Zużycie').save()
-Zagrozenie.objects.create(nazwa='UV/IR').save()
+Zagrozenie.objects.create(nazwa='UV / IR').save()
 Zagrozenie.objects.create(nazwa='Elektryczność').save()
 Zagrozenie.objects.create(nazwa='Słaba widoczność').save()
 
 ################## Zawód ##################
-Zawod.objects.create(nazwa='Rolnictwo/ogrodnictwo').save()
-Zawod.objects.create(nazwa='Budownictwo i roboty publiczne').save()
-Zawod.objects.create(nazwa='Prace remontowe/rzemiosło').save()
+Zawod.objects.create(nazwa='Rolnictwo / ogrodnictwo').save()
+Zawod.objects.create(nazwa='Budownictwo / roboty publiczne').save()
+Zawod.objects.create(nazwa='Prace remontowe / Rzemiosło').save()
 Zawod.objects.create(nazwa='Przemysł ciężki').save()
 Zawod.objects.create(nazwa='Przemysł lekki').save()
-Zawod.objects.create(nazwa='Usługi/logistyka').save()
-Zawod.objects.create(nazwa='Służba zdrowia/żywienie zbiorowe').save()
-Zawod.objects.create(nazwa='Przemysł petrochemiczny/gazowniczy').save()
+Zawod.objects.create(nazwa='Usługi / logistyka').save()
+Zawod.objects.create(nazwa='Służba zdrowia / żywienie zbiorowe').save()
+Zawod.objects.create(nazwa='Przemysł petrochemiczny / gazowniczy').save()
 Zawod.objects.create(nazwa='Górnictwo').save()
-Zawod.objects.create(nazwa='Energia wiatrowa').save()
-
+Zawod.objects.create(nazwa='Ergetyka wiatrowa ').save()
+'''
 ################## Ochrona głowy: Kontenery ##################
 Typ_Odziezy.objects.create(nazwa='Ochrona głowy', url='ochrona_głowy').save()
 
@@ -187,3 +187,4 @@ Produkt.objects.create(nazwa='Anatom har32',
 Polecane.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea polarised'), data_zakonczenia=timezone.now()).save()
 Polecane.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea mirror'), data_zakonczenia=timezone.now()).save()
 Polecane.objects.create(produkt=Produkt.objects.get(nazwa='Kilauea clear'), data_zakonczenia=timezone.now()).save()
+'''

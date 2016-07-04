@@ -1,8 +1,32 @@
 # -*- coding: utf-8 -*-
 from selenium import webdriver
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
+from selenium.common.exceptions import NoSuchElementException
 from dodatek.views import *
 import time
+import os
+
+
+
+def Wyswietl_Komunikat_O_Wyjatku(e, nazwa_wyjatku, numer_wyjatku=None,
+                                 nazwa_produktu=None, url=None):
+
+    komunikat = ''
+    if numer_wyjatku:
+        komunikat += str(numer_wyjatku) + '\n'
+
+    komunikat += '\n\n\t WYJĄTEK: %s: \n' % nazwa_wyjatku
+    komunikat += '\t\t %s \n' % str(e)
+
+    if nazwa_produktu:
+        komunikat += '\t\t produkt.nazwa: %s \n' % nazwa_produktu
+
+    if url:
+        komunikat += '\t\tadres strony: %s \n' % url
+
+    print komunikat
+    os.system('echo "%s" >> deltaplus.log' % komunikat)
+
 
 
 
@@ -220,6 +244,7 @@ class Konwerter:
 class Baza_Danych:
 
     produkt = {}
+    numer_wyjatku = 0
 
 
     def Sprawdz_Podklasy(self, typ, dziedzina):
@@ -252,14 +277,6 @@ class Baza_Danych:
                 Certyfikat.objects.create(numer=certyfikat[0],
                                           szczegoly=certyfikat[1]).save()
 
-        for zagrozenia in self.produkt['zagrozenia']:
-            if not Zagrozenie.objects.filter(nazwa=zagrozenia):
-                Zagrozenie.objects.create(nazwa=zagrozenia).save()
-
-        for zawody in self.produkt['zawody']:
-            if not Zawod.objects.filter(nazwa=zawody):
-                Zawod.objects.create(nazwa=zawody).save()
-
 
     def Konwertuj_MTM(self): # ManyToMany
 
@@ -267,13 +284,27 @@ class Baza_Danych:
         self.produkt['certyfikaty'] = \
                 [Certyfikat.objects.get(numer=c[0]) for c in certyfikaty]
 
-        zagrozenia = self.produkt['zagrozenia']
-        self.produkt['zagrozenia'] = \
-            [Zagrozenie.objects.get(nazwa=z) for z in zagrozenia]
+        try:
 
-        zawody = self.produkt['zawody']
-        self.produkt['zawody'] = \
-            [Zawod.objects.get(nazwa=z) for z in zawody]
+            zagrozenia = self.produkt['zagrozenia']
+            self.produkt['zagrozenia'] = \
+                [Zagrozenie.objects.get(nazwa=z) for z in zagrozenia]
+
+        except Exception as e:
+            self.produkt['zagrozenia'] = []
+            Wyswietl_Komunikat_O_Wyjatku(e, 'Baza_Danych.Konwertuj_MTM()',
+                                         nazwa_produktu=self.produkt['nazwa'])
+
+        try:
+
+            zawody = self.produkt['zawody']
+            self.produkt['zawody'] = \
+                [Zawod.objects.get(nazwa=z) for z in zawody]
+
+        except Exception as e:
+            self.produkt['zawody'] = []
+            Wyswietl_Komunikat_O_Wyjatku(e, 'Baza_Danych.Konwertuj_MTM()',
+                                         nazwa_produktu=self.produkt['nazwa'])
 
 
     def Dodaj_Produkt(self):
@@ -308,8 +339,15 @@ class Baza_Danych:
 
         self.Sprawdz_Podklasy(typ, dziedzina)
         self.Konwertuj_MTM()
-        self.Dodaj_Produkt()
 
+        try:
+
+            self.Dodaj_Produkt()
+
+        except Exception as e:
+            self.numer_wyjatku += 1
+            Wyswietl_Komunikat_O_Wyjatku(e, 'Baza_Danych.Dodaj_Produkt()',
+                                         self.numer_wyjatku, self.produkt['nazwa'])
 
 
 
@@ -318,6 +356,8 @@ class Kierownik:
 
     adresy_url = {} # {typ: {dziedzina: {rodzaj: [adresy_url]}}, ...}
     zrodlo_strony = ''
+    firefox = None
+    numer_wyjatku = 0
 
 
     @staticmethod
@@ -347,8 +387,15 @@ class Kierownik:
 
     def WAURL_Pobierz_URL_Produktow(self, url):
 
-            # wczytanie źródła strony z naciśniętym linkiem '48'
-        self.Pobieranie_Zrodla_Strony(url, '48')
+        try:
+
+                # wczytanie źródła strony z naciśniętym linkiem '48'
+            self.Pobieranie_Zrodla_Strony(url, '48')
+
+        except NoSuchElementException as e:
+            self.numer_wyjatku += 1
+            Wyswietl_Komunikat_O_Wyjatku(e, 'Kierownik.WAURL_Pobierz_URL_Produktow()',
+                                         self.numer_wyjatku, url=url)
 
         poczatek = self.zrodlo_strony.find('_ordarticleslistportlet_WAR_ordebusinessfrontapp_-list')
         koniec = self.zrodlo_strony.find('Footer article')
@@ -408,23 +455,18 @@ class Kierownik:
 
     def Pobieranie_Zrodla_Strony(self, url, nacisnij_link=None):
 
-            # ustawienia przeglądarki
-        binary = FirefoxBinary('/home/endo93/Firefox 46.0/firefox')
-        driver = webdriver.Firefox(firefox_binary=binary)
-
             # pobieranie źródła
-        driver.get(url)
+        self.firefox.get(url)
         time.sleep(2) # oczekuje załadowania strony
 
             # naciśnięcie na link (event)
         if nacisnij_link:
-            link = driver.find_element_by_link_text(nacisnij_link)
+            link = self.firefox.find_element_by_link_text(nacisnij_link)
             link.click()
-            time.sleep(5)
+            time.sleep(4)
 
             # zamknięcie przeglądarki
-        self.zrodlo_strony = driver.page_source.encode('utf-8')
-        driver.close()
+        self.zrodlo_strony = self.firefox.page_source.encode('utf-8')
 
 
     def Dodaj_Produkt_Do_Bazy_Danych(self, url, typ, dziedzina, rodzaj):
@@ -436,6 +478,11 @@ class Kierownik:
 
     def __init__(self):
 
+            # ustawienia przeglądarki
+        binary = FirefoxBinary('/home/endo93/Firefox 46.0/firefox')
+        self.firefox = webdriver.Firefox(firefox_binary=binary)
+        os.system('rm deltaplus.log')
+
         self.Wczytaj_Adresy_URL()
 
             # dla każdego adresu url
@@ -444,6 +491,8 @@ class Kierownik:
                 for rodzaj in self.adresy_url[typ][dziedzina]:
                     for url in self.adresy_url[typ][dziedzina][rodzaj]:
                         self.Dodaj_Produkt_Do_Bazy_Danych(url, typ, dziedzina, rodzaj)
+
+        self.firefox.close()
 
 
 

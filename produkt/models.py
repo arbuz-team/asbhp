@@ -16,7 +16,7 @@ class Typ_Odziezy(models.Model):
     url = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.nazwa
+        return self.nazwa.encode('utf8')
 
 
 
@@ -28,7 +28,7 @@ class Dziedzina_Odziezy(models.Model):
     typ = models.ForeignKey(Typ_Odziezy, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.nazwa
+        return self.nazwa.encode('utf8')
 
 
 
@@ -40,7 +40,7 @@ class Rodzaj_Odziezy(models.Model):
     dziedzina = models.ForeignKey(Dziedzina_Odziezy, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.nazwa
+        return self.nazwa.encode('utf8')
 
 
 
