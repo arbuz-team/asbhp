@@ -1,0 +1,633 @@
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: TC013 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: TC014 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: TC022 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: EX030200 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: EX030400 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: EX118200A 
+
+
+
+1
+	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
+		 cannot identify image file <cStringIO.StringI object at 0x7f1495726360> 
+		 produkt.nazwa: LV555 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: LV504A 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: LV506A 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: AM007100 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: LV100 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: LV102100 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: LV102150 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: LV105 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: LO045200 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: LO047100 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: LO047150AD 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: LO047150 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: LO147150CDD 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: LO147150 
+
+
+
+2
+	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
+		 [SSL: DECRYPTION_FAILED_OR_BAD_RECORD_MAC] decryption failed or bad record mac (_ssl.c:1754) 
+		 produkt.nazwa: LO147150 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: LO005200 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: LO007100 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: LO007150CD 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: LO007150 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: LO030 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: LO031 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: LO032 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: RIPLIGHT 2 HA201 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: HA203 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: TC001 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: TC002 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: TC003 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: TC004 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: TC005 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: DESCORD TC006 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: TC012 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: TC015 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: TC016 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: TC025 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: TC029 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: TC040 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: TC044 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: AM002X5 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: AM006 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: AM018 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: ANATOM HAR32 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: EOLIEN HAR35 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: HAR14 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: GALAGO HAR35TC 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: JAGUAR HAR36TCP 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: ASCAB AN070 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: LDVV 
+
+
+
+3
+	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
+		 cannot identify image file <cStringIO.StringI object at 0x7f1494d54d78> 
+		 produkt.nazwa: LDVV 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: AN240CDD 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: AN218RCDD 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: AN218150CCC 
+
+
+
+4
+	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
+		 [SSL: DECRYPTION_FAILED_OR_BAD_RECORD_MAC] decryption failed or bad record mac (_ssl.c:1754) 
+		 produkt.nazwa: AN203200CC 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: AN211200CCC 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: AN211200CDD 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: AN213200CCC 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: AN213200CDD 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: CAMELEON AN066A 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: CAMELEON AN066 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: AN401 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: AN410 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: AN420 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: AN430 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: TC009 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: ASCORD AN060 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: AN315 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: AN317 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: AN319 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: ELARA320 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: MINIBLOC AN102 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: FIXBLOC AN105 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: MEDBLOC AN13006C 
+
+
+
+5
+	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
+		 [SSL: DECRYPTION_FAILED_OR_BAD_RECORD_MAC] decryption failed or bad record mac (_ssl.c:1754) 
+		 produkt.nazwa: PROTECTOR TETRA AN15006F 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zagrozenie matching query does not exist. 
+		 produkt.nazwa: PROTECTOR TETRA AN15015F 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: TRBAG 
+
+
+
+6
+	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
+		 [SSL: DECRYPTION_FAILED_OR_BAD_RECORD_MAC] decryption failed or bad record mac (_ssl.c:1754) 
+		 produkt.nazwa: TAE10 
+
+
+
+7
+	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
+		 cannot identify image file <cStringIO.StringI object at 0x7f14941fb9c0> 
+		 produkt.nazwa: DPTC715 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: VENICUT52 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: VENICUT53 
+
+
+
+8
+	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
+		 cannot identify image file <cStringIO.StringI object at 0x7f1494170360> 
+		 produkt.nazwa: VENICUT53 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: VENICUT5M 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: DPVECUT42 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: VENICUT42 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: VENICUT43G3 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: VENICUT44G3 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: VENICUT58G3 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: DPVV733 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: APOLLON VV733 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: VE727 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: VE729 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: VE712GR 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: VE722 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: DPVE727 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: VE702 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: VE702GR 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: DPVE712GR 
+
+
+
+9
+	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
+		 cannot identify image file <cStringIO.StringI object at 0x7f1494099cf0> 
+
+
+
+10
+	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
+		 cannot identify image file <cStringIO.StringI object at 0x7f1494099cf0> 
+		 produkt.nazwa: M2PAN 
+
+
+
+11
+	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
+		 cannot identify image file <cStringIO.StringI object at 0x7f1494099cf0> 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: DENMARK2 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: HEDMARK2 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: LAZIO 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: ROMA 
+
+
+
+12
+	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
+		 [SSL: DECRYPTION_FAILED_OR_BAD_RECORD_MAC] decryption failed or bad record mac (_ssl.c:1754) 
+		 produkt.nazwa: NAPOLI 
+
+
+
+13
+	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
+		 cannot identify image file <cStringIO.StringI object at 0x7f1493f41718> 
+		 produkt.nazwa: VESTEB 
+
+
+
+14
+	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
+		 [SSL: DECRYPTION_FAILED_OR_BAD_RECORD_MAC] decryption failed or bad record mac (_ssl.c:1754) 
+		 produkt.nazwa: KOLDY 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: FILTER 11 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: FILTER-IN 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: FUJI2 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: FUJI2 GRADIENT 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: KILAUEA POLARISED 
+
+
+
+15
+	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
+		 cannot identify image file <cStringIO.StringI object at 0x7f1493f15b58> 
+		 produkt.nazwa: KISKA SMOKE 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: PACAYA CLEAR STRAP 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: M3FP1 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: GRANITE PEAK 
+
+
+	 WYJĄTEK: Baza_Danych.Konwertuj_MTM(): 
+		 Zawod matching query does not exist. 
+		 produkt.nazwa: GRANITE WIND 
+

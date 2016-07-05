@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 from selenium.common.exceptions import NoSuchElementException
 from dodatek.views import *
+import pickle
 import time
 import os
 
@@ -13,9 +14,9 @@ def Wyswietl_Komunikat_O_Wyjatku(e, nazwa_wyjatku, numer_wyjatku=None,
 
     komunikat = ''
     if numer_wyjatku:
-        komunikat += str(numer_wyjatku) + '\n'
+        komunikat += '\n\n' + str(numer_wyjatku)
 
-    komunikat += '\n\n\t WYJĄTEK: %s: \n' % nazwa_wyjatku
+    komunikat += '\n\t WYJĄTEK: %s: \n' % nazwa_wyjatku
     komunikat += '\t\t %s \n' % str(e)
 
     if nazwa_produktu:
@@ -25,7 +26,7 @@ def Wyswietl_Komunikat_O_Wyjatku(e, nazwa_wyjatku, numer_wyjatku=None,
         komunikat += '\t\tadres strony: %s \n' % url
 
     print komunikat
-    os.system('echo "%s" >> deltaplus.log' % komunikat)
+    os.system('echo "%s" >> sql/deltaplus.log' % komunikat)
 
 
 
@@ -64,7 +65,15 @@ class Konwerter:
 
 
     def Pobierz_Slowa_Kluczowe(self):
-        pass
+        self.produkt['slowa_kluczowe'] = [
+            self.produkt['nazwa'],
+            self.produkt['nazwa'],
+            self.produkt['nazwa'],
+            Usun_Polskie_Znaki(self.produkt['nazwa']),
+            Usun_Polskie_Znaki(self.produkt['opis']),
+            Usun_Polskie_Znaki(self.produkt['producent']),
+            Usun_Polskie_Znaki(self.produkt['rodzaj']),
+        ]
 
 
     def Pobierz_Rozmiar(self):
@@ -93,6 +102,9 @@ class Konwerter:
 
         numer = kolor.find('KOLOR')
         kolor = kolor[numer:-1]
+
+        numer = kolor.find('</div>')
+        kolor = kolor[0:numer]
 
         poczatek = kolor.find('<p>') + 3
         koniec = kolor.find('</p>')
@@ -208,7 +220,11 @@ class Konwerter:
                                   zdjecie[poczatek:koniec]
 
 
-    def __init__(self, html, rodzaj):
+    def __init__(self, html='', rodzaj='', produkt=None):
+
+        if produkt:
+            self.produkt = produkt
+            return
 
         self.html = html
         self.produkt = {
@@ -228,7 +244,6 @@ class Konwerter:
             # uzupełnianie słownika
         self.Pobierz_Nazwa()
         self.Pobierz_Opis()
-        self.Pobierz_Slowa_Kluczowe()
         self.Pobierz_Rozmiar()
         self.Pobierz_Producent()
         self.Pobierz_Kolor()
@@ -238,13 +253,15 @@ class Konwerter:
         self.Pobierz_Zawody()
         self.Pobierz_Zdjecie()
 
+        self.Pobierz_Slowa_Kluczowe()
+
+
 
 
 
 class Baza_Danych:
 
     produkt = {}
-    numer_wyjatku = 0
 
 
     def Sprawdz_Podklasy(self, typ, dziedzina):
@@ -345,9 +362,9 @@ class Baza_Danych:
             self.Dodaj_Produkt()
 
         except Exception as e:
-            self.numer_wyjatku += 1
+            Kierownik.numer_wyjatku += 1
             Wyswietl_Komunikat_O_Wyjatku(e, 'Baza_Danych.Dodaj_Produkt()',
-                                         self.numer_wyjatku, self.produkt['nazwa'])
+                                         Kierownik.numer_wyjatku, self.produkt['nazwa'])
 
 
 
@@ -358,7 +375,6 @@ class Kierownik:
     zrodlo_strony = ''
     firefox = None
     numer_wyjatku = 0
-
 
     @staticmethod
     def WAURL_Pobierz_Nazwe(html, tag):
@@ -393,9 +409,9 @@ class Kierownik:
             self.Pobieranie_Zrodla_Strony(url, '48')
 
         except NoSuchElementException as e:
-            self.numer_wyjatku += 1
+            Kierownik.numer_wyjatku += 1
             Wyswietl_Komunikat_O_Wyjatku(e, 'Kierownik.WAURL_Pobierz_URL_Produktow()',
-                                         self.numer_wyjatku, url=url)
+                                         Kierownik.numer_wyjatku, url=url)
 
         poczatek = self.zrodlo_strony.find('_ordarticleslistportlet_WAR_ordebusinessfrontapp_-list')
         koniec = self.zrodlo_strony.find('Footer article')
@@ -419,6 +435,15 @@ class Kierownik:
 
 
     def Wczytaj_Adresy_URL(self):
+
+            # wczytuje wcześniej wczytane adresy
+        if os.path.exists('sql/deltaplus.urls'):
+            with open('sql/deltaplus.urls', 'rb') as plik:
+                self.adresy_url = pickle.load(plik)
+
+            return
+
+            # wczytuję wszystkie adresy
         self.Pobieranie_Zrodla_Strony('https://www.deltaplus.eu/pl/by-protection/-/navigation/po-produktach/ochrona-glowy/p/ST15/545/0')
 
             # wycięcie odpowiedniego bloku
@@ -453,6 +478,12 @@ class Kierownik:
                         self.WAURL_Pobierz_URL_Produktow('https://www.deltaplus.eu' + adres_url)
 
 
+    def Zapisz_Adresy_URL(self):
+        if not os.path.exists('sql/deltaplus.urls'):
+            with open('sql/deltaplus.urls', 'wb') as plik:
+                pickle.dump(self.adresy_url, plik, pickle.HIGHEST_PROTOCOL)
+
+
     def Pobieranie_Zrodla_Strony(self, url, nacisnij_link=None):
 
             # pobieranie źródła
@@ -469,11 +500,23 @@ class Kierownik:
         self.zrodlo_strony = self.firefox.page_source.encode('utf-8')
 
 
-    def Dodaj_Produkt_Do_Bazy_Danych(self, url, typ, dziedzina, rodzaj):
+    def Dodaj_Produkt_Do_Bazy_Danych(self, url, typ, dziedzina,
+                                     rodzaj, pickler, odczyt):
 
-        self.Pobieranie_Zrodla_Strony(url)
-        konwerter = Konwerter(self.zrodlo_strony, rodzaj)
-        Baza_Danych(konwerter.produkt, typ, dziedzina)
+        if odczyt: # odczytuję produkty z istniejącego pliku
+            produkt = pickler.load()
+
+                # zapisywanie
+            Baza_Danych(produkt, typ, dziedzina)
+
+        else:
+
+            self.Pobieranie_Zrodla_Strony(url)
+            konwerter = Konwerter(self.zrodlo_strony, rodzaj)
+
+                # zapisywanie
+            pickler.dump(konwerter.produkt)
+            Baza_Danych(konwerter.produkt, typ, dziedzina)
 
 
     def __init__(self):
@@ -481,17 +524,34 @@ class Kierownik:
             # ustawienia przeglądarki
         binary = FirefoxBinary('/home/endo93/Firefox 46.0/firefox')
         self.firefox = webdriver.Firefox(firefox_binary=binary)
-        os.system('rm deltaplus.log')
+        os.system('rm sql/deltaplus.log')
 
         self.Wczytaj_Adresy_URL()
+        self.Zapisz_Adresy_URL()
+
+            # pickler - zapis/odczyt produktów z pliku
+        pickler = None
+        plik = None
+        odczyt = False
+
+        if os.path.exists('sql/deltaplus.prod'):
+            odczyt = True
+            plik = open('sql/deltaplus.prod', 'rb')
+            pickler = pickle.Unpickler(plik)
+
+        else: # do zapisywania
+            plik = open('sql/deltaplus.prod', 'wb')
+            pickler = pickle.Pickler(plik, pickle.HIGHEST_PROTOCOL)
 
             # dla każdego adresu url
         for typ in self.adresy_url:
             for dziedzina in self.adresy_url[typ]:
                 for rodzaj in self.adresy_url[typ][dziedzina]:
                     for url in self.adresy_url[typ][dziedzina][rodzaj]:
-                        self.Dodaj_Produkt_Do_Bazy_Danych(url, typ, dziedzina, rodzaj)
+                        self.Dodaj_Produkt_Do_Bazy_Danych(url, typ, dziedzina,
+                                                          rodzaj, pickler, odczyt)
 
+        plik.close()
         self.firefox.close()
 
 

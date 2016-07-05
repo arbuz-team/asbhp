@@ -10,7 +10,7 @@ import komunikat
 from wyszukiwarka.forms import *
 import wyszukiwarka
 from produkt.forms import *
-from asbhp.models import *
+from asbhp.forms import *
 
 
 
@@ -235,7 +235,8 @@ def Konwertuj_Nazwe_Na_URL(nazwa):
 
 
 def Usun_Polskie_Znaki(tekst):
-    return unicodedata.normalize('NFD', tekst).encode('ascii', 'ignore')
+    return unicodedata.normalize('NFD', tekst.decode('utf-8'))\
+        .encode('ascii', 'ignore')
 
 
 

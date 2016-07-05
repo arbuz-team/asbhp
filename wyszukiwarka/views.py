@@ -82,7 +82,10 @@ def Filtr_Wyszukiwarka_Dla_Edytuj(request):
         request.session['wyszukiwarka'] = filtr
 
         if filtr.is_valid():
-            pass
+            request.session['wyszukane'] = Wyszukaj(request)
+            request.session['iloczyn'] = \
+                Iloczyn_Zbiorow(request.session['wyszukane'],
+                                Konteneruj(request))
 
     return redirect('/edytuj/')
 
@@ -204,6 +207,10 @@ def Kontener_Typ(request):
             request.session['wybrany_typ'] = \
                 kontener.cleaned_data['zawartosc']
 
+            request.session['iloczyn'] = \
+                Iloczyn_Zbiorow(request.session['wyszukane'],
+                                Konteneruj(request))
+
         else:
             del request.session['wybrany_typ']
 
@@ -224,6 +231,10 @@ def Kontener_Dziedzina(request):
             request.session['wybrany_dziedzina'] = \
                 kontener.cleaned_data['zawartosc']
 
+            request.session['iloczyn'] = \
+                Iloczyn_Zbiorow(request.session['wyszukane'],
+                                Konteneruj(request))
+
         else:
             del request.session['wybrany_dziedzina']
 
@@ -240,6 +251,10 @@ def Kontener_Rodzaj(request):
         if kontener.is_valid():
             request.session['wybrany_rodzaj'] = \
                 kontener.cleaned_data['zawartosc']
+
+            request.session['iloczyn'] = \
+                Iloczyn_Zbiorow(request.session['wyszukane'],
+                                Konteneruj(request))
 
         else:
             del request.session['wybrany_rodzaj']

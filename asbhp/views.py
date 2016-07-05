@@ -106,7 +106,7 @@ def Wyswietl_Edytuj(request):
     css_menu = {'o_firmie': '', 'oferta': '',
                 'kontakt': '', 'edytuj': 'wybrany'}
 
-    produkt = Filtruj(request)
+    produkt = request.session['wyszukane']
 
         # polecane produkty
     polecane = {'aktywne':      [{'produkt': p,
