@@ -26,7 +26,7 @@ def Wyswietl_Komunikat_O_Wyjatku(e, nazwa_wyjatku, numer_wyjatku=None,
         komunikat += '\t\tadres strony: %s \n' % url
 
     print komunikat
-    os.system('echo "%s" >> sql/deltaplus.log' % komunikat)
+    #os.system('echo "%s" >> sql/deltaplus.log' % komunikat)
 
 
 
@@ -262,6 +262,7 @@ class Konwerter:
 class Baza_Danych:
 
     produkt = {}
+    produkt_zapisany = None
 
 
     def Sprawdz_Podklasy(self, typ, dziedzina):
@@ -325,7 +326,8 @@ class Baza_Danych:
 
 
     def Dodaj_Produkt(self):
-        produkt = Produkt.objects.create(
+
+        self.produkt_zapisany = Produkt.objects.create(
             nazwa=self.produkt['nazwa'],
             opis=self.produkt['opis'],
             slowa_kluczowe=self.produkt['slowa_kluczowe'],
@@ -335,20 +337,37 @@ class Baza_Danych:
             rodzaj=Rodzaj_Odziezy.objects.get(nazwa=self.produkt['rodzaj'])
         )
 
-        produkt.save()
+        self.produkt_zapisany.save()
 
             # certyfikaty, zagrożenia, zawody
         for c in self.produkt['certyfikaty']:
-            produkt.certyfikaty.add(c)
+            self.produkt_zapisany.certyfikaty.add(c)
 
         for z in self.produkt['zagrozenia']:
-            produkt.zagrozenia.add(z)
+            self.produkt_zapisany.zagrozenia.add(z)
 
         for z in self.produkt['zawody']:
-            produkt.zawody.add(z)
+            self.produkt_zapisany.zawody.add(z)
 
-            # zdjęcie
-        produkt.Zapisz_Zdjecie_URL(self.produkt['zdjecie'])
+            # zdjęcie - jeżeli nie ma kopi produktów
+        if not Kierownik.odczyt_produktow:
+            self.produkt_zapisany.Zapisz_Zdjecie_URL(self.produkt['zdjecie'])
+
+        else:
+            nazwa = '/static/img/produkt/{0}.jpeg'.format(self.produkt_zapisany.pk)
+            self.produkt_zapisany.zdjecie.name = nazwa
+            self.produkt_zapisany.save()
+
+
+    def Dodaj_Meta_Tagi(self):
+
+        Meta_Tagi.objects.create(
+            adres_strony='/produkt/%s/' % str(self.produkt_zapisany.pk),
+            description=self.produkt_zapisany.opis[0:154],
+            og_type='produkt',
+            og_url='http://asbhp.arbuz.team/produkt/%s/' % str(self.produkt_zapisany.pk),
+            og_image=str(self.produkt_zapisany.zdjecie)
+        ).save()
 
 
     def __init__(self, produkt, typ, dziedzina):
@@ -375,6 +394,7 @@ class Kierownik:
     zrodlo_strony = ''
     firefox = None
     numer_wyjatku = 0
+    odczyt_produktow = False
 
     @staticmethod
     def WAURL_Pobierz_Nazwe(html, tag):
@@ -501,9 +521,9 @@ class Kierownik:
 
 
     def Dodaj_Produkt_Do_Bazy_Danych(self, url, typ, dziedzina,
-                                     rodzaj, pickler, odczyt):
+                                     rodzaj, pickler):
 
-        if odczyt: # odczytuję produkty z istniejącego pliku
+        if Kierownik.odczyt_produktow: # odczytuję produkty z istniejącego pliku
             produkt = pickler.load()
 
                 # zapisywanie
@@ -524,7 +544,7 @@ class Kierownik:
             # ustawienia przeglądarki
         binary = FirefoxBinary('/home/endo93/Firefox 46.0/firefox')
         self.firefox = webdriver.Firefox(firefox_binary=binary)
-        os.system('rm sql/deltaplus.log')
+        #os.system('rm sql/deltaplus.log')
 
         self.Wczytaj_Adresy_URL()
         self.Zapisz_Adresy_URL()
@@ -532,10 +552,9 @@ class Kierownik:
             # pickler - zapis/odczyt produktów z pliku
         pickler = None
         plik = None
-        odczyt = False
 
         if os.path.exists('sql/deltaplus.prod'):
-            odczyt = True
+            Kierownik.odczyt_produktow = True
             plik = open('sql/deltaplus.prod', 'rb')
             pickler = pickle.Unpickler(plik)
 
@@ -549,7 +568,7 @@ class Kierownik:
                 for rodzaj in self.adresy_url[typ][dziedzina]:
                     for url in self.adresy_url[typ][dziedzina][rodzaj]:
                         self.Dodaj_Produkt_Do_Bazy_Danych(url, typ, dziedzina,
-                                                          rodzaj, pickler, odczyt)
+                                                          rodzaj, pickler)
 
         plik.close()
         self.firefox.close()
