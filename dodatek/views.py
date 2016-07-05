@@ -2,11 +2,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Q
 import operator
+import unicodedata
 from django.http import Http404
 from django.contrib.auth.hashers import make_password
 
 import komunikat
 from wyszukiwarka.forms import *
+import wyszukiwarka
 from produkt.forms import *
 from asbhp.models import *
 
@@ -101,20 +103,23 @@ def Sprawdz_Sesje(request, meta_tag=True):
     if 'formularz_poczta' not in request.session:
         request.session['formularz_poczta'] = None
 
-    if 'iloczyn' not in request.session:
-        request.session['iloczyn'] = []
-
     if 'wyszukane' not in request.session:
-        request.session['wyszukane'] = []
+        request.session['wyszukane'] = \
+            wyszukiwarka.views.Wyszukaj(request)
+
+    if 'iloczyn' not in request.session:
+        request.session['iloczyn'] = \
+            Iloczyn_Zbiorow(request.session['wyszukane'],
+                            wyszukiwarka.views.Konteneruj(request))
 
 
 
 
 def Usun_Sesje_Wyszukiwarki(request):
-    del request.session['wyszukiwarka']
 
-    if 'wyszukane_produkty' in request.session:
-        del request.session['wyszukane_produkty']
+    del request.session['wyszukiwarka']
+    del request.session['wyszukane']
+    del request.session['iloczyn']
 
     return redirect('Wyswietl_Oferta')
 
@@ -225,6 +230,12 @@ def Pobierz_Liste_Numerow_Stron(liczba_stron, wybrana_strona):
 
 def Konwertuj_Nazwe_Na_URL(nazwa):
     return nazwa.replace(' ', '_').lower()
+
+
+
+
+def Usun_Polskie_Znaki(tekst):
+    return unicodedata.normalize('NFD', tekst).encode('ascii', 'ignore')
 
 
 
