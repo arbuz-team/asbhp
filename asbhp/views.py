@@ -38,7 +38,7 @@ def Wyswietl_Oferta(request, wybrana_strona=None, wybrany_filtr=None):
     css_menu = {'o_firmie': '', 'oferta': 'wybrany',
                 'kontakt': '', 'edytuj': ''}
 
-    produkt = Iloczyn_Zbiorow(Filtruj(request), Konteneruj(request))
+    produkt = request.session['produkt']
     request.session['producent'].Ustaw_Pola(request.session['iloczyn'])
     request.session['kolor'].Ustaw_Pola(request.session['iloczyn'])
 

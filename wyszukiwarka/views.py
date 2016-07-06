@@ -70,23 +70,20 @@ def Filtr_Wyszukiwarka(request):
                 Iloczyn_Zbiorow(request.session['wyszukane'],
                                 Konteneruj(request))
 
+            del request.session['produkt']
+
+
+
+
+def Filtr_Wyszukiwarka_Dla_Oferta(request):
+    Filtr_Wyszukiwarka(request)
     return redirect('Wyswietl_Oferta')
 
 
 
 
 def Filtr_Wyszukiwarka_Dla_Edytuj(request):
-
-    if request.method == 'POST':
-        filtr = Formularz_Wyszukiwarki(request.POST)
-        request.session['wyszukiwarka'] = filtr
-
-        if filtr.is_valid():
-            request.session['wyszukane'] = Wyszukaj(request)
-            request.session['iloczyn'] = \
-                Iloczyn_Zbiorow(request.session['wyszukane'],
-                                Konteneruj(request))
-
+    Filtr_Wyszukiwarka(request)
     return redirect('/edytuj/')
 
 
@@ -99,7 +96,7 @@ def Filtr_Producent(request):
         request.session['producent'] = filtr
 
         if filtr.Waliduj():
-            pass
+            del request.session['produkt']
 
     return redirect('Wyswietl_Oferta')
 
@@ -113,7 +110,7 @@ def Filtr_Kolor(request):
         request.session['kolor'] = filtr
 
         if filtr.Waliduj():
-            pass
+            del request.session['produkt']
 
     return redirect('Wyswietl_Oferta')
 
@@ -127,7 +124,7 @@ def Filtr_Zagrozenia(request):
         request.session['zagrozenia'] = filtr
 
         if filtr.is_valid():
-            pass
+            del request.session['produkt']
 
     return redirect('Wyswietl_Oferta')
 
@@ -141,7 +138,7 @@ def Filtr_Zawody(request):
         request.session['zawody'] = filtr
 
         if filtr.is_valid():
-            pass
+            del request.session['produkt']
 
     return redirect('Wyswietl_Oferta')
 
@@ -211,6 +208,8 @@ def Kontener_Typ(request):
                 Iloczyn_Zbiorow(request.session['wyszukane'],
                                 Konteneruj(request))
 
+            del request.session['produkt']
+
         else:
             del request.session['wybrany_typ']
 
@@ -235,6 +234,8 @@ def Kontener_Dziedzina(request):
                 Iloczyn_Zbiorow(request.session['wyszukane'],
                                 Konteneruj(request))
 
+            del request.session['produkt']
+
         else:
             del request.session['wybrany_dziedzina']
 
@@ -255,6 +256,8 @@ def Kontener_Rodzaj(request):
             request.session['iloczyn'] = \
                 Iloczyn_Zbiorow(request.session['wyszukane'],
                                 Konteneruj(request))
+
+            del request.session['produkt']
 
         else:
             del request.session['wybrany_rodzaj']

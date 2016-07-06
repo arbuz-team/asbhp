@@ -112,6 +112,12 @@ def Sprawdz_Sesje(request, meta_tag=True):
             Iloczyn_Zbiorow(request.session['wyszukane'],
                             wyszukiwarka.views.Konteneruj(request))
 
+        # wyświetlane produkty
+    if 'produkt' not in request.session:
+        request.session['produkt'] = Iloczyn_Zbiorow(
+            wyszukiwarka.views.Filtruj(request),
+            wyszukiwarka.views.Konteneruj(request))
+
 
 
 
@@ -120,6 +126,7 @@ def Usun_Sesje_Wyszukiwarki(request):
     del request.session['wyszukiwarka']
     del request.session['wyszukane']
     del request.session['iloczyn']
+    del request.session['produkt']
 
     return redirect('Wyswietl_Oferta')
 
