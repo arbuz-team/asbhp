@@ -34,11 +34,11 @@ class Formularz_Filtru_Producent(forms.Form):
     def Ustaw_Pola(self, produkt):
 
             # wyświetla wszystkie firmy, gdy produktów za dużo
-        wybor = [(p.id, str(p)) for p in Producent.objects.all()]
+        wybor = {(p.id, str(p)) for p in Producent.objects.all()}
         if len(produkt) < 100:
-            wybor = [(p.producent.id, str(p.producent)) for p in produkt]
+            wybor = {(p.producent.id, str(p.producent)) for p in produkt}
 
-        wybor.append((None, 'Wszystkie'))
+        wybor.add((0, 'Wszystkie'))
         wybor = sorted(wybor)
         self.fields['producent'].choices = wybor
 
@@ -66,11 +66,11 @@ class Formularz_Filtru_Kolor(forms.Form):
     def Ustaw_Pola(self, produkt):
 
             # nie wyświetla kolorów, gdy produktów za dużo
-        wybor = []
+        wybor = {(0, 'Wszystkie')}
         if len(produkt) < 100:
-            wybor = [(p.kolor.id, str(p.kolor)) for p in produkt]
+            wybor = {(p.kolor.id, str(p.kolor)) for p in produkt}
+            wybor.add((0, 'Wszystkie'))
 
-        wybor.append((None, 'Wszystkie'))
         wybor = sorted(wybor)
         self.fields['kolor'].choices = wybor
 

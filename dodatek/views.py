@@ -216,17 +216,17 @@ def Pobierz_Liste_Numerow_Stron(liczba_stron, wybrana_strona):
 
         # wyświetl wszystkie strony
     if liczba_stron <= 7:
-        return range(1, liczba_stron + 1)
+        return list(range(1, liczba_stron + 1))
 
     else:
             # wyświetl: 1 2 3 4 5 ... n
         if wybrana_strona < 4: # ... - 0
-            return range(1, 6) + [0, liczba_stron]
+            return list(range(1, 6)) + [0, liczba_stron]
 
             # wyświetl: 1 ... n-4 n-3 n-2 n-1 n
         if wybrana_strona > liczba_stron - 3:
-            return [1, 0] + range(liczba_stron - 4,
-                                  liczba_stron + 1)
+            return [1, 0] + list(range(liczba_stron - 4,
+                                       liczba_stron + 1))
 
             # wyswietl: 1 ... a b c ... n
         return [1, 0, wybrana_strona - 1, wybrana_strona,

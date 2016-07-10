@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from dodatek.views import *
-from forms import *
+from .forms import *
 from django.core.mail import EmailMessage
 
 

@@ -23,4 +23,4 @@ class Meta_Tagi(models.Model):
     og_image = models.CharField(max_length=200)
 
     def __str__(self):
-        return self.adres_strony.encode('utf8')
+        return self.adres_strony

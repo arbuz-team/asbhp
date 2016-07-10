@@ -4,7 +4,8 @@ from django.db import models
 from django.utils import timezone
 from arbuz.settings import *
 from PIL import Image
-import os, cStringIO, urllib
+from io import StringIO
+import os, urllib
 
 
 
@@ -16,7 +17,7 @@ class Typ_Odziezy(models.Model):
     url = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.nazwa.encode('utf8')
+        return self.nazwa
 
 
 
@@ -28,7 +29,7 @@ class Dziedzina_Odziezy(models.Model):
     typ = models.ForeignKey(Typ_Odziezy, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.nazwa.encode('utf8')
+        return self.nazwa
 
 
 
@@ -40,7 +41,7 @@ class Rodzaj_Odziezy(models.Model):
     dziedzina = models.ForeignKey(Dziedzina_Odziezy, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.nazwa.encode('utf8')
+        return self.nazwa
 
 
 
@@ -52,7 +53,7 @@ class Producent(models.Model):
     nazwa = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.nazwa.encode('utf8')
+        return self.nazwa
 
 
 
@@ -62,7 +63,7 @@ class Kolor(models.Model):
     nazwa = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.nazwa.encode('utf8')
+        return self.nazwa
 
 
 
@@ -73,7 +74,7 @@ class Certyfikat(models.Model):
     szczegoly = models.TextField()
 
     def __str__(self):
-        return self.numer.encode('utf8')
+        return self.numer
 
 
 
@@ -83,7 +84,7 @@ class Zagrozenie(models.Model):
     nazwa = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.nazwa.encode('utf8')
+        return self.nazwa
 
 
 
@@ -93,7 +94,7 @@ class Zawod(models.Model):
     nazwa = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.nazwa.encode('utf8')
+        return self.nazwa
 
 
 
@@ -125,7 +126,7 @@ class Produkt(models.Model):
         self.save()
 
     def Zapisz_Zdjecie_URL(self, adres_url):
-        wejscie = cStringIO.StringIO(urllib.urlopen(adres_url).read())
+        wejscie = StringIO(urllib.urlopen(adres_url).read())
         obrazek = Image.open(wejscie)
         nowa_nazwa = '/static/img/produkt/{0}.{1}' \
             .format(self.pk, obrazek.format.lower())
@@ -135,7 +136,7 @@ class Produkt(models.Model):
         self.save()
 
     def __str__(self):
-        return self.nazwa.encode('utf8')
+        return self.nazwa
 
 
 

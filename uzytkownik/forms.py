@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django import forms
 from dodatek.views import *
-from models import *
+from .models import *
 
 
 

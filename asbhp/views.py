@@ -2,7 +2,7 @@
 from wyszukiwarka.views import *
 from produkt.views import *
 from poczta.views import *
-from forms import *
+from .forms import *
 
 
 
