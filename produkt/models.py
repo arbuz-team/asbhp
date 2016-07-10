@@ -17,7 +17,7 @@ class Typ_Odziezy(models.Model):
     url = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.nazwa.encode('utf8')
+        return self.nazwa
 
 
 
@@ -29,7 +29,7 @@ class Dziedzina_Odziezy(models.Model):
     typ = models.ForeignKey(Typ_Odziezy, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.nazwa.encode('utf8')
+        return self.nazwa
 
 
 
@@ -41,7 +41,7 @@ class Rodzaj_Odziezy(models.Model):
     dziedzina = models.ForeignKey(Dziedzina_Odziezy, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.nazwa.encode('utf8')
+        return self.nazwa
 
 
 
@@ -53,7 +53,7 @@ class Producent(models.Model):
     nazwa = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.nazwa.encode('utf8')
+        return self.nazwa
 
 
 
@@ -63,7 +63,7 @@ class Kolor(models.Model):
     nazwa = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.nazwa.encode('utf8')
+        return self.nazwa
 
 
 
@@ -74,7 +74,7 @@ class Certyfikat(models.Model):
     szczegoly = models.TextField()
 
     def __str__(self):
-        return self.numer.encode('utf8')
+        return self.numer
 
 
 
@@ -84,7 +84,7 @@ class Zagrozenie(models.Model):
     nazwa = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.nazwa.encode('utf8')
+        return self.nazwa
 
 
 
@@ -94,7 +94,7 @@ class Zawod(models.Model):
     nazwa = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.nazwa.encode('utf8')
+        return self.nazwa
 
 
 
@@ -136,7 +136,7 @@ class Produkt(models.Model):
         self.save()
 
     def __str__(self):
-        return self.nazwa.encode('utf8')
+        return self.nazwa
 
 
 
