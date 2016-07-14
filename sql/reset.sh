@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /usr/bin/fish
 rm db.sqlite3
 rm asbhp/migrations/*
 rm uzytkownik/migrations/*

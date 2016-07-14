@@ -242,7 +242,7 @@ def Konwertuj_Nazwe_Na_URL(nazwa):
 
 
 def Usun_Polskie_Znaki(tekst):
-    return unicodedata.normalize('NFD', tekst.decode('utf-8'))\
+    return unicodedata.normalize('NFKD', tekst)\
         .encode('ascii', 'ignore')
 
 

@@ -4,8 +4,9 @@ from django.db import models
 from django.utils import timezone
 from arbuz.settings import *
 from PIL import Image
-from io import StringIO
-import os, urllib
+from io import BytesIO
+from urllib.request import urlopen
+import os
 
 
 
@@ -126,7 +127,7 @@ class Produkt(models.Model):
         self.save()
 
     def Zapisz_Zdjecie_URL(self, adres_url):
-        wejscie = StringIO(urllib.urlopen(adres_url).read())
+        wejscie = BytesIO(urlopen(adres_url).read())
         obrazek = Image.open(wejscie)
         nowa_nazwa = '/static/img/produkt/{0}.{1}' \
             .format(self.pk, obrazek.format.lower())

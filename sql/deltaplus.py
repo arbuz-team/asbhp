@@ -25,8 +25,8 @@ def Wyswietl_Komunikat_O_Wyjatku(e, nazwa_wyjatku, numer_wyjatku=None,
     if url:
         komunikat += '\t\tadres strony: %s \n' % url
 
-    print komunikat
-    #os.system('echo "%s" >> sql/deltaplus.log' % komunikat)
+    print(komunikat)
+    os.system('echo "%s" >> sql/deltaplus.log' % komunikat)
 
 
 
@@ -88,7 +88,7 @@ class Konwerter:
         koniec = rozmiar.find('</p>')
 
         self.produkt['rozmiar'] = \
-            rozmiar[poczatek:koniec].translate(None, '\t\n')
+            rozmiar[poczatek:koniec].translate(str.maketrans('', '', '\t\n'))
 
 
     def Pobierz_Producent(self):
@@ -110,7 +110,7 @@ class Konwerter:
         koniec = kolor.find('</p>')
 
         self.produkt['kolor'] = \
-            kolor[poczatek:koniec].translate(None, '\t\n\xe2\x80\x8b')
+            kolor[poczatek:koniec].translate(str.maketrans('', '', '\t\n\xe2\x80\x8b'))
 
 
     def Pobierz_Rodzaj(self, rodzaj):
@@ -138,7 +138,7 @@ class Konwerter:
                 # zapisuję
             self.produkt['certyfikaty'].append(
                 certyfikaty[poczatek:koniec].
-                    translate(None, '\t\n').split('\xc2\xa0')[0:2])
+                    translate(str.maketrans('', '', '\t\n')).split('\xa0')[0:2])
 
 
     def Pobierz_Zagrozenia(self):
@@ -517,7 +517,7 @@ class Kierownik:
             time.sleep(4)
 
             # zamknięcie przeglądarki
-        self.zrodlo_strony = self.firefox.page_source.encode('utf-8')
+        self.zrodlo_strony = self.firefox.page_source
 
 
     def Dodaj_Produkt_Do_Bazy_Danych(self, url, typ, dziedzina,
@@ -544,7 +544,7 @@ class Kierownik:
             # ustawienia przeglądarki
         binary = FirefoxBinary('/home/endo93/Firefox 46.0/firefox')
         self.firefox = webdriver.Firefox(firefox_binary=binary)
-        #os.system('rm sql/deltaplus.log')
+        os.system('rm sql/deltaplus.log')
 
         self.Wczytaj_Adresy_URL()
         self.Zapisz_Adresy_URL()
