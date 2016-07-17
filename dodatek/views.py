@@ -5,6 +5,7 @@ import operator
 import unicodedata
 from django.http import Http404
 from django.contrib.auth.hashers import make_password
+from functools import reduce
 
 import komunikat
 from wyszukiwarka.forms import *
