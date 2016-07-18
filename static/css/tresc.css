@@ -64,6 +64,7 @@
 {
   #TRESC.start > .BLOK1 > .napis
   {
+    display: none;
     position: absolute;
     width: 435px;
     height: 185px;
