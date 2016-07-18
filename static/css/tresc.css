@@ -724,6 +724,7 @@
   , #TRESC div.lista_produktow > ul > .produkt > .zawody
   {
     display: inline-block;
+    min-width: 300px;
   }
 
 
