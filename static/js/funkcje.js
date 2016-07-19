@@ -232,7 +232,7 @@ var zmiana = (function()
     });
 
     if( plynnosc )
-      $produkt.addClass( 'pelny' ).fadeIn(300);
+      $produkt.addClass( 'pelny' ).fadeIn(300).children( '.tresc' ).scrollTop( '0px' );
     else
     {
       $produkt.addClass( 'pelny' ).show();
