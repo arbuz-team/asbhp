@@ -202,7 +202,7 @@ var zmiana = (function()
     
 
     for( var x in dane.certyfikaty )
-      certyfikaty = certyfikaty +'<div class="piktogram" title="'+ dane.certyfikaty[x] +'" style="background-image: url(/static/img/zawody/'+ ( parseInt( x ) + 1 ) +'.png)"></div>';
+      certyfikaty = certyfikaty +'<div>'+ dane.certyfikaty[x] +'</div>';
     
     for( var x in dane.zagrozenia )
       zagrozenia = zagrozenia +'<div class="piktogram" title="'+ dane.zagrozenia[x] +'" style="background-image: url(/static/img/zagrozenia/'+ ( parseInt( x ) + 1 ) +'.png)"></div>';
@@ -219,7 +219,7 @@ var zmiana = (function()
     $tabela.find( '.kolor > div' ).eq(1).html( dane.kolor );
     $tabela.find( '.rozmiar > div' ).eq(1).html( dane.rozmiar );
 
-    $tabela.find( '.certyfikaty > div' ).eq(1).html( dane.certyfikaty );
+    $tabela.find( '.certyfikaty > div' ).eq(1).html( certyfikaty );
     $tabela.find( '.zagrozenia > div' ).eq(1).html( zagrozenia );
     $tabela.find( '.zawody > div' ).eq(1).html( zawody );
 
