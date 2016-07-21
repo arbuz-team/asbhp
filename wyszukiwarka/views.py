@@ -70,7 +70,7 @@ def Filtr_Wyszukiwarka(request):
                 Iloczyn_Zbiorow(request.session['wyszukane'],
                                 Konteneruj(request))
 
-            del request.session['produkt']
+            request.session['produkt'] = request.session['iloczyn']
 
 
 
@@ -96,7 +96,8 @@ def Filtr_Producent(request):
         request.session['producent'] = filtr
 
         if filtr.Waliduj():
-            del request.session['produkt']
+            request.session['produkt'] = \
+                Iloczyn_Zbiorow(Filtruj(request), Konteneruj(request))
 
     return redirect('Wyswietl_Oferta')
 
@@ -110,7 +111,8 @@ def Filtr_Kolor(request):
         request.session['kolor'] = filtr
 
         if filtr.Waliduj():
-            del request.session['produkt']
+            request.session['produkt'] = \
+                Iloczyn_Zbiorow(Filtruj(request), Konteneruj(request))
 
     return redirect('Wyswietl_Oferta')
 
@@ -124,7 +126,8 @@ def Filtr_Zagrozenia(request):
         request.session['zagrozenia'] = filtr
 
         if filtr.is_valid():
-            del request.session['produkt']
+            request.session['produkt'] = \
+                Iloczyn_Zbiorow(Filtruj(request), Konteneruj(request))
 
     return redirect('Wyswietl_Oferta')
 
@@ -138,7 +141,8 @@ def Filtr_Zawody(request):
         request.session['zawody'] = filtr
 
         if filtr.is_valid():
-            del request.session['produkt']
+            request.session['produkt'] = \
+                Iloczyn_Zbiorow(Filtruj(request), Konteneruj(request))
 
     return redirect('Wyswietl_Oferta')
 
@@ -208,7 +212,8 @@ def Kontener_Typ(request):
                 Iloczyn_Zbiorow(request.session['wyszukane'],
                                 Konteneruj(request))
 
-            del request.session['produkt']
+            request.session['produkt'] = \
+                Iloczyn_Zbiorow(Filtruj(request), Konteneruj(request))
 
         else:
             del request.session['wybrany_typ']
@@ -234,7 +239,8 @@ def Kontener_Dziedzina(request):
                 Iloczyn_Zbiorow(request.session['wyszukane'],
                                 Konteneruj(request))
 
-            del request.session['produkt']
+            request.session['produkt'] = \
+                Iloczyn_Zbiorow(Filtruj(request), Konteneruj(request))
 
         else:
             del request.session['wybrany_dziedzina']
@@ -257,7 +263,8 @@ def Kontener_Rodzaj(request):
                 Iloczyn_Zbiorow(request.session['wyszukane'],
                                 Konteneruj(request))
 
-            del request.session['produkt']
+            request.session['produkt'] = \
+                Iloczyn_Zbiorow(Filtruj(request), Konteneruj(request))
 
         else:
             del request.session['wybrany_rodzaj']

@@ -113,11 +113,11 @@ def Sprawdz_Sesje(request, meta_tag=True):
             Iloczyn_Zbiorow(request.session['wyszukane'],
                             wyszukiwarka.views.Konteneruj(request))
 
-        # wyświetlane produkty
+        # wyświetlane produkty na start
     if 'produkt' not in request.session:
-        request.session['produkt'] = Iloczyn_Zbiorow(
-            wyszukiwarka.views.Filtruj(request),
-            wyszukiwarka.views.Konteneruj(request))
+        request.session['produkt'] = \
+            Produkt.objects.filter(pk__in=Polecane.objects.all().
+                                   values('produkt__pk'))
 
 
 
