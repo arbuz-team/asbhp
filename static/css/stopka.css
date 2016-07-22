@@ -48,34 +48,84 @@
 
 #STOPKA .menu
 {
-  width: 300px;
-  height: inherit;
-
-  z-index: 11;
+  display: none;
 }
 
 
 
-#STOPKA .menu > div
+@media screen and (min-width: 610px) 
 {
-  display: inline-block;
+    #STOPKA .menu
+    {
+      display: inline-block;
+      min-width: 150px;
+      width: 150px;
+      max-width: 150px;
+      min-height: 250px;
 
-  width: 140px;
-  height: 40px;
+      z-index: 11;
+    }
 
-  margin-top: 60px;
-  
-  line-height: 40px;
-  font-size: 18px;
 
-  z-index: 12;
+
+    #STOPKA .menu > div
+    {
+      display: inline-block;
+
+      min-width: 140px;
+      max-width: 140px;
+      height: 40px;
+
+      margin-top: 20px;
+      
+      line-height: 40px;
+      font-size: 18px;
+
+      z-index: 12;
+    }
+
+
+
+    #STOPKA .menu > div:first-child
+    {
+      margin-top: 60px;
+    }
+
+
+
+    #STOPKA .menu > div:hover
+    {
+      text-decoration: underline;
+    }
 }
 
 
 
-#STOPKA .menu > div:hover
+@media screen and (min-width: 1200px) 
 {
-  text-decoration: underline;
+  #STOPKA .menu
+  {
+    min-width: 300px;
+    max-width: 300px;
+
+    min-height: 100px;
+    height: 100px;
+    max-height: 100px;
+  }
+
+
+
+  #STOPKA .menu > div
+  {
+    margin-top: 20px;
+  }
+
+
+
+  #STOPKA .menu > div:first-child
+  {
+    margin-top: 60px;
+  }
 }
 
 

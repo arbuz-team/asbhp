@@ -1,4 +1,5 @@
 .idea/*
 *.pyc
 *.swp
+*.swo
 static/img/produkt/*
