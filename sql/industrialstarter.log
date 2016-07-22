@@ -1,0 +1,21 @@
+
+
+1
+	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
+		 <urlopen error [Errno 101] Network is unreachable> 
+		 produkt.nazwa: Plandeka 
+
+
+
+2
+	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
+		 unknown url type: '' 
+		 produkt.nazwa: STOŻEK DROGOWY 
+
+
+
+3
+	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
+		 unknown url type: '' 
+		 produkt.nazwa: STOŻEK DROGOWY  
+
