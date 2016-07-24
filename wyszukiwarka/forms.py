@@ -126,6 +126,7 @@ class Formularz_Filtru_Liczba_Produktow(forms.Form):
             (16, 16),
             (20, 20),
         ),
+        initial=8,
         widget=forms.Select(attrs={'class': 'focus'})
     )
 
