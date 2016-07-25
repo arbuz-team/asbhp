@@ -311,15 +311,15 @@ var zmiana = (function()
 
   var udostepnione = 
   {
-    zmniejsz_naglowek : _zmniejsz_naglowek,
-    zwieksz_naglowek : _zwieksz_naglowek,
-    przelacznik_zakladek_filtry : _przelacznik_zakladek_filtry,
-    przelacznik_zakladek_bloki : _przelacznik_zakladek_bloki,
-    pokaz_produkt : _pokaz_produkt,
-    ukryj_produkt : _ukryj_produkt,
-    pokaz_menu : _pokaz_menu,
-    ukryj_menu : _ukryj_menu,
-    ukryj_ladowanie : _ukryj_ladowanie
+    zmniejsz_naglowek : _zmniejsz_naglowek
+    , zwieksz_naglowek : _zwieksz_naglowek
+    , przelacznik_zakladek_filtry : _przelacznik_zakladek_filtry
+    , przelacznik_zakladek_bloki : _przelacznik_zakladek_bloki
+    , pokaz_produkt : _pokaz_produkt
+    , ukryj_produkt : _ukryj_produkt
+    , pokaz_menu : _pokaz_menu
+    , ukryj_menu : _ukryj_menu
+    , ukryj_ladowanie : _ukryj_ladowanie
   }
 
   return udostepnione;
@@ -339,7 +339,11 @@ var dostosuj = (function()
 
     $( '#TRESC' ).css( 'min-height', (wysokosc.strona - wysokosc.naglowek - wysokosc.stopka - wysokosc.margin) );
 
-    $( '#TRESC > .BLOK1' ).css( 'min-height', (wysokosc.strona - wysokosc.naglowek - wysokosc.stopka - wysokosc.margin) );
+    if( $( '#TRESC > .BLOK1' ).is( '.stala_wysokosc' ) )
+      $( '#TRESC > .BLOK2' ).css( 'min-height', (wysokosc.strona - wysokosc.naglowek - wysokosc.stopka - wysokosc.margin - parseInt($( '#TRESC > .BLOK1' ).outerHeight()) ) );
+    else
+      $( '#TRESC > .BLOK1' ).css( 'min-height', (wysokosc.strona - wysokosc.naglowek - wysokosc.stopka - wysokosc.margin) );
+
     $( '#TRESC.start > .BLOK1' ).css( 'min-height', (wysokosc.strona - wysokosc.naglowek - wysokosc.margin) );
   };
 
