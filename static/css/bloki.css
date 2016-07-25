@@ -63,12 +63,101 @@
 }
 
 
-/************************************************************/
 
-#TRESC.standardowa > .BLOK1 > .tlo
+
+/***************************** STANDARDOWA *******************************/
+
+
+#TRESC.standardowa > div > .tlo
 {
   background-color: #fff;
 }
+
+
+
+
+/***************************** EDYTUJ *******************************/
+
+
+#TRESC.edytuj > .BLOK1
+{
+  min-height: 100px !important;
+}
+
+
+
+
+#TRESC.edytuj > .BLOK1 > .tlo
+{
+  background-color: #fbfbfb !important;
+}
+
+
+
+#TRESC.edytuj > .BLOK1 > .tresc > div
+{
+  position: relative;
+
+  display: inline-block;
+
+  min-width: 28%;
+  width: 28%;
+  height: 40px;
+
+  margin-left: 2.05%;
+  margin-right: 2.05%;
+
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+
+  line-height: 40px;
+  font-weight: bold;
+  text-align: center;
+
+  overflow: hidden;
+  z-index:12;
+}
+
+
+
+#TRESC.edytuj > .BLOK1 > .tresc > .wybrana
+{
+  color: #ddd;
+  background-color: rgba(30, 29, 28, 1);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+
+
+#TRESC.edytuj > .BLOK2
+{
+  min-height: 300px;
+}
+
+
+#TRESC.edytuj > .BLOK2 > .tlo
+{
+  background-color: #e9ebee;
+
+  -webkit-box-shadow: inset 0px 1px 8px 0px #aaa;
+  -moz-box-shadow: inset 0px 1px 8px 0px #aaa;
+  box-shadow: inset 0px 1px 4px 0px #aaa;
+}
+
+
+
+#TRESC.edytuj > .BLOK2 > .tresc
+{
+  display: none;
+}
+
+
+
+
 
 
 

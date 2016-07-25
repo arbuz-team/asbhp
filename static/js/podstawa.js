@@ -29,7 +29,7 @@
 
   if( numer_filtra )
   {
-    zmiana.przelacznik_zakladek( '#FILTRY', numer_filtra );
+    zmiana.przelacznik_zakladek_filtry( '#FILTRY', numer_filtra );
 
     $( '#FILTRY .zakladka_'+ numer_filtra +' .focus' ).focus();
   }
@@ -129,9 +129,23 @@ $( '#PRODUKT > .tresc *' ).click(function(event)
 
 $( '.filtry > .lista > div' ).not( '.link' ).click(function()
 {
-  zmiana.przelacznik_zakladek( '#' + $(this).parent().parent().attr( 'id' ), $(this).data( 'numer' ) );
+  if( !$(this).is( '.wybrana' ) )
+  {
+    zmiana.przelacznik_zakladek_filtry( '#' + $(this).parent().parent().attr( 'id' ), $(this).data( 'numer' ) );
 
-  wyslij.numer_filtra( $(this).data( 'numer' ) );
+    wyslij.numer_filtra( $(this).data( 'numer' ) );
+  }
+});
+
+
+
+/********* BLOKI - ZAKŁADKI *********/
+
+$( '#TRESC > .BLOK1 > .tresc > .zakladka_blok' ).click(function()
+{
+  console.log('klik');
+  if( !$(this).is( '.wybrana' ) )
+    zmiana.przelacznik_zakladek_bloki( $(this).data( 'numer' ) );
 });
 
 

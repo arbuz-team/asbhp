@@ -174,7 +174,7 @@ var zmiana = (function()
 
 
 
-  function _przelacznik_zakladek( element, numer )
+  function _przelacznik_zakladek_filtry( element, numer )
   {
     var $filtry = $(element)
       , $lista = $filtry.children( '.lista' )
@@ -186,6 +186,24 @@ var zmiana = (function()
     $filtry.children( '.zakladka.wybrana' ).removeClass( 'wybrana' ).fadeOut(200, function() 
     {
       $filtry.children( '.zakladka_' + numer ).fadeIn(200).addClass( 'wybrana' );
+    });
+  }
+
+
+
+  function _przelacznik_zakladek_bloki( numer )
+  {
+    var numer = parseInt(numer)
+      , $kliknieta = $( '.BLOK1 > .tresc > .zakladka_blok[data-numer='+ numer +']' )
+      , $wybrany_blok = $( '.BLOK2 > .tresc.blok'+ numer )
+      , $lista_zakladek = $( '.BLOK1 > .tresc' )
+
+    $lista_zakladek.children( '.wybrana' ).removeClass( 'wybrana' );
+    $lista_zakladek.children( '[data-numer="'+ numer +'"]' ).addClass( 'wybrana' );
+    
+    $( '.BLOK2 > .tresc.wybrana' ).removeClass( 'wybrana' ).fadeOut(200, function() 
+    {
+      $wybrany_blok.fadeIn(200).addClass( 'wybrana' );
     });
   }
 
@@ -295,7 +313,8 @@ var zmiana = (function()
   {
     zmniejsz_naglowek : _zmniejsz_naglowek,
     zwieksz_naglowek : _zwieksz_naglowek,
-    przelacznik_zakladek : _przelacznik_zakladek,
+    przelacznik_zakladek_filtry : _przelacznik_zakladek_filtry,
+    przelacznik_zakladek_bloki : _przelacznik_zakladek_bloki,
     pokaz_produkt : _pokaz_produkt,
     ukryj_produkt : _ukryj_produkt,
     pokaz_menu : _pokaz_menu,

@@ -4,13 +4,29 @@
 {% include "naglowek.html" %}
 
 
-<div id="TRESC" class="fragment standardowa">
+<div id="TRESC" class="fragment edytuj">
 
   <div class="BLOK1">
 
     <div class="tlo abs_pelny"></div>
 
     <div class="tresc">
+
+      <div class="zakladka_blok wybrana" data-numer="1"> Zakładka 1 </div>
+      <div class="zakladka_blok" data-numer="2"> Zakładka 2 </div>
+      <div class="zakladka_blok" data-numer="3"> Zakładka 3 </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="BLOK2">
+
+    <div class="tlo abs_pelny"></div>
+
+    <div class="tresc lista_produktow blok1 wybrana" style="display: block">
 
       <div class="tytul">Produkty</div>
       <div class="tekst">
@@ -35,20 +51,88 @@
 
         <div class="otoczka_pola link" data-href="/produkt/dodaj/"><button>Dodaj nowy produkt</button></div>
 
-        {% for p in produkt %}
-          {{ p }}
-          <a href="/produkt/edytuj/{{ p.pk }}">EDYTUJ</a>
-          <a href="/produkt/usun/{{ p.pk }}">USUŃ</a>
-          <br/>
-        {% endfor %}
       </div>
+  
+      <ul>
+
+        {% if numery_stron %}
+          <li class="numery_stron">
+            {% for s in numery_stron %}
+              {% if s == 0 %}
+                <span class="kropki">...</span>
+
+              {% elif s == wybrany.strona %}
+                  <span class="wybrana">{{ s }}</span>
+              {% else %}
+                <span class="link" data-href="/oferta/{{ s }}/">{{ s }}</span>
+              {% endif %}
+            {% endfor %}
+          </li>
+        {% endif %}
+
+        {% if not produkt %}
+          <li class="komentarz">
+          
+            <div>Nie ma pasujących produktów</div>
+          
+          </li>
+        {% endif %}
+
+
+        {% for p in produkt %}
+
+          <!--<li class="produkt" data-href="/produkt/{{ p.id }}/" data-nazwa="{{ p.nazwa }}">
+          
+            <div class="nazwa">{{ p.nazwa }}</div>
+
+            <div class="producent">{{ p.producent }}</div>
+          
+            <div class="obrazek" style="background-image: url({{ p.zdjecie }});"></div>
+
+            <div class="zagrozenia">
+              <a href="/produkt/edytuj/{{ p.pk }}">Edytuj</a>
+            </div>
+
+            <div class="zawody">
+              <a href="/produkt/usun/{{ p.pk }}">Usuń</a>
+            </div>
+
+            <div class="pokaz_wiecej">Pokaż więcej...</div>
+          
+          </li>-->
+
+        {% endfor %}
+
+        {% if numery_stron %}
+          <li class="numery_stron">
+              {% for s in numery_stron %}
+                {% if s == 0 %}
+                  <span class="kropki">...</span>
+
+                {% elif s == wybrany.strona %}
+                  <span class="wybrana">{{ s }}</span>
+                {% else %}
+                  <span class="link" data-href="/oferta/{{ s }}/">{{ s }}</span>
+                {% endif %}
+              {% endfor %}
+          </li>
+        {% endif %}
+    
+      </ul>
+    
+    </div>
+
+    <div class="tresc blok2">
+
 
       <div class="tytul">Promowanie</div>
       <div class="tekst">
+
         <div class="otoczka_pola link" data-href="/produkt/dodaj/polecane/"><button>Dodaj produkt do listy produktów promowanych</button></div>
         <br/>
 
         <div class="podtytul">Aktywne</div>
+
         <div>
           {% for p in polecane.aktywne %}
             {{ p.produkt }}
@@ -57,9 +141,9 @@
             <form method="POST" action="/produkt/edytuj/polecane/{{ p.produkt.pk }}/">
               {% csrf_token %}
 
-              {{ p.formularz.data_zakonczenia }}
+              <div class="otoczka_pola">{{ p.formularz.data_zakonczenia }}</div>
 
-              <button type="submit">Ustaw</button>
+              <div class="otoczka_pola"><button type="submit">Ustaw</button></div>
             </form>
 
             <br/>
@@ -75,9 +159,9 @@
             <form method="POST" action="/produkt/edytuj/polecane/{{ p.produkt.pk }}/">
               {% csrf_token %}
 
-              {{ p.formularz.data_zakonczenia }}
+              <div class="otoczka_pola">{{ p.formularz.data_zakonczenia }}</div>
 
-              <button type="submit">Ustaw</button>
+              <div class="otoczka_pola"><button type="submit">Ustaw</button></div>
             </form>
 
             <br/>
@@ -85,6 +169,10 @@
         </div>
 
       </div>
+
+    </div>
+
+    <div class="tresc blok3">
 
       <div class="tytul">O Firmie</div>
       <div class="tekst">

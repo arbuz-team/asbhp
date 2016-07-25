@@ -162,6 +162,111 @@ ul
 
 
 
+/****************** Treść standardowa ******************/
+
+@media (min-width: 768px)
+{
+
+  #TRESC.standardowa > div > .tresc
+  , #TRESC.start > div > .tresc
+  , #TRESC.oferta > div > .tresc
+  , #TRESC.edytuj > div > .tresc
+  , #STOPKA > div > div
+  , #PRODUKT .tresc > div:first-child
+  {
+    width: 650px;
+  }
+
+}
+
+
+
+@media screen and (min-width: 870px)
+{
+
+  #TRESC.standardowa > div > .tresc
+  , #TRESC.start > div > .tresc
+  , #TRESC.oferta > div > .tresc
+  , #TRESC.edytuj > div > .tresc
+  , #STOPKA > div > div
+  , #PRODUKT .tresc > div:first-child
+  {
+    margin: 50px auto;
+  }
+
+}
+
+
+
+@media (min-width: 992px)
+{
+
+  #TRESC.standardowa > div > .tresc
+  , #TRESC.start > div > .tresc
+  , #TRESC.oferta > div > .tresc
+  , #TRESC.edytuj > div > .tresc
+  , #STOPKA > div > div
+  , #PRODUKT .tresc > div:first-child
+  {
+    width: 800px;
+  }
+
+}
+
+@media (min-width: 1200px)
+{
+
+  #TRESC.standardowa > div > .tresc
+  , #TRESC.start > div > .tresc
+  , #TRESC.oferta > div > .tresc
+  , #TRESC.edytuj > div > .tresc
+  , #STOPKA > div > div
+  , #PRODUKT .tresc > div:first-child
+  {
+    width: 970px;
+  }
+  
+}
+
+
+
+#TRESC.standardowa > div > .tresc
+, #TRESC.start > div > .tresc
+, #TRESC.oferta > div > .tresc
+, #TRESC.edytuj > div > .tresc
+, #STOPKA > div > div
+, #PRODUKT .tresc > div:first-child
+{
+  margin: 10px auto 30px auto;
+
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+
+
+#TRESC.oferta > div > .tresc
+{
+  margin: 0px auto;
+  margin-top: 10px;
+}
+
+
+
+#TRESC.standardowa > div > .edytuj
+{
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+
+
+
+/****************** PRODUKT ******************/
+
+
 #PRODUKT
 {
   display: none;
@@ -428,102 +533,6 @@ ul
   color: #ccc;
 
   z-index: 62;
-}
-
-
-
-/********* Treść standardowa *********/
-
-@media (min-width: 768px)
-{
-
-  #TRESC.standardowa > div > .tresc
-  , #TRESC.start > div > .tresc
-  , #TRESC.oferta > div > .tresc
-  , #STOPKA > div > div
-  , #PRODUKT .tresc > div:first-child
-  {
-    width: 650px;
-  }
-
-}
-
-
-
-@media screen and (min-width: 870px)
-{
-
-  #TRESC.standardowa > div > .tresc
-  , #TRESC.start > div > .tresc
-  , #TRESC.oferta > div > .tresc
-  , #STOPKA > div > div
-  , #PRODUKT .tresc > div:first-child
-  {
-    margin: 50px auto;
-  }
-
-}
-
-
-
-@media (min-width: 992px)
-{
-
-  #TRESC.standardowa > div > .tresc
-  , #TRESC.start > div > .tresc
-  , #TRESC.oferta > div > .tresc
-  , #STOPKA > div > div
-  , #PRODUKT .tresc > div:first-child
-  {
-    width: 800px;
-  }
-
-}
-
-@media (min-width: 1200px)
-{
-
-  #TRESC.standardowa > div > .tresc
-  , #TRESC.start > div > .tresc
-  , #TRESC.oferta > div > .tresc
-  , #STOPKA > div > div
-  , #PRODUKT .tresc > div:first-child
-  {
-    width: 970px;
-  }
-  
-}
-
-
-
-#TRESC.standardowa > div > .tresc
-, #TRESC.start > div > .tresc
-, #TRESC.oferta > div > .tresc
-, #STOPKA > div > div
-, #PRODUKT .tresc > div:first-child
-{
-  margin: 10px auto 30px auto;
-
-  padding: 10px;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-
-
-#TRESC.oferta > div > .tresc
-{
-  margin: 0px auto;
-  margin-top: 10px;
-}
-
-
-
-#TRESC.standardowa > div > .edytuj
-{
-  position: absolute;
-  top: 5px;
-  right: 10px;
 }
 
 
