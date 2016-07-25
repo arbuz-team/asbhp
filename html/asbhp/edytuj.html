@@ -12,9 +12,9 @@
 
     <div class="tresc">
 
-      <div class="zakladka_blok wybrana" data-numer="1"> Zakładka 1 </div>
-      <div class="zakladka_blok" data-numer="2"> Zakładka 2 </div>
-      <div class="zakladka_blok" data-numer="3"> Zakładka 3 </div>
+      <div class="zakladka_blok wybrana" data-numer="1"> Produkty </div>
+      <div class="zakladka_blok" data-numer="2"> Promowane </div>
+      <div class="zakladka_blok" data-numer="3"> Stałe dane podstron </div>
 
     </div>
 
@@ -79,15 +79,13 @@
         {% endif %}
 
 
-        {% for p in produkt %}
-
           <li class="produkt" data-href="/produkt/{{ p.id }}/" data-nazwa="{{ p.nazwa }}">
           
             <div class="nazwa">{{ p.nazwa }}</div>
 
             <div class="producent">{{ p.producent }}</div>
           
-            <div class="obrazek" style="background-image: url({{ p.zdjecie }});"></div>
+            <div class="obrazek" data-style="background-image: url({{ p.zdjecie }});"></div>
 
             <div class="zagrozenia">
               <a href="/produkt/edytuj/{{ p.pk }}">Edytuj</a>
@@ -100,6 +98,9 @@
             <div class="pokaz_wiecej">Pokaż więcej...</div>
           
           </li>
+
+        {% for p in produkt %}
+
 
         {% endfor %}
 
