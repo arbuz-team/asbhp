@@ -96,8 +96,20 @@ def Filtr_Producent(request):
         request.session['producent'] = filtr
 
         if filtr.Waliduj():
+
             request.session['produkt'] = \
                 Iloczyn_Zbiorow(Filtruj(request), Konteneruj(request))
+
+            # aktualizacja typu, gdy zmienia się producent
+            if filtr.Pobierz_Wybrany() != '0':
+                producent = Producent.objects.get(pk=filtr.Pobierz_Wybrany())
+                request.session['typ'] = \
+                    Typ_Odziezy.objects.filter(nazwa__in=Produkt.objects.filter(
+                    producent__nazwa=producent).values('rodzaj__dziedzina__typ__nazwa'))
+
+            else:
+                del request.session['typ']
+                del request.session['produkt']
 
     return redirect('Wyswietl_Oferta')
 
@@ -204,19 +216,21 @@ def Kontener_Typ(request):
     if request.method == 'POST':
         kontener = Formularz_Kontener(request.POST)
 
+        # zarządzanie zmienną 'wybrany_typ'
         if kontener.is_valid():
             request.session['wybrany_typ'] = \
                 kontener.cleaned_data['zawartosc']
 
-            request.session['iloczyn'] = \
-                Iloczyn_Zbiorow(request.session['wyszukane'],
-                                Konteneruj(request))
-
-            request.session['produkt'] = \
-                Iloczyn_Zbiorow(Filtruj(request), Konteneruj(request))
-
         else:
-            del request.session['wybrany_typ']
+            request.session['wybrany_typ'] = None
+
+        # filtrowanie produktów
+        request.session['iloczyn'] = \
+            Iloczyn_Zbiorow(request.session['wyszukane'],
+                            Konteneruj(request))
+
+        request.session['produkt'] = \
+            Iloczyn_Zbiorow(Filtruj(request), Konteneruj(request))
 
     return redirect('Wyswietl_Oferta')
 
@@ -231,19 +245,21 @@ def Kontener_Dziedzina(request):
     if request.method == 'POST':
         kontener = Formularz_Kontener(request.POST)
 
+        # zarządzanie zmienną 'wybrany_dziedzina'
         if kontener.is_valid():
             request.session['wybrany_dziedzina'] = \
                 kontener.cleaned_data['zawartosc']
 
-            request.session['iloczyn'] = \
-                Iloczyn_Zbiorow(request.session['wyszukane'],
-                                Konteneruj(request))
-
-            request.session['produkt'] = \
-                Iloczyn_Zbiorow(Filtruj(request), Konteneruj(request))
-
         else:
-            del request.session['wybrany_dziedzina']
+            request.session['wybrany_dziedzina'] = None
+
+        # filtrowanie produktów
+        request.session['iloczyn'] = \
+            Iloczyn_Zbiorow(request.session['wyszukane'],
+                            Konteneruj(request))
+
+        request.session['produkt'] = \
+            Iloczyn_Zbiorow(Filtruj(request), Konteneruj(request))
 
     return redirect('Wyswietl_Oferta')
 
@@ -255,19 +271,21 @@ def Kontener_Rodzaj(request):
     if request.method == 'POST':
         kontener = Formularz_Kontener(request.POST)
 
+        # zarządzanie zmienną 'wybrany_dziedzina'
         if kontener.is_valid():
             request.session['wybrany_rodzaj'] = \
                 kontener.cleaned_data['zawartosc']
 
-            request.session['iloczyn'] = \
-                Iloczyn_Zbiorow(request.session['wyszukane'],
-                                Konteneruj(request))
-
-            request.session['produkt'] = \
-                Iloczyn_Zbiorow(Filtruj(request), Konteneruj(request))
-
         else:
-            del request.session['wybrany_rodzaj']
+            request.session['wybrany_rodzaj'] = None
+
+        # filtrowanie produktów
+        request.session['iloczyn'] = \
+            Iloczyn_Zbiorow(request.session['wyszukane'],
+                            Konteneruj(request))
+
+        request.session['produkt'] = \
+            Iloczyn_Zbiorow(Filtruj(request), Konteneruj(request))
 
     return redirect('Wyswietl_Oferta')
 
@@ -289,7 +307,7 @@ def Konteneruj(request):
             wybrany_dziedzina = request.session['wybrany_dziedzina']
             wynik = wynik.filter(rodzaj__dziedzina__url=wybrany_dziedzina)
             request.session['rodzaj'] = Rodzaj_Odziezy.objects\
-                .filter(dziedzina__url=wybrany_dziedzina)
+                .filter(dziedzina__url=wybrany_dziedzina, dziedzina__typ__url=wybrany_typ)
 
                 # wybrany kontener rodzaj
             if request.session['wybrany_rodzaj']:

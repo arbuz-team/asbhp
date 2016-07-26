@@ -44,7 +44,9 @@ def Sprawdz_Sesje(request, meta_tag=True):
 
         # kontenery
     if 'typ' not in request.session:
-        request.session['typ'] = Typ_Odziezy.objects.all()
+        request.session['typ'] = []
+            #Typ_Odziezy.objects.filter(nazwa__in=Produkt.objects.filter(
+            #    producent__nazwa='Adler').values('rodzaj__dziedzina__typ__nazwa'))
 
     if 'dziedzina' not in request.session:
         request.session['dziedzina'] = []

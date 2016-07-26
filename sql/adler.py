@@ -24,6 +24,19 @@ def Wyswietl_Komunikat_O_Wyjatku(e, nazwa_wyjatku, numer_wyjatku=None,
     print(komunikat)
     os.system('echo "%s" >> sql/adler.log' % komunikat)
 
+def Usun_Biale_Znaki(tekst):
+    tekst = tekst.translate(str.maketrans('', '', '\t\n\r'))
+
+    # usuwanie spacji przed tekstem
+    while tekst[0] == ' ':
+        tekst = tekst[1:len(tekst)]
+
+    # usuwanie spacji za tekstem
+    while tekst[len(tekst)-1] == ' ':
+        tekst = tekst[0:len(tekst)-2]
+
+    return tekst
+
 
 class Konwerter:
     html = ''
@@ -37,8 +50,7 @@ class Konwerter:
         koniec = nazwa.find('<i')
 
         self.produkt['nazwa'] = \
-            nazwa[poczatek:koniec].translate(
-            str.maketrans('', '', '\t\n\r'))
+            Usun_Biale_Znaki(nazwa[poczatek:koniec])
 
     def Pobierz_Opis(self):
         numer = self.html.find('<p itemprop="description">')
@@ -48,8 +60,7 @@ class Konwerter:
         koniec = opis.find('</p>')
 
         self.produkt['opis'] = \
-            opis[poczatek:koniec].translate(
-            str.maketrans('', '', '\t\n\r'))
+            Usun_Biale_Znaki(opis[poczatek:koniec])
 
     def Pobierz_Slowa_Kluczowe(self):
         self.produkt['slowa_kluczowe'] = [
@@ -71,8 +82,7 @@ class Konwerter:
         koniec = rozmiar.find('</td>')
 
         self.produkt['rozmiar'] = \
-            rozmiar[0:koniec].translate(
-            str.maketrans('', '', '\t\n\r'))
+            Usun_Biale_Znaki(rozmiar[0:koniec])
 
     def Pobierz_Producent(self):
         self.produkt['producent'] = 'Adler'
@@ -300,8 +310,7 @@ class Kierownik:
         nazwa = nazwa[poczatek:-1]
 
         # reszta html, nazwa przycisku
-        return html, nazwa.translate(
-            str.maketrans('', '', ' \t\n\r'))  # html się kurczy
+        return html, Usun_Biale_Znaki(nazwa)  # html się kurczy
 
     @staticmethod
     def WAURL_Pobierz_URL(html):
