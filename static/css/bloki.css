@@ -276,6 +276,23 @@
 
 
 
+#TRESC.o_firmie > .BLOK1 > .tresc > table.tekst th
+, #TRESC.o_firmie > .BLOK1 > .tresc > table.tekst td
+{
+  min-width: 300px;
+  padding-left: 20px;
+  text-align: left;
+}
+
+
+
+#TRESC.o_firmie > .BLOK1 > .tresc > table.tekst th:first-child
+, #TRESC.o_firmie > .BLOK1 > .tresc > table.tekst td:first-child
+{
+  text-align: right;
+}
+
+
 /***************************** KONTAKT *******************************/
 
 #TRESC.kontakt > .BLOK1 > .tresc
