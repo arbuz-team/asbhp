@@ -122,7 +122,6 @@ class Konwerter:
 
         return Kierownik.Wytnij_Blok_HTML(html, '<div', '</div>')
 
-
     def __init__(self, html='', rodzaj='', produkt=None):
 
         if produkt: # dla gotowego produktu
@@ -430,12 +429,20 @@ class Kierownik:
 
         else:
 
-            self.Pobieranie_Zrodla_Strony(url)
-            konwerter = Konwerter(self.zrodlo_strony, rodzaj)
+            try:
 
-            # zapisywanie
-            pickler.dump(konwerter.produkt)
-            Baza_Danych(konwerter.produkt, typ, dziedzina)
+                self.Pobieranie_Zrodla_Strony(url)
+                konwerter = Konwerter(self.zrodlo_strony, rodzaj)
+
+                # zapisywanie
+                pickler.dump(konwerter.produkt)
+                Baza_Danych(konwerter.produkt, typ, dziedzina)
+
+            except Exception as e:
+                Kierownik.numer_wyjatku += 1
+                Wyswietl_Komunikat_O_Wyjatku(e, 'Kierownik.Dodaj_Produkt_Do_Bazy_Danych()',
+                                             Kierownik.numer_wyjatku, url=url)
+
 
     def __init__(self):
 
