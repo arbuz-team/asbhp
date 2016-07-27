@@ -66,7 +66,8 @@ def Wyswietl_Oferta(request, wybrana_strona=None, wybrany_filtr=None):
                  'dziedzina':           request.session['wybrany_dziedzina'],
                  'rodzaj':              request.session['wybrany_rodzaj'],
                  'strona':              wybrana_strona,
-                 'filtr':               request.session['wybrany_filtr']}
+                 'filtr':               request.session['wybrany_filtr'],
+                 'producent':           request.session['producent'].Pobierz_Wybrany()}
 
     filtr =     {'wyszukiwarka':        request.session['wyszukiwarka'],
                  'producent':           request.session['producent'],
