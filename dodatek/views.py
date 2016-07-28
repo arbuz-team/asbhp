@@ -180,6 +180,12 @@ def Usun_Sesje_Filtra(request, numer_filtra):
     if numer_filtra == '6':
         del request.session['liczba_produktow']
 
+    if int(numer_filtra) in list(range(1, 6)):
+        Sprawdz_Sesje(request, False)
+        request.session['produkt'] = \
+            Iloczyn_Zbiorow(wyszukiwarka.views.Filtruj(request),
+                            wyszukiwarka.views.Konteneruj(request))
+
     return redirect('Wyswietl_Oferta')
 
 
