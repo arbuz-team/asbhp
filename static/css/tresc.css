@@ -58,10 +58,22 @@
   min-height: 700px;
 }
 
+#TRESC.start > .BLOK1
+{
+  display: none;
+}
 
 
 @media screen and (min-width:600px)
 {
+
+  #TRESC.start > .BLOK1
+  {
+    display: block;
+  }
+
+
+
   #TRESC.start > .BLOK1 > .napis
   {
     display: none;
