@@ -109,7 +109,6 @@ def Filtr_Producent(request):
 
             else:
                 del request.session['typ']
-                del request.session['produkt']
 
     return redirect('Wyswietl_Oferta')
 
@@ -192,12 +191,14 @@ def Filtruj(request):
         wynik = request.session['wyszukane']
 
     if request.session['producent'].Waliduj():
-        wynik = Iloczyn_Zbiorow(wynik, Produkt.objects.filter(
-            producent__pk=request.session['producent'].Pobierz_Wybrany()))
+        if request.session['producent'].Pobierz_Wybrany() != '0':
+            wynik = Iloczyn_Zbiorow(wynik, Produkt.objects.filter(
+                producent__pk=request.session['producent'].Pobierz_Wybrany()))
 
     if request.session['kolor'].Waliduj():
-        wynik = Iloczyn_Zbiorow(wynik, Produkt.objects.filter(
-            kolor__pk=request.session['kolor'].Pobierz_Wybrany()))
+        if request.session['kolor'].Pobierz_Wybrany() != '0':
+            wynik = Iloczyn_Zbiorow(wynik, Produkt.objects.filter(
+                kolor__pk=request.session['kolor'].Pobierz_Wybrany()))
 
     if request.session['zagrozenia'].is_valid():
         if request.session['zagrozenia'].cleaned_data['zagrozenia']:
