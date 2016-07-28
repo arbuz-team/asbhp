@@ -180,6 +180,8 @@ def Usun_Sesje_Filtra(request, numer_filtra):
     if numer_filtra == '6':
         del request.session['liczba_produktow']
 
+    return redirect('Wyswietl_Oferta')
+
 
 
 
