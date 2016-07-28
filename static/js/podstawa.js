@@ -127,7 +127,7 @@ $( '#PRODUKT > .tresc *' ).click(function(event)
 
 /********* FILTRY - ZAKŁADKI *********/
 
-$( '.filtry > .lista > div' ).not( '.link' ).click(function()
+$( '.filtry > .lista > div' ).not( '.link' ).click(function(event)
 {
   dostosuj.stopBubble(event);
 
@@ -141,7 +141,7 @@ $( '.filtry > .lista > div' ).not( '.link' ).click(function()
 
 
 
-$( '.filtry > .lista > div' ).not( '.link' ).children( 'div' ).click(function()
+$( '.filtry > .lista > div' ).not( '.link' ).children( 'div' ).click(function(event)
 {
   dostosuj.stopBubble(event);
 
