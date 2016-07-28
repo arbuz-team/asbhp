@@ -129,7 +129,7 @@ $( '#PRODUKT > .tresc *' ).click(function(event)
 
 $( '.filtry > .lista > div' ).not( '.link' ).click(function()
 {
-  dostosuj.stopBubble();
+  dostosuj.stopBubble(event);
 
   if( !$(this).is( '.wybrana' ) )
   {
@@ -143,7 +143,7 @@ $( '.filtry > .lista > div' ).not( '.link' ).click(function()
 
 $( '.filtry > .lista > div' ).not( '.link' ).children( 'div' ).click(function()
 {
-  dostosuj.stopBubble();
+  dostosuj.stopBubble(event);
 
   ruch.wyczysc_filtr( $(this).parent().data( 'numer' ) );
 });
