@@ -129,12 +129,23 @@ $( '#PRODUKT > .tresc *' ).click(function(event)
 
 $( '.filtry > .lista > div' ).not( '.link' ).click(function()
 {
+  dostosuj.stopBubble();
+
   if( !$(this).is( '.wybrana' ) )
   {
     zmiana.przelacznik_zakladek_filtry( '#' + $(this).parent().parent().attr( 'id' ), $(this).data( 'numer' ) );
 
     wyslij.numer_filtra( $(this).data( 'numer' ) );
   }
+});
+
+
+
+$( '.filtry > .lista > div' ).not( '.link' ).children( 'div' ).click(function()
+{
+  dostosuj.stopBubble();
+
+  ruch.wyczysc_filtr( $(this).parent().data( 'numer' ) );
 });
 
 

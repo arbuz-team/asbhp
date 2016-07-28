@@ -1,5 +1,6 @@
 /*    JavaScript    */
 
+
 "use strict"; 
 
 
@@ -13,7 +14,9 @@ var wyslij = (function()
 
   function _numer_filtra( numer )
   {
-    //$.get( DOMENA +'/oferta/f_'+ numer +'/');
+    $.get( DOMENA +'/wyszukiwarka/wybrany_filtr/'+ numer +'/').fail(function() {
+      console.log( 'błąd - funkcje - przelacznik zakladek w fitry' );
+    });
   }
 
 
@@ -420,13 +423,12 @@ var ruch = (function()
   function _przekieruj_do( domena, adres )
   {
     if( domena == 'inna' )
-      window.location.href = adres;
+      var url = adres;
 
     else
-    {
       var url = DOMENA + adres;
-      window.location.href = url;
-    }
+
+    window.location.href = url;
   }
 
 
@@ -512,19 +514,28 @@ var ruch = (function()
   function _sprawdz_cofnij( url, dane )
   {
     console.log( "location: " + url + ", state: " + dane );
-  };
+  }
 
+
+
+  function _wyczysc_filtr( numer )
+  {
+    _przekieruj_do( 'ta', '/wyszukiwarka/usun_sesje_filtra/'+ numer +'/' )
+  }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
   var udostepnione = 
   {
-    przekieruj_do : _przekieruj_do,
-    otworz_w_nowej_karcie : _otworz_w_nowej_karcie,
-    pokaz_produkt : _pokaz_produkt,
-    ukryj_produkt : _ukryj_produkt,
-    post_i_odswiez : _post_i_odswiez,
-    pozycja_scrollbara : _pozycja_scrollbara,
-    sprawdz_cofnij : _sprawdz_cofnij
+    przekieruj_do : _przekieruj_do
+    , otworz_w_nowej_karcie : _otworz_w_nowej_karcie
+    , pokaz_produkt : _pokaz_produkt
+    , ukryj_produkt : _ukryj_produkt
+    , post_i_odswiez : _post_i_odswiez
+    , pozycja_scrollbara : _pozycja_scrollbara
+    , sprawdz_cofnij : _sprawdz_cofnij
+    , wyczysc_filtr : _wyczysc_filtr
   }
 
   return udostepnione;

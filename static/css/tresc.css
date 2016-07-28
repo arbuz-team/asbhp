@@ -351,6 +351,7 @@
 #TRESC.oferta > .BLOK1 > .tresc > .filtry > .lista > *
 {
   display: inline-block;
+  position: relative;
   
   height: 36px;
 
@@ -358,6 +359,24 @@
   padding-bottom: 0px;
 
   cursor: pointer;
+}
+
+
+
+#TRESC.oferta > .BLOK1 > .tresc > .filtry > .lista > div > div
+{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+
+  width: 15px;
+  height: 15px;
+
+  background-color: transparent;
+  background-image: url('/static/img/delete.png');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 
