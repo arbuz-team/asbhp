@@ -23,6 +23,18 @@ class Formularz_Wyszukiwarki(forms.Form):
         return zapytanie
 
 
+    def Waliduj(self):
+        if 'zapytanie' in self.data:
+            return True if self.data['zapytanie'] else False
+
+        return False
+
+
+    def Pobierz_Wybrany(self):
+        return self.data['zapytanie'] \
+            if self.Waliduj() else None
+
+
 
 
 class Formularz_Filtru_Producent(forms.Form):
@@ -98,6 +110,16 @@ class Formularz_Filtru_Zagrozenia(forms.ModelForm):
         widgets = {'zagrozenia': forms.SelectMultiple(
                     attrs={'class': 'focus'})}
 
+    def Waliduj(self):
+        if 'zagrozenia' in self.data:
+            return True if self.data['zagrozenia'] else False
+
+        return False
+
+    def Pobierz_Wybrany(self):
+        return self.data['zagrozenia'] \
+            if self.Waliduj() else None
+
 
 
 
@@ -108,6 +130,16 @@ class Formularz_Filtru_Zawody(forms.ModelForm):
         fields = ('zawody',)
         widgets = {'zawody': forms.SelectMultiple(
                     attrs={'class': 'focus'})}
+
+    def Waliduj(self):
+        if 'zawody' in self.data:
+            return True if self.data['zawody'] else False
+
+        return False
+
+    def Pobierz_Wybrany(self):
+        return self.data['zawody'] \
+            if self.Waliduj() else None
 
 
 
@@ -129,6 +161,17 @@ class Formularz_Filtru_Liczba_Produktow(forms.Form):
         initial=8,
         widget=forms.Select(attrs={'class': 'focus'})
     )
+
+    def Waliduj(self):
+        if 'liczba' in self.data:
+            return True if self.data['liczba'] else False
+
+        return False
+
+
+    def Pobierz_Wybrany(self):
+        return self.data['liczba'] \
+            if self.Waliduj() else None
 
 
 

@@ -175,6 +175,16 @@ def Filtr_Liczba_Produktow(request):
 
 
 
+def Wybrany_Filtr(request, numer_zakladki):
+    request.session['wybrany_filtr'] = numer_zakladki
+    request.session['potwierdzenie'] = \
+        'Wybrałeś filtr o numerze: {0}.'.format(numer_zakladki)
+
+    return redirect('Wyswietl_Potwierdzenie')
+
+
+
+
 def Filtruj(request):
     wynik = Produkt.objects.all()
 

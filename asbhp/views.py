@@ -30,7 +30,7 @@ def Wyswietl_O_Firmie(request):
 
 
 
-def Wyswietl_Oferta(request, wybrana_strona=None, wybrany_filtr=None):
+def Wyswietl_Oferta(request, wybrana_strona=None):
 
     Sprawdz_Sesje(request, False)
 
@@ -50,13 +50,6 @@ def Wyswietl_Oferta(request, wybrana_strona=None, wybrany_filtr=None):
     produkt = zawartosc['zawartosc_strony']
     numery_stron = Pobierz_Liste_Numerow_Stron(liczba_stron, wybrana_strona)
 
-        # wybrany filtr = liczba (format: f_<liczba>)
-    if wybrany_filtr:
-        request.session['wybrany_filtr'] = wybrany_filtr[2]
-
-    if 'wybrany_filtr' not in request.session:
-        request.session['wybrany_filtr'] = 1
-
         # podział zmiennych na klasy
     kontener =  {'typ':                 request.session['typ'],
                  'dziedzina':           request.session['dziedzina'],
@@ -67,7 +60,12 @@ def Wyswietl_Oferta(request, wybrana_strona=None, wybrany_filtr=None):
                  'rodzaj':              request.session['wybrany_rodzaj'],
                  'strona':              wybrana_strona,
                  'filtr':               request.session['wybrany_filtr'],
-                 'producent':           request.session['producent'].Pobierz_Wybrany()}
+                 'wyszukiwanie':        request.session['wyszukiwarka'].Pobierz_Wybrany(),
+                 'producent':           request.session['producent'].Pobierz_Wybrany(),
+                 'kolor':               request.session['kolor'].Pobierz_Wybrany(),
+                 'zagrozenia':          request.session['zagrozenia'].Pobierz_Wybrany(),
+                 'zawody':              request.session['zawody'].Pobierz_Wybrany(),
+                 'wyswietlanie':        request.session['liczba_produktow'].Pobierz_Wybrany()}
 
     filtr =     {'wyszukiwarka':        request.session['wyszukiwarka'],
                  'producent':           request.session['producent'],

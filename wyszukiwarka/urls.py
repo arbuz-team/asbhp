@@ -11,6 +11,9 @@ urlpatterns = [
     url(r'^usun_sesje_filtrow/$', views.Usun_Sesje_Filtrow,
         name='Usun_Sesje_Filtrow'),
 
+    url(r'^usun_sesje_filtra/(?P<numer_filtra>\d+)/$', views.Usun_Sesje_Filtra,
+        name='Usun_Sesje_Filtra'),
+
     url(r'^$', views.Filtr_Wyszukiwarka_Dla_Oferta, name='Filtr_Wyszukiwarka_Dla_Oferta'),
     url(r'^dla_edytuj/$', views.Filtr_Wyszukiwarka_Dla_Edytuj, name='Filtr_Wyszukiwarka_Dla_Edytuj'),
     url(r'^producent/$', views.Filtr_Producent, name='Filtr_Producent'),
@@ -18,6 +21,8 @@ urlpatterns = [
     url(r'^zagrozenia/$', views.Filtr_Zagrozenia, name='Filtr_Zagrozenia'),
     url(r'^zawody/$', views.Filtr_Zawody, name='Filtr_Zawody'),
     url(r'^liczba_produktow/$', views.Filtr_Liczba_Produktow, name='Filtr_Liczba_Produktow'),
+
+    url(r'^wybrany_filtr/(?P<numer_zakladki>\d+)/$', views.Wybrany_Filtr, name='Wybrany_Filtr'),
 
     url(r'^typ/$', views.Kontener_Typ, name='Kontener_Typ'),
     url(r'^dziedzina/$', views.Kontener_Dziedzina, name='Kontener_Dziedzina'),

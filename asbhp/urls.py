@@ -10,7 +10,6 @@ urlpatterns = [
     url(r'^edytuj/$', views.Wyswietl_Edytuj, name='Wyswietl_Edytuj'),
 
     url(r'^oferta/(?P<wybrana_strona>\d+)/$', views.Wyswietl_Oferta, name='Wyswietl_Oferta'),
-    url(r'^oferta/(?P<wybrany_filtr>\w{3})/$', views.Wyswietl_Oferta, name='Wyswietl_Oferta'),
 
     url(r'^zapisz/kontakt/$', views.Edytuj_Kontakt_Zapisz, name='Edytuj_Kontakt_Zapisz'),
     url(r'^zapisz/o_firmie/$', views.Edytuj_O_Firmie_Zapisz, name='Edytuj_O_Firmie_Zapisz'),

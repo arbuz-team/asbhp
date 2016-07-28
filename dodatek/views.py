@@ -42,7 +42,11 @@ def Sprawdz_Sesje(request, meta_tag=True):
         request.session['liczba_produktow'] = \
             Formularz_Filtru_Liczba_Produktow()
 
-        # kontenery
+        # wybrane filtry
+    if 'wybrany_filtr' not in request.session:
+        request.session['wybrany_filtr'] = 1
+
+                            # kontenery
     if 'typ' not in request.session:
         request.session['typ'] = []
             #Typ_Odziezy.objects.filter(nazwa__in=Produkt.objects.filter(
@@ -152,6 +156,29 @@ def Usun_Sesje_Filtrow(request):
     del request.session['wybrany_rodzaj']
 
     return redirect('Wyswietl_Oferta')
+
+
+
+
+def Usun_Sesje_Filtra(request, numer_filtra):
+
+    if numer_filtra == '1':
+        Usun_Sesje_Wyszukiwarki(request)
+
+    if numer_filtra == '2':
+        del request.session['producent']
+
+    if numer_filtra == '3':
+        del request.session['kolor']
+
+    if numer_filtra == '4':
+        del request.session['zagrozenia']
+
+    if numer_filtra == '5':
+        del request.session['zawody']
+
+    if numer_filtra == '6':
+        del request.session['liczba_produktow']
 
 
 
