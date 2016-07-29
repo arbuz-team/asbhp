@@ -185,6 +185,7 @@ def Wybrany_Filtr(request, numer_zakladki):
 
 
 def Filtruj(request):
+
     wynik = Produkt.objects.all()
 
     if request.session['wyszukiwarka'].is_valid():

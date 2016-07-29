@@ -6,6 +6,7 @@ import unicodedata
 from django.http import Http404
 from django.contrib.auth.hashers import make_password
 from functools import reduce
+from collections import defaultdict
 
 import komunikat
 from wyszukiwarka.forms import *
@@ -209,10 +210,14 @@ def Usun_Sesje(request):
 ################## Funkcje dodatkowe ##################
 
 def Iloczyn_Zbiorow(pierwszy_kolejnosc, drugi):
-    iloczyn = []
-    for w in pierwszy_kolejnosc:
-        if w in drugi:
-            iloczyn.append(w)
+
+    kolejnosc = defaultdict(int) # słownik kolejności
+    for numer, element in enumerate(list(pierwszy_kolejnosc)):
+        kolejnosc[element] = numer
+
+    iloczyn = set(pierwszy_kolejnosc) & set(drugi)
+    iloczyn = sorted(iloczyn, key=lambda i: kolejnosc[i])
+    iloczyn = list(iloczyn)
 
     return iloczyn
 
