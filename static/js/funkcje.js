@@ -354,7 +354,7 @@ var dostosuj = (function()
 
   function _tapete( tapeta )
   {
-    var miejsce = '#TRESC > .BLOK1 > .tlo';
+    var miejsce = '#TRESC.start > .BLOK1 > .tlo';
     var okno = {
         width : $(window).width(),
         height : $(window).height() - $( '#NAGLOWEK' ).outerHeight()

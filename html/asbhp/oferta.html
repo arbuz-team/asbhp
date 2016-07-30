@@ -12,9 +12,11 @@
 
     <div class="tlo abs_pelny"></div>
 
-    <div class="tresc">
+    <div class="tresc" data-nic="{{ wybrany.producent }}">
 
 
+
+{% if wybrany.producent and wybrany.producent != '0' %}
 
 
       <div class="typ otoczka_pola post_select filtr_podstawowy" data-href="/wyszukiwarka/typ/">
@@ -107,7 +109,7 @@
 
       </div>
 
-
+{% endif %}
 
 
 
