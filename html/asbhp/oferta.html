@@ -147,7 +147,7 @@
             {% endif %}
           </div>
           
-          <div data-numer="6"> Wyświetlanie
+          <div data-numer="6" class="waskie"> Wyświetlanie
             {% if wybrany.wyswietlanie %}
             <div></div>
             {% endif %}
@@ -332,9 +332,9 @@
 
           <li class="produkt" data-href="/produkt/{{ p.id }}/" data-nazwa="{{ p.nazwa }}">
           
-            <div class="nazwa">{{ p.nazwa }}</div>
+            <div class="nazwa"><strong>{{ p.nazwa }}</strong></div>
 
-            <div class="producent">{{ p.producent }}</div>
+            <div class="producent"><strong>{{ p.producent }}</strong></div>
           
             <div class="obrazek" style="background-image: url({{ p.zdjecie }});"></div>
 

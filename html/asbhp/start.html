@@ -13,7 +13,7 @@
     <div class="napis"></div>
 
     <div class="strzalka" data-href=".BLOK2">
-      <div class="podpis">Polecane produkty</div>
+      <div class="podpis"><strong>Polecane produkty</strong></div>
       <div class="obrazek"></div>
     </div>
 
@@ -33,9 +33,9 @@
 
           <li class="produkt link" data-href="/produkt/{{ p.produkt.id }}/" data-nazwa="{{ p.produkt.nazwa }}">
           
-            <div class="nazwa">{{ p.produkt.nazwa }}</div>
+            <div class="nazwa"><strong>{{ p.produkt.nazwa }}</strong></div>
 
-            <div class="producent">{{ p.produkt.producent }}</div>
+            <div class="producent"><strong>{{ p.produkt.producent }}</strong></div>
           
             <div class="obrazek" style="background-image: url({{ p.produkt.zdjecie }});"></div>
 

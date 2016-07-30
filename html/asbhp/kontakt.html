@@ -16,11 +16,21 @@
       <div class="lewa kolumna"> 
 
         <div class="tytul">
-          {{ kontakt.tytul | safe }}
+          <strong>{{ kontakt.tytul | safe }}</strong>
         </div>
 
         <div class="tekst">
           {{ kontakt.tekst | linebreaksbr | safe }}
+        </div>
+
+
+        <div class="tytul">
+          <strong>Godziny otwarcia</strong>
+        </div>
+
+        <div class="tekst">
+          od poniedziałku do piątku: 8-16<br />
+          w soboty i niedziele: zamknięte
         </div>
 
         <div class="formularz">
