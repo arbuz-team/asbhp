@@ -375,6 +375,13 @@
 
 
 
+#TRESC.oferta > .BLOK1 > .tresc > .filtry > .lista > div > select
+{
+  max-width: 200px;
+}
+
+
+
 #TRESC.oferta > .BLOK1 > .tresc > .filtry > .lista > div > div
 {
   position: absolute;

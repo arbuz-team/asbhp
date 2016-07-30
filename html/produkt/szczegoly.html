@@ -5,14 +5,14 @@ var dane_produktu = {
   id : '{{ produkt.pk }}'
   , nazwa : '{{ produkt.nazwa }}'
   , zdjecie : '{{ produkt.zdjecie }}'
-  , opis : '{{ produkt.opis }}'
-  , rozmiar : '{{ produkt.rozmiar }}'
+  , opis : '{{ produkt.opis | safe }}'
+  , rozmiar : '{{ produkt.rozmiar | safe }}'
   , producent : '{{ produkt.producent }}'
-  , kolor : '{{ produkt.kolor }}'
+  , kolor : '{{ produkt.kolor | safe }}'
   , rodzaj : '{{ produkt.rodzaj }}'
 
   , certyfikaty : [ {% for p in produkt.certyfikaty.all %}
-    [ '{{ p.numer }}', '{{ p.szczegoly }}' ],
+    [ '{{ p.numer }}', '{{ p.szczegoly | safe }}' ],
   {% endfor %} ]
   
   , zawody : [ {% for p in produkt.zawody.all %}
