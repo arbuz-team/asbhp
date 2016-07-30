@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Q
-import operator
+import operator, time
 import unicodedata
 from django.http import Http404
 from django.contrib.auth.hashers import make_password
@@ -141,6 +141,18 @@ def Usun_Sesje_Wyszukiwarki(request):
 
 
 
+def Usun_Sesje_Kontenerow(request):
+
+    request.session['typ'] = []
+    request.session['dziedzina'] = []
+    request.session['rodzaj'] = []
+    request.session['wybrany_typ'] = None
+    request.session['wybrany_dziedzina'] = None
+    request.session['wybrany_rodzaj'] = None
+
+
+
+
 def Usun_Sesje_Filtrow(request):
     Usun_Sesje_Wyszukiwarki(request)
 
@@ -168,6 +180,7 @@ def Usun_Sesje_Filtra(request, numer_filtra):
 
     if numer_filtra == '2':
         del request.session['producent']
+        Usun_Sesje_Kontenerow(request)
 
     if numer_filtra == '3':
         del request.session['kolor']

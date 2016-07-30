@@ -91,6 +91,8 @@ def Filtr_Wyszukiwarka_Dla_Edytuj(request):
 
 def Filtr_Producent(request):
 
+    Usun_Sesje_Kontenerow(request)
+
     if request.method == 'POST':
         filtr = Formularz_Filtru_Producent(request.POST)
         request.session['producent'] = filtr
@@ -307,19 +309,29 @@ def Kontener_Rodzaj(request):
 def Konteneruj(request):
     wynik = Produkt.objects.all()
 
+    producent = ''
+    if request.session['typ']:
+        producent = Producent.objects.get(
+            pk=request.session['producent'].Pobierz_Wybrany())
+
         # wybrany kontener typ
     if request.session['wybrany_typ']:
         wybrany_typ = request.session['wybrany_typ']
         wynik = wynik.filter(rodzaj__dziedzina__typ__url=wybrany_typ)
-        request.session['dziedzina'] = Dziedzina_Odziezy.objects\
-            .filter(typ__url=wybrany_typ)
+        request.session['dziedzina'] = \
+            Dziedzina_Odziezy.objects.filter(
+                nazwa__in=Produkt.objects.filter(producent__nazwa=producent).
+                    values('rodzaj__dziedzina__nazwa'), typ__url=wybrany_typ)
 
             # wybrany kontener dziedzina
         if request.session['wybrany_dziedzina']:
             wybrany_dziedzina = request.session['wybrany_dziedzina']
             wynik = wynik.filter(rodzaj__dziedzina__url=wybrany_dziedzina)
-            request.session['rodzaj'] = Rodzaj_Odziezy.objects\
-                .filter(dziedzina__url=wybrany_dziedzina, dziedzina__typ__url=wybrany_typ)
+            request.session['rodzaj'] = \
+                Rodzaj_Odziezy.objects.filter(
+                    nazwa__in=Produkt.objects.filter(producent__nazwa=producent).
+                        values('rodzaj__nazwa'), dziedzina__url=wybrany_dziedzina,
+                                                 dziedzina__typ__url=wybrany_typ)
 
                 # wybrany kontener rodzaj
             if request.session['wybrany_rodzaj']:
