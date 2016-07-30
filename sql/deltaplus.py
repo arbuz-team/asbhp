@@ -390,7 +390,7 @@ class Baza_Danych:
 
 class Kierownik:
 
-    adresy_url = {} # {typ: {dziedzina: {rodzaj: [adresy_url]}}, ...}
+    adresy_url = {} # {typ: {dziedzina: {rodzaj: adres_url}}, ...}
     zrodlo_strony = ''
     firefox = None
     numer_wyjatku = 0
