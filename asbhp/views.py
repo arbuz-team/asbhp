@@ -22,10 +22,8 @@ def Wyswietl_O_Firmie(request):
     css_menu = {'o_firmie': 'wybrany', 'oferta': '',
                 'kontakt': '', 'edytuj': ''}
 
-    o_firmie = Zawartosc_Zakladki.objects.get(pk='/o_firmie/')
     return render(request, 'asbhp/o_firmie.html',
-                            {'css_menu':            css_menu,
-                             'o_firmie':            o_firmie})
+                            {'css_menu':            css_menu})
 
 
 

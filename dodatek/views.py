@@ -126,6 +126,10 @@ def Sprawdz_Sesje(request, meta_tag=True):
             Produkt.objects.filter(pk__in=Polecane.objects.all().
                                    values('produkt__pk'))
 
+    if 'o_firmie' not in request.session:
+        request.session['o_firmie'] = \
+            Zawartosc_Zakladki.objects.get(pk='/o_firmie/')
+
 
 
 
