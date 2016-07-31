@@ -479,7 +479,7 @@ var ruch = (function()
 
   function _pokaz_produkt( adres, plynnosc )
   {
-    if( adres && plynnosc)
+    if( adres )
     {
       var czy_oferta = window.location.pathname.split( '/' )[1]
         , id = adres.split( '/' )[2]
@@ -503,6 +503,8 @@ var ruch = (function()
         $( 'head' ).append( '<script>'+ dane +'zmiana.pokaz_produkt( dane_produktu, '+ plynnosc +' ); </script>' );
       });
     }
+    else
+      console.log('Brak wartości zmiennych');
   }
 
 

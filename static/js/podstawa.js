@@ -94,7 +94,7 @@ $( '.post_select > select' ).change(function ()
 
 /********* Pokazywanie produktu *********/
 
-$( '.lista_produktow > ul > li.produkt' ).click(function (event)
+$( '.lista_produktow > ul > li.produkt' ).not( '.pokaz_ustawienia' ).click(function (event)
 {
   var adres = $(this).data( 'href' )
     , guzik = pobierz.ktory_guzik(event)
