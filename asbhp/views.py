@@ -12,7 +12,8 @@ def Wyswietl_Start(request):
     Sprawdz_Sesje(request)
     polecane = Polecane.Pobierz_Aktywne_Oferty()
     return render(request, 'asbhp/start.html',
-                            {'polecane':            polecane})
+                            {'polecane':            polecane,
+                             'tytul_strony':        'As BHP - Odzież robocza'})
 
 
 
@@ -23,7 +24,8 @@ def Wyswietl_O_Firmie(request):
                 'kontakt': '', 'edytuj': ''}
 
     return render(request, 'asbhp/o_firmie.html',
-                            {'css_menu':            css_menu})
+                            {'css_menu':            css_menu,
+                             'tytul_strony':        'O firmie - As BHP'})
 
 
 
@@ -78,7 +80,8 @@ def Wyswietl_Oferta(request, wybrana_strona=None):
                              'numery_stron':        numery_stron,
                              'kontener':            kontener,
                              'wybrany':             wybrany,
-                             'filtr':               filtr})
+                             'filtr':               filtr,
+                             'tytul_strony':        'Oferta - As BHP'})
 
 
 
@@ -95,7 +98,8 @@ def Wyswietl_Kontakt(request):
                             {'css_menu':            css_menu,
                              'kontakt':             kontakt,
                              'godziny':             godziny,
-                             'formularz':           request.session['formularz_poczta']})
+                             'formularz':           request.session['formularz_poczta'],
+                             'tytul_strony':        'Kontakt - As BHP'})
 
 
 
