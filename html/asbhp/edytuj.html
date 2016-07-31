@@ -299,6 +299,23 @@
           </div>
 
         </form>
+        
+        <br />
+
+        <form method="post" action="/zapisz/godziny/">
+          {% csrf_token %}
+
+          {% for i in godziny %}
+            <div class="otoczka_pola">
+              {{ i }}
+            </div>
+          {% endfor %}
+
+          <div class="otoczka_pola button">
+            <button type="submit">Akceptuj</button>
+          </div>
+
+        </form>
 
       </div>
 
