@@ -260,7 +260,24 @@
 
 
 
+#TRESC.oferta > .BLOK1 > .tresc > .tytul
+{
+  display: inline-block;
+
+  min-width: 100%;
+  width: 100%;
+  max-height: 50px;
+
+  margin-bottom: 0px;
+
+  line-height: 50px;
+  font-size: 20px;
+}
+
+
+
 #TRESC.oferta > .BLOK1 > .tresc > .filtr_podstawowy
+, #TRESC.oferta > .BLOK1 > .tresc > .tytul
 {
   display: none;
 }
@@ -269,6 +286,13 @@
 
 @media screen and (min-width: 600px)
 {
+
+  #TRESC.oferta > .BLOK1 > .tresc > .tytul
+  {
+    display: block;
+  }
+
+
 
   #TRESC.oferta > .BLOK1 > .tresc > .filtr_podstawowy
   {
@@ -502,6 +526,24 @@
   background-size: 65% 65%;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+
+
+#TRESC.oferta > .BLOK1 > .tresc > .filtry > .zakladka > .select
+{
+  min-width: 500px;
+  width: 500px;
+  max-width: 500px;
+}
+
+
+
+#TRESC.oferta > .BLOK1 > .tresc > .filtry > .zakladka > .liczba_produktow
+{
+  min-width: 200px;
+  width: 200px;
+  max-width: 200px;
 }
 
 

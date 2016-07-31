@@ -270,9 +270,14 @@ ul
 
 
 
-#TRESC > div > .tresc .tytul
+#TRESC.edytuj > div > .tresc .tytul
 {
   font-weight: bold;
+  font-size: 24px;
+
+  border-bottom: 3px solid #aaa;
+
+  margin-bottom: 15px;
 }
 
 

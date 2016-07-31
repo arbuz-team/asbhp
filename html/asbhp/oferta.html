@@ -109,6 +109,10 @@
 
       </div>
 
+{% else %}
+
+      <div class="tytul">Wybierz producenta aby pokazać dodatkowe filtry</div>
+
 {% endif %}
 
 
@@ -272,7 +276,7 @@
 
         <div class="zakladka zakladka_6" style="display: none;">
 
-          <div class="otoczka_pola select">
+          <div class="otoczka_pola select liczba_produktow">
 
             <form method="POST" action="/wyszukiwarka/liczba_produktow/">{% csrf_token %}
 
