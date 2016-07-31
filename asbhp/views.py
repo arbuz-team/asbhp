@@ -98,12 +98,13 @@ def Wyswietl_Kontakt(request):
 
 
 
-def Wyswietl_Edytuj(request, wybrana_strona=1):
+def Wyswietl_Edytuj(request, wybrana_strona='1'):
     Sprawdz_Czy_Zalogowany(request)
     css_menu = {'o_firmie': '', 'oferta': '',
                 'kontakt': '', 'edytuj': 'wybrany'}
 
     produkt = request.session['wyszukane']
+    wybrana_strona = int(wybrana_strona)
     zawartosc = Pobierz_Zawartosc_Strony(request, produkt, wybrana_strona)
 
     liczba_stron = zawartosc['liczba_stron']
@@ -136,6 +137,7 @@ def Wyswietl_Edytuj(request, wybrana_strona=1):
                              'wyszukiwarka':        request.session['wyszukiwarka'],
                              'produkt':             produkt,
                              'numery_stron':        numery_stron,
+                             'wybrana_strona':      wybrana_strona,
                              'polecane':            polecane,
                              'o_firmie':            request.session['formularz_o_firmie'],
                              'kontakt':             request.session['formularz_kontakt']})
