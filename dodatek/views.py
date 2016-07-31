@@ -48,7 +48,7 @@ def Sprawdz_Sesje(request, meta_tag=True):
         request.session['wybrany_filtr'] = 1
 
     if 'wybrana_zakladka_edycji' not in request.session:
-        request.session['wybrana_zakladka_edycji'] = 1
+        request.session['wybrana_zakladka_edycji'] = '1'
 
                             # kontenery
     if 'typ' not in request.session:
