@@ -14,7 +14,26 @@ var wyslij = (function()
 
   function _numer_filtra( numer )
   {
-    $.get( DOMENA +'/wyszukiwarka/wybrany_filtr/'+ numer +'/').fail(function() {
+    $.get( DOMENA +'/wyszukiwarka/wybrany_filtr/'+ numer +'/' ).fail(function() {
+      console.log( 'błąd - funkcje - przelacznik zakladek w fitry' );
+    });
+  }
+
+
+
+  function _numer_filtra_i_przekieruj( numer, guzik, domena, adres )
+  {
+    console.log( DOMENA +'/wyszukiwarka/wybrany_filtr/'+ numer +'/' );
+
+    $.get( DOMENA +'/wyszukiwarka/wybrany_filtr/'+ numer +'/' ).done(function() {
+
+      if( guzik == 1 )
+        ruch.przekieruj_do( domena, adres );
+
+      else if( guzik == 2 )
+        ruch.otworz_w_nowej_karcie( domena, adres );
+
+    }).fail(function() {
       console.log( 'błąd - funkcje - przelacznik zakladek w fitry' );
     });
   }
@@ -24,6 +43,7 @@ var wyslij = (function()
   var udostepnione = 
   {
     numer_filtra : _numer_filtra
+    , numer_filtra_i_przekieruj : _numer_filtra_i_przekieruj
   }
 
   return udostepnione;

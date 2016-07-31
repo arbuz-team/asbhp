@@ -58,16 +58,29 @@ $( '.guzik_menu' ).click(function ()
 
 $( '.link' ).mouseup(function (event)
 {
-  var adres = $(this).data( 'href' );
-  var domena = $(this).data( 'domena' );
-
-  var guzik = pobierz.ktory_guzik(event);
+  var adres = $(this).data( 'href' )
+    , domena = $(this).data( 'domena' )
+    , guzik = pobierz.ktory_guzik(event)
 
   if( guzik == 1 )
     ruch.przekieruj_do( domena, adres );
 
   else if( guzik == 2 )
     ruch.otworz_w_nowej_karcie( domena, adres );
+});
+
+
+
+/********* DIV LUPA *********/
+
+$( '.lupa' ).mouseup(function (event)
+{
+  var adres = $(this).data( 'href' )
+    , domena = $(this).data( 'domena' )
+    , numer = $(this).data( 'numer' )
+    , guzik = pobierz.ktory_guzik(event)
+
+  wyslij.numer_filtra_i_przekieruj( numer, guzik, domena, adres );
 });
 
 
