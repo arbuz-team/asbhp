@@ -157,6 +157,131 @@
 
 
 
+#TRESC.edytuj > div > .lista_produktow > ul > li.pokaz_ustawienia
+{
+  height: 350px;
+  max-height: 350px;
+}
+
+
+
+#TRESC.edytuj > div > .lista_produktow > ul > li > .ustawienia
+{
+  display: none;
+
+  max-width: 400px;
+
+  padding: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+#TRESC.edytuj > div > .lista_produktow > ul > li form.data_zakonczenia > div > select
+{
+  min-width: 100%;
+  width: 100%;
+  max-width: 100%;
+}
+
+
+
+@media (min-width: 650px)
+{
+
+
+
+  #TRESC.edytuj > div > .lista_produktow > ul > li > .ustawienia
+  {
+    display: block;
+
+    width: 300px;
+    margin-left: 300px;
+    margin-right: auto;
+  }
+
+
+
+  #TRESC.edytuj > div > .lista_produktow > ul > li > .ustawienia > .ukryj_ustawienia
+  {
+    display: none;
+  }
+
+
+
+  #TRESC.edytuj > div > .lista_produktow > ul > li > .obrazek
+  {
+    display: block !important;
+  }
+
+}
+
+
+
+@media (min-width: 992px)
+{
+
+  #TRESC.edytuj > div > .lista_produktow > ul > li > .ustawienia
+  {
+    min-width: 400px;
+    width: 400px;
+    max-width: 400px;
+  }
+
+
+
+  #TRESC.edytuj > div > .lista_produktow > ul > li .ustawienia div.otoczka_pola.guzik
+  {
+    min-width: 70%;
+    width: 70%;
+    max-width: 70%;
+  }
+
+
+
+  #TRESC.edytuj > div > .lista_produktow > ul > li form.data_zakonczenia > div > select
+  {
+    min-width: 32%;
+    width: 32%;
+    max-width: 32%;
+  }
+
+}
+
+
+
+@media (min-width: 1200px)
+{
+
+  #TRESC.edytuj > div > .lista_produktow > ul > li > .ustawienia
+  {
+    min-width: 600px;
+    width: 600px;
+    max-width: 600px;
+  }
+
+
+
+  #TRESC.edytuj > div > .lista_produktow > ul > li .ustawienia div.otoczka_pola.guzik
+  {
+    min-width: 50%;
+    width: 50%;
+    max-width: 50%;
+  }
+
+
+
+  #TRESC.edytuj > div > .lista_produktow > ul > li form.data_zakonczenia > div > select
+  {
+    min-width: 32%;
+    width: 32%;
+    max-width: 32%;
+  }
+
+}
+
+
 
 
 

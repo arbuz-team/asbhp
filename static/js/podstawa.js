@@ -96,8 +96,8 @@ $( '.post_select > select' ).change(function ()
 
 $( '.lista_produktow > ul > li.produkt' ).click(function (event)
 {
-  var adres = $(this).data( 'href' );
-  var guzik = pobierz.ktory_guzik(event);
+  var adres = $(this).data( 'href' )
+    , guzik = pobierz.ktory_guzik(event)
 
   if( guzik == 1 )
     ruch.pokaz_produkt( adres, true );
@@ -121,6 +121,33 @@ $( '#PRODUKT > .tresc' ).click(function(event)
 $( '#PRODUKT > .tresc *' ).click(function(event)
 {
   dostosuj.stopBubble(event);
+});
+
+
+
+/********* Pokazywanie i ukrywanie ustawień produktu *********/
+
+$( '.lista_produktow > ul > li.produkt.pokaz_ustawienia' ).click(function (event)
+{
+  var numer_produktu = $(this).data( 'numer' );
+
+  if( $(this).children( '.ustawienia' ).is( ':hidden' ) )
+  {
+    zmiana.pokaz_ustawienia_produktu(numer_produktu);
+  }
+
+});
+
+$( '.lista_produktow > ul > li.produkt.pokaz_ustawienia > .ustawienia > .ukryj_ustawienia' ).click(function (event)
+{
+  var $produkt = $(this).parent().parent();
+  var numer_produktu = $produkt.parent().parent().data( 'numer' );
+
+  if( $produkt.children( '.obrazek' ).is( ':hidden' ) )
+  {
+    zmiana.ukryj_ustawienia_produktu(numer_produktu);
+  }
+
 });
 
 

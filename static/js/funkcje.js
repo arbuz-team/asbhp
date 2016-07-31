@@ -189,6 +189,8 @@ var zmiana = (function()
     $filtry.children( '.zakladka.wybrana' ).removeClass( 'wybrana' ).fadeOut(200, function() 
     {
       $filtry.children( '.zakladka_' + numer ).fadeIn(200).addClass( 'wybrana' );
+
+      // aktualizacja funkcji 
     });
   }
 
@@ -207,6 +209,8 @@ var zmiana = (function()
     $( '.BLOK2 > .tresc.wybrana' ).removeClass( 'wybrana' ).fadeOut(200, function() 
     {
       $wybrany_blok.fadeIn(200).addClass( 'wybrana' );
+
+      // aktualizacja funkcji 
     });
   }
 
@@ -312,6 +316,30 @@ var zmiana = (function()
 
 
 
+  function _pokaz_ustawienia_produktu(numer_produktu)
+  {
+    var $produkt = $( '.lista_produktow > ul > li.produkt.pokaz_ustawienia[data-numer='+ numer_produktu +']' )
+
+    $produkt.children( '.obrazek' ).fadeOut(200, function()
+    {
+      $produkt.children( '.ustawienia' ).fadeIn(200);
+    });
+  }
+
+
+
+  function _ukryj_ustawienia_produktu(numer_produktu)
+  {
+    var $produkt = $( '.lista_produktow > ul > li.produkt.pokaz_ustawienia[data-numer='+ numer_produktu +']' )
+
+    $produkt.children( '.ustawienia' ).fadeOut(200, function()
+    {
+      $produkt.children( '.obrazek' ).fadeIn(200);
+    });
+  }
+
+
+
   var udostepnione = 
   {
     zmniejsz_naglowek : _zmniejsz_naglowek
@@ -323,6 +351,8 @@ var zmiana = (function()
     , pokaz_menu : _pokaz_menu
     , ukryj_menu : _ukryj_menu
     , ukryj_ladowanie : _ukryj_ladowanie
+    , pokaz_ustawienia_produktu : _pokaz_ustawienia_produktu
+    , ukryj_ustawienia_produktu : _ukryj_ustawienia_produktu
   }
 
   return udostepnione;
@@ -449,27 +479,30 @@ var ruch = (function()
 
   function _pokaz_produkt( adres, plynnosc )
   {
-    var czy_oferta = window.location.pathname.split( '/' )[1]
-      , id = adres.split( '/' )[2]
-      , url = DOMENA +'/produkt/szczegoly/'+ id +'/'
-
-    if( czy_oferta == 'oferta' )
+    if( adres && plynnosc)
     {
-      stary_adres = window.location.href
+      var czy_oferta = window.location.pathname.split( '/' )[1]
+        , id = adres.split( '/' )[2]
+        , url = DOMENA +'/produkt/szczegoly/'+ id +'/'
 
-      window.history.pushState(
-        { page : adres },
-        adres,
-        adres
-      );
+      if( czy_oferta == 'oferta' )
+      {
+        stary_adres = window.location.href
+
+        window.history.pushState(
+          { page : adres },
+          adres,
+          adres
+        );
+      }
+      else
+        stary_adres = DOMENA +'/oferta/'
+
+      $.get( url, function(dane)
+      {
+        $( 'head' ).append( '<script>'+ dane +'zmiana.pokaz_produkt( dane_produktu, '+ plynnosc +' ); </script>' );
+      });
     }
-    else
-      stary_adres = DOMENA +'/oferta/'
-
-    $.get( url, function(dane)
-    {
-      $( 'head' ).append( '<script>'+ dane +'zmiana.pokaz_produkt( dane_produktu, '+ plynnosc +' ); </script>' );
-    });
   }
 
 

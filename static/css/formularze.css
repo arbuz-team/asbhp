@@ -102,16 +102,16 @@ textarea:disabled
 
 .otoczka_pola.button
 {
-  min-width: 300px !important;
   width: 300px !important;
+  max-width: 100% !important;
 }
 
 
 
 button
 {
-  min-width: 298px;
   width: 100%;
+
   cursor: pointer;
   
   text-align: center;

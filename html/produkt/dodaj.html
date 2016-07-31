@@ -10,8 +10,6 @@
 
     <div class="tlo abs_pelny"></div>
 
-    <div class="tytul">Formularz:</div>
-
     <div class="tresc">
       <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
@@ -27,7 +25,7 @@
 
         {% endfor %}
 
-        <button type="submit">Dodaj</button>
+        <div class="otoczka_pola"><button type="submit"> Dodaj </button></div>
       </form>
     </div>
 

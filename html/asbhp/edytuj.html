@@ -12,8 +12,8 @@
 
     <div class="tresc">
 
-      <div class="zakladka_blok wybrana" data-numer="1"> Produkty </div>
-      <div class="zakladka_blok" data-numer="2"> Promowane </div>
+      <div class="zakladka_blok wybrana" data-numer="1"> Promowane </div>
+      <div class="zakladka_blok" data-numer="2"> Produkty </div>
       <div class="zakladka_blok" data-numer="3"> Stałe dane podstron </div>
 
     </div>
@@ -27,6 +27,112 @@
     <div class="tlo abs_pelny"></div>
 
     <div class="tresc lista_produktow blok1 wybrana" style="display: block">
+
+      <div class="tytul">Promowanie</div>
+      <div class="tekst">
+
+        <div class="otoczka_pola link" data-href="/produkt/dodaj/polecane/"><button>Dodaj produkt do listy produktów promowanych</button></div>
+        <br/>
+
+        <div class="tytul">Aktywne</div>
+
+      </div>
+  
+      <ul>
+
+        {% if not polecane.aktywne %}
+          <li class="komentarz">
+          
+            <div>Brak promowanych produktów</div>
+          
+          </li>
+        {% endif %}
+
+        {% for p in polecane.aktywne %}
+
+          <li class="produkt pokaz_ustawienia" data-numer="{{ p.id }}">
+          
+            <div class="nazwa"> {{ p.produkt }} </div>
+
+            <div class="producent">{{ p.produkt.produkt.producent.nazwa }}</div>
+          
+            <div class="obrazek" data-style="background-image: url({{ p.produkt.produkt.zdjecie }});"></div>
+
+            <div class="ustawienia">
+
+              <div class="otoczka_pola guzik ukryj_ustawienia"><button type="button"> Ukryj ustawienia </button></div>
+
+              <form method="POST" class="data_zakonczenia" action="/produkt/edytuj/polecane/{{ p.produkt.pk }}/">
+                {% csrf_token %}
+
+                <div class="otoczka_pola"> {{ p.formularz.data_zakonczenia }} </div>
+
+                <div class="otoczka_pola guzik"><button type="submit"> Ustaw datę </button></div>
+
+                <div class="otoczka_pola guzik link" data-href="/produkt/usun/polecane/{{ p.produkt.pk }}/"><button> Usuń z promowanych </button></div>
+
+              </form>
+
+            </div>
+
+          </li>
+
+        {% endfor %}
+    
+      </ul>
+
+
+
+      <div class="tekst">
+
+        <div class="tytul">Nieaktywne</div>
+
+      </div>
+
+      <ul>
+
+        {% if not polecane.nieaktywne %}
+          <li class="komentarz">
+          
+            <div>Brak promowanych nieaktywnych produktów</div>
+          
+          </li>
+        {% endif %}
+
+        {% for p in polecane.nieaktywne %}
+
+          <li class="produkt pokaz_ustawienia" data-numer="{{ p.id }}">
+          
+            <div class="nazwa"> {{ p.produkt }} </div>
+
+            <div class="producent">{{ p.produkt.producent }}</div>
+          
+            <div class="obrazek" data-style="background-image: url({{ p.zdjecie }});"></div>
+
+            <div class="ustawienia">
+
+              <form method="POST" class="data_zakonczenia" action="/produkt/edytuj/polecane/{{ p.produkt.pk }}/">
+                {% csrf_token %}
+
+                <div class="otoczka_pola"> {{ p.formularz.data_zakonczenia }} </div>
+
+                <div class="otoczka_pola guzik"><button type="submit"> Ustaw datę </button></div>
+
+                <div class="otoczka_pola guzik link" data-href="/produkt/usun/polecane/{{ p.produkt.pk }}/"><button> Usuń z promowanych </button></div>
+
+              </form>
+
+            </div>
+
+          </li>
+
+        {% endfor %}
+    
+      </ul>
+    
+    </div>
+
+    <div class="tresc blok2">
 
       <div class="tytul">Produkty</div>
       <div class="tekst">
@@ -120,56 +226,7 @@
         {% endif %}
     
       </ul>
-    
-    </div>
 
-    <div class="tresc blok2">
-
-
-      <div class="tytul">Promowanie</div>
-      <div class="tekst">
-
-        <div class="otoczka_pola link" data-href="/produkt/dodaj/polecane/"><button>Dodaj produkt do listy produktów promowanych</button></div>
-        <br/>
-
-        <div class="podtytul">Aktywne</div>
-
-        <div>
-          {% for p in polecane.aktywne %}
-            {{ p.produkt }}
-            <div class="otoczka_pola link" data-href="/produkt/usun/polecane/{{ p.produkt.pk }}/"><button>Usuń</button></div>
-
-            <form method="POST" action="/produkt/edytuj/polecane/{{ p.produkt.pk }}/">
-              {% csrf_token %}
-
-              <div class="otoczka_pola">{{ p.formularz.data_zakonczenia }}</div>
-
-              <div class="otoczka_pola"><button type="submit">Ustaw</button></div>
-            </form>
-
-            <br/>
-          {% endfor %}
-        </div>
-
-        <div class="podtytul">Nieaktywne</div>
-        <div>
-          {% for p in polecane.nieaktywne %}
-            {{ p.produkt }}
-            <div class="otoczka_pola link" data-href="/produkt/usun/polecane/{{ p.produkt.pk }}/"><button>Usuń</button></div>
-
-            <form method="POST" action="/produkt/edytuj/polecane/{{ p.produkt.pk }}/">
-              {% csrf_token %}
-
-              <div class="otoczka_pola">{{ p.formularz.data_zakonczenia }}</div>
-
-              <div class="otoczka_pola"><button type="submit">Ustaw</button></div>
-            </form>
-
-            <br/>
-          {% endfor %}
-        </div>
-
-      </div>
 
     </div>
 
