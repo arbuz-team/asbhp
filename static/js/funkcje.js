@@ -188,9 +188,12 @@ var zmiana = (function()
     
     $filtry.children( '.zakladka.wybrana' ).removeClass( 'wybrana' ).fadeOut(200, function() 
     {
-      $filtry.children( '.zakladka_' + numer ).fadeIn(200).addClass( 'wybrana' );
+      $filtry.children( '.zakladka_' + numer ).fadeIn(200, function()
+      {
 
-      // aktualizacja funkcji 
+        autosize.update( $( 'textarea' ) );
+      
+      }).addClass( 'wybrana' );
     });
   }
 
@@ -208,9 +211,12 @@ var zmiana = (function()
     
     $( '.BLOK2 > .tresc.wybrana' ).removeClass( 'wybrana' ).fadeOut(200, function() 
     {
-      $wybrany_blok.fadeIn(200).addClass( 'wybrana' );
+      $wybrany_blok.fadeIn(200, function()
+      {
 
-      // aktualizacja funkcji 
+        autosize.update( $( 'textarea' ) );
+      
+      }).addClass( 'wybrana' );
     });
   }
 

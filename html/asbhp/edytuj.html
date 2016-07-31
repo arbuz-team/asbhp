@@ -132,7 +132,7 @@
     
     </div>
 
-    <div class="tresc blok2">
+    <div class="tresc blok2 lista_produktow">
 
       <div class="tytul">Produkty</div>
       <div class="tekst">
@@ -185,13 +185,15 @@
         {% endif %}
 
 
+        {% for p in produkt %}
+
           <li class="produkt" data-href="/produkt/{{ p.id }}/" data-nazwa="{{ p.nazwa }}">
           
             <div class="nazwa">{{ p.nazwa }}</div>
 
             <div class="producent">{{ p.producent }}</div>
           
-            <div class="obrazek" data-style="background-image: url({{ p.zdjecie }});"></div>
+            <div class="obrazek" style="background-image: url({{ p.zdjecie }});"></div>
 
             <div class="zagrozenia">
               <a href="/produkt/edytuj/{{ p.pk }}">Edytuj</a>
@@ -204,8 +206,6 @@
             <div class="pokaz_wiecej">Pokaż więcej...</div>
           
           </li>
-
-        {% for p in produkt %}
 
 
         {% endfor %}
