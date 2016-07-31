@@ -101,7 +101,11 @@ def Wyswietl_Kontakt(request):
 
 
 def Wyswietl_Edytuj(request, wybrana_strona='1'):
+
     Sprawdz_Czy_Zalogowany(request)
+    Usun_Sesje_Filtrow(request)
+    Sprawdz_Sesje(request, False)
+
     css_menu = {'o_firmie': '', 'oferta': '',
                 'kontakt': '', 'edytuj': 'wybrany'}
 
