@@ -100,12 +100,18 @@ def Wyswietl_Kontakt(request):
 
 
 
-def Wyswietl_Edytuj(request):
+def Wyswietl_Edytuj(request, wybrana_strona=1):
     Sprawdz_Czy_Zalogowany(request)
     css_menu = {'o_firmie': '', 'oferta': '',
                 'kontakt': '', 'edytuj': 'wybrany'}
 
     produkt = request.session['wyszukane']
+    zawartosc = Pobierz_Zawartosc_Strony(request, produkt, wybrana_strona)
+
+    liczba_stron = zawartosc['liczba_stron']
+    produkt = zawartosc['zawartosc_strony']
+    numery_stron = Pobierz_Liste_Numerow_Stron(liczba_stron, wybrana_strona)
+
 
         # polecane produkty
     polecane = {'aktywne':      [{'produkt': p,
@@ -131,6 +137,7 @@ def Wyswietl_Edytuj(request):
                             {'css_menu':            css_menu,
                              'wyszukiwarka':        request.session['wyszukiwarka'],
                              'produkt':             produkt,
+                             'numery_stron':        numery_stron,
                              'polecane':            polecane,
                              'o_firmie':            request.session['formularz_o_firmie'],
                              'kontakt':             request.session['formularz_kontakt']})
