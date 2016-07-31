@@ -69,7 +69,7 @@
 
         {% for p in polecane.aktywne %}
 
-          <li class="produkt pokaz_ustawienia" data-numer="{{ p.id }}">
+          <li class="produkt pokaz_ustawienia" data-numer="{{ p.produkt.pk }}">
           
             <div class="nazwa"> {{ p.produkt }} </div>
 
@@ -88,9 +88,9 @@
 
                 <div class="otoczka_pola guzik"><button type="submit"> Ustaw datę </button></div>
 
-                <div class="otoczka_pola guzik link" data-href="/produkt/usun/polecane/{{ p.produkt.pk }}/"><button> Usuń z promowanych </button></div>
-
               </form>
+
+              <div class="otoczka_pola guzik link" data-href="/produkt/usun/polecane/{{ p.produkt.pk }}/"><button> Usuń z promowanych </button></div>
 
             </div>
 
@@ -120,7 +120,7 @@
 
         {% for p in polecane.nieaktywne %}
 
-          <li class="produkt pokaz_ustawienia" data-numer="{{ p.id }}">
+          <li class="produkt pokaz_ustawienia" data-numer="{{ p.produkt.pk }}">
           
             <div class="nazwa"> {{ p.produkt }} </div>
 
@@ -130,6 +130,8 @@
 
             <div class="ustawienia">
 
+              <div class="otoczka_pola guzik ukryj_ustawienia"><button type="button"> Ukryj ustawienia </button></div>
+
               <form method="POST" class="data_zakonczenia" action="/produkt/edytuj/polecane/{{ p.produkt.pk }}/">
                 {% csrf_token %}
 
@@ -137,9 +139,9 @@
 
                 <div class="otoczka_pola guzik"><button type="submit"> Ustaw datę </button></div>
 
-                <div class="otoczka_pola guzik link" data-href="/produkt/usun/polecane/{{ p.produkt.pk }}/"><button> Usuń z promowanych </button></div>
-
               </form>
+
+              <div class="otoczka_pola guzik link" data-href="/produkt/usun/polecane/{{ p.produkt.pk }}/"><button type="button"> Usuń z promowanych </button></div>
 
             </div>
 

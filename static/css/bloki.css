@@ -5,7 +5,7 @@
 
 #TRESC.start > .BLOK1 > div.tlo
 {
-  background-image: url('../img/tlo2.jpg');
+  background-image: url('../img/tlo.jpg');
   background-size: 100% auto;
   background-position: center;
   background-repeat: no-repeat;
@@ -408,20 +408,66 @@
 
 
 
-#TRESC.o_firmie > .BLOK1 > .tresc > table.tekst th
-, #TRESC.o_firmie > .BLOK1 > .tresc > table.tekst td
+#TRESC.o_firmie > .BLOK1 > .tresc > table.tekst
 {
-  min-width: 300px;
-  padding-left: 20px;
-  text-align: left;
+  min-width: 100%;
+  width: 100%;
 }
 
 
 
-#TRESC.o_firmie > .BLOK1 > .tresc > table.tekst th:first-child
-, #TRESC.o_firmie > .BLOK1 > .tresc > table.tekst td:first-child
+#TRESC.o_firmie > .BLOK1 > .tresc > table.tekst td
 {
-  text-align: right;
+  padding-left: 20px;
+  text-align: center;
+
+  overflow: hidden;
+}
+
+
+
+#TRESC.o_firmie > .BLOK1 > .tresc > table.tekst td:last-child
+{
+  display: none;
+}
+
+
+
+@media (min-width: 750px)
+{
+
+  #TRESC.o_firmie > .BLOK1 > .tresc > table.tekst td:first-child
+  {
+    text-align: right;
+  }
+
+
+
+  #TRESC.o_firmie > .BLOK1 > .tresc > table.tekst td
+  {
+    min-width: 200px;
+    text-align: left;
+  }
+
+
+
+  #TRESC.o_firmie > .BLOK1 > .tresc > table.tekst td:last-child
+  {
+    display: block;
+  }
+
+}
+
+
+
+@media (min-width: 992px)
+{
+
+  #TRESC.o_firmie > .BLOK1 > .tresc > table.tekst td
+  {
+    min-width: 300px;
+  }
+
 }
 
 
