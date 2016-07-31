@@ -12,9 +12,24 @@
 
     <div class="tresc">
 
+    {% if request.session.wybrana_zakladka_edycji == '1' %}
       <div class="zakladka_blok wybrana" data-numer="1"> Promowane </div>
+    {% else %}
+      <div class="zakladka_blok" data-numer="1"> Promowane </div>
+    {% endif %}
+
+    {% if request.session.wybrana_zakladka_edycji == '2' %}
+      <div class="zakladka_blok wybrana" data-numer="2"> Produkty </div>
+    {% else %}
       <div class="zakladka_blok" data-numer="2"> Produkty </div>
+    {% endif %}
+
+
+    {% if request.session.wybrana_zakladka_edycji == '3' %}
+      <div class="zakladka_blok wybrana" data-numer="3"> Stałe dane podstron </div>
+    {% else %}
       <div class="zakladka_blok" data-numer="3"> Stałe dane podstron </div>
+    {% endif %}
 
     </div>
 
@@ -26,7 +41,11 @@
 
     <div class="tlo abs_pelny"></div>
 
-    <div class="tresc lista_produktow blok1 wybrana" style="display: block">
+  {% if request.session.wybrana_zakladka_edycji == '1' %}
+    <div class="tresc blok1 lista_produktow wybrana" style="display: block">
+  {% else %}
+    <div class="tresc blok1 lista_produktow">
+  {% endif %}
 
       <div class="tytul">Promowanie</div>
       <div class="tekst">
@@ -132,7 +151,11 @@
     
     </div>
 
+  {% if request.session.wybrana_zakladka_edycji == '2' %}
+    <div class="tresc blok2 lista_produktow wybrana" style="display: block">
+  {% else %}
     <div class="tresc blok2 lista_produktow">
+  {% endif %}
 
       <div class="tytul">Produkty</div>
       <div class="tekst">
@@ -230,7 +253,11 @@
 
     </div>
 
+  {% if request.session.wybrana_zakladka_edycji == '3' %}
+    <div class="tresc blok3 wybrana" style="display: block">
+  {% else %}
     <div class="tresc blok3">
+  {% endif %}
 
       <div class="tytul">O Firmie</div>
       <div class="tekst">

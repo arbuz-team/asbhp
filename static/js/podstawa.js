@@ -194,9 +194,12 @@ $( '.filtry > .lista > div' ).not( '.link' ).children( 'div' ).click(function(ev
 
 $( '#TRESC > .BLOK1 > .tresc > .zakladka_blok' ).click(function()
 {
-  console.log('klik');
   if( !$(this).is( '.wybrana' ) )
+  {
     zmiana.przelacznik_zakladek_bloki( $(this).data( 'numer' ) );
+
+    wyslij.numer_bloku( $(this).data( 'numer' ) );
+  }
 });
 
 

@@ -19,12 +19,17 @@ var wyslij = (function()
     });
   }
 
+  function _numer_bloku( numer )
+  {
+    $.get( DOMENA +'/edytuj/wybrana_zakladka/'+ numer +'/' ).fail(function() {
+      console.log( 'błąd - funkcje - przelacznik zakladek w fitry' );
+    });
+  }
+
 
 
   function _numer_filtra_i_przekieruj( numer, guzik, domena, adres )
   {
-    console.log( DOMENA +'/wyszukiwarka/wybrany_filtr/'+ numer +'/' );
-
     $.get( DOMENA +'/wyszukiwarka/wybrany_filtr/'+ numer +'/' ).done(function() {
 
       if( guzik == 1 )
@@ -43,6 +48,7 @@ var wyslij = (function()
   var udostepnione = 
   {
     numer_filtra : _numer_filtra
+    , numer_bloku : _numer_bloku
     , numer_filtra_i_przekieruj : _numer_filtra_i_przekieruj
   }
 
