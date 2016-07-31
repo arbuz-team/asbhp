@@ -140,6 +140,13 @@ ul
 
 /********************* TRESC PODSTAWOWA **********************/
 
+#NIEWIDZIALNY_OPIS
+{
+  display: none;
+}
+
+
+
 
 #BLOK_GLOWNY
 {
