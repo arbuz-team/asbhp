@@ -190,8 +190,6 @@
 @media (min-width: 650px)
 {
 
-
-
   #TRESC.edytuj > div > .lista_produktow > ul > li > .ustawienia
   {
     display: block;
@@ -221,6 +219,15 @@
 
 @media (min-width: 992px)
 {
+
+  #TRESC.edytuj > div > .lista_produktow > ul > li.pokaz_ustawienia
+  {
+    min-height: 300px;
+    height: 300px;
+    max-height: 300px;
+  }
+
+
 
   #TRESC.edytuj > div > .lista_produktow > ul > li > .ustawienia
   {
