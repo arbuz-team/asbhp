@@ -2,174 +2,174 @@
 
 1
 	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
-		 cannot identify image file <_io.BytesIO object at 0x7f42308bc938> 
+		 cannot identify image file <_io.BytesIO object at 0x7f966a8d54c0> 
 		 produkt.nazwa: Pochłaniacz A2B2E2K2 do maski pełnotwarzowej PANAREA 7000 
 
 
 
 2
 	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
-		 cannot identify image file <_io.BytesIO object at 0x7f42307f2fc0> 
+		 cannot identify image file <_io.BytesIO object at 0x7f966a8d53b8> 
 		 produkt.nazwa: Filtropochłaniacz FP 211/1-P3/W A2B2E2K2P3 
 
 
 
 3
 	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
-		 cannot identify image file <_io.BytesIO object at 0x7f42307f2f10> 
+		 cannot identify image file <_io.BytesIO object at 0x7f966a8d5048> 
 		 produkt.nazwa: Włókniny filtracyjne - podział ze względu na wykończenie powierzchni 
 
 
 
 4
 	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
-		 cannot identify image file <_io.BytesIO object at 0x7f42307f2938> 
+		 cannot identify image file <_io.BytesIO object at 0x7f966a7ae990> 
 		 produkt.nazwa: Włóknina filtracyjna GW 20/200 
 
 
 
 5
 	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
-		 cannot identify image file <_io.BytesIO object at 0x7f42307f2f68> 
+		 cannot identify image file <_io.BytesIO object at 0x7f966a7aee60> 
 		 produkt.nazwa: Włóknina filtracyjna do filtracji suchej i mokrej FS TŁ 5 
 
 
 
 6
 	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
-		 cannot identify image file <_io.BytesIO object at 0x7f42307f2888> 
+		 cannot identify image file <_io.BytesIO object at 0x7f966a8d54c0> 
 		 produkt.nazwa: Włóknina filtracyjna do filtracji suchej i mokrej FS TŁ 10 
 
 
 
 7
 	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
-		 cannot identify image file <_io.BytesIO object at 0x7f42307f2db0> 
+		 cannot identify image file <_io.BytesIO object at 0x7f966a8d5620> 
 		 produkt.nazwa: Włóknina filtracyjna do filtracji suchej i mokrej FS TŁ 25 
 
 
 
 8
 	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
-		 cannot identify image file <_io.BytesIO object at 0x7f42307f2c50> 
+		 cannot identify image file <_io.BytesIO object at 0x7f966a8d5ba0> 
 		 produkt.nazwa: Włóknina filtracyjna do filtracji suchej i mokrej FS TŁ 50 
 
 
 
 9
 	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
-		 cannot identify image file <_io.BytesIO object at 0x7f42307b20a0> 
+		 cannot identify image file <_io.BytesIO object at 0x7f966a8d5048> 
 		 produkt.nazwa: Włóknina elektretowa FST 2/150 
 
 
 
 10
 	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
-		 cannot identify image file <_io.BytesIO object at 0x7f42307f2c50> 
+		 cannot identify image file <_io.BytesIO object at 0x7f966a8d53b8> 
 		 produkt.nazwa: Włóknina elektretowa FST 2/200 
 
 
 
 11
 	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
-		 cannot identify image file <_io.BytesIO object at 0x7f42307f2e08> 
+		 cannot identify image file <_io.BytesIO object at 0x7f966a8d53b8> 
 		 produkt.nazwa: Włóknina elektretowa FST 2/300 
 
 
 
 12
 	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
-		 cannot identify image file <_io.BytesIO object at 0x7f42307f2fc0> 
+		 cannot identify image file <_io.BytesIO object at 0x7f966a8d5200> 
 		 produkt.nazwa: Włóknina elektretowa FST 2/400 
 
 
 
 13
 	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
-		 cannot identify image file <_io.BytesIO object at 0x7f42307f2938> 
+		 cannot identify image file <_io.BytesIO object at 0x7f966a8d5620> 
 		 produkt.nazwa: Włóknina filtracyjna FS TF3 
 
 
 
 14
 	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
-		 cannot identify image file <_io.BytesIO object at 0x7f42307f2e60> 
+		 cannot identify image file <_io.BytesIO object at 0x7f966a7aee60> 
 		 produkt.nazwa: Włóknina filtracyjna FS TF3T/1/O2 
 
 
 
 15
 	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
-		 cannot identify image file <_io.BytesIO object at 0x7f42307f2a40> 
+		 cannot identify image file <_io.BytesIO object at 0x7f966a7aee60> 
 		 produkt.nazwa: Włóknina do oczyszczania ścieków FS WF 300 
 
 
 
 16
 	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
-		 cannot identify image file <_io.BytesIO object at 0x7f42307f2fc0> 
+		 cannot identify image file <_io.BytesIO object at 0x7f966a8d5200> 
 		 produkt.nazwa: Rękaw filtracyjny WS 310/96 
 
 
 
 17
 	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
-		 cannot identify image file <_io.BytesIO object at 0x7f42307f2a98> 
+		 cannot identify image file <_io.BytesIO object at 0x7f966a8d58e0> 
 		 produkt.nazwa: Worek filtracyjny WS 110/163 
 
 
 
 18
 	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
-		 cannot identify image file <_io.BytesIO object at 0x7f42301060f8> 
+		 cannot identify image file <_io.BytesIO object at 0x7f966a8d5f68> 
 		 produkt.nazwa: Worek filtracyjny WS 50/91 
 
 
 
 19
 	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
-		 cannot identify image file <_io.BytesIO object at 0x7f42307f2a98> 
+		 cannot identify image file <_io.BytesIO object at 0x7f966a8d5678> 
 		 produkt.nazwa: Worek filtracyjny WS 400/47SN 
 
 
 
 20
 	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
-		 cannot identify image file <_io.BytesIO object at 0x7f42307f2938> 
+		 cannot identify image file <_io.BytesIO object at 0x7f966a8d5eb8> 
 		 produkt.nazwa: Worek filtracyjny WS 215/37 
 
 
 
 21
 	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
-		 cannot identify image file <_io.BytesIO object at 0x7f42307f2bf8> 
+		 cannot identify image file <_io.BytesIO object at 0x7f966a7ae6d0> 
 		 produkt.nazwa: Worek filtracyjny WS 160/141 
 
 
 
 22
 	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
-		 cannot identify image file <_io.BytesIO object at 0x7f42307f2888> 
+		 cannot identify image file <_io.BytesIO object at 0x7f966b4db620> 
 		 produkt.nazwa: Worek filtracyjny WS 250/95 
 
 
 
 23
 	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
-		 cannot identify image file <_io.BytesIO object at 0x7f4230106200> 
+		 cannot identify image file <_io.BytesIO object at 0x7f966b4dbd58> 
 		 produkt.nazwa: Worek filtracyjny WS WME 120/159 
 
 
 
 24
 	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
-		 cannot identify image file <_io.BytesIO object at 0x7f42307f2888> 
+		 cannot identify image file <_io.BytesIO object at 0x7f966b4dbd58> 
 		 produkt.nazwa: Kombinezon Microgard 1500 
 
 
 
 25
 	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
-		 cannot identify image file <_io.BytesIO object at 0x7f42307f2db0> 
+		 cannot identify image file <_io.BytesIO object at 0x7f966a7ae6d0> 
 		 produkt.nazwa: Kombinezon PLS 
 

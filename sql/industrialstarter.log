@@ -2,8 +2,8 @@
 
 1
 	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
-		 <urlopen error [Errno 101] Network is unreachable> 
-		 produkt.nazwa: Plandeka 
+		 HTTP Error 403: Forbidden 
+		 produkt.nazwa: STRETCH ON CUBO 
 
 
 
