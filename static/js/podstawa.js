@@ -154,7 +154,7 @@ $( '.lista_produktow > ul > li.produkt.pokaz_ustawienia' ).click(function (event
 $( '.lista_produktow > ul > li.produkt.pokaz_ustawienia > .ustawienia > .ukryj_ustawienia' ).click(function (event)
 {
   var $produkt = $(this).parent().parent();
-  var numer_produktu = $produkt.parent().parent().data( 'numer' );
+  var numer_produktu = $produkt.data( 'numer' );
 
   if( $produkt.children( '.obrazek' ).is( ':hidden' ) )
   {
