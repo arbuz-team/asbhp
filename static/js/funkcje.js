@@ -412,11 +412,16 @@ var dostosuj = (function()
       , tresc = wysokosci.naglowek + wysokosci.tresc + wysokosci.stopka
       , right = parseInt( $( '#NAGLOWEK > div' ).css( 'right' ) )
 
-    if( strona < tresc && right == 0 )
-      $( '#NAGLOWEK > div' ).css( 'right', '15px' );
-
-    else if( right != 0 )
-      $( '#NAGLOWEK > div' ).css( 'right', '0px' );
+    if( strona < tresc )
+    {
+      if( right == 0 )
+        $( '#NAGLOWEK > div' ).css( 'right', '15px' );
+    }
+    else if( strona => tresc )
+    {
+      if( right != 0 )
+        $( '#NAGLOWEK > div' ).css( 'right', '0px' );
+    }
   };
 
 
