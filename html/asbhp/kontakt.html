@@ -25,12 +25,11 @@
 
 
         <div class="tytul">
-          <strong>Godziny otwarcia</strong>
+          <strong>{{ godziny.tytul | safe }}</strong>
         </div>
 
         <div class="tekst">
-          od poniedziałku do piątku: 8-16<br />
-          w soboty i niedziele: zamknięte
+          {{ godziny.tekst | linebreaksbr | safe }}
         </div>
 
         <div class="formularz">
