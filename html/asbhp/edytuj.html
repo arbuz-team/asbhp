@@ -167,7 +167,7 @@
               {% if s == 0 %}
                 <span class="kropki">...</span>
 
-              {% elif s == wybrany.strona %}
+              {% elif s == wybrana_strona %}
                   <span class="wybrana">{{ s }}</span>
               {% else %}
                 <span class="link" data-href="/edytuj/{{ s }}/">{{ s }}</span>
@@ -216,7 +216,7 @@
                 {% if s == 0 %}
                   <span class="kropki">...</span>
 
-                {% elif s == wybrany.strona %}
+                {% elif s == wybrana_strona %}
                   <span class="wybrana">{{ s }}</span>
                 {% else %}
                   <span class="link" data-href="/edytuj/{{ s }}/">{{ s }}</span>
