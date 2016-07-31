@@ -175,3 +175,15 @@ def Edytuj_Kontakt_Zapisz(request):
             request.session['formularz_kontakt'].save()
 
     return redirect('Wyswietl_Edytuj')
+
+
+
+
+################## Zakładki: Dodatki ##################
+
+def Wybrana_Zakladka_Edycji(request, numer_zakladki):
+    request.session['wybrana_zakladka_edycji'] = numer_zakladki
+    request.session['potwierdzenie'] = \
+        'Wybrałeś zakładkę o numerze: {0}.'.format(numer_zakladki)
+
+    return redirect('Wyswietl_Potwierdzenie')

@@ -15,4 +15,7 @@ urlpatterns = [
     url(r'^zapisz/kontakt/$', views.Edytuj_Kontakt_Zapisz, name='Edytuj_Kontakt_Zapisz'),
     url(r'^zapisz/o_firmie/$', views.Edytuj_O_Firmie_Zapisz, name='Edytuj_O_Firmie_Zapisz'),
 
+    url(r'^edytuj/wybrana_zakladka/(?P<numer_zakladki>\d+)/$',
+        views.Wybrana_Zakladka_Edycji, name='Wybrana_Zakladka_Edycji'),
+
 ]
