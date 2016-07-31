@@ -1,0 +1,7 @@
+
+
+1
+	 WYJĄTEK: Kierownik.Dodaj_Produkt_Do_Bazy_Danych(): 
+		 'NoneType' object has no attribute 'replace' 
+		adres strony: http://protekt.com.pl/?page=produkt&id=337 
+
