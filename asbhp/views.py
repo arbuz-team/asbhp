@@ -90,9 +90,11 @@ def Wyswietl_Kontakt(request):
                 'kontakt': 'wybrany', 'edytuj': ''}
 
     kontakt = Zawartosc_Zakladki.objects.get(pk='/kontakt/')
+    godziny = Zawartosc_Zakladki.objects.get(pk='/kontakt/2')
     return render(request, 'asbhp/kontakt.html',
                             {'css_menu':            css_menu,
                              'kontakt':             kontakt,
+                             'godziny':             godziny,
                              'formularz':           request.session['formularz_poczta']})
 
 
@@ -132,6 +134,11 @@ def Wyswietl_Edytuj(request, wybrana_strona='1'):
         request.session['formularz_kontakt'] = \
             Formularz_Zawartosc_Zakladki(instance=k)
 
+    if not request.session['formularz_kontakt_2']:
+        k = Zawartosc_Zakladki.objects.get(pk='/kontakt/2')
+        request.session['formularz_kontakt_2'] = \
+            Formularz_Zawartosc_Zakladki(instance=k)
+
     return render(request, 'asbhp/edytuj.html',
                             {'css_menu':            css_menu,
                              'wyszukiwarka':        request.session['wyszukiwarka'],
@@ -140,7 +147,8 @@ def Wyswietl_Edytuj(request, wybrana_strona='1'):
                              'wybrana_strona':      wybrana_strona,
                              'polecane':            polecane,
                              'o_firmie':            request.session['formularz_o_firmie'],
-                             'kontakt':             request.session['formularz_kontakt']})
+                             'kontakt':             request.session['formularz_kontakt'],
+                             'godziny':             request.session['formularz_kontakt_2']})
 
 
 
@@ -173,6 +181,22 @@ def Edytuj_Kontakt_Zapisz(request):
 
         if request.session['formularz_kontakt'].is_valid():
             request.session['formularz_kontakt'].save()
+
+    return redirect('Wyswietl_Edytuj')
+
+
+
+
+def Edytuj_Kontakt_Godziny_Zapisz(request):
+    Sprawdz_Czy_Zalogowany(request)
+
+    if request.method == 'POST':
+        k = Zawartosc_Zakladki.objects.get(pk='/kontakt/2')
+        request.session['formularz_kontakt_2'] = \
+            Formularz_Zawartosc_Zakladki(request.POST, instance=k)
+
+        if request.session['formularz_kontakt_2'].is_valid():
+            request.session['formularz_kontakt_2'].save()
 
     return redirect('Wyswietl_Edytuj')
 

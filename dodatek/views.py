@@ -111,6 +111,11 @@ def Sprawdz_Sesje(request, meta_tag=True):
         request.session['formularz_kontakt'] = None
 
         # formularz poczty
+
+    if 'formularz_kontakt_2' not in request.session:
+        request.session['formularz_kontakt_2'] = None
+
+            # formularz poczty
     if 'formularz_poczta' not in request.session:
         request.session['formularz_poczta'] = None
 
