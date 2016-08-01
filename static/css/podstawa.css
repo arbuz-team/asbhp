@@ -72,7 +72,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 
 a, a:hover, a:active, a:visited,
-.link, .lupa
+.link, .lupa, .link_wroc
 {
   color: inherit;
   text-decoration: none;
@@ -90,7 +90,7 @@ a:hover
 
 
 
-.link, .lupa
+.link, .lupa, .link_wroc
 {
   cursor: pointer;
 }

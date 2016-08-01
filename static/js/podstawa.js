@@ -85,6 +85,15 @@ $( '.lupa' ).mouseup(function (event)
 
 
 
+/********* DIV LINK WRÓĆ *********/
+
+$( '.link_wroc' ).mouseup(function (event)
+{
+    window.history.back();
+});
+
+
+
 /********* SELECT LINK *********/
 
 $( '.link_select > select' ).change(function () 
