@@ -307,14 +307,14 @@ class Baza_Danych:
         self.Sprawdz_Podklasy(typ, dziedzina)
         self.Konwertuj_MTM()
 
-        #try:
+        try:
 
-        self.Dodaj_Produkt(typ, dziedzina)
+            self.Dodaj_Produkt(typ, dziedzina)
 
-        '''except Exception as e:
+        except Exception as e:
             Kierownik.numer_wyjatku += 1
             Wyswietl_Komunikat_O_Wyjatku(e, 'Baza_Danych.Dodaj_Produkt()',
-                                         Kierownik.numer_wyjatku, self.produkt['nazwa'])'''
+                                         Kierownik.numer_wyjatku, self.produkt['nazwa'])
 
 
 
