@@ -1,0 +1,34 @@
+
+
+1
+	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
+		 cannot identify image file <_io.BytesIO object at 0x7feb26263eb8> 
+		 produkt.nazwa: CHAPLIN. GĄBKI WYMIENNE UNIPHONE 
+
+
+
+2
+	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
+		 cannot identify image file <_io.BytesIO object at 0x7feb2614e360> 
+
+
+
+3
+	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
+		 HTTP Error 404: Not Found 
+		 produkt.nazwa: PP CZEPKI PP BERET 58 CM OP.100 SZT 
+
+
+
+4
+	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
+		 HTTP Error 404: Not Found 
+		 produkt.nazwa: BRIXTON WHITE FARTUCH MĘSKI STANDARD 
+
+
+
+5
+	 WYJĄTEK: Baza_Danych.Dodaj_Produkt(): 
+		 HTTP Error 404: Not Found 
+		 produkt.nazwa: GROSVENOR PONCZO PCV 
+

@@ -524,8 +524,6 @@ class Kierownik:
         plik.close()
         self.firefox.close()
 
-        5 + "2"
-
 
 
 
