@@ -131,7 +131,7 @@ def Sprawdz_Sesje(request, meta_tag=True):
         # wyświetlane produkty na start
     if 'produkt' not in request.session:
         request.session['produkt'] = \
-            Produkt.objects.filter(pk__in=Polecane.objects.all().
+            Produkt.objects.filter(pk__in=Polecane.objects.filter(data_zakonczenia__gte=timezone.now().date()).
                                    values('produkt__pk'))
 
     if 'o_firmie' not in request.session:
