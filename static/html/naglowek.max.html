@@ -1,0 +1,69 @@
+
+<div id="NAGLOWEK" class="fragment">
+
+  <div>
+
+    <div class="tytul link" data-href=""><div></div></div> 
+
+
+
+    {% if request.session.zalogowany %}
+      <div class="menu link {{ css_menu.edytuj }}" data-href="/edytuj">
+        Edytuj
+      </div>
+    {% endif %}
+
+    <div class="menu link {{ css_menu.kontakt }}" data-href="/kontakt">
+        Kontakt
+    </div>
+
+    <div class="menu link {{ css_menu.oferta }}" data-href="/oferta">
+        Oferta
+    </div>
+
+    <div class="menu link {{ css_menu.o_firmie }}" data-href="/o_firmie">
+        O firmie
+    </div>
+
+
+
+    <div class="guzik_menu"></div>
+
+
+
+    <div class="wyszukiwarka otoczka_pola">
+
+      <div class="lupa" data-href="/oferta/" data-numer="1"></div>
+
+    </div>
+
+  </div>
+
+
+</div>
+
+<div id="MENU" class="fragment">
+
+  <div class="nakladka"></div>
+
+  <div class="tytul"><div class="guzik_menu"></div></div>
+
+  <div class="menu link {{ css_menu.o_firmie }}" data-href="/o_firmie">
+      O firmie
+  </div>
+
+  <div class="menu link {{ css_menu.oferta }}" data-href="/oferta">
+      Oferta
+  </div>
+
+  <div class="menu link {{ css_menu.kontakt }}" data-href="/kontakt">
+      Kontakt
+  </div>
+
+  {% if request.session.zalogowany %}
+    <div class="menu link {{ css_menu.edytuj }}" data-href="/edytuj">
+      Edytuj
+    </div>
+  {% endif %}
+
+</div>

@@ -443,7 +443,7 @@ var dostosuj = (function()
       if( right == 0 )
         $( '#NAGLOWEK > div' ).css( 'right', '15px' );
     }
-    else if( strona => tresc )
+    else if( strona >= tresc )
     {
       if( right != 0 )
         $( '#NAGLOWEK > div' ).css( 'right', '0px' );
@@ -595,7 +595,7 @@ var ruch = (function()
     _przekieruj_do( 'ta', '/wyszukiwarka/usun_sesje_filtra/'+ numer +'/' )
   }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*--------------------------------------------------------------------------------------*/
 
 
   var udostepnione = 

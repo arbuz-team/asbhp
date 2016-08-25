@@ -5,7 +5,7 @@
 
 
 
-// rozmiary tapety */
+/* rozmiary tapety */
 
 (function()
 {
@@ -21,7 +21,7 @@
 
 
 
-// Wybierz filtr */
+/* Wybierz filtr */
 
 (function()
 {
@@ -37,7 +37,7 @@
 
 
 
-//window.onpopstate = ruch.sprawdz_cofnij(event);
+/*window.onpopstate = ruch.sprawdz_cofnij(event);*/
 
 window.onpopstate = function(event) {
   ruch.sprawdz_cofnij( document.location, JSON.stringify(event.page) );

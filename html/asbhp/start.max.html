@@ -1,0 +1,82 @@
+
+{% include "szablon_wstep.html" %}
+
+{% include "naglowek.html" %}
+
+
+<div id="TRESC" class="fragment start">
+
+  <div class="BLOK1">
+
+    <div class="tlo abs_pelny"></div>
+
+    <div class="napis"></div>
+
+    <div class="strzalka" data-href=".BLOK2">
+      <div class="podpis"><strong>Polecane produkty</strong></div>
+      <div class="obrazek"></div>
+    </div>
+
+  </div>
+
+
+
+  <div class="BLOK2">
+
+    <div class="tlo abs_pelny"></div>
+
+    <div class="tresc lista_produktow">
+    
+      <ul>
+
+        {% for p in polecane %}
+
+          <li class="produkt link" data-href="/produkt/{{ p.produkt.id }}/" data-nazwa="{{ p.produkt.nazwa }}">
+          
+            <div class="nazwa"><strong>{{ p.produkt.nazwa }}</strong></div>
+
+            <div class="producent"><strong>{{ p.produkt.producent }}</strong></div>
+          
+            <div class="obrazek" style="background-image: url({{ p.produkt.zdjecie }});"></div>
+
+            {% if p.produkt.zagrozenia.all %}
+            <div class="zagrozenia">
+
+              <div class="piktogram podpis">Zagrożenia:</div>
+            
+              {% for z in p.produkt.zagrozenia.all %}
+                <div class="piktogram" title="{{ z.nazwa }}" style="background-image: url( '/static/img/zagrozenia/{{ z.id }}.png' )"></div>
+              {% endfor %}
+            
+            </div>
+            {% endif %}
+
+            {% if p.produkt.zawody.all %}
+            <div class="zawody">
+
+              <div class="piktogram podpis">Zawody:</div>
+              {% for z in p.produkt.zawody.all %}
+                <div class="piktogram" title="{{ z.nazwa }}" style="background-image: url( '/static/img/zawody/{{ z.id }}.png' )"></div>
+              {% endfor %}
+            
+            </div>
+            {% endif %}
+
+            <div class="pokaz_wiecej">Pokaż więcej...</div>
+          
+          </li>
+
+        {% endfor %}
+      
+      </ul>
+    
+    </div>
+
+  </div>
+
+</div>
+
+
+{% include "stopka.html" %}
+
+{% include "szablon_zakonczenie.html" %}
