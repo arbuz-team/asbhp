@@ -1,8 +1,10 @@
 from .forms import *
+from dodatek.views import *
 
 
 
 def Logowanie(request):
+    Sprawdz_Sesje(request, meta_tag=False)
 
     if request.method == 'POST':
         formularz = Formularz_Logowania(request.POST)
@@ -21,6 +23,7 @@ def Logowanie(request):
 
 
 def Rejestracja(request):
+    Sprawdz_Sesje(request, meta_tag=False)
 
     if request.method == 'POST':
         formularz = Formularz_Rejestracji(request.POST)
