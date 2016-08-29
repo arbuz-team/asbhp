@@ -44,9 +44,23 @@ class Formularz_Logowania(forms.Form):
 
 class Formularz_Rejestracji(forms.ModelForm):
 
+    powtorz_haslo = forms.CharField\
+    (
+        widget=forms.PasswordInput(attrs={'placeholder': 'Powtórz hasło'}),
+        error_messages = {'required': 'Wpisz hasło jeszcze raz.'}
+    )
 
     def clean_haslo(self):
         return Szyfruj(self.cleaned_data['haslo'])
+
+    def clean_powtorz_haslo(self):
+        haslo = self.cleaned_data['haslo']
+        powtorz_haslo = self.cleaned_data['powtorz_haslo']
+
+        if haslo != Szyfruj(powtorz_haslo):
+            raise forms.ValidationError('Hasła są niezgodne. '
+                                        'Spróbuj jeszcze raz.')
+        return powtorz_haslo
 
 
     class Meta:
