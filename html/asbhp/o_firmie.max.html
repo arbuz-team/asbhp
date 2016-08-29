@@ -20,7 +20,7 @@
       </div>
 
       <div class="tekst">
-        <strong>{{ request.session.o_firmie.tekst | linebreaksbr }}</strong>
+        <strong>{{ request.session.o_firmie.tekst | linebreaksbr | safe }}</strong>
       </div>
 
 
