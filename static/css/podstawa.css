@@ -573,3 +573,13 @@ ul
   overflow: auto;
   overflow-x: hidden;
 }
+
+
+/*---------------------- Logowanie -------------------------*/
+
+#TRESC.standardowa > div > .tytul
+{
+  color: #333;
+  font-size: 24px;
+  font-weight: bold;
+}
