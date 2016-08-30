@@ -5,13 +5,13 @@ from django.core.mail import EmailMessage
 
 
 
-def Wyslij_Email(request, wiadomosc, nadawca_email):
+def Wyslij_Email(request, wiadomosc, odbiorca_email='asbhp@asbhp.pl'):
 
     email = EmailMessage(
         Pobierz_Temat(request),
         wiadomosc,
-        nadawca_email,
-        ['kontakt.arbuz.team@gmail.com']
+        'asbhp@asbhp.pl', # nadawca
+        [odbiorca_email]
         #headers={'Reply-To': '93.endo@gmail.com'}
     )
 
@@ -103,7 +103,7 @@ def Pytanie_O_Produkt(request):
                  '\tEmail:\t\t'     + email     + '\n' + \
                  '\tProdukt:\t\t'   + produkt
 
-            Wyslij_Email(request, wiadomosc, email)
+            Wyslij_Email(request, wiadomosc)
             request.session['potwierdzenie'] = \
                 'Email został wysłany.'
             return redirect('/komunikat/potwierdzenie/')
@@ -132,7 +132,7 @@ def Uwagi_WWW(request):
                          '\tEmail:\t\t' + email + '\n' + \
                          '\tUrl:\t\t' + url
 
-            Wyslij_Email(request, wiadomosc, email)
+            Wyslij_Email(request, wiadomosc)
             request.session['potwierdzenie'] = \
                 'Email został wysłany.'
             return redirect('/komunikat/potwierdzenie/')
@@ -159,7 +159,7 @@ def Inny_Temat(request):
                          '\tNadawca:\t\t' + nadawca + '\n' + \
                          '\tEmail:\t\t' + email + '\n'
 
-            Wyslij_Email(request, wiadomosc, email)
+            Wyslij_Email(request, wiadomosc)
             request.session['potwierdzenie'] = \
                 'Email został wysłany.'
             return redirect('/komunikat/potwierdzenie/')
