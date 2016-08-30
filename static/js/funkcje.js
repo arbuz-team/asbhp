@@ -562,7 +562,7 @@ var ruch = (function()
   function _post_i_odswiez( adres, dane )
   {
     $.post( DOMENA + adres, dane, function() {
-      location.reload();
+      location.href = DOMENA + '/oferta/';
     })
 
     .fail(function() 
