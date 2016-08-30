@@ -114,6 +114,15 @@ $( '.post_select > select' ).change(function ()
 
 
 
+/********* SELECT POST - Filtry spotkanie *********/
+
+$( '#FILTRY > .zakladka > .otoczka_pola.select > form > select' ).change(function () 
+{
+  $(this).parent().children( 'button[type=submit]' ).click();
+});
+
+
+
 /********* Pokazywanie produktu *********/
 
 $( '.lista_produktow > ul > li.produkt' ).not( '.pokaz_ustawienia' ).click(function (event)
